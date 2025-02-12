@@ -1,0 +1,231 @@
+{
+  "nav": {
+    "services": "Services",
+    "about": "About",
+    "contact": "Contact",
+    "experience": "Experience",
+    "press": "Press",
+    "backHome": "Back to Home"
+  },
+  "hero": {
+    "title": "Digital Solutions with Artificial Intelligence.",
+    "subtitle": "We empower your business with innovative AI-driven technology solutions, transforming the way you work and connect with your customers",
+    "cta": "Get Started"
+  },
+  "services": {
+    "title": "Our Services",
+    "customerService": {
+      "title": "AI for Customer Service",
+      "description": "Our flagship product, CecilIA, not only provides fast, efficient, and personalized service to your customers but also helps reduce customer service staff expenses and operational costs."
+    },
+    "dataAI": {
+      "title": "AI in Your Data",
+      "description": "Query your databases by chatting with Artificial Intelligence.",
+      "hero": {
+        "title": "Chat with Your Data Using AI",
+        "subtitle": "Transform the way you interact with your business data. Ask questions in plain language and get instant insights powered by artificial intelligence.",
+        "cta": "Start Exploring Your Data"
+      },
+      "features": {
+        "title": "Powerful Features for Data Analysis",
+        "naturalQueries": {
+          "title": "Natural Language Queries",
+          "description": "Ask questions about your data in plain language and get instant insights"
+        },
+        "dataSources": {
+          "title": "Multiple Data Sources",
+          "description": "Connect and analyze data from various sources including databases, spreadsheets, and APIs"
+        },
+        "security": {
+          "title": "Secure Access",
+          "description": "Enterprise-grade security with role-based access control and data encryption"
+        },
+        "realtime": {
+          "title": "Real-time Analysis",
+          "description": "Get instant answers and insights from your data in real-time"
+        },
+        "interface": {
+          "title": "Conversational Interface",
+          "description": "Chat with your data using natural language and receive clear, actionable insights"
+        },
+        "visualization": {
+          "title": "Visual Insights",
+          "description": "Automatically generated visualizations and reports from your queries"
+        }
+      }
+    },
+    "softwareDev": {
+      "title": "AI Software Development",
+      "description": "We develop custom software solutions powered by AI, automating processes and creating intelligent applications that adapt to your business's specific needs.",
+      "hero": {
+        "title": "AI-Powered Software Development",
+        "subtitle": "Build intelligent, scalable, and future-proof software solutions that transform your business with the power of AI.",
+        "cta": "Start Your Project"
+      },
+      "features": {
+        "title": "Our Development Approach",
+        "aiFirst": {
+          "title": "AI-First Development",
+          "description": "Build intelligent applications with AI capabilities integrated from the ground up"
+        },
+        "custom": {
+          "title": "Custom Solutions",
+          "description": "Tailored software development that perfectly matches your business needs"
+        },
+        "agile": {
+          "title": "Agile Development",
+          "description": "Flexible and iterative development process with regular deliverables"
+        },
+        "scalable": {
+          "title": "Scalable Architecture",
+          "description": "Future-proof solutions designed to grow with your business"
+        },
+        "fullCycle": {
+          "title": "Full-cycle Development",
+          "description": "End-to-end service from planning to deployment and maintenance"
+        },
+        "collaborative": {
+          "title": "Collaborative Approach",
+          "description": "Close collaboration with your team throughout the development process"
+        }
+      }
+    },
+    "consulting": {
+      "title": "Strategic Consulting",
+      "description": "Through our staff of AI Scientists and Engineers, we train your personnel in the use and understanding of AI while designing strategies for its implementation in your processes.",
+      "hero": {
+        "title": "Strategic AI Consulting",
+        "subtitle": "Expert guidance to help your organization understand, implement, and leverage AI technologies effectively.",
+        "cta": "Get Expert Guidance"
+      },
+      "features": {
+        "title": "Our Consulting Services",
+        "strategy": {
+          "title": "AI Strategy Development",
+          "description": "Create a comprehensive AI roadmap aligned with your business goals"
+        },
+        "training": {
+          "title": "Team Training",
+          "description": "Empower your team with AI knowledge and practical skills"
+        },
+        "optimization": {
+          "title": "Process Optimization",
+          "description": "Identify opportunities for AI implementation in your processes"
+        },
+        "innovation": {
+          "title": "Innovation Workshops",
+          "description": "Collaborative sessions to explore AI possibilities for your business"
+        },
+        "performance": {
+          "title": "Performance Analysis",
+          "description": "Measure and optimize the impact of AI implementations"
+        },
+        "support": {
+          "title": "Ongoing Support",
+          "description": "Continuous guidance and support throughout your AI journey"
+        }
+      }
+    },
+    "learnMore": "Learn More"
+  },
+  "cecilia": {
+    "hero": {
+      "title": "Revolutionize Customer Service with Cecilia",
+      "subtitle": "When you can't serve your customers quickly and efficiently, you lose customers. Data Voices has the solution. Cecilia, DataVoices' intelligent chatbot, revolutionizes the way you interact with your customers.",
+      "cta": "Get Started"
+    },
+    "features": {
+      "title": "What makes Cecilia a unique tool?",
+      "quickSetup": {
+        "title": "Quick Setup",
+        "description": "Sets up very quickly. In 1 hour it's ready to serve your customers through WhatsApp."
+      },
+      "availability": {
+        "title": "Full Availability",
+        "description": "Cecilia is available for your customers 24 hours a day, 7 days a week."
+      },
+      "fixedCost": {
+        "title": "Fixed Cost",
+        "description": "Pay a fixed monthly fee and enjoy all its benefits, with no surprises or variable costs."
+      },
+      "multitasking": {
+        "title": "Multitasking",
+        "description": "Cecilia schedules meetings in Google Calendar, sends forms, shows menus, recommends products, informs about promotions, and more."
+      },
+      "naturalLanguage": {
+        "title": "Natural Language",
+        "description": "Cecilia uses Large Language Models (LLMs) and RAG to maintain natural and fluid conversations with your customers."
+      },
+      "customizable": {
+        "title": "Customizable",
+        "description": "Cecilia adapts to your business information to provide accurate and personalized responses."
+      }
+    },
+    "benefits": {
+      "title": "Benefits for your business",
+      "efficiency": "Fast, efficient, and personalized service for your customers",
+      "costReduction": "Reduction in customer service staff expenses and operational costs",
+      "focus": "Frees your staff to focus on more important tasks",
+      "insights": "Collects data on customer preferences to make better decisions"
+    },
+    "cta": {
+      "title": "Ready to transform your customer service?",
+      "subtitle": "Get Cecilia now and start enjoying the benefits in your business.",
+      "primary": "Get Cecilia",
+      "secondary": "See special promotions"
+    }
+  },
+  "about": {
+    "title": "Who We Are",
+    "description": "At DataVoices, we are a team of AI Scientists and Engineers with extensive professional and academic experience, serving both international and local clients. Our expertise combines cutting-edge research with practical business solutions to deliver transformative AI technologies.",
+    "connect": "Connect with us"
+  },
+  "clients": {
+    "title": "They Trust Us",
+    "subtitle": "Companies and organizations that have already transformed their businesses with DataVoices",
+    "visitSite": "Visit site"
+  },
+  "press": {
+    "title": "DataVoices in the Press",
+    "subtitle": "Discover how we're transforming the future of technology",
+    "readMore": "Read More",
+    "articles": {
+      "infobae": {
+        "title": "Argentinians win international award for creating AI that detoxifies social networks",
+        "source": "Infobae"
+      },
+      "c5n": {
+        "title": "UBA graduates created an AI chatbot designed for customer service",
+        "source": "C5N"
+      },
+      "perfil": {
+        "title": "AI at the service of democracy: Data Voices' success story",
+        "source": "Perfil"
+      },
+      "puntal1": {
+        "title": "AI will change the economy and how people live, experts say",
+        "source": "Puntal"
+      }
+    }
+  },
+  "contact": {
+    "title": "Ready to Transform Your Data?",
+    "subtitle": "Contact us to discover how we can help you achieve your business goals.",
+    "email": "Your email",
+    "button": "Contact",
+    "success": "Message sent successfully!",
+    "error": "Error sending message. Please try again."
+  },
+  "footer": {
+    "services": "Services",
+    "company": "Company",
+    "contact": "Contact",
+    "rights": "All rights reserved",
+    "social": {
+      "title": "Follow us",
+      "whatsapp": "WhatsApp",
+      "linkedin": "LinkedIn",
+      "instagram": "Instagram"
+    }
+  }
+}

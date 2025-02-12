@@ -1,0 +1,231 @@
+{
+  "nav": {
+    "services": "Servicios",
+    "about": "Nosotros",
+    "contact": "Contacto",
+    "experience": "Experiencia",
+    "press": "Prensa",
+    "backHome": "Volver al inicio"
+  },
+  "hero": {
+    "title": "Soluciones digitales con Inteligencia Artificial.",
+    "subtitle": "Potenciamos tu negocio con soluciones tecnológicas innovadoras impulsadas por IA, transformando la manera en que trabajas y te conectas con tus clientes",
+    "cta": "Comenzar ahora"
+  },
+  "services": {
+    "title": "Nuestros Servicios",
+    "customerService": {
+      "title": "IA para atención al cliente",
+      "description": "Nuestro producto estrella, CecilIA no sólo brinda un servicio rápido, eficiente y personalizado a tus clientes; sino también te permite reducir gastos en personal de atención al cliente y costos operativos."
+    },
+    "dataAI": {
+      "title": "IA en tus datos",
+      "description": "Consultá tus bases de datos chateando con la Inteligencia Artificial.",
+      "hero": {
+        "title": "Chatea con tus datos usando IA",
+        "subtitle": "Transforma la manera en que interactúas con los datos de tu negocio. Haz preguntas en lenguaje natural y obtén respuestas instantáneas potenciadas por inteligencia artificial.",
+        "cta": "Comienza a explorar tus datos"
+      },
+      "features": {
+        "title": "Características poderosas para el análisis de datos",
+        "naturalQueries": {
+          "title": "Consultas en lenguaje natural",
+          "description": "Haz preguntas sobre tus datos en lenguaje natural y obtén respuestas instantáneas"
+        },
+        "dataSources": {
+          "title": "Múltiples fuentes de datos",
+          "description": "Conecta y analiza datos de varias fuentes, incluyendo bases de datos, hojas de cálculo y APIs"
+        },
+        "security": {
+          "title": "Acceso seguro",
+          "description": "Seguridad empresarial con control de acceso basado en roles y encriptación de datos"
+        },
+        "realtime": {
+          "title": "Análisis en tiempo real",
+          "description": "Obtén respuestas y conocimientos instantáneos de tus datos en tiempo real"
+        },
+        "interface": {
+          "title": "Interfaz conversacional",
+          "description": "Chatea con tus datos usando lenguaje natural y recibe insights claros y accionables"
+        },
+        "visualization": {
+          "title": "Insights visuales",
+          "description": "Visualizaciones y reportes generados automáticamente a partir de tus consultas"
+        }
+      }
+    },
+    "softwareDev": {
+      "title": "Desarrollo de Software con IA",
+      "description": "Desarrollamos soluciones de software personalizadas potenciadas por IA, automatizando procesos y creando aplicaciones inteligentes que se adaptan a las necesidades específicas de tu negocio.",
+      "hero": {
+        "title": "Desarrollo de Software potenciado por IA",
+        "subtitle": "Construye soluciones de software inteligentes, escalables y preparadas para el futuro que transforman tu negocio con el poder de la IA.",
+        "cta": "Comienza tu proyecto"
+      },
+      "features": {
+        "title": "Nuestro enfoque de desarrollo",
+        "aiFirst": {
+          "title": "Desarrollo IA-First",
+          "description": "Construye aplicaciones inteligentes con capacidades de IA integradas desde el principio"
+        },
+        "custom": {
+          "title": "Soluciones personalizadas",
+          "description": "Desarrollo de software a medida que se ajusta perfectamente a las necesidades de tu negocio"
+        },
+        "agile": {
+          "title": "Desarrollo Ágil",
+          "description": "Proceso de desarrollo flexible e iterativo con entregas regulares"
+        },
+        "scalable": {
+          "title": "Arquitectura escalable",
+          "description": "Soluciones preparadas para el futuro diseñadas para crecer con tu negocio"
+        },
+        "fullCycle": {
+          "title": "Desarrollo Full-cycle",
+          "description": "Servicio de principio a fin, desde la planificación hasta el despliegue y mantenimiento"
+        },
+        "collaborative": {
+          "title": "Enfoque colaborativo",
+          "description": "Colaboración estrecha con tu equipo durante todo el proceso de desarrollo"
+        }
+      }
+    },
+    "consulting": {
+      "title": "Consultoría Estratégica",
+      "description": "Mediante nuestro staff de Científicos e Ingenieros en IA capacitamos a tu personal en el uso y entendimiento de la IA a la vez que diseñamos estrategias para su implementación en tus procesos.",
+      "hero": {
+        "title": "Consultoría Estratégica en IA",
+        "subtitle": "Guía experta para ayudar a tu organización a entender, implementar y aprovechar las tecnologías de IA de manera efectiva.",
+        "cta": "Obtén guía experta"
+      },
+      "features": {
+        "title": "Nuestros servicios de consultoría",
+        "strategy": {
+          "title": "Desarrollo de estrategia IA",
+          "description": "Crea una hoja de ruta integral de IA alineada con tus objetivos de negocio"
+        },
+        "training": {
+          "title": "Capacitación de equipos",
+          "description": "Empodera a tu equipo con conocimientos y habilidades prácticas en IA"
+        },
+        "optimization": {
+          "title": "Optimización de procesos",
+          "description": "Identifica oportunidades para la implementación de IA en tus procesos"
+        },
+        "innovation": {
+          "title": "Talleres de innovación",
+          "description": "Sesiones colaborativas para explorar las posibilidades de la IA para tu negocio"
+        },
+        "performance": {
+          "title": "Análisis de rendimiento",
+          "description": "Mide y optimiza el impacto de las implementaciones de IA"
+        },
+        "support": {
+          "title": "Soporte continuo",
+          "description": "Guía y apoyo continuo durante todo tu viaje con la IA"
+        }
+      }
+    },
+    "learnMore": "Saber más"
+  },
+  "cecilia": {
+    "hero": {
+      "title": "Revoluciona la atención al cliente con Cecilia",
+      "subtitle": "Cuando no podés atender a tus clientes de manera rápida y eficiente, perdés clientes. Data Voices tiene la solución. Cecilia, el chatbot inteligente de DataVoices, revoluciona la forma en que interactuás con tus clientes.",
+      "cta": "Empezar ahora"
+    },
+    "features": {
+      "title": "¿Qué hace a Cecilia una herramienta única?",
+      "quickSetup": {
+        "title": "Configuración rápida",
+        "description": "Se configura muy rápido. En 1 hora ya está lista para atender a tus clientes por WhatsApp."
+      },
+      "availability": {
+        "title": "Disponibilidad total",
+        "description": "Cecilia está disponible para tus clientes las 24 horas del día, los 7 días de la semana."
+      },
+      "fixedCost": {
+        "title": "Costo fijo",
+        "description": "Pagás una tarifa mensual fija y disfrutas de todos sus beneficios, sin sorpresas ni costos variables."
+      },
+      "multitasking": {
+        "title": "Multitarea",
+        "description": "Cecilia agenda reuniones en Google Calendar, envía formularios, muestra menús, recomienda productos, informa sobre promociones y más."
+      },
+      "naturalLanguage": {
+        "title": "Lenguaje natural",
+        "description": "Cecilia utiliza modelos de lenguaje grandes (LLMs) y RAG para mantener conversaciones naturales y fluidas con tus clientes."
+      },
+      "customizable": {
+        "title": "Personalizable",
+        "description": "Cecilia se adapta a la información de tu negocio para brindar respuestas precisas y personalizadas."
+      }
+    },
+    "benefits": {
+      "title": "Beneficios para tu negocio",
+      "efficiency": "Servicio rápido, eficiente y personalizado para tus clientes",
+      "costReduction": "Reducción de gastos en personal de atención al cliente y costos operativos",
+      "focus": "Libera a tu personal para que se enfoque en tareas más importantes",
+      "insights": "Recopila datos sobre las preferencias de tus clientes para tomar mejores decisiones"
+    },
+    "cta": {
+      "title": "¿Listo para transformar tu atención al cliente?",
+      "subtitle": "Contrata Cecilia ahora y empezá a disfrutar de los beneficios en tu negocio.",
+      "primary": "Contratar Cecilia",
+      "secondary": "Ver promociones especiales"
+    }
+  },
+  "about": {
+    "title": "Quiénes Somos",
+    "description": "En DataVoices, somos un equipo de Científicos e Ingenieros en IA con amplia experiencia profesional y académica, atendiendo tanto a clientes internacionales como locales. Nuestra experiencia combina investigación de vanguardia con soluciones empresariales prácticas para ofrecer tecnologías de IA transformadoras.",
+    "connect": "Conecta con nosotros"
+  },
+  "clients": {
+    "title": "Confiaron en nosotros",
+    "subtitle": "Empresas y organizaciones que ya transformaron sus negocios con DataVoices",
+    "visitSite": "Visitar sitio"
+  },
+  "press": {
+    "title": "DataVoices en la Prensa",
+    "subtitle": "Descubre cómo estamos transformando el futuro de la tecnología",
+    "readMore": "Leer más",
+    "articles": {
+      "infobae": {
+        "title": "Argentinos ganan premio internacional por crear una IA que desintoxica redes sociales",
+        "source": "Infobae"
+      },
+      "c5n": {
+        "title": "Egresados de la UBA crearon un chatbot con IA pensado para la atención al cliente",
+        "source": "C5N"
+      },
+      "perfil": {
+        "title": "IA al servicio de la democracia: el caso de éxito de Data Voices",
+        "source": "Perfil"
+      },
+      "puntal1": {
+        "title": "Aseguran que la inteligencia artificial cambiará la economía y la forma de vivir",
+        "source": "Puntal"
+      }
+    }
+  },
+  "contact": {
+    "title": "¿Listo para transformar tus datos?",
+    "subtitle": "Contacta con nosotros para descubrir cómo podemos ayudarte a alcanzar tus objetivos empresariales.",
+    "email": "Tu email",
+    "button": "Contactar",
+    "success": "¡Mensaje enviado con éxito!",
+    "error": "Error al enviar el mensaje. Por favor, intenta nuevamente."
+  },
+  "footer": {
+    "services": "Servicios",
+    "company": "Empresa",
+    "contact": "Contacto",
+    "rights": "Todos los derechos reservados",
+    "social": {
+      "title": "Síguenos",
+      "whatsapp": "WhatsApp",
+      "linkedin": "LinkedIn",
+      "instagram": "Instagram"
+    }
+  }
+}
