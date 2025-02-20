@@ -33,6 +33,8 @@ import PadrePepeLogo from '../dist/assets/logos/mision-padre-pepe-logo.png';
 import BudarBarLogo from '../dist/assets/logos/buda-bar-logo.jpg';
 import IndiaBarLogo from '../dist/assets/logos/india-bar-logo.jpg';
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 function HomePage() {
     const { t } = useTranslation();
     const [email, setEmail] = useState('');
@@ -43,7 +45,7 @@ function HomePage() {
         e.preventDefault();
         setIsSubmitting(true);
         try {
-            await axios.post('http://localhost:5000/send-email', { email, message });
+            await axios.post(`${API_BASE_URL}/send-email`, { email, message });
             setEmail('');
             setMessage('');
             toast.success(t('contact.success'));
