@@ -1,13 +1,17 @@
 const express = require('express');
 const cors = require('cors');
+const helmet = require('helmet');
 const dotenv = require('dotenv');
 const formData = require('form-data');
 const Mailgun = require('mailgun.js');
 
 dotenv.config();
 const app = express();
-app.use(cors());
 app.use(express.json());
+app.use(helmet());
+app.use(cors({
+    origin: process.env.API_URL
+}));
 
 const mailgun = new Mailgun(formData);
 const mg = mailgun.client({
