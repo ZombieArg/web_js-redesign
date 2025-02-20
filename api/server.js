@@ -10,7 +10,7 @@ const app = express();
 app.use(express.json());
 app.use(helmet());
 app.use(cors({
-    origin: process.env.API_URL
+    origin: process.env.CLIENT_URL
 }));
 
 const mailgun = new Mailgun(formData);
