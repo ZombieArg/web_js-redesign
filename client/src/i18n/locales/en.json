@@ -212,6 +212,7 @@
     "title": "Ready to Transform Your Data?",
     "subtitle": "Contact us to discover how we can help you achieve your business goals.",
     "email": "Your email",
+    "message": "Write your message here",
     "button": "Contact",
     "success": "Message sent successfully!",
     "error": "Error sending message. Please try again."

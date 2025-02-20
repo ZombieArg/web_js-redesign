@@ -212,6 +212,7 @@
     "title": "¿Listo para transformar tus datos?",
     "subtitle": "Contacta con nosotros para descubrir cómo podemos ayudarte a alcanzar tus objetivos empresariales.",
     "email": "Tu email",
+    "message": "Escriba aquí su consulta",
     "button": "Contactar",
     "success": "¡Mensaje enviado con éxito!",
     "error": "Error al enviar el mensaje. Por favor, intenta nuevamente."
