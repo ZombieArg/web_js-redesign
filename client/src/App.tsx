@@ -6,11 +6,6 @@ import {
     ArrowRight,
     ChevronRight,
     ExternalLink,
-    Heart,
-    Coffee,
-    Palmtree,
-    Church,
-    Building2,
     Bot,
     Database,
     Code,
@@ -18,7 +13,6 @@ import {
     Instagram,
     Linkedin,
     MessageCircle,
-    Building,
 } from 'lucide-react';
 import { LanguageSelector } from './components/LanguageSelector';
 import { CeciliaService } from './pages/CeciliaService';
