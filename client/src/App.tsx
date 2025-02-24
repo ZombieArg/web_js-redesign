@@ -26,12 +26,17 @@ import { DataAIService } from './pages/DataAIService';
 import { SoftwareDevService } from './pages/SoftwareDevService';
 import { ConsultingService } from './pages/ConsultingService';
 import axios from 'axios';
-import CHPLogo from '../dist/assets/logos/chp-logo.png';
-import BidLogo  from '../dist/assets/logos/bid-logo.png';
-import FarmaciaLogo from '../dist/assets/logos/farmacias-del-pueblo-logo.png';
-import PadrePepeLogo from '../dist/assets/logos/mision-padre-pepe-logo.png';
-import BudarBarLogo from '../dist/assets/logos/buda-bar-logo.jpg';
-import IndiaBarLogo from '../dist/assets/logos/india-bar-logo.jpg';
+import CHPLogo from './assets/logos/chp-logo.png';
+import BidLogo  from './assets/logos/bid-logo.png';
+import FarmaciaLogo from './assets/logos/farmacias-del-pueblo-logo.png';
+import PadrePepeLogo from './assets/logos/mision-padre-pepe-logo.png';
+import BudarBarLogo from './assets/logos/buda-bar-logo.jpg';
+import IndiaBarLogo from './assets/logos/india-bar-logo.jpg';
+import workImg from './assets/work.jpg';
+import media1 from './assets/infobae-nota.jpg';
+import media2 from './assets/c5n-nota.jpg';
+import media3 from './assets/perfil-nota.jpg';
+import media4 from './assets/puntal-nota.jpg';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
@@ -123,22 +128,22 @@ function HomePage() {
         {
             id: 'infobae',
             url: 'https://www.infobae.com/tecno/2025/01/09/argentinos-ganan-premio-internacional-por-crear-una-ia-que-desintoxica-redes-sociales-y-elimina-la-violencia/',
-            image: 'https://images.unsplash.com/photo-1560472355-536de3962603?auto=format&fit=crop&q=80',
+            image: media1,
         },
         {
             id: 'c5n',
             url: 'https://www.c5n.com/sociedad/egresados-la-uba-crearon-un-chatbot-ia-pensado-la-atencion-al-cliente-n188577',
-            image: 'https://images.unsplash.com/photo-1596526131083-e8c633c948d2?auto=format&fit=crop&q=80',
+            image: media2,
         },
         {
             id: 'perfil',
             url: 'https://www.perfil.com/noticias/tecnologia/ia-al-servicio-de-la-democracia-el-caso-de-exito-de-data-voices.phtml',
-            image: 'https://images.unsplash.com/photo-1488229297570-58520851e868?auto=format&fit=crop&q=80',
+            image: media3,
         },
         {
             id: 'puntal1',
             url: 'https://www.puntal.com.ar/inteligencia-artificial/aseguran-que-la-inteligencia-artificial-cambiara-la-economia-y-la-forma-vivir-las-personas-n230523',
-            image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80',
+            image: media4,
         },
     ];
 
@@ -355,7 +360,7 @@ function HomePage() {
                     <div className='flex flex-col md:flex-row items-center'>
                         <div className='md:w-1/2 mb-10 md:mb-0'>
                             <img
-                                src='https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80'
+                                src={workImg}
                                 alt='Equipo DataVoices'
                                 className='rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300'
                             />
