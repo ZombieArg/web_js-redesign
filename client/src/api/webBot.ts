@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = import.meta.env.BOTS_URL;
+const BOTS_URL = import.meta.env.VITE_BOTS_URL;
 
 interface UserData {
   email: string;
@@ -37,7 +37,7 @@ const startChat = async (
 ): Promise<ChatResponse> => {
   try {
     const response = await axios.post<ChatResponse>(
-      `${API_BASE_URL}/bot/start?clientId=${clientId}`, // ← query param
+      `${BOTS_URL}/bot/start?clientId=${clientId}`, // ← query param
       userData
     );
     return response.data;
@@ -57,7 +57,7 @@ const sendMessage = async (
 ): Promise<MessageResponse> => {
   try {
     const response = await axios.post<MessageResponse>(
-      `${API_BASE_URL}/bot/reply?clientId=${clientId}`, // ← query param
+      `${BOTS_URL}/bot/reply?clientId=${clientId}`, // ← query param
       { platformChatId, userMessage }
     );
     return response.data;
@@ -76,7 +76,7 @@ const getMessages = async (
 ): Promise<MessagesResponse> => {
   try {
     const response = await axios.get<MessagesResponse>(
-      `${API_BASE_URL}/bot/messages`,
+      `${BOTS_URL}/bot/messages`,
       {
         params: { platformChatId, clientId }, // ← ambos en query
       },
