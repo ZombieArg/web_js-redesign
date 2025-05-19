@@ -28,12 +28,14 @@ import FarmaciaLogo from './assets/logos/farmacias-del-pueblo-logo.png';
 import PadrePepeLogo from './assets/logos/mision-padre-pepe-logo.png';
 import BudarBarLogo from './assets/logos/buda-bar-logo.jpg';
 import IndiaBarLogo from './assets/logos/india-bar-logo.jpg';
+import DistribuidoraHelarteLogo from './assets/logos/distribuidora-helarte.png';
+import BahiadeLobosLogo from './assets/logos/bahiadeloslobos.png';
+import MunicipioLobosLogo from './assets/logos/municipio-lobos.jpg';
 import workImg from './assets/work.jpg';
 import media1 from './assets/infobae-nota.jpg';
 import media2 from './assets/c5n-nota.jpg';
 import media3 from './assets/perfil-nota.jpg';
 import media4 from './assets/puntal-nota.jpg';
-import dataAIHeroImg from './assets/work.jpg';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
@@ -67,7 +69,7 @@ function HomePage() {
     {
       title: t('hero.slides.slide2.title'),
       subtitle: t('hero.slides.slide2.subtitle'),
-      image: 'cecilia-hero.svg',
+      image: 'image.png',
       action: () => (
         <Link
           to="/cecilia"
@@ -139,6 +141,22 @@ function HomePage() {
       name: 'India bar',
       url: 'https://www.instagram.com/indiabarbs',
       icon: <img src={IndiaBarLogo} alt="India Bar" className="w-full h-10 mb-3" />,
+    },
+    {
+      name: 'Municipio de Lobos',
+      url: 'https://municipiodelobos.gob.ar/turismo/',
+      icon: <img src={MunicipioLobosLogo} alt="Misión Padre Pepe" className="w-full h-10 mb-3" />,
+    },
+    {
+      name: 'Distribuidora Helarte',
+      url: '',
+      icon: <img src={DistribuidoraHelarteLogo} alt="Misión Padre Pepe" className="w-full h-10 mb-3" />,
+    },
+    {
+      name: 'Bahía de los Lobos',
+      url: 'https://bahiadeloslobos.com/',
+      icon: <img src={BahiadeLobosLogo} alt="Misión Padre Pepe" className="w-full h-10 mb-3" />,
+
     },
     {
       name: 'Misión Padre Pepe',

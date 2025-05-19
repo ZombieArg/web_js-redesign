@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Check, ArrowRight, Loader2 } from 'lucide-react';
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const CtaSection = () => {
   const [email, setEmail] = useState('');
@@ -18,7 +18,7 @@ const CtaSection = () => {
     setError('');
     
     try {
-      const response = await fetch(`${API_BASE_URL}/send-email`, {
+      const response = await fetch(`${API_BASE_URL}/send-email-cecilia`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

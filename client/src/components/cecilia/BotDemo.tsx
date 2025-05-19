@@ -19,14 +19,14 @@ const BotDemo = () => {
       icon: <Building2 className="h-12 w-12 text-accent-600" />
     },
     {
-      id: 'inmobiliaria',
-      title: 'Bot Inmobiliaria',
-      description: 'Atención de consultas sobre propiedades y coordinación de visitas',
+      id: 'tiendanube',
+      title: 'Bot Tienda Nube',
+      description: 'Atención de consultas sobre productos, stock y ordenes de compra cargados en tu tienda',
       icon: <Home className="h-12 w-12 text-accent-600" />
     },
     {
-      id: 'distribuidora',
-      title: 'Bot Distribuidora',
+      id: 'comercio',
+      title: 'Bot Comercial',
       description: 'Gestión de pedidos y consultas de stock',
       icon: <Package className="h-12 w-12 text-accent-600" />
     }
@@ -34,6 +34,14 @@ const BotDemo = () => {
 
   const handleBotSelect = (botId: string) => {
     setSelectedBot(botId);
+  };
+
+  // Función para redirigir al inicio de la página donde está el Hero
+  const redirectToHero = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   };
 
   return (
@@ -82,9 +90,14 @@ const BotDemo = () => {
               </div>
             </div>
             <div className="border-t pt-4">
-              <p className="text-center text-gray-600">
-                Chat demo en desarrollo. ¡Próximamente podrás interactuar con Cecilia!
-              </p>
+              <div className="text-center">
+                <button 
+                  onClick={redirectToHero} 
+                  className="bg-accent-600 text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-accent-700 transition-colors duration-300 shadow-md hover:shadow-lg"
+                >
+                  Probar Cecilia en el inicio
+                </button>
+              </div>
             </div>
           </div>
         )}

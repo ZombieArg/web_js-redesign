@@ -10,9 +10,9 @@ interface Message {
 
 // Define the type for CLIENT_IDS
 const CLIENT_IDS: Record<string, string> = {
-  'municipio': 'a81117c4-6551-489e-acdf-589e97f6c3c5',
-  'inmobiliaria': 'inmobiliaria',
-  'distribuidora': 'distribuidora'
+  'municipio': '4aa16de0-98e8-4baa-b0d5-8386cf82c31b',
+  'comercio': '748ddab0-d1e3-48f8-8ab2-a8bec16c7643',
+  'tiendaNube': 'a9a14c4d-3a10-47fc-8740-5fbc0e6e0fbd'
 };
 
 const Hero = () => {
@@ -24,9 +24,9 @@ const Hero = () => {
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const models = [
-    { id: 'municipio', name: 'municipio' },
-    { id: 'inmobiliaria', name: 'Inmobiliaria' },
-    { id: 'distribuidora', name: 'Distribuidora' }
+    { id: 'municipio', name: 'Municipio' },
+    { id: 'tiendaNube', name: 'Tienda Nube' },
+    { id: 'comercio', name: 'Comercio' }
   ];
 
   // Initialize chat when component mounts or model changes
@@ -111,12 +111,6 @@ const Hero = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mb-8">
-              <a 
-                href="#demo" 
-                className="bg-accent-600 text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-accent-700 transition-colors duration-300 text-center shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-              >
-                Ver demo
-              </a>
               <a 
                 href="#contacto" 
                 className="border-2 border-accent-600 text-accent-600 px-8 py-3 rounded-full text-lg font-medium hover:bg-accent-50 transition-colors duration-300 text-center"
