@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Check, ArrowRight, Loader2 } from 'lucide-react';
-
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+import { sendCeciliaForm } from '../../api/email';
 
 const CtaSection = () => {
   const [email, setEmail] = useState('');
@@ -18,25 +17,10 @@ const CtaSection = () => {
     setError('');
     
     try {
-      const response = await fetch(`${API_BASE_URL}/send-email-cecilia`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name,
-          email,
-          company,
-          message
-        }),
-      });
-      
-      const data = await response.json();
-      
-      if (!response.ok) {
-        throw new Error(data.error || 'Error al enviar el formulario');
+      const response = await sendCeciliaForm({ email, name, company, message });
+      if (!response) {
+        throw new Error('Error al enviar el formulario');
       }
-      
       setSubmitted(true);
       setName('');
       setEmail('');

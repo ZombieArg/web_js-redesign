@@ -36,6 +36,7 @@ import media1 from './assets/infobae-nota.jpg';
 import media2 from './assets/c5n-nota.jpg';
 import media3 from './assets/perfil-nota.jpg';
 import media4 from './assets/puntal-nota.jpg';
+import { sendContactForm } from './api/email';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
@@ -50,7 +51,7 @@ function HomePage() {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      await axios.post(`${API_BASE_URL}/send-email`, { email, message });
+      await sendContactForm({ email, message });
       setEmail('');
       setMessage('');
       toast.success(t('contact.success'));
