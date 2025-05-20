@@ -27,7 +27,7 @@ const sendContactForm = async (
 ): Promise<EmailResponse> => {
   try {
     const response = await axios.post<EmailResponse>(
-      `${EMAIL_URL}/send-email`,
+      `${EMAIL_URL}/send-email-web`,
       formData
     );
     return response.data;
@@ -45,7 +45,7 @@ const sendCeciliaForm = async (
 ): Promise<EmailResponse> => {
   try {
     const response = await axios.post<EmailResponse>(
-      `${EMAIL_URL}/send-email-cecilia`,
+      `${EMAIL_URL}/send-email-web-cecilia`,
       formData
     );
     return response.data;
