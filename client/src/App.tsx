@@ -83,7 +83,7 @@ function HomePage() {
     {
       title: t('hero.slides.slide1.title'),
       subtitle: t('hero.slides.slide1.subtitle'),
-      image: 'mains.jpg',
+      image: '../mains.jpg',
       action: () => (
         <a
           href={whatsappLink}

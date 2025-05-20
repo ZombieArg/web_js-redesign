@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BOTS_URL = import.meta.env.VITE_BOTS_URL;
+const BOTS_URL = 'https://ceciliabot.datavoices.com.ar/api'
 
 interface UserData {
   email: string;

@@ -21,7 +21,7 @@ const Header = () => {
         <Link to="/" className="flex items-center space-x-2">
           <div className="h-8 w-auto">
             <img
-              src="logopng1.png"
+              src="/logopng1.png"
               alt="Data Voices"
               className="h-full w-auto"
             />
