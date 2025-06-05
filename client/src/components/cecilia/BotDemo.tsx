@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Bot, Building2, Home, Package } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 interface BotOption {
   id: string;
@@ -9,25 +10,26 @@ interface BotOption {
 }
 
 const BotDemo = () => {
+  const { t } = useTranslation();
   const [selectedBot, setSelectedBot] = useState<string | null>(null);
 
   const botOptions: BotOption[] = [
     {
       id: 'municipio',
-      title: 'Bot Municipio',
-      description: 'Gestión de consultas ciudadanas y trámites municipales',
+      title: t('cecilia.botDemo.options.municipality.title'),
+      description: t('cecilia.botDemo.options.municipality.description'),
       icon: <Building2 className="h-12 w-12 text-accent-600" />
     },
     {
       id: 'tiendanube',
-      title: 'Bot Tienda Nube',
-      description: 'Atención de consultas sobre productos, stock y ordenes de compra cargados en tu tienda',
+      title: t('cecilia.botDemo.options.tiendaNube.title'),
+      description: t('cecilia.botDemo.options.tiendaNube.description'),
       icon: <Home className="h-12 w-12 text-accent-600" />
     },
     {
       id: 'comercio',
-      title: 'Bot Comercial',
-      description: 'Gestión de pedidos y consultas de stock',
+      title: t('cecilia.botDemo.options.commerce.title'),
+      description: t('cecilia.botDemo.options.commerce.description'),
       icon: <Package className="h-12 w-12 text-accent-600" />
     }
   ];
@@ -49,10 +51,10 @@ const BotDemo = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Prueba a <span className="bg-gradient-to-r from-accent-600 to-primary-600 bg-clip-text text-transparent">Cecilia</span> en acción
+            {t('cecilia.botDemo.title')} <span className="bg-gradient-to-r from-accent-600 to-primary-600 bg-clip-text text-transparent">Cecilia</span> {t('cecilia.botDemo.titleEnd')}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Selecciona el tipo de bot que quieres probar y experimenta cómo Cecilia puede transformar tu atención al cliente.
+            {t('cecilia.botDemo.subtitle')}
           </p>
         </div>
 
@@ -86,7 +88,7 @@ const BotDemo = () => {
               <Bot className="h-8 w-8 text-accent-600 mr-3" />
               <div>
                 <h4 className="font-bold">Cecilia - {botOptions.find(b => b.id === selectedBot)?.title}</h4>
-                <p className="text-sm text-gray-600">Asistente virtual</p>
+                <p className="text-sm text-gray-600">{t('cecilia.botDemo.virtualAssistant')}</p>
               </div>
             </div>
             <div className="border-t pt-4">
@@ -95,7 +97,7 @@ const BotDemo = () => {
                   onClick={redirectToHero} 
                   className="bg-accent-600 text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-accent-700 transition-colors duration-300 shadow-md hover:shadow-lg"
                 >
-                  Probar Cecilia en el inicio
+                  {t('cecilia.botDemo.tryButton')}
                 </button>
               </div>
             </div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Bot, Clock, BarChart2, Send } from 'lucide-react';
 import { startChat, sendMessage } from '../../api/webBot';
+import { useTranslation } from 'react-i18next';
 
 interface Message {
   role: 'user' | 'assistant';
@@ -16,6 +17,7 @@ const CLIENT_IDS: Record<string, string> = {
 };
 
 const Hero = () => {
+  const { t } = useTranslation();
   const [selectedModel, setSelectedModel] = useState('municipio');
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputMessage, setInputMessage] = useState('');
@@ -103,11 +105,12 @@ const Hero = () => {
         <div className="flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 mb-12 md:mb-0">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              <span className="bg-gradient-to-r from-accent-600 to-primary-600 bg-clip-text text-transparent">Automatiza</span> tu atención al cliente con inteligencia
+            <span className="bg-gradient-to-r from-accent-600 to-primary-600 bg-clip-text text-transparent">{t('cecilia.hero.highlight')} </span>
+              {t('cecilia.hero.title')}
             </h1>
             
             <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-              Cecilia trabaja 24/7 respondiendo consultas de tus clientes de manera amigable y eficiente, permitiéndote enfocarte en lo que realmente importa.
+              {t('cecilia.hero.subtitle')}
             </p>
             
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mb-8">
@@ -115,7 +118,7 @@ const Hero = () => {
                 href="#contacto" 
                 className="border-2 border-accent-600 text-accent-600 px-8 py-3 rounded-full text-lg font-medium hover:bg-accent-50 transition-colors duration-300 text-center"
               >
-                Agendar reunión
+                {t('cecilia.hero.cta')}
               </a>
             </div>
             

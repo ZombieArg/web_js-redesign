@@ -1,7 +1,9 @@
 import React from 'react';
 import { Bot, Mail, Phone, MapPin, Instagram, Facebook, Linkedin } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
+  const { t } = useTranslation();
   return (
     <footer className="bg-primary-900 text-white pt-16 pb-8">
       <div className="container mx-auto px-4">
@@ -25,68 +27,74 @@ const Footer = () => {
           </div>
           
           <div>
-            <h3 className="text-lg font-semibold mb-4">Solución</h3>
+            <h3 className="text-lg font-semibold mb-4">{t('footer.services')}</h3>
             <ul className="space-y-3">
               <li>
                 <a href="#beneficios" className="text-gray-400 hover:text-white transition-colors">
-                  Beneficios
+                  {t('cecilia.benefits.title')}
                 </a>
               </li>
               <li>
                 <a href="#como-funciona" className="text-gray-400 hover:text-white transition-colors">
-                  Cómo funciona
+                  {t('services.learnMore')}
                 </a>
               </li>
               <li>
                 <a href="#testimonios" className="text-gray-400 hover:text-white transition-colors">
-                  Casos de éxito
+                  {t('clients.title')}
                 </a>
               </li>
               <li>
                 <a href="#precios" className="text-gray-400 hover:text-white transition-colors">
-                  Precios
+                  {t('cecilia.cta.primary')}
                 </a>
               </li>
             </ul>
           </div>
           
           <div>
-            <h3 className="text-lg font-semibold mb-4">Empresa</h3>
+            <h3 className="text-lg font-semibold mb-4">{t('footer.company')}</h3>
             <ul className="space-y-3">
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  Sobre nosotros
+                <a href="/" className="text-gray-400 hover:text-white transition-colors">
+                  {t('nav.backHome')}
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  Blog
+                <a href="/#nosotros" className="text-gray-400 hover:text-white transition-colors">
+                  {t('nav.about')}
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  Políticas de privacidad
+                <a href="/#servicios" className="text-gray-400 hover:text-white transition-colors">
+                  {t('nav.services')}
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  Términos y condiciones
+                <a href="/#contacto" className="text-gray-400 hover:text-white transition-colors">
+                  {t('nav.contact')}
                 </a>
               </li>
             </ul>
           </div>
           
           <div>
-            <h3 className="text-lg font-semibold mb-4">Contacto</h3>
+            <h3 className="text-lg font-semibold mb-4">{t('footer.contact')}</h3>
             <ul className="space-y-3">
               <li className="flex items-center">
-                <Mail className="h-5 w-5 text-accent-400 mr-2" />
-                <a href="mailto:hola@datavoices.com.ar" className="text-gray-400 hover:text-white transition-colors">
-                  hola@datavoices.com.ar
+                <Mail className="h-5 w-5 text-gray-400 mr-2" />
+                <a href="mailto:info@datavoices.com.ar" className="text-gray-400 hover:text-white transition-colors">
+                  info@datavoices.com.ar
+                </a>
+              </li>
+              <li className="flex items-center">
+                <Phone className="h-5 w-5 text-gray-400 mr-2" />
+                <a href="tel:+5491122334455" className="text-gray-400 hover:text-white transition-colors">
+                  +54 9 11 2233 4455
                 </a>
               </li>
               <li className="flex items-start">
-                <MapPin className="h-5 w-5 text-accent-400 mr-2 mt-1" />
+                <MapPin className="h-5 w-5 text-gray-400 mr-2 mt-1" />
                 <span className="text-gray-400">
                   Buenos Aires, Argentina
                 </span>
@@ -96,7 +104,7 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-primary-800 pt-8 text-center text-gray-500 text-sm">
-          <p>© {new Date().getFullYear()} Data Voices. Todos los derechos reservados.</p>
+          <p>© {new Date().getFullYear()} DataVoices. {t('footer.rights')}.</p>
         </div>
       </div>
     </footer>

@@ -1,4 +1,5 @@
 import { Check } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const PricingCard = ({ 
   title, 
@@ -15,7 +16,7 @@ const PricingCard = ({
     {isPopular && (
       <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
         <span className="bg-accent-600 text-white px-4 py-1 rounded-full text-sm font-medium">
-          Más popular
+          Mas popular
         </span>
       </div>
     )}
@@ -37,59 +38,60 @@ const PricingCard = ({
           : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
       }`}
     >
-      Comenzar ahora
+      Comenzá ahora
     </a>
   </div>
 );
 
 const Pricing = () => {
+  const { t } = useTranslation();
   return (
     <section id="precios" className="py-24 bg-primary-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Planes <span className="bg-gradient-to-r from-accent-600 to-primary-600 bg-clip-text text-transparent">flexibles</span> para tu negocio
+            {t('cecilia.pricing.title')} <span className="bg-gradient-to-r from-accent-600 to-primary-600 bg-clip-text text-transparent">{t('cecilia.pricing.highlight')}</span> {t('cecilia.pricing.titleEnd')}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Elige el plan que mejor se adapte a tus necesidades y comienza a transformar tu atención al cliente.
+            {t('cecilia.pricing.subtitle')}
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           <PricingCard
-            title="Básico"
-            description="Ideal para pequeños negocios que buscan automatizar su atención al cliente"
+            title={t('cecilia.pricing.basic.title')}
+            description={t('cecilia.pricing.basic.description')}
             features={[
-              "500 conversaciones por mes",
-              "Bot simple con IA",
-              "Trackeo de tópicos de conversación",
-              "Soporte por email",
-              "Reportes básicos"
+              t('cecilia.pricing.basic.features.conversations'),
+              t('cecilia.pricing.basic.features.bot'),
+              t('cecilia.pricing.basic.features.tracking'),
+              t('cecilia.pricing.basic.features.support'),
+              t('cecilia.pricing.basic.features.reports')
             ]}
           />
           
           <PricingCard
-            title="Pro"
-            description="Para negocios en crecimiento que necesitan una solución completa"
+            title={t('cecilia.pricing.pro.title')}
+            description={t('cecilia.pricing.pro.description')}
             features={[
-              "Conversaciones ilimitadas",
-              "Todos los bots disponibles",
-              "Análisis avanzado de conversaciones",
-              "Soporte prioritario 24/7",
-              "Integraciones personalizadas"
+              t('cecilia.pricing.pro.features.conversations'),
+              t('cecilia.pricing.pro.features.bots'),
+              t('cecilia.pricing.pro.features.analysis'),
+              t('cecilia.pricing.pro.features.support'),
+              t('cecilia.pricing.pro.features.integrations')
             ]}
             isPopular
           />
           
           <PricingCard
-            title="Enterprise"
-            description="Solución personalizada para grandes empresas"
+            title={t('cecilia.pricing.enterprise.title')}
+            description={t('cecilia.pricing.enterprise.description')}
             features={[
-              "Funcionalidades a medida",
-              "API dedicada",
-              "Implementación personalizada",
-              "Gerente de cuenta dedicado",
-              "SLA garantizado"
+              t('cecilia.pricing.enterprise.features.customFeatures'),
+              t('cecilia.pricing.enterprise.features.api'),
+              t('cecilia.pricing.enterprise.features.implementation'),
+              t('cecilia.pricing.enterprise.features.accountManager'),
+              t('cecilia.pricing.enterprise.features.sla')
             ]}
           />
         </div>

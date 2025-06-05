@@ -1,5 +1,6 @@
 import React from 'react';
 import { Clock, MessageSquare, Users, Brain } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const BenefitCard = ({ icon, title, description }: { icon: React.ReactNode, title: string, description: string }) => (
   <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
@@ -12,26 +13,27 @@ const BenefitCard = ({ icon, title, description }: { icon: React.ReactNode, titl
 );
 
 const Benefits = () => {
+  const { t } = useTranslation();
   const benefits = [
     {
       icon: <Clock className="h-7 w-7 text-accent-600" />,
-      title: "Disponible 24/7",
-      description: "Cecilia nunca descansa. Está siempre lista para atender consultas, incluso fuera del horario comercial, mejorando la satisfacción de tus clientes."
+      title: t('cecilia.features.availability.title'),
+      description: t('cecilia.features.availability.description')
     },
     {
       icon: <MessageSquare className="h-7 w-7 text-accent-600" />,
-      title: "Respuestas amigables",
-      description: "Comunicación natural y cercana que hace sentir a tus clientes como si estuvieran hablando con una persona real, creando una experiencia positiva."
+      title: t('cecilia.features.naturalLanguage.title'),
+      description: t('cecilia.features.naturalLanguage.description')
     },
     {
       icon: <Users className="h-7 w-7 text-accent-600" />,
-      title: "Derivación inteligente",
-      description: "Identifica cuándo es necesario derivar a un agente humano, garantizando que los casos complejos reciban la atención personalizada que merecen."
+      title: t('cecilia.benefits.focus'),
+      description: t('cecilia.benefits.costReduction')
     },
     {
       icon: <Brain className="h-7 w-7 text-accent-600" />,
-      title: "Aprende constantemente",
-      description: "Mejora con cada interacción, adaptándose a las necesidades específicas de tu negocio y ofreciendo respuestas cada vez más precisas."
+      title: t('cecilia.features.customizable.title'),
+      description: t('cecilia.features.customizable.description')
     }
   ];
 
@@ -40,10 +42,12 @@ const Benefits = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Beneficios que <span className="bg-gradient-to-r from-accent-600 to-primary-600 bg-clip-text text-transparent">transforman</span> tu negocio
+            {t('cecilia.benefits.title')} {t('cecilia.benefits.middleTitle')}
+             <span className="bg-gradient-to-r from-accent-600 to-primary-600 bg-clip-text text-transparent"> {t('cecilia.benefits.highligh')} </span>
+             {t('cecilia.benefits.endTitle')}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Cecilia revoluciona la manera en que interactúas con tus clientes, aumentando la eficiencia y satisfacción.
+            {t('cecilia.benefits.efficiency')}
           </p>
         </div>
         

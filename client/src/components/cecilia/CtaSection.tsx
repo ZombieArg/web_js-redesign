@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Check, ArrowRight, Loader2 } from 'lucide-react';
 import { sendCeciliaForm } from '../../api/email';
+import { useTranslation } from 'react-i18next';
 
 const CtaSection = () => {
+  const { t } = useTranslation();
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [company, setCompany] = useState('');
@@ -40,10 +42,10 @@ const CtaSection = () => {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Transforma tu atención al cliente hoy mismo
+              {t('cecilia.cta.title')}
             </h2>
             <p className="text-xl opacity-90 max-w-3xl mx-auto">
-              Agenda una demostración gratuita y descubre cómo Cecilia puede ayudarte a automatizar tu atención al cliente las 24 horas.
+              {t('cecilia.cta.subtitle')}
             </p>
           </div>
           
@@ -119,17 +121,16 @@ const CtaSection = () => {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full bg-primary-600 text-white py-3 px-6 rounded-lg text-lg font-medium hover:bg-primary-700 transition-colors duration-300 flex items-center justify-center disabled:opacity-70 disabled:cursor-not-allowed"
+                    className="w-full bg-accent-600 hover:bg-accent-700 text-white py-3 px-6 rounded-lg font-medium text-lg flex items-center justify-center transition-colors duration-300"
                   >
                     {loading ? (
                       <>
-                        <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                        Enviando...
+                        <Loader2 className="animate-spin mr-2" size={20} />
+                        {t('contact.button')}...
                       </>
                     ) : (
                       <>
-                        Agendar demostración
-                        <ArrowRight className="ml-2 h-5 w-5" />
+                        {t('cecilia.cta.primary')} <ArrowRight className="ml-2" size={20} />
                       </>
                     )}
                   </button>

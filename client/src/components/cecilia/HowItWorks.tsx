@@ -1,5 +1,6 @@
 import React from 'react';
 import { Bot, MessageCircle, Users, Settings } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const StepCard = ({ 
   number, 
@@ -30,26 +31,27 @@ const StepCard = ({
 );
 
 const HowItWorks = () => {
+  const { t } = useTranslation();
   const steps = [
     {
       icon: <Settings className="h-6 w-6 text-accent-600" />,
-      title: "Configuración sencilla",
-      description: "Integramos Cecilia con tus canales de comunicación actuales como WhatsApp, web o redes sociales en menos de 24 horas."
+      title: t('cecilia.howItWorks.steps.setup.title'),
+      description: t('cecilia.howItWorks.steps.setup.description')
     },
     {
       icon: <Bot className="h-6 w-6 text-accent-600" />,
-      title: "Entrenamiento personalizado",
-      description: "Adaptamos a Cecilia con información específica de tu negocio, productos y políticas para respuestas precisas."
+      title: t('cecilia.howItWorks.steps.training.title'),
+      description: t('cecilia.howItWorks.steps.training.description')
     },
     {
       icon: <MessageCircle className="h-6 w-6 text-accent-600" />,
-      title: "Automatización inteligente",
-      description: "Cecilia comienza a atender consultas 24/7, respondiendo a preguntas frecuentes y procesando solicitudes simples."
+      title: t('cecilia.howItWorks.steps.automation.title'),
+      description: t('cecilia.howItWorks.steps.automation.description')
     },
     {
       icon: <Users className="h-6 w-6 text-accent-600" />,
-      title: "Colaboración humano-máquina",
-      description: "Para casos complejos, Cecilia transfiere la conversación a tu equipo, proporcionando todo el contexto necesario."
+      title: t('cecilia.howItWorks.steps.collaboration.title'),
+      description: t('cecilia.howItWorks.steps.collaboration.description')
     }
   ];
 
@@ -58,10 +60,10 @@ const HowItWorks = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Cómo <span className="bg-gradient-to-r from-accent-600 to-primary-600 bg-clip-text text-transparent">funciona</span> Cecilia
+            {t('cecilia.howItWorks.title')} <span className="bg-gradient-to-r from-accent-600 to-primary-600 bg-clip-text text-transparent">{t('cecilia.howItWorks.highlight')}</span> Cecilia
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Implementación rápida y sin complicaciones para comenzar a mejorar tu atención al cliente de inmediato.
+            {t('cecilia.howItWorks.subtitle')}
           </p>
         </div>
         

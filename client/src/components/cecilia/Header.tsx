@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';   
+import { useTranslation } from 'react-i18next';
+import { LanguageSelector } from '../../components/LanguageSelector';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10);
@@ -36,28 +39,31 @@ const Header = () => {
             href="#beneficios"
             className="text-gray-700 hover:text-accent-600 transition-colors"
           >
-            Beneficios
+            {t('cecilia.benefits.title')}
           </a>
           <a
             href="#como-funciona"
             className="text-gray-700 hover:text-accent-600 transition-colors"
           >
-            Cómo funciona
+            {t('cecilia.howItWorks.title')} {t('cecilia.howItWorks.highlight')}
           </a>
           <a
             href="#testimonios"
             className="text-gray-700 hover:text-accent-600 transition-colors"
           >
-            Testimonios
+            {t('cecilia.testimonials.title')} 
           </a>
         </nav>
 
-        <a
-          href="#contacto"
-          className="bg-accent-600 text-white px-5 py-2 rounded-full hover:bg-accent-700 transition-colors duration-300 font-medium shadow-sm"
-        >
-          Contactar
-        </a>
+        <div className="flex items-center space-x-4">
+          <a
+            href="#contacto"
+            className="bg-accent-600 text-white px-5 py-2 rounded-full hover:bg-accent-700 transition-colors duration-300 font-medium shadow-sm"
+          >
+            {t('nav.contact')}
+          </a>
+          <LanguageSelector />
+        </div>
       </div>
     </header>
   );

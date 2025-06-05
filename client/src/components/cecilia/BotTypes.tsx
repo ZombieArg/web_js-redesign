@@ -1,5 +1,6 @@
 import React from 'react';
 import { MessageSquare, Calendar, Package, BarChart, StoreIcon } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 interface BotType {
   icon: React.ReactNode;
@@ -8,31 +9,32 @@ interface BotType {
 }
 
 const BotTypes = () => {
+  const { t } = useTranslation();
   const bots: BotType[] = [
     {
       icon: <Package className="h-8 w-8 text-accent-600" />,
-      title: "Order Manager Assistant",
-      description: "Gestiona pedidos, consultas de stock y seguimiento de envíos de manera automática, mejorando la eficiencia operativa de tu negocio."
+      title: t('cecilia.botTypes.orderManager.title'),
+      description: t('cecilia.botTypes.orderManager.description')
     },
     {
       icon: <Calendar className="h-8 w-8 text-accent-600" />,
-      title: "Google Scheduler Assistant",
-      description: "Coordina reuniones y citas automáticamente, sincronizando con Google Calendar para una gestión eficiente de tu agenda."
+      title: t('cecilia.botTypes.scheduler.title'),
+      description: t('cecilia.botTypes.scheduler.description')
     },
     {
       icon: <MessageSquare className="h-8 w-8 text-accent-600" />,
-      title: "Event Manager Assistant",
-      description: "Administra registros, consultas y detalles de eventos, facilitando la organización y comunicación con los participantes."
+      title: t('cecilia.botTypes.eventManager.title'),
+      description: t('cecilia.botTypes.eventManager.description')
     },
     {
       icon: <BarChart className="h-8 w-8 text-accent-600" />,
-      title: "Topic Tracker Assistant",
-      description: "Analiza y categoriza las conversaciones, proporcionando insights valiosos sobre las necesidades y preferencias de tus clientes."
+      title: t('cecilia.botTypes.topicTracker.title'),
+      description: t('cecilia.botTypes.topicTracker.description')
     },
     {
       icon: <StoreIcon className="h-8 w-8 text-accent-600" />,
-      title: "Tienda Nube Assistant",
-      description: "Brinda información actualizada sobre productos, precios y disponibilidad en línea, como también del estado de sus pedidos, mejorando la experiencia de compra de tus clientes."
+      title: t('cecilia.botTypes.tiendaNube.title'),
+      description: t('cecilia.botTypes.tiendaNube.description')
     }
   ];
 
@@ -41,10 +43,10 @@ const BotTypes = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Nuestros <span className="bg-gradient-to-r from-accent-600 to-primary-600 bg-clip-text text-transparent">Asistentes Especializados</span>
+            {t('cecilia.botTypes.title')} <span className="bg-gradient-to-r from-accent-600 to-primary-600 bg-clip-text text-transparent">{t('cecilia.botTypes.highlight')}</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Cada bot está diseñado para resolver necesidades específicas de tu negocio, proporcionando una atención personalizada y eficiente.
+            {t('cecilia.botTypes.subtitle')}
           </p>
         </div>
 
