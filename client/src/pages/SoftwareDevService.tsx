@@ -2,10 +2,12 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight, Code, Cpu, GitBranch, Layers, Settings, Users } from 'lucide-react';
 import { Header } from '../components/Header';
+import { SEO, getPageSEO } from '../components/seo';
 
 export function SoftwareDevService() {
   const { t } = useTranslation();
   const whatsappLink = "https://wa.me/5491123966197?text=Hola%20DataVoices%2C%20me%20interesa%20saber%20m%C3%A1s%20sobre%20desarrollo%20de%20software%20con%20IA";
+  const seoConfig = getPageSEO('softwareDev');
 
   const features = [
     {
@@ -42,6 +44,7 @@ export function SoftwareDevService() {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO {...seoConfig} />
       <Header />
 
       {/* Hero Section */}

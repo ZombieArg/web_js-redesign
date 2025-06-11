@@ -37,6 +37,7 @@ import media2 from './assets/c5n-nota.jpg';
 import media3 from './assets/perfil-nota.jpg';
 import media4 from './assets/puntal-nota.jpg';
 import { sendContactForm } from './api/email';
+import { SEO, LocalBusinessSEO, getPageSEO } from './components/seo';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
@@ -46,6 +47,8 @@ function HomePage() {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  
+  const seoConfig = getPageSEO('home');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -202,6 +205,8 @@ function HomePage() {
   /* --------------------- JSX --------------------- */
   return (
     <div className="min-h-screen bg-white">
+      <SEO {...seoConfig} />
+      <LocalBusinessSEO />
       <Toaster position="top-right" />
 
       {/* ---------- HEADER ---------- */}

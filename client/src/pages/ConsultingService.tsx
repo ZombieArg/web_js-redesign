@@ -2,10 +2,12 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight, GraduationCap, Target, Users, Lightbulb, TrendingUp, Brain } from 'lucide-react';
 import { Header } from '../components/Header';
+import { SEO, getPageSEO } from '../components/seo';
 
 export function ConsultingService() {
   const { t } = useTranslation();
   const whatsappLink = "https://wa.me/5491123966197?text=Hola%20DataVoices%2C%20me%20interesa%20saber%20m%C3%A1s%20sobre%20consultor%C3%ADa%20en%20IA";
+  const seoConfig = getPageSEO('consulting');
 
   const features = [
     {
@@ -42,6 +44,7 @@ export function ConsultingService() {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO {...seoConfig} />
       <Header />
 
       {/* Hero Section */}
