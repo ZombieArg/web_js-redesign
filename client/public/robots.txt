@@ -1,0 +1,67 @@
+# robots.txt for Data Voices - https://datavoices.com.ar
+
+# Allow all search engines to crawl the entire site
+User-agent: *
+Allow: /
+
+# Disallow crawling of development and system files
+Disallow: /src/
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /.env
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /vite.config.ts
+Disallow: /tsconfig.json
+Disallow: /tailwind.config.js
+
+# Disallow crawling of build artifacts that might be present
+Disallow: /dist/
+Disallow: /build/
+Disallow: /*.map$
+
+# Allow crawling of important assets
+Allow: /assets/
+Allow: /images/
+Allow: *.css
+Allow: *.js
+Allow: *.png
+Allow: *.jpg
+Allow: *.jpeg
+Allow: *.gif
+Allow: *.svg
+Allow: *.webp
+Allow: *.ico
+
+# Specific rules for major search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2
+
+# Block aggressive crawlers that might overload the server
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Crawl-delay: 10
+
+User-agent: DotBot
+Disallow: /
+
+# Sitemap location
+Sitemap: https://datavoices.com.ar/sitemap.xml
+
+# Additional sitemaps if they exist in the future
+# Sitemap: https://datavoices.com.ar/sitemap-images.xml
+# Sitemap: https://datavoices.com.ar/sitemap-news.xml
+
+# Host directive (helps with canonicalization)
+Host: https://datavoices.com.ar

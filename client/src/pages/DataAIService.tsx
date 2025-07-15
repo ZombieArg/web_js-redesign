@@ -2,10 +2,12 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight, Database, Search, MessageSquare, Shield, Zap, BarChart } from 'lucide-react';
 import { Header } from '../components/Header';
+import { SEO, getPageSEO } from '../components/seo';
 
 export function DataAIService() {
   const { t } = useTranslation();
   const whatsappLink = "https://wa.me/5491123966197?text=Hola%20DataVoices%2C%20me%20interesa%20saber%20m%C3%A1s%20sobre%20IA%20en%20datos";
+  const seoConfig = getPageSEO('dataAI');
 
   const features = [
     {
@@ -41,7 +43,8 @@ export function DataAIService() {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gray-50">
+      <SEO {...seoConfig} />
       <Header />
 
       {/* Hero Section */}
