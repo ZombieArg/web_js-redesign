@@ -35,6 +35,11 @@ const BotTypes = () => {
       icon: <StoreIcon className="h-8 w-8 text-accent-600" />,
       title: t('cecilia.botTypes.tiendaNube.title'),
       description: t('cecilia.botTypes.tiendaNube.description')
+    },
+    {
+      icon: <StoreIcon className="h-8 w-8 text-accent-600" />,
+      title: t('cecilia.botTypes.mercadoLibre.title'),
+      description: t('cecilia.botTypes.mercadoLibre.description')
     }
   ];
 

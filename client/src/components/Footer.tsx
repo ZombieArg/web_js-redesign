@@ -32,7 +32,7 @@ export function Footer() {
             </h4>
             <div className='grid grid-cols-1 gap-4 '>
               <a
-                href='https://wa.me/5491123966197'
+                href='https://wa.me/5491130313456'
                 target='_blank'
                 rel='noopener noreferrer'
                 className='flex items-center space-x-3 text-white/80 hover:text-[#FF5722] transition-colors group'

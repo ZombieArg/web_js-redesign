@@ -167,8 +167,13 @@
       },
       "tiendaNube": {
         "title": "Tienda Nube Assistant",
-        "description": "Provides up-to-date information on products, prices and online availability, as well as order status, enhancing your customers’ shopping experience."
+        "description": "Provides up-to-date information on products, prices and online availability, as well as order status, enhancing your customers' shopping experience."
+      },
+      "mercadoLibre": {
+        "title": "Mercado Libre Assistant",
+        "description": "Manages product listings, order processing, and customer inquiries for your Mercado Libre store, improving sales efficiency and customer satisfaction."
       }
+      
     },
     "howItWorks": {
       "title": "How",

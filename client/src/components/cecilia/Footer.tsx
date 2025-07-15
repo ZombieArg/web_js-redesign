@@ -61,17 +61,17 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="/#nosotros" className="text-gray-400 hover:text-white transition-colors">
+                <a href="/nosotros" className="text-gray-400 hover:text-white transition-colors">
                   {t('nav.about')}
                 </a>
               </li>
               <li>
-                <a href="/#servicios" className="text-gray-400 hover:text-white transition-colors">
+                <a href="/servicios" className="text-gray-400 hover:text-white transition-colors">
                   {t('nav.services')}
                 </a>
               </li>
               <li>
-                <a href="/#contacto" className="text-gray-400 hover:text-white transition-colors">
+                <a href="/contacto" className="text-gray-400 hover:text-white transition-colors">
                   {t('nav.contact')}
                 </a>
               </li>

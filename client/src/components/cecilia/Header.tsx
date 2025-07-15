@@ -57,7 +57,7 @@ const Header = () => {
 
         <div className="flex items-center space-x-4">
           <a
-            href="#contacto"
+            href="contacto"
             className="bg-accent-600 text-white px-5 py-2 rounded-full hover:bg-accent-700 transition-colors duration-300 font-medium shadow-sm"
           >
             {t('nav.contact')}

@@ -91,7 +91,7 @@ function HomePage() {
   };
 
   const whatsappLink =
-      'https://wa.me/5491123966197?text=Hola%20DataVoices%2C%20me%20gustar%C3%ADa%20saber%20m%C3%A1s%20sobre%20sus%20servicios';
+      'https://wa.me/5491130313456?text=Hola%20DataVoices%2C%20me%20gustar%C3%ADa%20saber%20m%C3%A1s%20sobre%20sus%20servicios';
 
   /* --------------- HERO SLIDES ---------------- */
   const heroSlides = [
