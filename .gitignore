@@ -9,3 +9,4 @@ client/.env
 /client/dist
 /client/dist/assets
 /client/dist/assets
+.idea/
