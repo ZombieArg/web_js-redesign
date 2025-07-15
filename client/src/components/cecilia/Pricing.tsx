@@ -31,7 +31,7 @@ const PricingCard = ({
       ))}
     </ul>
     <a
-      href="#contacto"
+      href="contacto"
       className={`block text-center py-3 px-6 rounded-lg font-medium transition-colors duration-300 ${
         isPopular
           ? 'bg-gradient-to-r from-accent-600 to-primary-600 text-white hover:from-accent-700 hover:to-primary-700'

@@ -168,6 +168,10 @@
       "tiendaNube": {
         "title": "Tienda Nube Assistant",
         "description": "Brinda información actualizada sobre productos, precios y disponibilidad en línea, como también del estado de sus pedidos, mejorando la experiencia de compra de tus clientes."
+      },
+      "mercadoLibre": {
+        "title": "Mercado Libre Assistant",
+        "description": "Gestiona listados de productos, procesamiento de pedidos y consultas de clientes para tu tienda de Mercado Libre tanto en WhatsApp como en la tienda, mejorando la eficiencia de ventas y la satisfacción del cliente."
       }
     },
     "howItWorks": {

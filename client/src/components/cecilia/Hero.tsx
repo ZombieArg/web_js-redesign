@@ -115,7 +115,7 @@ const Hero = () => {
             
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mb-8">
               <a 
-                href="#contacto" 
+                href="contacto" 
                 className="border-2 border-accent-600 text-accent-600 px-8 py-3 rounded-full text-lg font-medium hover:bg-accent-50 transition-colors duration-300 text-center"
               >
                 {t('cecilia.hero.cta')}
