@@ -1,13 +1,110 @@
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="es" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/logopng1.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Data Voices</title>
+    
+    <!-- Basic SEO Meta Tags -->
+    <meta name="description" content="Data Voices - Soluciones de inteligencia artificial, chatbots, análisis de datos y desarrollo de software en Argentina. Transformamos datos en decisiones con IA." />
+    <meta name="keywords" content="Data Voices, inteligencia artificial Argentina, chatbot, CecilIA, análisis datos IA, desarrollo software, consultoría tecnológica, automatización, Buenos Aires" />
+    <meta name="author" content="Data Voices" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="Spanish" />
+    <meta name="revisit-after" content="7 days" />
+    
+    <!-- Favicon and Icons -->
+    <link rel="icon" type="image/png" href="/logopng1.png" />
+    <link rel="apple-touch-icon" href="/logopng1.png" />
+    <meta name="theme-color" content="#FF5722" />
+    <meta name="msapplication-TileColor" content="#FF5722" />
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Data Voices - Soluciones de Inteligencia Artificial y Desarrollo de Software" />
+    <meta property="og:description" content="Transformamos datos en decisiones con soluciones de IA. Chatbots inteligentes, análisis de datos y desarrollo de software en Argentina." />
+    <meta property="og:image" content="https://datavoices.com.ar/logopng1.png" />
+    <meta property="og:url" content="https://datavoices.com.ar" />
+    <meta property="og:site_name" content="Data Voices" />
+    <meta property="og:locale" content="es_AR" />
+    <meta property="og:locale:alternate" content="en_US" />
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Data Voices - Soluciones de IA y Desarrollo de Software" />
+    <meta name="twitter:description" content="Transformamos datos en decisiones con soluciones de IA. Chatbots inteligentes, análisis de datos y desarrollo de software." />
+    <meta name="twitter:image" content="https://datavoices.com.ar/logopng1.png" />
+    <meta name="twitter:site" content="@datavoices" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://datavoices.com.ar" />
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XE58EL3RQZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XE58EL3RQZ');
+    </script>
+    <title>Data Voices - Soluciones de Inteligencia Artificial y Desarrollo de Software en Argentina</title>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Data Voices",
+      "description": "Soluciones de inteligencia artificial, análisis de datos y desarrollo de software",
+      "url": "https://datavoices.com.ar",
+      "logo": "https://datavoices.com.ar/logopng1.png",
+      "foundingDate": "2023",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+54-11-2396-6197",
+        "contactType": "customer service",
+        "availableLanguage": ["Spanish", "English"]
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "AR",
+        "addressLocality": "Buenos Aires"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/data-voices",
+        "https://www.instagram.com/datavoices.ar"
+      ],
+      "service": [
+        {
+          "@type": "Service",
+          "name": "CecilIA - Chatbot con Inteligencia Artificial",
+          "description": "Chatbot inteligente para atención al cliente 24/7"
+        },
+        {
+          "@type": "Service",
+          "name": "Análisis de Datos con IA",
+          "description": "Consulta bases de datos usando lenguaje natural con inteligencia artificial"
+        },
+        {
+          "@type": "Service",
+          "name": "Desarrollo de Software",
+          "description": "Desarrollo de aplicaciones y sistemas con inteligencia artificial"
+        },
+        {
+          "@type": "Service",
+          "name": "Consultoría en IA",
+          "description": "Estrategia y consultoría para implementar inteligencia artificial"
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>
+    <script src="public/cecilia/index.js"></script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

@@ -5,3 +5,6 @@ client/.vite
 api/package-lock.json
 api/.env
 client/.env
+/client/dist
+/client/dist/assets
+.idea/

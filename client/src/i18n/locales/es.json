@@ -2,15 +2,25 @@
   "nav": {
     "services": "Servicios",
     "about": "Nosotros",
-    "contact": "Contacto",
+    "contact": "Contactar",
     "experience": "Experiencia",
     "press": "Prensa",
     "backHome": "Volver al inicio"
   },
   "hero": {
-    "title": "Soluciones digitales con Inteligencia Artificial.",
-    "subtitle": "Potenciamos tu negocio con soluciones tecnológicas innovadoras impulsadas por IA, transformando la manera en que trabajas y te conectas con tus clientes",
-    "cta": "Comenzar ahora"
+    "slides": {
+      "slide1": {
+        "title": "Soluciones digitales con Inteligencia Artificial.",
+        "subtitle": "Potenciamos tu negocio con soluciones tecnológicas innovadoras impulsadas por IA, transformando la manera en que trabajas y te conectas con tus clientes",
+        "cta": "Comenzá Ahora"
+      },
+      "slide2": {
+        "title": "Cecilia, el chatbot que resuelve las consultas a tus clientes.",
+        "subtitle": "Automatizá tu atención al cliente con nuestro chatbot inteligente disponible 24/7. Mejorá la experiencia de tus clientes y reducí costos operativos",
+        "cta": "Conocé CecilIA"
+      }
+    },
+    "subtitle":"Potenciamos tu negocio con soluciones tecnológicas innovadoras impulsadas por IA, transformando la manera en que trabajas y te conectas con tus clientes"
   },
   "services": {
     "title": "Nuestros Servicios",
@@ -130,9 +140,162 @@
   },
   "cecilia": {
     "hero": {
-      "title": "Revoluciona la atención al cliente con Cecilia",
-      "subtitle": "Cuando no podés atender a tus clientes de manera rápida y eficiente, perdés clientes. Data Voices tiene la solución. Cecilia, el chatbot inteligente de DataVoices, revoluciona la forma en que interactuás con tus clientes.",
-      "cta": "Empezar ahora"
+      "title": "tu atención al cliente con inteligencia",
+      "highlight":"Automatizá",
+      "subtitle": "Cecilia trabaja 24/7 respondiendo consultas de tus clientes de manera amigable y eficiente, permitiéndote enfocarte en lo que realmente importa.",
+      "cta": "Agendar reunión"
+    },
+     "botTypes": {
+      "title": "Nuestros",
+      "highlight": "Asistentes Especializados",
+      "subtitle": "Cada bot está diseñado para resolver necesidades específicas de tu negocio, proporcionando una atención personalizada y eficiente.",
+      "orderManager": {
+        "title": "Order Manager Assistant",
+        "description": "Gestiona pedidos, consultas de stock y seguimiento de envíos de manera automática, mejorando la eficiencia operativa de tu negocio."
+      },
+      "scheduler": {
+        "title": "Google Scheduler Assistant",
+        "description": "Coordina reuniones y citas automáticamente, sincronizando con Google Calendar para una gestión eficiente de tu agenda."
+      },
+      "eventManager": {
+        "title": "Event Manager Assistant",
+        "description": "Administra registros, consultas y detalles de eventos, facilitando la organización y comunicación con los participantes."
+      },
+      "topicTracker": {
+        "title": "Topic Tracker Assistant",
+        "description": "Analiza y categoriza las conversaciones, proporcionando insights valiosos sobre las necesidades y preferencias de tus clientes."
+      },
+      "tiendaNube": {
+        "title": "Tienda Nube Assistant",
+        "description": "Brinda información actualizada sobre productos, precios y disponibilidad en línea, como también del estado de sus pedidos, mejorando la experiencia de compra de tus clientes."
+      },
+      "mercadoLibre": {
+        "title": "Mercado Libre Assistant",
+        "description": "Gestiona listados de productos, procesamiento de pedidos y consultas de clientes para tu tienda de Mercado Libre tanto en WhatsApp como en la tienda, mejorando la eficiencia de ventas y la satisfacción del cliente."
+      }
+    },
+    "howItWorks": {
+      "title": "Cómo",
+      "highlight": "funciona",
+      "subtitle": "Implementación rápida y sin complicaciones para comenzar a mejorar tu atención al cliente de inmediato.",
+      "steps": {
+        "setup": {
+          "title": "Configuración sencilla",
+          "description": "Integramos Cecilia con tus canales de comunicación actuales como WhatsApp, web o redes sociales en menos de 24 horas."
+        },
+        "training": {
+          "title": "Entrenamiento personalizado",
+          "description": "Adaptamos a Cecilia con información específica de tu negocio, productos y políticas para respuestas precisas."
+        },
+        "automation": {
+          "title": "Automatización inteligente",
+          "description": "Cecilia comienza a atender consultas 24/7, respondiendo a preguntas frecuentes y procesando solicitudes simples."
+        },
+        "collaboration": {
+          "title": "Colaboración humano-máquina",
+          "description": "Para casos complejos, Cecilia transfiere la conversación a tu equipo, proporcionando todo el contexto necesario."
+        }
+      }
+    },
+    "testimonials": {
+      "title": "Testimonios",
+      "middleTitle": "Lo que dicen nuestros",
+      "highlight": "clientes",
+      "subtitle": "Empresas de todos los tamaños están transformando su atención al cliente con Cecilia.",
+      "steps": {
+        "setup": {
+          "title": "Configuración Rápida",
+          "description": "Configuramos Cecilia para tu negocio en menos de una hora, conectándola a tu cuenta de WhatsApp Business."
+        },
+        "training": {
+          "title": "Entrenamiento de IA",
+          "description": "Cecilia aprende sobre tu negocio, productos y servicios para proporcionar información precisa a tus clientes."
+        },
+        "automation": {
+          "title": "Automatización de Procesos",
+          "description": "Automatizamos tus interacciones más comunes con clientes, desde responder preguntas frecuentes hasta programar citas."
+        },
+        "collaboration": {
+          "title": "Colaboración Humana",
+          "description": "Cecilia trabaja junto con tu equipo, manejando consultas rutinarias mientras escala problemas complejos a agentes humanos."
+        }
+      },
+      "items": {
+        "lobos": {
+          "industryType":"Turismo - Municipio",
+          "content": "Cecilia se convirtió en una aliada clave para la atención turística del municipio. Responde consultas sobre atractivos, eventos y horarios en segundos, y nos permitió brindar asistencia 24/7 sin necesidad de ampliar el equipo.",
+          "author": "Viviana",
+          "role": "Responsable de Turismo, Municipio de Lobos",
+          "company": "Oficina de Turismo"
+        },
+        "vichenzo": {
+          "industryType":"Alimentos / Distribución",
+          "content": "Gracias a Cecilia, ahora tomamos pedidos por WhatsApp sin errores ni demoras. Los clientes pueden consultar por sabores, horarios y entregas de forma automática, lo que agilizó muchísimo nuestra operación.",
+          "author": "Alejandro Vichenzo",
+          "role": "Dueño",
+          "company": "Distribuidora Helarte"
+        }
+      }
+    },
+    "pricing": {
+      "title": "Planes",
+      "highlight": "flexibles",
+      "titleEnd": "para tu negocio",
+      "subtitle": "Elegí el plan que mejor se adapte a tus necesidades y comienza a transformar tu atención al cliente.",
+      "basic": {
+        "title": "Básico",
+        "description": "Ideal para pequeños negocios que buscan automatizar su atención al cliente",
+        "features": {
+          "conversations": "Hasta 500 conversaciones por mes",
+          "bot": "Bot simple con IA",
+          "tracking": "Trackeo de tópicos de conversación",
+          "support": "Soporte por email y chat",
+          "reports": "Reportes básicos"
+        }
+      },
+      "pro": {
+        "title": "Pro",
+        "description": "Para negocios en crecimiento que necesitan una solución completa",
+        "features": {
+          "conversations": "Conversaciones ilimitadas",
+          "bots": "Todos los bots disponibles",
+          "analysis": "Análisis avanzado de conversaciones",
+          "support": "Soporte prioritario por email y chat",
+          "integrations": "Integraciones personalizadas"
+        }
+      },
+      "enterprise": {
+        "title": "Empresarial",
+        "description": "Solución personalizada para grandes empresas",
+        "features": {
+          "customFeatures": "Funciones personalizadas y conversaciones ilimitadas",
+          "api": "API dedicada",
+          "implementation": "Implementación personalizada",
+          "accountManager": "Gerente de cuenta dedicado",
+          "sla": "SLA garantizado"
+        }
+      }
+    },
+    "botDemo": {
+      "title": "Probá",
+      "titleEnd": "en Acción",
+      "subtitle": "Seleccioná el tipo de bot que querés probar y experimentá cómo Cecilia puede transformar tu atención al cliente.",
+      "virtualAssistant": "Asistente Virtual",
+      "tryButton": "Prueba Cecilia Ahora",
+      "options": {
+        "municipality": {
+          "title": "Bot Municipio",
+          "description": "Gestión de consultas ciudadanas y trámites municipales"
+        },
+        "tiendaNube": {
+          "title": "Bot Tienda Nube",
+          "description": "Atención de consultas sobre productos, stock y ordenes de compra cargados en tu tienda"
+        },
+        "commerce": {
+          "title": "Bot Comercial",
+          "description": "Gestión de pedidos y consultas de stock"
+        }
+      }
     },
     "features": {
       "title": "¿Qué hace a Cecilia una herramienta única?",
@@ -141,8 +304,8 @@
         "description": "Se configura muy rápido. En 1 hora ya está lista para atender a tus clientes por WhatsApp."
       },
       "availability": {
-        "title": "Disponibilidad total",
-        "description": "Cecilia está disponible para tus clientes las 24 horas del día, los 7 días de la semana."
+        "title": "Disponible 24/7",
+        "description": "Cecilia nunca descansa. Está siempre lista para atender consultas, incluso fuera del horario comercial, mejorando la satisfacción de tus clientes."
       },
       "fixedCost": {
         "title": "Costo fijo",
@@ -153,25 +316,29 @@
         "description": "Cecilia agenda reuniones en Google Calendar, envía formularios, muestra menús, recomienda productos, informa sobre promociones y más."
       },
       "naturalLanguage": {
-        "title": "Lenguaje natural",
-        "description": "Cecilia utiliza modelos de lenguaje grandes (LLMs) y RAG para mantener conversaciones naturales y fluidas con tus clientes."
+        "title": "Respuestas amigables",
+        "description": "Comunicación natural y cercana que hace sentir a tus clientes como si estuvieran hablando con una persona real, creando una experiencia positiva."
       },
       "customizable": {
-        "title": "Personalizable",
-        "description": "Cecilia se adapta a la información de tu negocio para brindar respuestas precisas y personalizadas."
+        "title": "Aprende constantemente",
+        "description": "Mejora con cada interacción, adaptándose a las necesidades específicas de tu negocio y ofreciendo respuestas cada vez más precisas."
       }
     },
     "benefits": {
-      "title": "Beneficios para tu negocio",
-      "efficiency": "Servicio rápido, eficiente y personalizado para tus clientes",
-      "costReduction": "Reducción de gastos en personal de atención al cliente y costos operativos",
-      "focus": "Libera a tu personal para que se enfoque en tareas más importantes",
+      "title": "Beneficios",
+      "middleTitle": "que",
+      "highligh": "transforman",
+      "endTitle": " tu negocio",
+      "highlight": "Asistentes Especializados",
+      "efficiency": "Cecilia revoluciona la manera en que interactúas con tus clientes, aumentando la eficiencia y satisfacción.",
+      "costReduction": "Identifica cuándo es necesario derivar a un agente humano, garantizando que los casos complejos reciban la atención personalizada que merecen.",
+      "focus": "Derivación inteligente",
       "insights": "Recopila datos sobre las preferencias de tus clientes para tomar mejores decisiones"
     },
     "cta": {
-      "title": "¿Listo para transformar tu atención al cliente?",
-      "subtitle": "Contrata Cecilia ahora y empezá a disfrutar de los beneficios en tu negocio.",
-      "primary": "Contratar Cecilia",
+      "title": "Transforma tu atención al cliente hoy mismo",
+      "subtitle": "Agenda una demostración gratuita y descubre cómo Cecilia puede ayudarte a automatizar tu atención al cliente las 24 horas.",
+      "primary": "Agendar demostración",
       "secondary": "Ver promociones especiales"
     }
   },

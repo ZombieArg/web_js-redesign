@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#f5f6fa" />
+  <circle cx="400" cy="250" r="120" fill="#FF5722" opacity="0.9" />
+  <text x="400" y="350" font-family="Arial" font-size="48" font-weight="bold" text-anchor="middle" fill="#2B3674">Cecilia</text>
+  <text x="400" y="400" font-family="Arial" font-size="24" text-anchor="middle" fill="#2B3674">El chatbot inteligente para tu negocio</text>
+  <path d="M320,220 Q400,180 480,220 Q400,260 320,220" fill="white" />
+  <circle cx="360" cy="210" r="10" fill="#2B3674" />
+  <circle cx="440" cy="210" r="10" fill="#2B3674" />
+</svg>

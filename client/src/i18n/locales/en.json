@@ -1,178 +1,346 @@
 {
   "nav": {
     "services": "Services",
-    "about": "About",
+    "about": "About Us",
     "contact": "Contact",
     "experience": "Experience",
     "press": "Press",
-    "backHome": "Back to Home"
+    "backHome": "Back Home"
   },
   "hero": {
-    "title": "Digital Solutions with Artificial Intelligence.",
-    "subtitle": "We empower your business with innovative AI-driven technology solutions, transforming the way you work and connect with your customers",
-    "cta": "Get Started"
+    "slides": {
+      "slide1": {
+        "title": "Digital solutions with Artificial Intelligence.",
+        "subtitle": "We empower your business with innovative technology solutions driven by AI, transforming the way you work and connect with your customers",
+        "cta": "Start Now"
+      },
+      "slide2": {
+        "title": "Cecilia, the chatbot that solves your customers’ queries.",
+        "subtitle": "Automate your customer service with our intelligent chatbot available 24/7. Improve your customers’ experience and reduce operational costs",
+        "cta": "Meet CecilIA"
+      }
+    },
+    "subtitle": "We empower your business with innovative technology solutions driven by AI, transforming the way you work and connect with your customers"
   },
   "services": {
     "title": "Our Services",
     "customerService": {
       "title": "AI for Customer Service",
-      "description": "Our flagship product, CecilIA, not only provides fast, efficient, and personalized service to your customers but also helps reduce customer service staff expenses and operational costs."
+      "description": "Our flagship product, CecilIA, not only offers fast, efficient and personalized service to your customers; it also lets you reduce customer-service staffing and operating costs."
     },
     "dataAI": {
-      "title": "AI in Your Data",
+      "title": "AI on Your Data",
       "description": "Query your databases by chatting with Artificial Intelligence.",
       "hero": {
-        "title": "Chat with Your Data Using AI",
-        "subtitle": "Transform the way you interact with your business data. Ask questions in plain language and get instant insights powered by artificial intelligence.",
-        "cta": "Start Exploring Your Data"
+        "title": "Chat with your data using AI",
+        "subtitle": "Transform the way you interact with your business data. Ask questions in natural language and get instant answers powered by artificial intelligence.",
+        "cta": "Start exploring your data"
       },
       "features": {
-        "title": "Powerful Features for Data Analysis",
+        "title": "Powerful data-analysis features",
         "naturalQueries": {
-          "title": "Natural Language Queries",
-          "description": "Ask questions about your data in plain language and get instant insights"
+          "title": "Natural-language queries",
+          "description": "Ask questions about your data in natural language and get instant answers"
         },
         "dataSources": {
-          "title": "Multiple Data Sources",
-          "description": "Connect and analyze data from various sources including databases, spreadsheets, and APIs"
+          "title": "Multiple data sources",
+          "description": "Connect and analyse data from various sources, including databases, spreadsheets and APIs"
         },
         "security": {
-          "title": "Secure Access",
+          "title": "Secure access",
           "description": "Enterprise-grade security with role-based access control and data encryption"
         },
         "realtime": {
-          "title": "Real-time Analysis",
-          "description": "Get instant answers and insights from your data in real-time"
+          "title": "Real-time analytics",
+          "description": "Get instant answers and insights from your data in real time"
         },
         "interface": {
-          "title": "Conversational Interface",
-          "description": "Chat with your data using natural language and receive clear, actionable insights"
+          "title": "Conversational interface",
+          "description": "Chat with your data in natural language and receive clear, actionable insights"
         },
         "visualization": {
-          "title": "Visual Insights",
-          "description": "Automatically generated visualizations and reports from your queries"
+          "title": "Visual insights",
+          "description": "Automatically generated visualisations and reports from your queries"
         }
       }
     },
     "softwareDev": {
-      "title": "AI Software Development",
-      "description": "We develop custom software solutions powered by AI, automating processes and creating intelligent applications that adapt to your business's specific needs.",
+      "title": "AI-powered Software Development",
+      "description": "We build customised software solutions powered by AI, automating processes and creating intelligent applications tailored to your business’s specific needs.",
       "hero": {
-        "title": "AI-Powered Software Development",
-        "subtitle": "Build intelligent, scalable, and future-proof software solutions that transform your business with the power of AI.",
-        "cta": "Start Your Project"
+        "title": "AI-powered Software Development",
+        "subtitle": "Build intelligent, scalable and future-ready software solutions that transform your business with the power of AI.",
+        "cta": "Start your project"
       },
       "features": {
-        "title": "Our Development Approach",
+        "title": "Our development approach",
         "aiFirst": {
-          "title": "AI-First Development",
-          "description": "Build intelligent applications with AI capabilities integrated from the ground up"
+          "title": "AI-First development",
+          "description": "Build intelligent applications with AI capabilities integrated from the start"
         },
         "custom": {
-          "title": "Custom Solutions",
-          "description": "Tailored software development that perfectly matches your business needs"
+          "title": "Customised solutions",
+          "description": "Tailor-made software that fits your business needs perfectly"
         },
         "agile": {
-          "title": "Agile Development",
-          "description": "Flexible and iterative development process with regular deliverables"
+          "title": "Agile development",
+          "description": "Flexible, iterative process with regular deliveries"
         },
         "scalable": {
-          "title": "Scalable Architecture",
-          "description": "Future-proof solutions designed to grow with your business"
+          "title": "Scalable architecture",
+          "description": "Future-ready solutions designed to grow with your business"
         },
         "fullCycle": {
-          "title": "Full-cycle Development",
-          "description": "End-to-end service from planning to deployment and maintenance"
+          "title": "Full-cycle development",
+          "description": "End-to-end service, from planning to deployment and maintenance"
         },
         "collaborative": {
-          "title": "Collaborative Approach",
+          "title": "Collaborative approach",
           "description": "Close collaboration with your team throughout the development process"
         }
       }
     },
     "consulting": {
       "title": "Strategic Consulting",
-      "description": "Through our staff of AI Scientists and Engineers, we train your personnel in the use and understanding of AI while designing strategies for its implementation in your processes.",
+      "description": "With our team of AI Scientists and Engineers we train your staff in AI use and understanding while designing strategies for its implementation in your processes.",
       "hero": {
         "title": "Strategic AI Consulting",
-        "subtitle": "Expert guidance to help your organization understand, implement, and leverage AI technologies effectively.",
-        "cta": "Get Expert Guidance"
+        "subtitle": "Expert guidance to help your organisation understand, implement and leverage AI technologies effectively.",
+        "cta": "Get expert guidance"
       },
       "features": {
-        "title": "Our Consulting Services",
+        "title": "Our consulting services",
         "strategy": {
-          "title": "AI Strategy Development",
+          "title": "AI strategy development",
           "description": "Create a comprehensive AI roadmap aligned with your business goals"
         },
         "training": {
-          "title": "Team Training",
-          "description": "Empower your team with AI knowledge and practical skills"
+          "title": "Team training",
+          "description": "Empower your team with practical AI knowledge and skills"
         },
         "optimization": {
-          "title": "Process Optimization",
-          "description": "Identify opportunities for AI implementation in your processes"
+          "title": "Process optimisation",
+          "description": "Identify opportunities to implement AI in your processes"
         },
         "innovation": {
-          "title": "Innovation Workshops",
+          "title": "Innovation workshops",
           "description": "Collaborative sessions to explore AI possibilities for your business"
         },
         "performance": {
-          "title": "Performance Analysis",
-          "description": "Measure and optimize the impact of AI implementations"
+          "title": "Performance analysis",
+          "description": "Measure and optimise the impact of AI implementations"
         },
         "support": {
-          "title": "Ongoing Support",
-          "description": "Continuous guidance and support throughout your AI journey"
+          "title": "Continuous support",
+          "description": "Ongoing guidance and support throughout your AI journey"
         }
       }
     },
-    "learnMore": "Learn More"
+    "learnMore": "Learn more"
   },
   "cecilia": {
     "hero": {
-      "title": "Revolutionize Customer Service with Cecilia",
-      "subtitle": "When you can't serve your customers quickly and efficiently, you lose customers. Data Voices has the solution. Cecilia, DataVoices' intelligent chatbot, revolutionizes the way you interact with your customers.",
-      "cta": "Get Started"
+      "title": "your customer service intelligently",
+      "highlight": "Automate",
+      "subtitle": "Cecilia works 24/7, answering your customers’ questions in a friendly and efficient way, letting you focus on what really matters.",
+      "cta": "Schedule meeting"
+    },
+    "botTypes": {
+      "title": "Our",
+      "highlight": "Specialised Assistants",
+      "subtitle": "Each bot is designed to meet a specific business need, providing personalised and efficient service.",
+      "orderManager": {
+        "title": "Order Manager Assistant",
+        "description": "Automatically manages orders, stock queries and shipment tracking, improving your operational efficiency."
+      },
+      "scheduler": {
+        "title": "Google Scheduler Assistant",
+        "description": "Automatically coordinates meetings and appointments, syncing with Google Calendar for efficient agenda management."
+      },
+      "eventManager": {
+        "title": "Event Manager Assistant",
+        "description": "Manages registrations, queries and event details, streamlining organisation and communication with participants."
+      },
+      "topicTracker": {
+        "title": "Topic Tracker Assistant",
+        "description": "Analyses and categorises conversations, providing valuable insights into your customers’ needs and preferences."
+      },
+      "tiendaNube": {
+        "title": "Tienda Nube Assistant",
+        "description": "Provides up-to-date information on products, prices and online availability, as well as order status, enhancing your customers' shopping experience."
+      },
+      "mercadoLibre": {
+        "title": "Mercado Libre Assistant",
+        "description": "Manages product listings, order processing, and customer inquiries for your Mercado Libre store, improving sales efficiency and customer satisfaction."
+      }
+      
+    },
+    "howItWorks": {
+      "title": "How",
+      "highlight": "it works",
+      "subtitle": "Fast, hassle-free implementation so you can start improving your customer service immediately.",
+      "steps": {
+        "setup": {
+          "title": "Simple setup",
+          "description": "We integrate Cecilia with your current channels like WhatsApp, web or social media in under 24 hours."
+        },
+        "training": {
+          "title": "Personalised training",
+          "description": "We adapt Cecilia with specific information about your business, products and policies for accurate answers."
+        },
+        "automation": {
+          "title": "Intelligent automation",
+          "description": "Cecilia starts handling queries 24/7, answering FAQs and processing simple requests."
+        },
+        "collaboration": {
+          "title": "Human-machine collaboration",
+          "description": "For complex cases, Cecilia hands the conversation over to your team, providing all the necessary context."
+        }
+      }
+    },
+    "testimonials": {
+      "title": "Testimonials",
+      "middleTitle": "What our",
+      "highlight": "clients",
+      "subtitle": "Companies of all sizes are transforming their customer service with Cecilia.",
+      "steps": {
+        "setup": {
+          "title": "Quick setup",
+          "description": "We set up Cecilia for your business in under an hour, connecting it to your WhatsApp Business account."
+        },
+        "training": {
+          "title": "AI training",
+          "description": "Cecilia learns about your business, products and services to provide accurate information to your customers."
+        },
+        "automation": {
+          "title": "Process automation",
+          "description": "We automate your most common customer interactions, from answering FAQs to scheduling appointments."
+        },
+        "collaboration": {
+          "title": "Human collaboration",
+          "description": "Cecilia works alongside your team, handling routine queries while escalating complex issues to human agents."
+        }
+      },
+      "items": {
+        "lobos": {
+          "industryType": "Tourism – Municipality",
+          "content": "Cecilia became a key ally for the municipality’s tourist services. She answers questions about attractions, events and opening times in seconds, allowing us to offer 24/7 assistance without expanding the team.",
+          "author": "Viviana",
+          "role": "Head of Tourism, Municipality of Lobos",
+          "company": "Tourism Office"
+        },
+        "vichenzo": {
+          "industryType": "Food / Distribution",
+          "content": "Thanks to Cecilia, we now take orders via WhatsApp without mistakes or delays. Customers can automatically check flavours, hours and deliveries, which has greatly streamlined our operation.",
+          "author": "Alejandro Vichenzo",
+          "role": "Owner",
+          "company": "Distribuidora Helarte"
+        }
+      }
+    },
+    "pricing": {
+      "title": "Plans",
+      "highlight": "flexible",
+      "titleEnd": "for your business",
+      "subtitle": "Choose the plan that best suits your needs and start transforming your customer service.",
+      "basic": {
+        "title": "Basic",
+        "description": "Ideal for small businesses looking to automate their customer service",
+        "features": {
+          "conversations": "Up to 500 conversations per month",
+          "bot": "Simple AI bot",
+          "tracking": "Conversation topic tracking",
+          "support": "Email and chat support",
+          "reports": "Basic reports"
+        }
+      },
+      "pro": {
+        "title": "Pro",
+        "description": "For growing businesses that need a complete solution",
+        "features": {
+          "conversations": "Unlimited conversations",
+          "bots": "All bots available",
+          "analysis": "Advanced conversation analysis",
+          "support": "Priority email and chat support",
+          "integrations": "Custom integrations"
+        }
+      },
+      "enterprise": {
+        "title": "Enterprise",
+        "description": "Customised solution for large companies",
+        "features": {
+          "customFeatures": "Custom features and unlimited conversations",
+          "api": "Dedicated API",
+          "implementation": "Custom implementation",
+          "accountManager": "Dedicated account manager",
+          "sla": "Guaranteed SLA"
+        }
+      }
+    },
+    "botDemo": {
+      "title": "Try",
+      "titleEnd": "in Action",
+      "subtitle": "Select the type of bot you want to test and see how Cecilia can transform your customer service.",
+      "virtualAssistant": "Virtual Assistant",
+      "tryButton": "Try Cecilia Now",
+      "options": {
+        "municipality": {
+          "title": "Municipality Bot",
+          "description": "Manages citizen queries and municipal procedures"
+        },
+        "tiendaNube": {
+          "title": "Tienda Nube Bot",
+          "description": "Handles queries about products, stock and purchase orders loaded in your store"
+        },
+        "commerce": {
+          "title": "Commerce Bot",
+          "description": "Manages orders and stock queries"
+        }
+      }
     },
     "features": {
       "title": "What makes Cecilia a unique tool?",
       "quickSetup": {
-        "title": "Quick Setup",
-        "description": "Sets up very quickly. In 1 hour it's ready to serve your customers through WhatsApp."
+        "title": "Quick setup",
+        "description": "It’s set up very quickly. In 1 hour she’s ready to serve your customers on WhatsApp."
       },
       "availability": {
-        "title": "Full Availability",
-        "description": "Cecilia is available for your customers 24 hours a day, 7 days a week."
+        "title": "Available 24/7",
+        "description": "Cecilia never rests. She’s always ready to answer queries, even outside business hours, improving customer satisfaction."
       },
       "fixedCost": {
-        "title": "Fixed Cost",
-        "description": "Pay a fixed monthly fee and enjoy all its benefits, with no surprises or variable costs."
+        "title": "Fixed cost",
+        "description": "You pay a fixed monthly fee and enjoy all benefits with no surprises or variable costs."
       },
       "multitasking": {
         "title": "Multitasking",
-        "description": "Cecilia schedules meetings in Google Calendar, sends forms, shows menus, recommends products, informs about promotions, and more."
+        "description": "Cecilia schedules meetings in Google Calendar, sends forms, shows menus, recommends products, informs about promotions and more."
       },
       "naturalLanguage": {
-        "title": "Natural Language",
-        "description": "Cecilia uses Large Language Models (LLMs) and RAG to maintain natural and fluid conversations with your customers."
+        "title": "Friendly responses",
+        "description": "Natural, close communication that makes your customers feel like they’re talking to a real person, creating a positive experience."
       },
       "customizable": {
-        "title": "Customizable",
-        "description": "Cecilia adapts to your business information to provide accurate and personalized responses."
+        "title": "Constantly learning",
+        "description": "Improves with every interaction, adapting to your business’s specific needs and offering increasingly accurate answers."
       }
     },
     "benefits": {
-      "title": "Benefits for your business",
-      "efficiency": "Fast, efficient, and personalized service for your customers",
-      "costReduction": "Reduction in customer service staff expenses and operational costs",
-      "focus": "Frees your staff to focus on more important tasks",
+      "title": "Benefits",
+      "middleTitle": "that",
+      "highligh": "transform",
+      "endTitle": " your business",
+      "highlight": "Specialised Assistants",
+      "efficiency": "Cecilia revolutionises the way you interact with your customers, increasing efficiency and satisfaction.",
+      "costReduction": "Identifies when it’s necessary to hand off to a human agent, ensuring complex cases receive the personalised attention they deserve.",
+      "focus": "Intelligent handoff",
       "insights": "Collects data on customer preferences to make better decisions"
     },
     "cta": {
-      "title": "Ready to transform your customer service?",
-      "subtitle": "Get Cecilia now and start enjoying the benefits in your business.",
-      "primary": "Get Cecilia",
-      "secondary": "See special promotions"
+      "title": "Transform your customer service today",
+      "subtitle": "Schedule a free demo and discover how Cecilia can help you automate your customer service 24 hours a day.",
+      "primary": "Schedule demo",
+      "secondary": "See special offers"
     }
   },
   "about": {
@@ -181,38 +349,38 @@
     "connect": "Connect with us"
   },
   "clients": {
-    "title": "They Trust Us",
-    "subtitle": "Companies and organizations that have already transformed their businesses with DataVoices",
+    "title": "They trusted us",
+    "subtitle": "Companies and organisations that have already transformed their business with DataVoices",
     "visitSite": "Visit site"
   },
   "press": {
     "title": "DataVoices in the Press",
-    "subtitle": "Discover how we're transforming the future of technology",
-    "readMore": "Read More",
+    "subtitle": "Discover how we are shaping the future of technology",
+    "readMore": "Read more",
     "articles": {
       "infobae": {
-        "title": "Argentinians win international award for creating AI that detoxifies social networks",
+        "title": "Argentines win international award for creating an AI that detoxifies social networks",
         "source": "Infobae"
       },
       "c5n": {
-        "title": "UBA graduates created an AI chatbot designed for customer service",
+        "title": "UBA graduates created an AI chatbot for customer service",
         "source": "C5N"
       },
       "perfil": {
-        "title": "AI at the service of democracy: Data Voices' success story",
+        "title": "AI in the service of democracy: the success story of DataVoices",
         "source": "Perfil"
       },
       "puntal1": {
-        "title": "AI will change the economy and how people live, experts say",
+        "title": "They claim artificial intelligence will change the economy and the way we live",
         "source": "Puntal"
       }
     }
   },
   "contact": {
-    "title": "Ready to Transform Your Data?",
-    "subtitle": "Contact us to discover how we can help you achieve your business goals.",
+    "title": "Ready to transform your data?",
+    "subtitle": "Contact us to discover how we can help you reach your business goals.",
     "email": "Your email",
-    "message": "Write your message here",
+    "message": "Write your query here",
     "button": "Contact",
     "success": "Message sent successfully!",
     "error": "Error sending message. Please try again."

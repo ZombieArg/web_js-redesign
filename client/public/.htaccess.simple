@@ -1,0 +1,21 @@
+# Simple .htaccess for React SPA on shared hosting
+# This fixes the 403 Forbidden error when accessing routes directly
+
+RewriteEngine On
+
+# Remove trailing slashes from URLs (except for root)
+RewriteCond %{REQUEST_URI} ^(.+)/+$
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ %1 [R=301,L]
+
+# Handle sitemap and robots
+RewriteRule ^(sitemap\.xml|robots\.txt)$ - [L]
+
+# Redirect all non-file requests to index.html for React Router
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.html [L]
+
+# Optional: Force HTTPS (uncomment if needed)
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
