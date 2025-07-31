@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';   
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { LanguageSelector } from '../../components/LanguageSelector';
 
@@ -15,9 +15,8 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-md py-3' : 'bg-transparent py-5'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-3' : 'bg-transparent py-5'
+        }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         {/* Logo + texto envueltos en Link */}
@@ -51,13 +50,15 @@ const Header = () => {
             href="#testimonios"
             className="text-gray-700 hover:text-accent-600 transition-colors"
           >
-            {t('cecilia.testimonials.title')} 
+            {t('cecilia.testimonials.title')}
           </a>
         </nav>
 
         <div className="flex items-center space-x-4">
           <a
-            href="contacto"
+            href="https://wa.me/5491123456789?text=%C2%A1Hola!%20Me%20gustar%C3%ADa%20saber%20un%20poco%20m%C3%A1s%20sobre%20CecilIA.%20%C2%BFPodr%C3%ADan%20contarme%20de%20qu%C3%A9%20se%20trata%3F"
+            target="_blank"
+            rel="noopener noreferrer"
             className="bg-accent-600 text-white px-5 py-2 rounded-full hover:bg-accent-700 transition-colors duration-300 font-medium shadow-sm"
           >
             {t('nav.contact')}
