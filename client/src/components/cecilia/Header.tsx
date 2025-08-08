@@ -56,7 +56,7 @@ const Header = () => {
 
         <div className="flex items-center space-x-4">
           <a
-            href="https://wa.me/54930313456?text=%C2%A1Hola!%20Me%20gustar%C3%ADa%20saber%20m%C3%A1s%20sobre%20CecilIA.%20%C2%BFPodr%C3%ADan%20contarme%20de%20qu%C3%A9%20se%20trata%3F"
+            href="https://wa.me/5491130313456?text=%C2%A1Hola!%20Me%20gustar%C3%ADa%20saber%20m%C3%A1s%20sobre%20CecilIA.%20%C2%BFPodr%C3%ADan%20contarme%20de%20qu%C3%A9%20se%20trata%3F"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-accent-600 text-white px-5 py-2 rounded-full hover:bg-accent-700 transition-colors duration-300 font-medium shadow-sm"
