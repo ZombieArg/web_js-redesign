@@ -4,33 +4,70 @@
     "about": "Nosotros",
     "contact": "Contactar",
     "experience": "Experiencia",
+    "successStories": "Casos de éxito",
+    "effectiveStates": "Estados efectivos",
     "press": "Prensa",
     "backHome": "Volver al inicio"
   },
   "hero": {
     "slides": {
       "slide1": {
-        "title": "Soluciones digitales con Inteligencia Artificial.",
-        "subtitle": "Potenciamos tu negocio con soluciones tecnológicas innovadoras impulsadas por IA, transformando la manera en que trabajas y te conectas con tus clientes",
-        "cta": "Comenzá Ahora"
+        "title": "Soluciones de IA a medida para tu negocio.",
+        "subtitle": "Diseñamos, desarrollamos e integramos productos de IA que resuelven tus cuellos de botella reales y generan impacto en ingresos, eficiencia y experiencia de cliente.",
+        "cta": "Quiero una propuesta"
       },
       "slide2": {
-        "title": "Cecilia, el chatbot que resuelve las consultas a tus clientes.",
-        "subtitle": "Automatizá tu atención al cliente con nuestro chatbot inteligente disponible 24/7. Mejorá la experiencia de tus clientes y reducí costos operativos",
-        "cta": "Conocé CecilIA"
+        "title": "Automatización inteligente para áreas clave de tu empresa.",
+        "subtitle": "Implementamos agentes y flujos de IA para operaciones, análisis y atención, integrados con tus herramientas actuales.",
+        "cta": "Explorar soluciones"
       }
     },
-    "subtitle":"Potenciamos tu negocio con soluciones tecnológicas innovadoras impulsadas por IA, transformando la manera en que trabajas y te conectas con tus clientes"
+    "subtitle":"Creamos soluciones de IA listas para producción que se adaptan a tu empresa, no plantillas genéricas."
+  },
+  "valueProp": {
+    "badge": "IA aplicada al negocio",
+    "title": "Implementamos IA a medida con foco en resultados medibles",
+    "subtitle": "Combinamos estrategia, desarrollo e integración para que tu empresa adopte IA de forma segura y rentable desde el primer sprint.",
+    "pillars": {
+      "discovery": {
+        "title": "Diagnóstico + roadmap",
+        "description": "Priorizamos casos de uso por impacto y viabilidad para que inviertas en lo que realmente mueve la aguja."
+      },
+      "execution": {
+        "title": "Desarrollo e integración",
+        "description": "Construimos soluciones conectadas con tus sistemas, datos y operación diaria, evitando fricción al implementarlas."
+      },
+      "scale": {
+        "title": "Escala y mejora continua",
+        "description": "Monitoreamos performance, ajustamos prompts/modelos y mejoramos flujos para sostener resultados en el tiempo."
+      }
+    },
+    "outcomes": {
+      "impact": {
+        "value": "Casos reales",
+        "label": "Proyectos aplicados en atención, datos, software y consultoría"
+      },
+      "launch": {
+        "value": "Semanas, no meses",
+        "label": "Primeras versiones funcionales y medibles en ciclos cortos"
+      },
+      "reliability": {
+        "value": "Enfoque end-to-end",
+        "label": "Desde la estrategia hasta el despliegue, acompañamos toda la implementación"
+      }
+    },
+    "primaryCta": "Agendar diagnóstico",
+    "secondaryCta": "Hablar por WhatsApp"
   },
   "services": {
-    "title": "Nuestros Servicios",
+    "title": "Soluciones de IA a Medida",
     "customerService": {
-      "title": "IA para atención al cliente",
-      "description": "Nuestro producto estrella, CecilIA no sólo brinda un servicio rápido, eficiente y personalizado a tus clientes; sino también te permite reducir gastos en personal de atención al cliente y costos operativos."
+      "title": "Asistentes IA para atención y ventas",
+      "description": "CecilIA responde consultas 24/7, deriva casos complejos y acelera conversiones con una experiencia consistente en todos tus canales."
     },
     "dataAI": {
-      "title": "IA en tus datos",
-      "description": "Consultá tus bases de datos chateando con la Inteligencia Artificial.",
+      "title": "IA sobre tus datos",
+      "description": "Convertí datos dispersos en decisiones accionables con consultas en lenguaje natural y respuestas confiables.",
       "hero": {
         "title": "Chatea con tus datos usando IA",
         "subtitle": "Transforma la manera en que interactúas con los datos de tu negocio. Haz preguntas en lenguaje natural y obtén respuestas instantáneas potenciadas por inteligencia artificial.",
@@ -66,7 +103,7 @@
     },
     "softwareDev": {
       "title": "Desarrollo de Software con IA",
-      "description": "Desarrollamos soluciones de software personalizadas potenciadas por IA, automatizando procesos y creando aplicaciones inteligentes que se adaptan a las necesidades específicas de tu negocio.",
+      "description": "Desarrollamos productos y automatizaciones con IA adaptadas a tu proceso operativo, arquitectura y objetivos comerciales.",
       "hero": {
         "title": "Desarrollo de Software potenciado por IA",
         "subtitle": "Construye soluciones de software inteligentes, escalables y preparadas para el futuro que transforman tu negocio con el poder de la IA.",
@@ -102,7 +139,7 @@
     },
     "consulting": {
       "title": "Consultoría Estratégica",
-      "description": "Mediante nuestro staff de Científicos e Ingenieros en IA capacitamos a tu personal en el uso y entendimiento de la IA a la vez que diseñamos estrategias para su implementación en tus procesos.",
+      "description": "Definimos estrategia, gobernanza y adopción para que la IA genere ROI real en tu empresa y no quede en pruebas aisladas.",
       "hero": {
         "title": "Consultoría Estratégica en IA",
         "subtitle": "Guía experta para ayudar a tu organización a entender, implementar y aprovechar las tecnologías de IA de manera efectiva.",
@@ -343,14 +380,93 @@
     }
   },
   "about": {
-    "title": "Quiénes Somos",
-    "description": "En DataVoices, somos un equipo de Científicos e Ingenieros en IA con amplia experiencia profesional y académica, atendiendo tanto a clientes internacionales como locales. Nuestra experiencia combina investigación de vanguardia con soluciones empresariales prácticas para ofrecer tecnologías de IA transformadoras.",
+    "title": "Tu partner técnico en IA",
+    "description": "Somos un equipo de Científicos e Ingenieros en IA que convierte oportunidades en soluciones concretas: desde el descubrimiento del caso de uso hasta la implementación en producción.",
     "connect": "Conecta con nosotros"
   },
   "clients": {
     "title": "Confiaron en nosotros",
     "subtitle": "Empresas y organizaciones que ya transformaron sus negocios con DataVoices",
     "visitSite": "Visitar sitio"
+  },
+  "successStories": {
+    "title": "Casos de éxito",
+    "subtitle": "Productos de IA que desarrollamos para distintos clientes, diseñados para resolver problemas reales y generar impacto medible.",
+    "featured": "Caso destacado",
+    "comingSoon": "Próximamente",
+    "visitProduct": "Visitar producto",
+    "requestDemo": "Pedir demo del producto",
+    "videoTitle": "Cómo crear screenings y evaluar candidatos",
+    "watchVideo": "Ver video completo",
+    "products": {
+      "realTimeInterviewAgent": {
+        "name": "Real Time Interview Agent",
+        "summary": "Plataforma de entrevistas asistidas por IA para equipos de HR y entrevistadores: combina preparación en web, ejecución en desktop y análisis colaborativo para todo el ciclo de contratación.",
+        "highlights": {
+          "screening": "Screenings automáticos asincrónicos por invitación con criterios predefinidos",
+          "liveAgent": "Asistencia en vivo durante entrevistas: captura puntos clave, respuestas y evaluación en tiempo real",
+          "comparison": "Comparación de entrevistas y candidatos con insights por IA en lenguaje natural",
+          "collaboration": "Gestión centralizada de candidatos, búsquedas y colaboración entre recruiters e interviewers"
+        }
+      },
+      "normsy": {
+        "name": "Normsy",
+        "summary": "Proyecto no partidario que combina intervención humana y copiloto LLM para fortalecer normas cívicas en redes sociales: detecta hilos tóxicos de alto alcance, sugiere respuestas constructivas y escala counterspeech sin censura ni dependencia de plataformas.",
+        "highlights": {
+          "approach": "Modelo 'human pilot + LLM copilot': los usuarios deciden si intervenir, qué estrategia usar y cuánto editar",
+          "detection": "Motor de detección y scoring en X/Twitter para priorizar hilos con alta toxicidad y alto potencial de impacto",
+          "recommendation": "Motor de recomendaciones con más de 20 estrategias respaldadas por ciencias sociales (empatía, humor, reencuadre, apelación a valores)",
+          "impact": "Evidencia inicial en estudio de abril 2025 (n=1.021): reduce apoyo a posteos que violan normas y aumenta percepción de daño"
+        }
+      },
+      "agentLuncher": {
+        "name": "Agent Launcher",
+        "summary": "MVP del CCM Agent Launcher Service: plataforma web para crear, configurar y ejecutar agentes inteligentes sobre múltiples LLMs (Grok, Gemini y GPT), con foco en análisis comparativo de comportamientos multiagente.",
+        "highlights": {
+          "multiModel": "Creación y ejecución de agentes sobre distintos modelos LLM en un mismo entorno",
+          "configurable": "Interfaz intuitiva para definir variables (ej. ticker), personalizar prompts y organizar agentes por tags",
+          "groupRuns": "Ejecuciones grupales para lanzar varios agentes en paralelo con la misma consigna",
+          "comparativeView": "Visualización comparativa de respuestas para analizar razonamiento y diferencias entre agentes"
+        }
+      }
+    }
+  },
+  "effectiveStates": {
+    "badge": "Gobierno + IA",
+    "title": "Inteligencia artificial para Estados más efectivos",
+    "subtitlePrefix": "Junto al BID, nuestro co founder",
+    "subtitleSuffix": "está aplicando herramientas de IA en distintos países para aumentar la eficiencia de los gobiernos de América Latina.",
+    "partnershipTitle": "Trabajo conjunto con el Banco Interamericano de Desarrollo (BID)",
+    "partnershipDescription": "Este enfoque permite superar la fragmentación estatal al analizar de forma integrada normas, programas y experiencia de ejecución, combinando IA con criterio experto para mejorar coordinación, diseño de políticas y capacidad de implementación.",
+    "downloadReport": "Descargar informe completo del BID",
+    "tools": {
+      "structure": {
+        "title": "Revisión de la estructura del Estado",
+        "description": "Análisis de mandatos y funciones de ministerios y organismos para detectar superposiciones, vacíos y áreas críticas de coordinación."
+      },
+      "programs": {
+        "title": "Mejora de programas y proyectos",
+        "description": "Evaluación de portafolios completos para medir alineación con planes nacionales, identificar redundancias y generar alertas tempranas de ejecución."
+      },
+      "learning": {
+        "title": "Aprendizaje institucional continuo",
+        "description": "Minería de reportes y evaluaciones para transformar experiencia acumulada en playbooks prácticos reutilizables por equipos públicos."
+      }
+    },
+    "stats": {
+      "organizations": {
+        "value": "~1.000",
+        "label": "Unidades organizativas analizadas en ejercicios de mapeo institucional"
+      },
+      "projects": {
+        "value": "200+ / 25.000+",
+        "label": "Proyectos y páginas revisadas en análisis de portafolios públicos"
+      },
+      "memory": {
+        "value": "1.500 / 15 años",
+        "label": "Proyectos del BID procesados para extraer lecciones y memoria institucional"
+      }
+    }
   },
   "press": {
     "title": "DataVoices en la Prensa",
@@ -376,13 +492,49 @@
     }
   },
   "contact": {
-    "title": "¿Listo para transformar tus datos?",
-    "subtitle": "Contacta con nosotros para descubrir cómo podemos ayudarte a alcanzar tus objetivos empresariales.",
+    "title": "Contanos tu desafío y diseñamos una solución de IA a medida",
+    "subtitle": "En una primera conversación definimos oportunidades, alcance y próximos pasos para implementar IA con impacto real en tu negocio.",
     "email": "Tu email",
     "message": "Escriba aquí su consulta",
-    "button": "Contactar",
+    "button": "Quiero mi diagnóstico",
     "success": "¡Mensaje enviado con éxito!",
     "error": "Error al enviar el mensaje. Por favor, intenta nuevamente."
+  },
+  "homeTestimonials": {
+    "title": "Lo que dicen nuestros clientes",
+    "subtitle": "Equipos de distintos mercados ya están obteniendo resultados concretos con nuestras soluciones de IA a medida.",
+    "items": {
+      "rob": {
+        "author": "Rob Romero",
+        "role": "CEO",
+        "company": "Connective Capital Management",
+        "quote": "Con Data Voices hoy contamos con un equipo de agentes de IA multi-proveedor que nos ayuda a analizar el mercado y tomar decisiones de inversión mejor informadas."
+      },
+      "kristin": {
+        "author": "Kristin Hansen",
+        "role": "Directora Ejecutiva",
+        "company": "Civic Health Project",
+        "quote": "Llevamos más de dos años desarrollando Normsy junto a Data Voices. Se convirtió en el producto insignia de nuestra fundación, superó USD 1 millón en financiamiento y premios, y hoy es una plataforma robusta con impacto real."
+      },
+      "leopoldo": {
+        "author": "Leopoldo Reyes",
+        "role": "Fundador",
+        "company": "Synaptech",
+        "quote": "Junto a Data Voices estamos integrando IA en procesos de empresas líderes de Ecuador. Compañías como Quicornac y Swissgas ya usan agentes desarrollados por su equipo para automatizar operaciones clave."
+      },
+      "wendell": {
+        "author": "Wendell Brown",
+        "role": "Founder",
+        "company": "Real Time Interview Agent",
+        "quote": "Gracias a Data Voices pude crear el Real Time Interview Agent, un producto que agiliza y automatiza los procesos de entrevistas con IA. Lo que comenzó como un sueño el equipo de data voices rápidamente lo convirtió en realidad!"
+      },
+      "ulises": {
+        "author": "Ulises Guibelalde",
+        "role": "Gerente de Calidad",
+        "company": "SERPA SRL",
+        "quote": "La capacitación en IA con Data Voices fue una experiencia muy enriquecedora y totalmente aplicable a nuestra operación. Con un enfoque práctico y gran compromiso del equipo, logramos convertir el desafío tecnológico en una oportunidad concreta de mejora e innovación."
+      }
+    }
   },
   "footer": {
     "services": "Servicios",

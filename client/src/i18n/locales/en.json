@@ -4,33 +4,70 @@
     "about": "About Us",
     "contact": "Contact",
     "experience": "Experience",
+    "successStories": "Success Stories",
+    "effectiveStates": "Effective States",
     "press": "Press",
     "backHome": "Back Home"
   },
   "hero": {
     "slides": {
       "slide1": {
-        "title": "Digital solutions with Artificial Intelligence.",
-        "subtitle": "We empower your business with innovative technology solutions driven by AI, transforming the way you work and connect with your customers",
-        "cta": "Start Now"
+        "title": "Custom AI solutions built for your business.",
+        "subtitle": "We design, build and integrate AI products that solve your real bottlenecks and drive measurable impact across revenue, efficiency and customer experience.",
+        "cta": "Request proposal"
       },
       "slide2": {
-        "title": "Cecilia, the chatbot that solves your customers’ queries.",
-        "subtitle": "Automate your customer service with our intelligent chatbot available 24/7. Improve your customers’ experience and reduce operational costs",
-        "cta": "Meet CecilIA"
+        "title": "Intelligent automation for your core business areas.",
+        "subtitle": "We implement AI agents and workflows for operations, analytics and customer support, fully integrated with your current tools.",
+        "cta": "Explore solutions"
       }
     },
-    "subtitle": "We empower your business with innovative technology solutions driven by AI, transforming the way you work and connect with your customers"
+    "subtitle": "We deliver production-ready AI solutions tailored to your company, not generic templates."
+  },
+  "valueProp": {
+    "badge": "Business-focused AI",
+    "title": "We implement custom AI with measurable business outcomes",
+    "subtitle": "We combine strategy, engineering and integration so your company adopts AI safely and profitably from the first sprint.",
+    "pillars": {
+      "discovery": {
+        "title": "Discovery + roadmap",
+        "description": "We prioritise use cases by business impact and feasibility so you invest where it actually matters."
+      },
+      "execution": {
+        "title": "Build and integration",
+        "description": "We deliver solutions connected to your systems, data and daily operations to ensure smooth adoption."
+      },
+      "scale": {
+        "title": "Scale and optimisation",
+        "description": "We monitor performance, refine prompts/models and improve workflows to sustain results over time."
+      }
+    },
+    "outcomes": {
+      "impact": {
+        "value": "Proven cases",
+        "label": "Projects delivered in support, data, software and AI consulting"
+      },
+      "launch": {
+        "value": "Weeks, not months",
+        "label": "First functional and measurable versions delivered in short cycles"
+      },
+      "reliability": {
+        "value": "End-to-end approach",
+        "label": "From strategy to production rollout, we cover the full implementation"
+      }
+    },
+    "primaryCta": "Book AI discovery",
+    "secondaryCta": "Talk on WhatsApp"
   },
   "services": {
-    "title": "Our Services",
+    "title": "Custom AI Solutions",
     "customerService": {
-      "title": "AI for Customer Service",
-      "description": "Our flagship product, CecilIA, not only offers fast, efficient and personalized service to your customers; it also lets you reduce customer-service staffing and operating costs."
+      "title": "AI assistants for support and sales",
+      "description": "CecilIA handles customer conversations 24/7, escalates complex cases and improves conversion with consistent responses across channels."
     },
     "dataAI": {
-      "title": "AI on Your Data",
-      "description": "Query your databases by chatting with Artificial Intelligence.",
+      "title": "AI on top of your data",
+      "description": "Turn fragmented data into actionable decisions through natural-language queries and reliable answers.",
       "hero": {
         "title": "Chat with your data using AI",
         "subtitle": "Transform the way you interact with your business data. Ask questions in natural language and get instant answers powered by artificial intelligence.",
@@ -66,7 +103,7 @@
     },
     "softwareDev": {
       "title": "AI-powered Software Development",
-      "description": "We build customised software solutions powered by AI, automating processes and creating intelligent applications tailored to your business’s specific needs.",
+      "description": "We build AI-powered products and automations tailored to your operations, architecture and commercial goals.",
       "hero": {
         "title": "AI-powered Software Development",
         "subtitle": "Build intelligent, scalable and future-ready software solutions that transform your business with the power of AI.",
@@ -102,7 +139,7 @@
     },
     "consulting": {
       "title": "Strategic Consulting",
-      "description": "With our team of AI Scientists and Engineers we train your staff in AI use and understanding while designing strategies for its implementation in your processes.",
+      "description": "We define strategy, governance and adoption so AI generates real ROI instead of isolated experiments.",
       "hero": {
         "title": "Strategic AI Consulting",
         "subtitle": "Expert guidance to help your organisation understand, implement and leverage AI technologies effectively.",
@@ -344,14 +381,93 @@
     }
   },
   "about": {
-    "title": "Who We Are",
-    "description": "At DataVoices, we are a team of AI Scientists and Engineers with extensive professional and academic experience, serving both international and local clients. Our expertise combines cutting-edge research with practical business solutions to deliver transformative AI technologies.",
+    "title": "Your technical AI partner",
+    "description": "We are a team of AI Scientists and Engineers turning opportunities into deployable solutions, from use-case discovery to production implementation.",
     "connect": "Connect with us"
   },
   "clients": {
     "title": "They trusted us",
     "subtitle": "Companies and organisations that have already transformed their business with DataVoices",
     "visitSite": "Visit site"
+  },
+  "successStories": {
+    "title": "Success Stories",
+    "subtitle": "AI products we developed for different clients, built to solve real operational challenges and drive measurable outcomes.",
+    "featured": "Featured case",
+    "comingSoon": "Coming soon",
+    "visitProduct": "Visit product",
+    "requestDemo": "Request product demo",
+    "videoTitle": "How to create screenings and evaluate candidates",
+    "watchVideo": "Watch full video",
+    "products": {
+      "realTimeInterviewAgent": {
+        "name": "Real Time Interview Agent",
+        "summary": "An AI-assisted interviewing platform for HR teams and interviewers: it combines web-based preparation, desktop live support and collaborative analysis across the hiring lifecycle.",
+        "highlights": {
+          "screening": "Automated async screening interviews with invitation flow and predefined criteria",
+          "liveAgent": "Live interview assistance: captures key points, answers and evaluates responses in real time",
+          "comparison": "AI-powered comparison of interviews and candidates through natural-language analysis",
+          "collaboration": "Centralized management of candidates, position searches and interviewer/recruiter collaboration"
+        }
+      },
+      "normsy": {
+        "name": "Normsy",
+        "summary": "A nonpartisan project that blends human intervention with an LLM copilot to strengthen civic norms on social media: it identifies high-reach toxic threads, suggests constructive responses, and scales counterspeech without censorship or platform buy-in.",
+        "highlights": {
+          "approach": "\"Human pilot + LLM copilot\" model: users choose whether to intervene, which strategy to apply, and how much to edit",
+          "detection": "Detection and scoring engine on X/Twitter to prioritize threads with high toxicity and high impact potential",
+          "recommendation": "Recommendation engine with 20+ social science-backed strategies (empathy, humor, reframing, values-based appeals)",
+          "impact": "Early evidence from an April 2025 study (n=1,021): reduced support for norms-violating posts and higher perceived harm"
+        }
+      },
+      "agentLuncher": {
+        "name": "Agent Launcher",
+        "summary": "MVP of the CCM Agent Launcher Service: a web platform to create, configure, and execute intelligent agents across multiple LLMs (Grok, Gemini, and GPT), focused on comparative analysis of multi-agent reasoning.",
+        "highlights": {
+          "multiModel": "Create and run agents on different LLM providers within the same workspace",
+          "configurable": "Intuitive UI to define variables (e.g., ticker), customize prompts, and organize agents with tags",
+          "groupRuns": "Grouped executions to launch multiple agents in parallel using shared instructions",
+          "comparativeView": "Comparative response visualizations to analyze reasoning behavior differences across agents"
+        }
+      }
+    }
+  },
+  "effectiveStates": {
+    "badge": "Government + AI",
+    "title": "Artificial intelligence for more effective States",
+    "subtitlePrefix": "Together with the IDB, our co founder",
+    "subtitleSuffix": "is applying AI tools across multiple countries to increase government efficiency in Latin America.",
+    "partnershipTitle": "Joint work with the Inter-American Development Bank (IDB)",
+    "partnershipDescription": "This approach helps overcome state fragmentation by integrating analysis of legal frameworks, public programs and execution experience, combining AI with expert judgment to improve coordination, policy design and implementation capacity.",
+    "downloadReport": "Download full IDB report",
+    "tools": {
+      "structure": {
+        "title": "State structure review",
+        "description": "Analysis of mandates and functions across ministries and agencies to detect overlaps, capability gaps and critical coordination areas."
+      },
+      "programs": {
+        "title": "Program and project improvement",
+        "description": "Full portfolio evaluation to measure alignment with national plans, identify redundancies and generate early execution alerts."
+      },
+      "learning": {
+        "title": "Continuous institutional learning",
+        "description": "Mining of project reports and evaluations to convert accumulated experience into practical, reusable implementation playbooks."
+      }
+    },
+    "stats": {
+      "organizations": {
+        "value": "~1,000",
+        "label": "Organizational units analyzed in institutional mapping exercises"
+      },
+      "projects": {
+        "value": "200+ / 25,000+",
+        "label": "Projects and pages reviewed in public portfolio analysis"
+      },
+      "memory": {
+        "value": "1,500 / 15 years",
+        "label": "IDB projects processed to extract lessons and institutional memory"
+      }
+    }
   },
   "press": {
     "title": "DataVoices in the Press",
@@ -377,13 +493,49 @@
     }
   },
   "contact": {
-    "title": "Ready to transform your data?",
-    "subtitle": "Contact us to discover how we can help you reach your business goals.",
+    "title": "Share your challenge and we will design a custom AI solution",
+    "subtitle": "In a first call we define opportunities, scope and next steps to implement AI with real business impact.",
     "email": "Your email",
     "message": "Write your query here",
-    "button": "Contact",
+    "button": "Request AI discovery",
     "success": "Message sent successfully!",
     "error": "Error sending message. Please try again."
+  },
+  "homeTestimonials": {
+    "title": "What Our Clients Say",
+    "subtitle": "Teams across industries are already achieving concrete outcomes with our custom AI solutions.",
+    "items": {
+      "rob": {
+        "author": "Rob Romero",
+        "role": "CEO",
+        "company": "Connective Capital Management",
+        "quote": "With Data Voices, we now have a multi-vendor AI agent team that helps us analyze the market and make better-informed investment decisions."
+      },
+      "kristin": {
+        "author": "Kristin Hansen",
+        "role": "Executive Director",
+        "company": "Civic Health Project",
+        "quote": "We have been building Normsy with Data Voices for over two years. It became our foundation's flagship product, raised more than USD 1M in funding and awards, and today stands as a highly robust, transformative platform."
+      },
+      "leopoldo": {
+        "author": "Leopoldo Reyes",
+        "role": "Founder",
+        "company": "Synaptech",
+        "quote": "Together with Data Voices, we are integrating AI into the processes of leading companies in Ecuador. Major businesses like Quicornac and Swissgas already use agents developed by their team to automate key operations."
+      },
+      "wendell": {
+        "author": "Wendell Brown",
+        "role": "Founder",
+        "company": "Real Time Interview Agent",
+        "quote": "Thanks to Data Voices I was able to create the Real Time Interview Agent, a product that streamlines and automates AI-powered interview processes. What started as a dream was quickly turned into reality by the Data Voices team!"
+      },
+      "ulises": {
+        "author": "Ulises Guibelalde",
+        "role": "Quality Manager",
+        "company": "SERPA SRL",
+        "quote": "The AI training delivered by Data Voices was highly valuable and directly applicable to our operations. With a practical approach and strong commitment from their team, we turned technological challenges into concrete opportunities for continuous improvement and innovation."
+      }
+    }
   },
   "footer": {
     "services": "Services",
