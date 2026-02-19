@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const EMAIL_URL = 'https://ceciliabot.datavoices.com.ar/api';
+const EMAIL_URL =
+  import.meta.env.VITE_API_BASE_URL || 'https://ceciliabot.datavoices.com.ar/api';
 
 interface ContactFormData {
   email: string;
@@ -27,7 +28,7 @@ const sendContactForm = async (
 ): Promise<EmailResponse> => {
   try {
     const response = await axios.post<EmailResponse>(
-      `${EMAIL_URL}/send-email-web`,
+      `${EMAIL_URL}/send-email`,
       formData
     );
     return response.data;
@@ -45,7 +46,7 @@ const sendCeciliaForm = async (
 ): Promise<EmailResponse> => {
   try {
     const response = await axios.post<EmailResponse>(
-      `${EMAIL_URL}/send-email-web-cecilia`,
+      `${EMAIL_URL}/send-email-cecilia`,
       formData
     );
     return response.data;
