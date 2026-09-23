@@ -1,5 +1,11 @@
 [build]
-  command = "npm run build"
+  # @netlify/plugin-nextjs (incluso en su última versión estable) no logra
+  # empaquetar el middleware/edge function cuando el build usa Turbopack
+  # (default de "next build" en Next.js 16) — falla buscando un chunk
+  # "[turbopack]_runtime.js" que el bundler de edge functions no resuelve.
+  # Se fuerza Webpack solo para el build de Netlify; local (dev/build) sigue
+  # usando Turbopack sin cambios.
+  command = "npm run build:netlify"
   publish = ".next"
 
 [build.environment]
@@ -7,3 +13,47 @@
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+
+# Duplicado de next.config.ts → redirects(): en la arquitectura de Netlify
+# (edge function de next-intl + función serverless separada para Next) los
+# redirects definidos solo en next.config.ts no se aplican de forma
+# confiable — el request llega a Next y cae en 404 en vez de redirigir.
+# Estas reglas nativas de Netlify se resuelven en el edge, antes de
+# cualquier función, así que son la fuente confiable para producción.
+# next.config.ts se mantiene igual por si el sitio se corre self-hosted
+# (next start) fuera de Netlify.
+[[redirects]]
+  from = "/data-ai"
+  to = "/servicios/ia-sobre-datos"
+  status = 308
+  force = true
+
+[[redirects]]
+  from = "/software-dev"
+  to = "/servicios/desarrollo-software-ia"
+  status = 308
+  force = true
+
+[[redirects]]
+  from = "/consulting"
+  to = "/servicios/consultoria"
+  status = 308
+  force = true
+
+[[redirects]]
+  from = "/en/data-ai"
+  to = "/en/servicios/ia-sobre-datos"
+  status = 308
+  force = true
+
+[[redirects]]
+  from = "/en/software-dev"
+  to = "/en/servicios/desarrollo-software-ia"
+  status = 308
+  force = true
+
+[[redirects]]
+  from = "/en/consulting"
+  to = "/en/servicios/consultoria"
+  status = 308
+  force = true
