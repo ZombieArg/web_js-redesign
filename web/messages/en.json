@@ -1,0 +1,75 @@
+{
+  "nav": {
+    "servicesLabel": "Services",
+    "services": {
+      "asistentesIa": "AI Assistants",
+      "iaSobreDatos": "AI on your data",
+      "desarrolloSoftwareIa": "AI Software Development",
+      "consultoria": "Strategic Consulting"
+    },
+    "casos": "Case Studies",
+    "nosotros": "About us",
+    "contacto": "Contact",
+    "cta": "Get a free diagnostic",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "footer": {
+    "servicesHeading": "Services",
+    "institutionalHeading": "Company",
+    "contactHeading": "Contact",
+    "institutional": {
+      "nosotros": "About us",
+      "casos": "Case studies",
+      "blog": "Blog",
+      "prensa": "Press",
+      "faq": "FAQ",
+      "diagnostico": "Free diagnostic"
+    },
+    "tagline": "AI consultancy for businesses. We design and implement AI on top of what your company already does.",
+    "cityLine": "Based in Buenos Aires, Argentina",
+    "rights": "Data Voices. All rights reserved.",
+    "legal": "Terms of Service",
+    "privacy": "Privacy & Security"
+  },
+  "buttons": {
+    "diagnostico": "Get a free diagnostic",
+    "explore": "Explore",
+    "seeMore": "See more",
+    "seeFullPortfolio": "See full portfolio",
+    "viewCase": "View case study",
+    "viewProduct": "View product",
+    "goToCecilia": "Go to Cecilia (WhatsApp)",
+    "send": "Send"
+  },
+  "forms": {
+    "name": "Name",
+    "company": "Company",
+    "email": "Email",
+    "whatsapp": "WhatsApp",
+    "process": "Which process do you want to review",
+    "origin": "How did you hear about us",
+    "originRequired": "How did you hear about us (required)",
+    "submit": "Request the diagnostic",
+    "submitting": "Sending…",
+    "requiredField": "This field is required",
+    "invalidEmail": "Enter a valid email"
+  },
+  "toast": {
+    "success": "Thanks, we'll reply to that email.",
+    "error": "We couldn't send the form. Message us on WhatsApp instead."
+  },
+  "languageSwitcher": {
+    "label": "Language",
+    "es": "Español",
+    "en": "English"
+  },
+  "translation": {
+    "pendingNotice": "This page is not translated to English yet. Showing the Spanish content.",
+    "comingSoon": "Coming soon"
+  },
+  "a11y": {
+    "skipToContent": "Skip to content",
+    "logoAlt": "Data Voices"
+  }
+}

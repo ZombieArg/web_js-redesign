@@ -1,0 +1,75 @@
+{
+  "nav": {
+    "servicesLabel": "Servicios",
+    "services": {
+      "asistentesIa": "Asistentes de IA",
+      "iaSobreDatos": "IA sobre tus datos",
+      "desarrolloSoftwareIa": "Desarrollo de Software con IA",
+      "consultoria": "Consultoría Estratégica"
+    },
+    "casos": "Casos",
+    "nosotros": "Quiénes somos",
+    "contacto": "Contacto",
+    "cta": "Pedí un diagnóstico gratuito",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú"
+  },
+  "footer": {
+    "servicesHeading": "Servicios",
+    "institutionalHeading": "Institucional",
+    "contactHeading": "Contacto",
+    "institutional": {
+      "nosotros": "Quiénes somos",
+      "casos": "Casos",
+      "blog": "Blog",
+      "prensa": "Prensa",
+      "faq": "Preguntas frecuentes",
+      "diagnostico": "Diagnóstico gratuito"
+    },
+    "tagline": "Consultora de inteligencia artificial para empresas. Diseñamos e implementamos IA sobre lo que tu empresa ya hace.",
+    "cityLine": "Sede Buenos Aires, Argentina",
+    "rights": "Data Voices. Todos los derechos reservados.",
+    "legal": "Términos del Servicio",
+    "privacy": "Privacidad y Seguridad"
+  },
+  "buttons": {
+    "diagnostico": "Pedí un diagnóstico gratuito",
+    "explore": "Explorar",
+    "seeMore": "Ver más",
+    "seeFullPortfolio": "Ver portafolio completo",
+    "viewCase": "Ver caso de estudio",
+    "viewProduct": "Ver producto",
+    "goToCecilia": "Ir a Cecilia (WhatsApp)",
+    "send": "Enviar"
+  },
+  "forms": {
+    "name": "Nombre",
+    "company": "Empresa",
+    "email": "Email",
+    "whatsapp": "WhatsApp",
+    "process": "Qué proceso querés revisar",
+    "origin": "Cómo llegaste",
+    "originRequired": "Cómo llegaste (obligatorio)",
+    "submit": "Pedí el diagnóstico",
+    "submitting": "Enviando…",
+    "requiredField": "Este campo es obligatorio",
+    "invalidEmail": "Ingresá un email válido"
+  },
+  "toast": {
+    "success": "Gracias, te vamos a responder a ese mail.",
+    "error": "No pudimos enviar el formulario. Escribinos por WhatsApp."
+  },
+  "languageSwitcher": {
+    "label": "Idioma",
+    "es": "Español",
+    "en": "English"
+  },
+  "translation": {
+    "pendingNotice": "Esta página todavía no tiene versión en inglés. Mostramos el contenido en español.",
+    "comingSoon": "Próximamente"
+  },
+  "a11y": {
+    "skipToContent": "Saltar al contenido",
+    "logoAlt": "Data Voices"
+  }
+}

@@ -1,0 +1,159 @@
+@import "tailwindcss";
+
+/*
+ * Design System "Technical Precision" — Data Voices (DESIGN.md).
+ *
+ * Reglas de uso NO negociables (no enforceable por el linter, sí por code review):
+ * - icon-navy (#131F5D): EXCLUSIVO de strokes de íconos <=22px. Nunca texto/fondos grandes.
+ * - signal-orange (#FF5722): EXCLUSIVO de CTAs/alertas/estados activos de UI.
+ * - logo-orange (#F15A24): EXCLUSIVO del isotipo/logotipo. Nunca en UI (no es signal-orange).
+ * - font-wordmark (Poppins): EXCLUSIVO del wordmark "Data Voices" del logo. Nunca en UI/body.
+ * - Tokens inverse-* NO se declaran: sin spec de dark mode todavía.
+ *
+ * Radios: la escala se corrió un escalón respecto de los nombres default de Tailwind para
+ * poder mapear 1:1 los 6 radios del design system (sm 4 / DEFAULT 8 / md 12 / lg 16 / xl 24 / full):
+ *   rounded-xs=4  rounded-sm=8(=DEFAULT)  rounded-md=12  rounded-lg=16  rounded-xl=24  rounded-full=9999
+ */
+
+:root {
+  /* Color */
+  --color-primary: #131f5d;
+  --color-primary-container: #2b3674;
+  --color-on-primary-container: #97a1e7;
+  --color-secondary: #b02f00;
+  --color-secondary-container: #ff5722;
+  --color-on-secondary-container: #541100;
+  --color-tertiary: #3c1e00;
+  --color-tertiary-container: #5b3100;
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+  --color-primary-fixed: #dee0ff;
+  --color-primary-fixed-dim: #bac3ff;
+  --color-on-primary-fixed: #061353;
+  --color-surface: #f8f9fd;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f2f3f7;
+  --color-surface-container: #edeef2;
+  --color-surface-container-high: #e7e8ec;
+  --color-surface-container-highest: #e1e2e6;
+  --color-on-surface: #191c1f;
+  --color-on-surface-variant: #454650;
+  --color-outline: #767681;
+  --color-outline-variant: #c6c5d1;
+  --color-neutral-base: #f5f6fa;
+  --color-divider: #e0e5f2;
+  --color-success-green: #05cd99;
+  --color-slate-gray: #707eae;
+  --color-logo-orange: #f15a24;
+
+  /* Alias semánticos de marca — mismo var que su token base a propósito (evita drift) */
+  --color-icon-navy: var(--color-primary);
+  --color-brand-navy: var(--color-primary-container);
+  --color-signal-orange: var(--color-secondary-container);
+}
+
+@theme inline {
+  --color-primary: var(--color-primary);
+  --color-primary-container: var(--color-primary-container);
+  --color-on-primary-container: var(--color-on-primary-container);
+  --color-secondary: var(--color-secondary);
+  --color-secondary-container: var(--color-secondary-container);
+  --color-on-secondary-container: var(--color-on-secondary-container);
+  --color-tertiary: var(--color-tertiary);
+  --color-tertiary-container: var(--color-tertiary-container);
+  --color-error: var(--color-error);
+  --color-error-container: var(--color-error-container);
+  --color-on-error-container: var(--color-on-error-container);
+  --color-primary-fixed: var(--color-primary-fixed);
+  --color-primary-fixed-dim: var(--color-primary-fixed-dim);
+  --color-on-primary-fixed: var(--color-on-primary-fixed);
+  --color-surface: var(--color-surface);
+  --color-surface-container-lowest: var(--color-surface-container-lowest);
+  --color-surface-container-low: var(--color-surface-container-low);
+  --color-surface-container: var(--color-surface-container);
+  --color-surface-container-high: var(--color-surface-container-high);
+  --color-surface-container-highest: var(--color-surface-container-highest);
+  --color-on-surface: var(--color-on-surface);
+  --color-on-surface-variant: var(--color-on-surface-variant);
+  --color-outline: var(--color-outline);
+  --color-outline-variant: var(--color-outline-variant);
+  --color-neutral-base: var(--color-neutral-base);
+  --color-divider: var(--color-divider);
+  --color-success-green: var(--color-success-green);
+  --color-slate-gray: var(--color-slate-gray);
+  --color-logo-orange: var(--color-logo-orange);
+  --color-icon-navy: var(--color-icon-navy);
+  --color-brand-navy: var(--color-brand-navy);
+  --color-signal-orange: var(--color-signal-orange);
+
+  /* Tipografía */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-wordmark: var(--font-poppins), ui-sans-serif, sans-serif;
+
+  --text-display-lg: 64px;
+  --text-display-lg--line-height: 72px;
+  --text-display-lg--letter-spacing: -0.02em;
+  --text-display-lg--font-weight: 700;
+
+  --text-display-lg-mobile: 40px;
+  --text-display-lg-mobile--line-height: 48px;
+  --text-display-lg-mobile--letter-spacing: -0.02em;
+  --text-display-lg-mobile--font-weight: 700;
+
+  --text-headline-lg: 36px;
+  --text-headline-lg--line-height: 44px;
+  --text-headline-lg--letter-spacing: -0.01em;
+  --text-headline-lg--font-weight: 600;
+
+  --text-headline-md: 30px;
+  --text-headline-md--line-height: 38px;
+  --text-headline-md--font-weight: 600;
+
+  --text-body-lg: 18px;
+  --text-body-lg--line-height: 28px;
+  --text-body-lg--font-weight: 400;
+
+  --text-body-md: 16px;
+  --text-body-md--line-height: 24px;
+  --text-body-md--font-weight: 400;
+
+  --text-label-md: 14px;
+  --text-label-md--line-height: 20px;
+  --text-label-md--font-weight: 600;
+  --text-label-md--letter-spacing: 0.05em;
+
+  --text-caption: 12px;
+  --text-caption--line-height: 16px;
+  --text-caption--font-weight: 400;
+
+  /* Shape */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  /* Elevation */
+  --shadow-card: 0px 4px 20px rgba(112, 126, 174, 0.1);
+  --shadow-card-hover: 0px 10px 30px rgba(112, 126, 174, 0.16);
+
+  /* Spacing semántico (además de la escala numérica default de Tailwind) */
+  --spacing-gutter: 24px;
+  --spacing-margin-mobile: 16px;
+  --spacing-margin-desktop: 80px;
+  --spacing-section: 120px;
+
+  /* Breakpoints del design system */
+  --breakpoint-tablet: 768px;
+  --breakpoint-desktop: 1024px;
+}
+
+body {
+  background-color: var(--color-neutral-base);
+  color: var(--color-on-surface);
+}
+
+* {
+  box-sizing: border-box;
+}
