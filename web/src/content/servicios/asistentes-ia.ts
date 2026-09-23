@@ -110,4 +110,112 @@ const es: ServicePageContent = {
   },
 };
 
-export const asistentesIaContent: Localized<ServicePageContent> = { es, en: null };
+const en: ServicePageContent = {
+  slug: "asistentes-ia",
+  iconName: "cecilia",
+  seo: {
+    title: "AI Agents for Businesses | Data Voices",
+    description: "Design and implementation of AI agents for businesses: support, HR, and internal workflows. Includes Cecilia.",
+  },
+  hero: {
+    breadcrumbLabel: "Service · AI Assistants",
+    h1: "AI agents for businesses",
+    subhead:
+      "An agent isn't a chat with personality. It's a system that takes a request, checks a source, and executes. We build it custom or deliver it packaged.",
+    primaryCta: { label: "Get a free diagnostic", href: "/contacto" },
+    secondaryCta: { label: "See the architecture pipeline ↓", href: "#como-se-construye" },
+  },
+  stats: [
+    { value: "100%", label: "No-hallucination execution" },
+    { value: "<1.2s", label: "Channel latency" },
+    { value: "99.9% SLA", label: "Critical uptime" },
+  ],
+  definition: {
+    kicker: "Institutional definition",
+    heading: "What an AI agent is",
+    body: "Data Voices designs and builds AI agents for businesses. An agent connects a channel (WhatsApp, web, internal) to data and actions: scheduling, responding, screening candidates, triggering a workflow. The line includes the Cecilia product and builds like Agent Launcher and the Real Time Interview Agent.",
+  },
+  viability: {
+    kind: "matrix",
+    heading: "When an agent works (and when it doesn't)",
+    positive: {
+      tag: "Deploy an agent",
+      items: [
+        "The request repeats.",
+        "The answer lives in a system they already have.",
+        "There's a person acting as a bridge today who shouldn't be.",
+      ],
+    },
+    negative: {
+      tag: "Don't deploy an agent",
+      items: [
+        "If the process isn't written down, the agent amplifies the mess. In that case, you need implementation first, not an agent.",
+      ],
+      link: { label: "See consulting and implementation", href: "/servicios/consultoria" },
+    },
+  },
+  adoptionModalities: {
+    kicker: "Adoption paths",
+    heading: "Three ways in",
+    items: [
+      {
+        tag: "Product",
+        iconName: "cecilia",
+        title: "Cecilia",
+        description: "WhatsApp agent for businesses. Support, orders, scheduling.",
+        specs: ["Channel: WhatsApp", "Integrations: Mercado Libre, Google Calendar, Tiendanube"],
+        link: { label: "Meet Cecilia", href: "/cecilia" },
+      },
+      {
+        tag: "Selection agent",
+        iconName: "usuarios",
+        title: "Real Time Interview Agent",
+        description: "Real-time interviews. In the catalog it shows up as a turnkey HR implementation.",
+        specs: ["Use case: HR", "Format: live interview"],
+        link: { label: "See case study", href: "/casos/real-time-interview-agent" },
+      },
+      {
+        tag: "Platform",
+        iconName: "integraciones",
+        title: "Agent Launcher",
+        description: "Compare and run agents across different models. Useful when the problem isn't a channel, it's orchestration.",
+        specs: ["Multi-model", "Configurable routing and fallback"],
+        link: { label: "Explore Agent Launcher", href: "/casos/agent-launcher" },
+      },
+    ],
+  },
+  buildProcess: {
+    kicker: "Engineering & deployment",
+    heading: "How it's built",
+    steps: [
+      { title: "Channel", caption: "Where the conversation lives: WhatsApp, web, or an internal channel." },
+      { title: "Source of truth", caption: "The system that actually answers: CRM, database, or catalog." },
+      { title: "Allowed actions", caption: "What the agent can execute without supervision." },
+      { title: "Escalation criteria to a person", caption: "When the agent hands off to someone on the team." },
+      { title: "Measurement", caption: "Which KPI defines whether the agent works." },
+    ],
+  },
+  faq: {
+    kicker: "FAQ",
+    heading: "Frequently asked questions",
+    items: [
+      {
+        question: "Agent or chatbot?",
+        answer: "A chatbot responds. An agent resolves a step of the process. Cecilia can be both; the design decides which.",
+      },
+      {
+        question: "Do you use a single platform?",
+        answer: "No. The channel is whatever your customer uses. The model is chosen per task, not by trend.",
+      },
+    ],
+  },
+  closingCta: {
+    kicker: "Next step",
+    heading: "If you already know the channel is WhatsApp, you can meet Cecilia directly.",
+    subhead: "If the problem is a different kind of agent, let's start with the diagnostic.",
+    primaryCta: { label: "Get a free diagnostic", href: "/contacto" },
+    secondaryCta: { label: "Go to Cecilia (WhatsApp)", href: "/cecilia" },
+  },
+};
+
+export const asistentesIaContent: Localized<ServicePageContent> = { es, en };

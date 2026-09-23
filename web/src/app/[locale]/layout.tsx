@@ -9,7 +9,6 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buildOrgNode, buildWebsiteNode } from "@/lib/seo/graphs/org";
-import { CeciliaWidgetLoader } from "@/components/cecilia/CeciliaWidgetLoader";
 import "../globals.css";
 
 const inter = Inter({
@@ -61,7 +60,6 @@ export default async function LocaleLayout({
           <Header />
           <main id="main-content">{children}</main>
           <Footer />
-          <CeciliaWidgetLoader />
           <Toaster position="top-right" />
         </NextIntlClientProvider>
       </body>

@@ -150,4 +150,152 @@ const es: HomeContent = {
   },
 };
 
-export const homeContent: Localized<HomeContent> = { es, en: null };
+const en: HomeContent = {
+  seo: {
+    title: "Data Voices | AI Consultancy for Businesses",
+    description: "AI consultancy for businesses. Assistants, data, custom software, and implementation. Free diagnostic.",
+  },
+  hero: {
+    badge: "AI consultancy for businesses",
+    h1: "AI consultancy for businesses",
+    subhead:
+      "We design and implement AI on top of what your company already does. A system that goes into production, not a demo.",
+    cta: { label: "Get a free diagnostic", href: "/contacto" },
+  },
+  logoRow: {
+    heading: "Trusted by",
+    logos: [
+      { key: "bid", alt: "Inter-American Development Bank" },
+      { key: "chp", alt: "Civic Health Project" },
+      { key: "municipioLobos", alt: "Municipio de Lobos" },
+      { key: "farmacias", alt: "Farmacias del Pueblo" },
+    ],
+  },
+  whoWeAre: {
+    heading: "Who we are",
+    body: "Data Voices is an AI consultancy for businesses, based in Buenos Aires. The team combines research (PhD in Computer Science, UBA) with production-grade software development. The four lines are AI assistants, AI on existing data and processes, AI software development, and implementation with training. The work includes a public portfolio with the IDB and in-house products like Cecilia. The first commercial step is a free diagnostic.",
+    badges: ["Based in Buenos Aires", "PhD research, UBA", "Production-grade software"],
+  },
+  services: {
+    heading: "Our services",
+    items: [
+      {
+        iconName: "cecilia",
+        title: "AI Assistants",
+        description:
+          "Agents that handle support, run interviews, or trigger a workflow. Cecilia is the packaged product; Agent Launcher and the Real Time Interview Agent are custom builds. That's how you stop needing a person as the bridge between the channel and the system.",
+        href: "/servicios/asistentes-ia",
+        linkLabel: "Explore Assistants",
+      },
+      {
+        iconName: "datos",
+        title: "AI on your data",
+        description:
+          "Models and assistants on top of the databases, documents, and systems you already have. No need to start from scratch.",
+        href: "/servicios/ia-sobre-datos",
+        linkLabel: "Explore Data & Processes",
+      },
+      {
+        iconName: "software",
+        title: "AI software development",
+        description: "MVPs and production systems. A team that ships software, not just a plan.",
+        href: "/servicios/desarrollo-software-ia",
+        linkLabel: "Explore Development",
+      },
+      {
+        iconName: "consultoria",
+        title: "Implementation and consulting",
+        description: "Maturity, team upskilling, rollout. Training when it needs to stick with the team.",
+        href: "/servicios/consultoria",
+        linkLabel: "Explore Consulting",
+      },
+    ],
+  },
+  howWeWork: {
+    heading: "How we work",
+    steps: [
+      { title: "Diagnostic", caption: "Which process you need to improve, and what information you already have." },
+      { title: "Closed scope", caption: "What gets built, what doesn't, in how many weeks." },
+      { title: "Production delivery", caption: "With your team, or run by us." },
+      { title: "Measurement", caption: "We measure the result from day one, so you know if it worked." },
+    ],
+  },
+  cases: {
+    heading: "Case studies",
+    linkLabel: "See full portfolio",
+    items: [
+      {
+        tag: "Public Sector / Multilateral",
+        title: "Work with the IDB",
+        description: "Public portfolio, institutional scale.",
+        caption: "Data audit and inference pipelines",
+        href: "/casos/bid",
+      },
+      {
+        tag: "HR Tech",
+        title: "Real Time Interview Agent",
+        description: "Real-time HR interviews.",
+        caption: "Sub-450ms latency on voice streaming",
+        href: "/casos/real-time-interview-agent",
+      },
+      {
+        tag: "Civic Tech",
+        title: "Normsy",
+        description: "Study with 1,021 participants.",
+        caption: "Semantic processing of open-ended responses",
+        href: "/casos/normsy",
+      },
+      {
+        tag: "Conversational",
+        title: "Cecilia",
+        description: "WhatsApp support for municipalities and retail.",
+        caption: "CRM integration and transactional resolution",
+        href: "/cecilia",
+      },
+    ],
+  },
+  testimonials: {
+    heading: "What our clients say",
+    subheading: "",
+    items: [
+      {
+        quote:
+          "With Data Voices we now have a multi-provider AI agent team that helps us analyze the market and make better-informed investment decisions.",
+        author: "Rob Romero",
+        role: "CEO, Connective Capital Management",
+        photoKey: "rob-romero",
+      },
+      {
+        quote:
+          "AI training with Data Voices was practical and applicable to our operation. We turned the tech challenge into a concrete improvement opportunity.",
+        author: "Ulises Guibelalde",
+        role: "Quality Manager, SERPA SRL",
+        photoKey: "ulises-guibelalde",
+      },
+    ],
+  },
+  faq: {
+    kicker: "FAQ",
+    heading: "Frequently asked questions",
+    items: [
+      {
+        question: "Are you an AI agency?",
+        answer: "No. We're a consultancy: we design, implement, and leave the system running.",
+      },
+      {
+        question: "Do you only build chatbots?",
+        answer: "No. Cecilia is one product. The practice covers agents, data, software, and implementation.",
+      },
+      {
+        question: "Does the diagnostic cost anything?",
+        answer: "No. It's a meeting to see if there's a problem worth a project.",
+      },
+    ],
+  },
+  closingCta: {
+    heading: "If the problem is real, we'll see it in a meeting. If it isn't, we'll tell you that too.",
+    primaryCta: { label: "Get a free diagnostic", href: "/contacto" },
+  },
+};
+
+export const homeContent: Localized<HomeContent> = { es, en };

@@ -35,4 +35,37 @@ const es: NosotrosContent = {
   closingCta: { label: "Pedí un diagnóstico gratuito", href: "/contacto" },
 };
 
-export const nosotrosContent: Localized<NosotrosContent> = { es, en: null };
+const en: NosotrosContent = {
+  seo: {
+    title: "About Us | Data Voices",
+    description: "Who builds Data Voices. Juan Manuel Ortiz de Zárate and Eduardo Pan. Work with the IDB, product, and AI implementation.",
+  },
+  hero: {
+    h1: "Who builds Data Voices",
+    subhead: "Two profiles that don't overlap: AI research and product, and software engineering that reaches production.",
+  },
+  entityParagraph:
+    "Data Voices is an Argentine AI and software development consultancy, founded in 2023, based in Buenos Aires. Public identity: consultancy, not agency.",
+  people: [
+    {
+      slug: "juanma",
+      name: "Juan Manuel Ortiz de Zárate",
+      jobTitle: "Co-founder and CTO",
+      bio: "Senior AI Engineer. Master's and PhD in Computer Science (UBA). Toptal and Fundar. Work cited with Auth0, Nixtla, governments, and the Inter-American Development Bank.",
+    },
+    {
+      slug: "eduardo",
+      name: "Eduardo Pan",
+      jobTitle: "Co-founder and Senior Software Developer",
+      bio: "20+ years building software. GLG and Ansel Health. React, Node, TypeScript. Work cited with Manchester United, Debenhams, and OVO Energy.",
+    },
+  ],
+  bidNote: {
+    text: "Our work with the IDB is institutional and at scale. Public portfolio, not just another logo.",
+    linkLabel: "See the full case study",
+    href: "/casos/bid",
+  },
+  closingCta: { label: "Get a free diagnostic", href: "/contacto" },
+};
+
+export const nosotrosContent: Localized<NosotrosContent> = { es, en };

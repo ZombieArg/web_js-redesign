@@ -67,4 +67,69 @@ const es: ServicePageContent = {
   },
 };
 
-export const desarrolloSoftwareIaContent: Localized<ServicePageContent> = { es, en: null };
+const en: ServicePageContent = {
+  slug: "desarrollo-software-ia",
+  iconName: "software",
+  seo: {
+    title: "Custom AI Software Development | Data Voices",
+    description: "AI software development: MVPs and production systems. Technical team with product experience.",
+  },
+  hero: {
+    breadcrumbLabel: "Service · AI Software Development",
+    h1: "AI software development",
+    subhead: "Custom software with AI actually built in, not a surface layer of prompts. MVP to validate. System to operate.",
+    primaryCta: { label: "Get a free diagnostic", href: "/contacto" },
+  },
+  definition: {
+    kicker: "Institutional definition",
+    heading: "What we do",
+    body: "Data Voices builds custom AI software: new products and modules on top of existing systems. The team combines software engineering (production-grade, not a workshop prototype) with model and agent design. The commercial cycle for these projects runs weeks to a few months, not an endless program.",
+  },
+  viability: {
+    kind: "mvpSupport",
+    heading: "MVP and support",
+    mvp: { title: "MVP", body: "A closed product hypothesis, built to ship to real users." },
+    support: {
+      title: "Support and evolution",
+      body: "The system is already running and needs to be extended without breaking it.",
+    },
+    disambiguation: {
+      text: "If the deliverable is an agent on a channel, the right page is AI Assistants.",
+      linkLabel: "Go to AI Assistants",
+      href: "/servicios/asistentes-ia",
+    },
+  },
+  buildProcess: {
+    kicker: "Team",
+    heading: "Team",
+    steps: [
+      {
+        title: "Eduardo",
+        caption: "20+ years in software; work cited at GLG and Ansel Health; React, Node, and TypeScript stack.",
+      },
+      { title: "Juanma", caption: "AI engineering; Auth0, Nixtla, governments, IDB." },
+    ],
+  },
+  faq: {
+    kicker: "FAQ",
+    heading: "Frequently asked questions",
+    items: [
+      {
+        question: "Do you work with our internal team?",
+        answer: "Yes. The default is to leave installed capacity on the team, not a black box.",
+      },
+      {
+        question: "Is there pricing on the site?",
+        answer: "No. Scope defines the number. Publishing a loose figure kills the diagnostic.",
+      },
+    ],
+  },
+  closingCta: {
+    kicker: "Next step",
+    heading: "If you already know what needs to be built, the diagnostic helps close the scope.",
+    subhead: "If not, it helps you avoid over-building.",
+    primaryCta: { label: "Get a free diagnostic", href: "/contacto" },
+  },
+};
+
+export const desarrolloSoftwareIaContent: Localized<ServicePageContent> = { es, en };

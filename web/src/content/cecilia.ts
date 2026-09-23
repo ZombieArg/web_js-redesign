@@ -67,4 +67,65 @@ const es: ProductPageContent = {
   },
 };
 
-export const ceciliaContent: Localized<ProductPageContent> = { es, en: null };
+const en: ProductPageContent = {
+  seo: {
+    title: "WhatsApp Chatbot for Businesses | Cecilia",
+    description:
+      "WhatsApp chatbot for businesses. Customer support with integrations for WhatsApp, Mercado Libre, Google Calendar, Tiendanube, and Instagram.",
+  },
+  hero: {
+    breadcrumbLabel: "Product · Cecilia",
+    h1: "Cecilia, WhatsApp chatbot for businesses",
+    subhead: "WhatsApp agent for businesses. Support, orders, scheduling.",
+    primaryCta: { label: "Get a free diagnostic", href: "/contacto" },
+    secondaryCta: {
+      label: "Message us on WhatsApp",
+      href: whatsappHref("Hi, I'd like to learn more about Cecilia"),
+      external: true,
+    },
+  },
+  definition: {
+    kicker: "Institutional definition",
+    heading: "What Cecilia is",
+    body: "Cecilia is Data Voices' WhatsApp agent: it handles support, scheduling, and orders without needing a person in the loop. It's the packaged product of the AI Assistants line — the custom alternative is builds like Agent Launcher and the Real Time Interview Agent.",
+  },
+  specs: {
+    kicker: "Integrations",
+    heading: "What it integrates with",
+    items: [
+      { title: "WhatsApp", description: "Main support channel." },
+      { title: "Mercado Libre", description: "Marketplace inquiries and orders." },
+      { title: "Google Calendar", description: "Schedules appointments and meetings." },
+      { title: "Tiendanube", description: "Online store orders." },
+      { title: "Instagram", description: "Direct messages from the social channel." },
+    ],
+  },
+  faq: {
+    kicker: "FAQ",
+    heading: "Frequently asked questions",
+    items: [
+      {
+        question: "What is a WhatsApp chatbot for businesses?",
+        answer:
+          "It's an agent that responds and executes orders over WhatsApp without needing a person connected all day. Cecilia is Data Voices' packaged version.",
+      },
+      {
+        question: "What does Cecilia integrate with?",
+        answer: "WhatsApp, Mercado Libre, Google Calendar, Tiendanube, and Instagram. No public pricing — it's quoted based on the process.",
+      },
+      {
+        question: "Generic chatbot or custom agent?",
+        answer: "Cecilia covers the most common support and scheduling cases. If the process is more specific, it's solved as a custom agent under AI Assistants.",
+      },
+    ],
+  },
+  closingCta: {
+    kicker: "Next step",
+    heading: "Is your channel WhatsApp?",
+    subhead: "Start with Cecilia, or request the diagnostic if the process is more specific.",
+    primaryCta: { label: "Get a free diagnostic", href: "/contacto" },
+    secondaryCta: { label: "Go to AI Assistants", href: "/servicios/asistentes-ia" },
+  },
+};
+
+export const ceciliaContent: Localized<ProductPageContent> = { es, en };

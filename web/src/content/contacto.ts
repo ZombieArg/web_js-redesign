@@ -14,4 +14,17 @@ const es: ContactoContent = {
   afterSubmitNote: "Te respondemos a ese mail. Si urge, el WhatsApp es el mismo número.",
 };
 
-export const contactoContent: Localized<ContactoContent> = { es, en: null };
+const en: ContactoContent = {
+  seo: {
+    title: "Contact | AI Diagnostic | Data Voices",
+    description: "Free AI diagnostic. Buenos Aires. hola@datavoices.com.ar · +54 9 11 7370-9382.",
+  },
+  hero: {
+    h1: "AI diagnostic, no strings attached",
+    subhead:
+      "Tell us about the process that's currently held together by people, spreadsheets, or a vendor that never quite delivers. We'll see if there's a project. If there isn't, we'll tell you that too.",
+  },
+  afterSubmitNote: "We'll reply to that email. If it's urgent, WhatsApp is the same number.",
+};
+
+export const contactoContent: Localized<ContactoContent> = { es, en };

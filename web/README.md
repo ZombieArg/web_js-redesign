@@ -40,36 +40,62 @@ funcional a los valores de producción, ver `src/lib/constants.ts`).
 - `netlify.toml` listo para un sitio Netlify nuevo apuntando a esta carpeta.
 - Datos de contacto unificados en `lib/constants.ts` (el sitio legacy tenía 4 números distintos).
 
+## Qué está hecho, además (segunda pasada)
+
+- **Traducción al inglés de las 7 páginas de copy nuevo** (Home, 4 líneas de servicio, Cecilia,
+  Nosotros, Contacto): `en` dejó de ser `null` en los 7 `src/content/*.ts`, con traducción real
+  completa (no generada por máquina ni resumida). `lib/routes.ts` deriva `translationStatus` del
+  contenido mismo (`en !== null` → `"live"`), así que `sitemap.xml` (hreflang `en`), `robots`/
+  `noindex` y `llms.txt` se actualizaron solos, sin tocar nada a mano. Verificado con
+  `next build && next start` + `curl` en las 7 rutas `/en/*` (H1 real en inglés en el HTML crudo) y
+  en `sitemap.xml` (alternate hreflang `en` presente en esas 7, ausente en las que siguen
+  pendientes).
+  Deliberadamente **no** traducidas: Casos, Blog, Prensa — es contenido placeholder que va a ser
+  reemplazado por el copy final de Íntimo Growth, traducirlo ahora sería trabajo descartable.
+- **Widget de chat de Cecilia: removido, no es necesario.** `public/cecilia/index.js` nunca existió
+  (ni en este repo ni en el legacy — `client/index.html` lo referenciaba con una ruta rota que
+  jamás funcionó). Se eliminó `CeciliaWidgetLoader.tsx` y su uso en el layout raíz en vez de dejarlo
+  como punto de enganche pendiente.
+
 ## Qué queda pendiente — real, no maquillado
 
-1. **Traducción al inglés.** Las 7 páginas de copy nuevo están solo en es-AR. `/en/*` muestra el
-   contenido en español con un aviso ("This page is not translated yet") y `noindex`, sin mezclar
-   idiomas ni inventar traducción. Reemplazar `en: null` por el objeto real en cada
-   `src/content/*.ts` cuando llegue la traducción — el resto (metadata, sitemap, hreflang) se
-   actualiza solo vía el flag `translationStatus`.
-2. **Widget de chat de Cecilia.** `public/cecilia/index.js` no existe — ni en este repo nuevo ni en
-   el sitio legacy (`client/index.html` lo referencia con una ruta rota que nunca funcionó). El
-   punto de enganche está listo (`CeciliaWidgetLoader.tsx`, carga `/cecilia/index.js` vía
-   `next/script`), pero hace falta el bundle real del equipo de producto de Cecilia.
-3. **Casos de éxito.** Las 5 fichas tienen datos reales-parciales (resumen, algún highlight) pero
+1. **Casos de éxito.** Las 5 fichas tienen datos reales-parciales (resumen, algún highlight) pero
    sin narrativa larga, métricas ni video — eso depende del copy de Íntimo Growth (brief §2.2).
    `CaseDetailTemplate.tsx` ya soporta esos campos, se agregan en `content/casos/data.ts` sin tocar
    el template.
-4. **Blog.** Sin posts todavía (brief §2.1). El hub muestra "Próximamente"; agregar entradas a
+2. **Blog.** Sin posts todavía (brief §2.1). El hub muestra "Próximamente"; agregar entradas a
    `content/blog/data.ts` cuando haya copy.
-5. **Prensa.** Hub funcional con links de salida a las 4 notas reales. Convertirlas en "páginas
+3. **Prensa.** Hub funcional con links de salida a las 4 notas reales. Convertirlas en "páginas
    propias" (`/prensa/[slug]`) es trabajo de copy, no técnico — la ruta ni el tipo están armados
    todavía porque no hay contenido propio que mostrar ahí (evita fabricar una página vacía).
-6. **Capacitación.** Vive como bloque dentro de `/servicios/consultoria` (fallback explícito de la
+4. **Capacitación.** Vive como bloque dentro de `/servicios/consultoria` (fallback explícito de la
    Estrategia SEO/GEO §3.7). Separarla a `/capacitacion` es una decisión de arquitectura del sitio
    pendiente de Data Voices, no algo que haya que resolver en este código.
-7. **Demo interactivo del bot** (`webBot.ts`/`Hero.tsx` del sitio legacy) — no está en el mockup
+5. **Demo interactivo del bot** (`webBot.ts`/`Hero.tsx` del sitio legacy) — no está en el mockup
    nuevo, se dejó fuera de este sprint a propósito.
-8. **Deploy real.** `netlify.toml` está listo pero no se creó ni conectó ningún sitio de Netlify
-   todavía (paso manual, fuera del alcance de este commit).
-9. **Assets.** Falta la foto de Leopoldo Reyes (testimonio omitido del array por esa razón, no por
+6. **Deploy real.** `netlify.toml` está listo pero no se creó ni conectó ningún sitio de Netlify
+   todavía (paso manual, fuera del alcance de este commit — ver sección de deploy más abajo).
+7. **Assets.** Falta la foto de Leopoldo Reyes (testimonio omitido del array por esa razón, no por
    error) y el logo de "M4" (mencionado en el copy de Home, sin archivo disponible — se omitió de
    `logoRow` en vez de mostrar un logo roto).
+
+## Deploy a Netlify — qué falta para hacerlo
+
+`netlify.toml` (base `web`, build `npm run build`, publish `.next`, plugin
+`@netlify/plugin-nextjs`) está listo y no requiere cambios. Lo que falta es credencial/acceso, no
+código. Dos caminos, sin que ninguno toque el sitio de producción actual:
+
+- **Lo hace el equipo de Data Voices** (recomendado para un primer preview): crear un sitio nuevo en
+  el dashboard de Netlify, conectarlo a este repo apuntando a la branch `redesign-nextjs` con
+  `base = web`, y Netlify hace build/deploy solo en cada push. No requiere compartir ningún token.
+- **Lo hago yo vía Netlify CLI**: necesito un `NETLIFY_AUTH_TOKEN` (Personal Access Token de
+  Netlify, User settings → Applications) puesto como variable de entorno en este entorno, y el
+  `site_id` del sitio ya sea existente o a crear. Con eso puedo correr `netlify deploy` (preview) o
+  `netlify deploy --prod` desde `web/`. No hace falta que sea la cuenta de producción — un sitio
+  Netlify nuevo y separado alcanza para este preview.
+
+En cualquiera de los dos casos, antes de un deploy a producción real hay que decidir el corte de
+DNS/dominio (`datavoices.com.ar` sigue apuntando al sitio Vite actual hasta ese paso manual).
 
 ## Decisión técnica que se apartó del plan original
 
