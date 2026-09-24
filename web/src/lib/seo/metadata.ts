@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { SITE_URL } from "@/lib/constants";
+import { SITE_URL, NOINDEX_ALL } from "@/lib/constants";
 import { routing } from "@/i18n/routing";
 
 interface BuildMetadataArgs {
@@ -16,8 +16,17 @@ interface BuildMetadataArgs {
    * translationStatus es por idioma, esto es "la página entera no se indexa".
    */
   noindex?: boolean;
+  /** Default: public/og/default.png (imagen estática — ver nota abajo). */
   image?: string;
 }
+
+// OG image: se probó con /opengraph-image (next/og, ImageResponse
+// generado on-demand) pero devolvía 404 en Netlify — el runtime de Netlify
+// para Next.js no está sirviendo esa convención de metadata route todavía
+// (mismo bug de fondo que el de middleware/edge functions). Se resolvió
+// generando UNA VEZ un PNG estático real con el mismo código de
+// ImageResponse (ver git log de este archivo si hace falta regenerarlo) y
+// sirviéndolo como public/og/default.png — cero dependencia del runtime.
 
 export function localizedUrl(locale: string, path: string) {
   const prefix = locale === routing.defaultLocale ? "" : `/${locale}`;
@@ -63,14 +72,18 @@ export function buildMetadata({
       siteName: "Data Voices",
       locale: locale === "es" ? "es_AR" : "en_US",
       type: "website",
-      images: [{ url: image ?? `${SITE_URL}/opengraph-image`, width: 1200, height: 630 }],
+      images: [{ url: image ?? `${SITE_URL}/og/default.png`, width: 1200, height: 630 }],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: [image ?? `${SITE_URL}/opengraph-image`],
+      images: [image ?? `${SITE_URL}/og/default.png`],
     },
-    robots: isPending ? { index: false, follow: true } : { index: true, follow: true },
+    robots: NOINDEX_ALL
+      ? { index: false, follow: false }
+      : isPending
+        ? { index: false, follow: true }
+        : { index: true, follow: true },
   };
 }

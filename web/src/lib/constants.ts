@@ -8,6 +8,17 @@
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ?? "https://datavoices.com.ar";
 
+/**
+ * Feedback SEO/GEO ítem 1: el preview no se puede indexar. Se probó vía
+ * header X-Robots-Tag en el middleware (proxy.ts), pero en Netlify las
+ * páginas SSG se sirven como asset estático por una vía separada del
+ * middleware — el header se pierde. Se resuelve en build-time con esta env
+ * var (setear NEXT_PUBLIC_NOINDEX_ALL=true SOLO en el sitio de preview de
+ * Netlify), que fuerza <meta name="robots" content="noindex,nofollow">
+ * horneado en el HTML de cada página. En producción queda sin setear.
+ */
+export const NOINDEX_ALL = process.env.NEXT_PUBLIC_NOINDEX_ALL === "true";
+
 export const API_BASE_URL =
   process.env.NEXT_PUBLIC_API_BASE_URL ?? "https://ceciliabot.datavoices.com.ar/api";
 
