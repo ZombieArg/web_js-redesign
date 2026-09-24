@@ -23,8 +23,11 @@ export async function generateMetadata({
     path: PATH,
     title: "Blog | Data Voices",
     description: "Notas de Data Voices sobre implementación de inteligencia artificial.",
-    // Todavía no hay posts (brief §2.1) — no se indexa un hub vacío.
-    translationStatus: blogPosts.length ? "live" : "pending",
+    // Todavía no hay posts (brief §2.1). Feedback SEO/GEO ítem 2: sin posts,
+    // /blog no se indexa en NINGÚN locale (antes solo se excluía en /en,
+    // porque translationStatus solo afecta al locale no-default — la home
+    // en español quedaba index,follow con un "Próximamente" vacío).
+    noindex: blogPosts.length === 0,
   });
 }
 

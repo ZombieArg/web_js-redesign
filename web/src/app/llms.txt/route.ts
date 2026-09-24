@@ -1,5 +1,6 @@
 import { SITE_URL, CONTACT, SOCIAL, ORG } from "@/lib/constants";
 import { ROUTES } from "@/lib/routes";
+import { casos } from "@/content/casos/data";
 
 export const dynamic = "force-static";
 
@@ -21,15 +22,28 @@ export function GET() {
     (r) => `- ${LABELS[r.path]}: ${SITE_URL}${r.path === "/" ? "/" : r.path}`,
   );
 
+  const caseNames = casos.map((c) => `- ${c.title}`).join("\n");
+
   const body = `# ${ORG.name}
 > Consultora argentina de inteligencia artificial: implementación de IA, desarrollo de software a medida y agentes de IA para empresas.
+> Identidad pública: consultora, no agencia.
 
 Sitio: ${SITE_URL}/
 Contacto: ${CONTACT.email} · ${CONTACT.phoneDisplay}
 LinkedIn: ${SOCIAL.linkedin}
+Diagnóstico gratuito de IA: ${SITE_URL}/contacto
+
+## Líneas de servicio
+- Asistentes de IA (agentes conversacionales, WhatsApp, voz)
+- IA sobre tus datos (RAG, respuestas con fuente citada)
+- Desarrollo de software con IA (MVP y soporte a medida)
+- Consultoría e implementación de IA (diagnóstico, capacitación)
 
 ## Páginas
 ${pages.join("\n")}
+
+## Casos citables
+${caseNames}
 
 ## Personas
 - Juan Manuel Ortiz de Zárate — co-fundador, CTO

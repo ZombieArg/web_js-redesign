@@ -2,7 +2,7 @@ import type { HomeContent, Localized } from "./types";
 
 const es: HomeContent = {
   seo: {
-    title: "Data Voices | Consultora de inteligencia artificial para empresas",
+    title: "Consultora de inteligencia artificial para empresas | Data Voices",
     description:
       "Consultora de inteligencia artificial para empresas. Asistentes, datos, software a medida e implementación. Diagnóstico gratuito.",
   },
@@ -152,7 +152,7 @@ const es: HomeContent = {
 
 const en: HomeContent = {
   seo: {
-    title: "Data Voices | AI Consultancy for Businesses",
+    title: "AI Consultancy for Businesses | Data Voices",
     description: "AI consultancy for businesses. Assistants, data, custom software, and implementation. Free diagnostic.",
   },
   hero: {

@@ -7,7 +7,7 @@ import type { Localized, ProductPageContent } from "./types";
 // ya declarados en esas dos fuentes y en Home/Asistentes IA, sin agregar claims nuevos.
 const es: ProductPageContent = {
   seo: {
-    title: "Chatbot de WhatsApp para empresas | Cecilia",
+    title: "Cecilia, chatbot de WhatsApp para empresas | Data Voices",
     description:
       "Chatbot de WhatsApp para empresas. Atención al cliente e integraciones con WhatsApp, Mercado Libre, Google Calendar, Tiendanube e Instagram.",
   },
@@ -69,7 +69,7 @@ const es: ProductPageContent = {
 
 const en: ProductPageContent = {
   seo: {
-    title: "WhatsApp Chatbot for Businesses | Cecilia",
+    title: "Cecilia, WhatsApp chatbot for businesses | Data Voices",
     description:
       "WhatsApp chatbot for businesses. Customer support with integrations for WhatsApp, Mercado Libre, Google Calendar, Tiendanube, and Instagram.",
   },

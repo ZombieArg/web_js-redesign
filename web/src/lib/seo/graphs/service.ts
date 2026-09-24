@@ -1,6 +1,17 @@
-import { SITE_URL } from "@/lib/constants";
 import { SCHEMA_IDS } from "@/lib/seo/ids";
+import { localizedUrl } from "@/lib/seo/metadata";
 import type { ServicePageContent, FaqSection } from "@/content/types";
+
+// Mismos 5 países que Organization.areaServed (org.ts) — antes decía solo
+// Argentina en cada Service, inconsistente con la organización que los
+// declara todos (feedback SEO/GEO ítem 12).
+const AREA_SERVED = [
+  { "@type": "Country", name: "Argentina" },
+  { "@type": "Country", name: "México" },
+  { "@type": "Country", name: "Colombia" },
+  { "@type": "Country", name: "Chile" },
+  { "@type": "Country", name: "Perú" },
+];
 
 export function buildServiceGraph(content: ServicePageContent, path: string, locale: string) {
   const serviceNode = {
@@ -8,10 +19,10 @@ export function buildServiceGraph(content: ServicePageContent, path: string, loc
     "@id": SCHEMA_IDS.service(content.slug),
     name: content.hero.h1,
     serviceType: content.hero.breadcrumbLabel,
-    url: `${SITE_URL}${path}`,
+    url: localizedUrl(locale, path),
     description: content.seo.description,
     provider: { "@id": SCHEMA_IDS.org },
-    areaServed: { "@type": "Country", name: "Argentina" },
+    areaServed: AREA_SERVED,
     audience: { "@type": "BusinessAudience", audienceType: "Empresas" },
     inLanguage: locale,
   };

@@ -174,7 +174,18 @@ export interface CaseItem {
 export interface PressItem {
   slug: string;
   source: string;
-  title: string;
+  /** Título real en cada idioma (Prensa_DataVoices_ES_EN.md) — no es traducción automática. */
+  title: { es: string; en: string };
+  date: { es: string; en: string };
   url: string;
   imageKey: string;
+}
+
+/** Copy propio del hub /prensa (distinto de las 4 PressItem, que son solo metadata de tarjeta). */
+export interface PrensaContent {
+  seo: SeoContent;
+  hero: { h1: string; subhead: string };
+  intro: string;
+  sectionHeading: string;
+  closing: { heading: string; cta: CtaData };
 }

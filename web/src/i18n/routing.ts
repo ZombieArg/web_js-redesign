@@ -5,6 +5,11 @@ export const routing = defineRouting({
   defaultLocale: "es",
   // es sin prefijo (URL histórica del sitio), en con prefijo /en.
   localePrefix: "as-needed",
+  // Feedback SEO/GEO ítem 9: Google pide no redirigir "/" según
+  // Accept-Language del navegador (rompe el rastreo/cache de la home en
+  // español). "/" queda siempre en es; a /en solo se entra explícito
+  // (selector de idioma o tipeando la URL). hreflang + selector alcanzan.
+  localeDetection: false,
   pathnames: {
     "/": "/",
     "/cecilia": "/cecilia",

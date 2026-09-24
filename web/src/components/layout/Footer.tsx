@@ -50,11 +50,7 @@ export function Footer() {
                 {t("footer.institutional.casos")}
               </Link>
             </li>
-            <li>
-              <Link href="/blog" className="text-body-md text-white/80 hover:text-white">
-                {t("footer.institutional.blog")}
-              </Link>
-            </li>
+            {/* Blog fuera del footer hasta que haya posts reales (feedback SEO/GEO ítem 2) */}
             <li>
               <Link href="/prensa" className="text-body-md text-white/80 hover:text-white">
                 {t("footer.institutional.prensa")}

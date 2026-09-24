@@ -31,7 +31,10 @@ export function generateStaticParams() {
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://datavoices.com.ar"),
-  title: { default: "Data Voices", template: "%s | Data Voices" },
+  // Sin template: buildMetadata() ya arma el title completo con "| Data Voices"
+  // en cada página (ver lib/seo/metadata.ts). Un template acá lo duplicaba
+  // ("Agentes de IA para empresas | Data Voices | Data Voices").
+  title: "Data Voices",
 };
 
 export default async function LocaleLayout({

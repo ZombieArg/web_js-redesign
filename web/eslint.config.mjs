@@ -12,6 +12,10 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Output generado por "netlify deploy --build" localmente (gitignoreado,
+    // no existe en un checkout limpio) — sin esto, lint escanea el JS
+    // bundleado de terceros dentro de .netlify/ y tira miles de falsos positivos.
+    ".netlify/**",
   ]),
 ]);
 

@@ -22,7 +22,7 @@ export function buildCaseGraph(item: CaseItem, locale: string) {
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Inicio", item: `${SITE_URL}/` },
       { "@type": "ListItem", position: 2, name: "Casos", item: `${SITE_URL}/casos` },
-      { "@type": "ListItem", position: 3, name: item.title },
+      { "@type": "ListItem", position: 3, name: item.title, item: `${SITE_URL}/casos/${item.slug}` },
     ],
   };
 
