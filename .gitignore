@@ -8,3 +8,6 @@ client/.env
 /client/dist
 /client/dist/assets
 .idea/
+.env.netlify
+# Local Netlify folder
+.netlify
