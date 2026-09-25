@@ -40,7 +40,7 @@ const es: ServicePageContent = {
       {
         title: "Casos de apoyo",
         caption:
-          "Normsy (estudio con 1.021 participantes) cuando el problema es criterio y modelo, no solo recuperación de información. BID cuando el corpus es institucional y grande.",
+          "Normsy (estudio con 1.021 participantes) cuando el problema es criterio y modelo, no solo recuperación de información. El trabajo con un organismo internacional cuando el corpus es institucional y grande.",
       },
     ],
   },
@@ -106,7 +106,7 @@ const en: ServicePageContent = {
       {
         title: "Supporting cases",
         caption:
-          "Normsy (study with 1,021 participants) when the problem is judgment and modeling, not just information retrieval. IDB when the corpus is institutional and large.",
+          "Normsy (study with 1,021 participants) when the problem is judgment and modeling, not just information retrieval. The work with an international organization when the corpus is institutional and large.",
       },
     ],
   },

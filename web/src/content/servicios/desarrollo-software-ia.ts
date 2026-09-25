@@ -42,7 +42,7 @@ const es: ServicePageContent = {
         title: "Eduardo",
         caption: "Más de 20 años de software; trabajo citado en GLG y Ansel Health; stack React, Node y TypeScript.",
       },
-      { title: "Juanma", caption: "Ingeniería de IA; Auth0, Nixtla, gobiernos, BID." },
+      { title: "Juanma", caption: "Ingeniería de IA; Auth0, Nixtla, gobiernos, organismos internacionales." },
     ],
   },
   faq: {
@@ -107,7 +107,7 @@ const en: ServicePageContent = {
         title: "Eduardo",
         caption: "20+ years in software; work cited at GLG and Ansel Health; React, Node, and TypeScript stack.",
       },
-      { title: "Juanma", caption: "AI engineering; Auth0, Nixtla, governments, IDB." },
+      { title: "Juanma", caption: "AI engineering; Auth0, Nixtla, governments, international organizations." },
     ],
   },
   faq: {

@@ -18,16 +18,22 @@ import { homeContent } from "@/content/home";
 import { resolveContent } from "@/content/types";
 import { routing } from "@/i18n/routing";
 
-import bidLogo from "@/assets/logos/bid-logo.png";
 import chpLogo from "@/assets/logos/chp-logo.png";
 import municipioLobosLogo from "@/assets/logos/municipio-lobos.jpg";
 import farmaciasLogo from "@/assets/logos/farmacias-del-pueblo-logo.png";
+import padrePepeLogo from "@/assets/logos/mision-padre-pepe-logo.png";
+import helarteLogo from "@/assets/logos/distribuidora-helarte.png";
+import bahiaLobosLogo from "@/assets/logos/bahiadeloslobos.png";
 
+// El logo del organismo internacional se retiró a pedido del cliente
+// (24/09/2026) junto con toda mención explícita.
 const LOGOS = {
-  bid: bidLogo,
   chp: chpLogo,
   municipioLobos: municipioLobosLogo,
   farmacias: farmaciasLogo,
+  padrePepe: padrePepeLogo,
+  helarte: helarteLogo,
+  bahiaLobos: bahiaLobosLogo,
 };
 
 export function generateStaticParams() {

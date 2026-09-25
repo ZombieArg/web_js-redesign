@@ -16,15 +16,17 @@ const es: HomeContent = {
   logoRow: {
     heading: "Confiaron en nosotros",
     logos: [
-      { key: "bid", alt: "Banco Interamericano de Desarrollo" },
       { key: "chp", alt: "Civic Health Project" },
       { key: "municipioLobos", alt: "Municipio de Lobos" },
       { key: "farmacias", alt: "Farmacias del Pueblo" },
+      { key: "padrePepe", alt: "Misión Padre Pepe" },
+      { key: "helarte", alt: "Distribuidora Helarte" },
+      { key: "bahiaLobos", alt: "Bahía de los Lobos" },
     ],
   },
   whoWeAre: {
     heading: "Quiénes somos",
-    body: "Data Voices es una consultora de inteligencia artificial para empresas, con sede en Buenos Aires. El equipo combina investigación (PhD en Ciencias de la Computación, UBA) con desarrollo de software de producción. Las cuatro líneas son asistentes de IA, IA sobre datos y procesos existentes, desarrollo de software con IA, e implementación con capacitación. El trabajo incluye un portafolio público con el BID y productos propios como Cecilia. El primer paso comercial es un diagnóstico gratuito.",
+    body: "Data Voices es una consultora de inteligencia artificial para empresas, con sede en Buenos Aires. El equipo combina investigación (PhD en Ciencias de la Computación, UBA) con desarrollo de software de producción. Las cuatro líneas son asistentes de IA, IA sobre datos y procesos existentes, desarrollo de software con IA, e implementación con capacitación. El trabajo incluye un portafolio público con un organismo internacional y productos propios como Cecilia. El primer paso comercial es un diagnóstico gratuito.",
     badges: ["Sede en Buenos Aires", "Investigación PhD UBA", "Software de producción"],
   },
   services: {
@@ -78,10 +80,10 @@ const es: HomeContent = {
     items: [
       {
         tag: "Sector Público / Multilateral",
-        title: "Trabajo con el BID",
+        title: "Trabajo con un organismo internacional",
         description: "Portafolio público, escala institucional.",
         caption: "Auditoría de datos y pipelines de inferencia",
-        href: "/casos/bid",
+        href: "/casos/organismo-internacional",
       },
       {
         tag: "HR Tech",
@@ -165,15 +167,17 @@ const en: HomeContent = {
   logoRow: {
     heading: "Trusted by",
     logos: [
-      { key: "bid", alt: "Inter-American Development Bank" },
       { key: "chp", alt: "Civic Health Project" },
       { key: "municipioLobos", alt: "Municipio de Lobos" },
       { key: "farmacias", alt: "Farmacias del Pueblo" },
+      { key: "padrePepe", alt: "Misión Padre Pepe" },
+      { key: "helarte", alt: "Distribuidora Helarte" },
+      { key: "bahiaLobos", alt: "Bahía de los Lobos" },
     ],
   },
   whoWeAre: {
     heading: "Who we are",
-    body: "Data Voices is an AI consultancy for businesses, based in Buenos Aires. The team combines research (PhD in Computer Science, UBA) with production-grade software development. The four lines are AI assistants, AI on existing data and processes, AI software development, and implementation with training. The work includes a public portfolio with the IDB and in-house products like Cecilia. The first commercial step is a free diagnostic.",
+    body: "Data Voices is an AI consultancy for businesses, based in Buenos Aires. The team combines research (PhD in Computer Science, UBA) with production-grade software development. The four lines are AI assistants, AI on existing data and processes, AI software development, and implementation with training. The work includes a public portfolio with an international organization and in-house products like Cecilia. The first commercial step is a free diagnostic.",
     badges: ["Based in Buenos Aires", "PhD research, UBA", "Production-grade software"],
   },
   services: {
@@ -226,10 +230,10 @@ const en: HomeContent = {
     items: [
       {
         tag: "Public Sector / Multilateral",
-        title: "Work with the IDB",
+        title: "Work with an international organization",
         description: "Public portfolio, institutional scale.",
         caption: "Data audit and inference pipelines",
-        href: "/casos/bid",
+        href: "/casos/organismo-internacional",
       },
       {
         tag: "HR Tech",

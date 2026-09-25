@@ -29,7 +29,7 @@ export async function generateMetadata({
     locale,
     path: PATH,
     title: "Casos de éxito | Data Voices",
-    description: "Portafolio de casos de Data Voices: BID, Real Time Interview Agent, Normsy, Agent Launcher y Social Media Detoxifier.",
+    description: "Portafolio de casos de Data Voices: Real Time Interview Agent, Normsy, Agent Launcher, Social Media Detoxifier y trabajo con un organismo internacional.",
     // El copy propio del hub (kicker/H1) todavía no tiene versión EN real
     // (ninguno de los docs entregados la trae) — no se fabrica traducción.
     // Los ítems individuales sí tienen su propio translationStatus por caso.

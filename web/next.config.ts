@@ -21,6 +21,9 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       { source: "/en/consulting", destination: "/en/servicios/consultoria", permanent: true },
+      // Renombre del caso (24/09/2026): el cliente pidió no nombrar al organismo.
+      { source: "/casos/bid", destination: "/casos/organismo-internacional", permanent: true },
+      { source: "/en/casos/bid", destination: "/en/casos/organismo-internacional", permanent: true },
       // /cecilia se mantiene igual (URL histórica) — sin redirect, excluida a propósito.
     ];
   },

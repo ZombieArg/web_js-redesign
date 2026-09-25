@@ -57,3 +57,16 @@
   to = "/en/servicios/consultoria"
   status = 308
   force = true
+
+# Renombre del caso (24/09/2026): el cliente pidió no nombrar al organismo.
+[[redirects]]
+  from = "/casos/bid"
+  to = "/casos/organismo-internacional"
+  status = 308
+  force = true
+
+[[redirects]]
+  from = "/en/casos/bid"
+  to = "/en/casos/organismo-internacional"
+  status = 308
+  force = true

@@ -75,12 +75,12 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
           <div className="rounded-xl border-l-[3px] border-l-signal-orange border-y border-r border-divider bg-surface-container-low p-8">
             <div className="mb-4 flex items-center gap-3">
               <IconTile name="seguridad" />
-              <h2 className="text-headline-md text-brand-navy">Eje BID</h2>
+              <h2 className="text-headline-md text-brand-navy">{content.institutionalNote.heading}</h2>
             </div>
-            <p className="max-w-[640px] text-body-md text-on-surface-variant">{content.bidNote.text}</p>
+            <p className="max-w-[640px] text-body-md text-on-surface-variant">{content.institutionalNote.text}</p>
             {/* @ts-expect-error -- next-intl Link tipa href contra rutas conocidas de routing.ts */}
-            <Link href={content.bidNote.href} className="mt-4 inline-flex text-label-md text-signal-orange normal-case tracking-normal">
-              {content.bidNote.linkLabel} →
+            <Link href={content.institutionalNote.href} className="mt-4 inline-flex text-label-md text-signal-orange normal-case tracking-normal">
+              {content.institutionalNote.linkLabel} →
             </Link>
           </div>
         </Container>

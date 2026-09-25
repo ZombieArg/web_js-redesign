@@ -37,12 +37,15 @@ export const casos: CaseItem[] = [
     translationStatus: "pending",
   },
   {
-    slug: "bid",
+    // El cliente pidió no nombrar explícitamente al organismo (24/09/2026):
+    // se menciona como "organismo internacional" en todo el sitio, y el
+    // slug se cambió por el mismo motivo (la URL también es una mención).
+    slug: "organismo-internacional",
     tag: "Sector Público / Multilateral",
     iconName: "seguridad",
-    title: "Trabajo con el Banco Interamericano de Desarrollo",
+    title: "Trabajo con un organismo internacional",
     summary: "Portafolio público, escala institucional.",
-    body: "Trabajo de inteligencia artificial sobre el portafolio público del BID e informe descargable.",
+    body: "Trabajo de inteligencia artificial sobre el portafolio público de un organismo internacional e informe descargable.",
     caption: "Auditoría de datos y pipelines de inferencia",
     translationStatus: "pending",
   },

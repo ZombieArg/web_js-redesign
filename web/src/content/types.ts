@@ -146,7 +146,8 @@ export interface NosotrosContent {
   hero: { h1: string; subhead: string };
   entityParagraph: string;
   people: PersonContent[];
-  bidNote: { text: string; linkLabel: string; href: string };
+  /** Nota del eje institucional. El heading es contenido (localizable), no markup. */
+  institutionalNote: { heading: string; text: string; linkLabel: string; href: string };
   closingCta: CtaData;
 }
 
