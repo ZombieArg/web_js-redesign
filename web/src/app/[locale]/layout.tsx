@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Inter, Poppins } from "next/font/google";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
@@ -8,6 +9,7 @@ import { routing } from "@/i18n/routing";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { PostHogProvider } from "@/components/analytics/PostHogProvider";
 import { buildOrgNode, buildWebsiteNode } from "@/lib/seo/graphs/org";
 import "../globals.css";
 
@@ -64,6 +66,9 @@ export default async function LocaleLayout({
           <main id="main-content">{children}</main>
           <Footer />
           <Toaster position="top-right" />
+          <Suspense fallback={null}>
+            <PostHogProvider />
+          </Suspense>
         </NextIntlClientProvider>
       </body>
     </html>

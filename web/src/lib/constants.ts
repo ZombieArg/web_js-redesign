@@ -19,6 +19,16 @@ export const SITE_URL =
  */
 export const NOINDEX_ALL = process.env.NEXT_PUBLIC_NOINDEX_ALL === "true";
 
+/**
+ * Medición: PostHog (no GTM/GA4). Sin key no se inicializa nada — el sitio
+ * funciona igual y no manda eventos. Se setea como env var del sitio en
+ * Netlify, no se commitea.
+ * - NEXT_PUBLIC_POSTHOG_KEY: "Project API Key" del proyecto (empieza con phc_).
+ * - NEXT_PUBLIC_POSTHOG_HOST: host de la región (us o eu).
+ */
+export const POSTHOG_KEY = process.env.NEXT_PUBLIC_POSTHOG_KEY ?? "";
+export const POSTHOG_HOST = process.env.NEXT_PUBLIC_POSTHOG_HOST ?? "https://us.i.posthog.com";
+
 export const API_BASE_URL =
   process.env.NEXT_PUBLIC_API_BASE_URL ?? "https://ceciliabot.datavoices.com.ar/api";
 

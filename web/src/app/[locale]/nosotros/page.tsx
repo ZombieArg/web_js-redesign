@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { setRequestLocale } from "next-intl/server";
 import { Container } from "@/components/ui/Container";
 import { Card } from "@/components/ui/Card";
@@ -10,8 +11,14 @@ import { Link } from "@/i18n/navigation";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { buildNosotrosGraph } from "@/lib/seo/graphs/nosotros";
 import { nosotrosContent } from "@/content/nosotros";
+import juanmaPhoto from "@/assets/team/juan-manuel-ortiz-de-zarate.jpg";
+import eduardoPhoto from "@/assets/team/eduardo-pan.jpg";
 import { resolveContent } from "@/content/types";
 import { routing } from "@/i18n/routing";
+
+// Mapeo por slug: PersonContent.slug ya es "juanma" | "eduardo", asi que si
+// se agrega una persona al contenido sin foto, TypeScript lo marca aca.
+const TEAM_PHOTOS = { juanma: juanmaPhoto, eduardo: eduardoPhoto };
 
 const PATH = "/nosotros";
 
@@ -60,7 +67,13 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
           <div className="grid grid-cols-1 gap-6 tablet:grid-cols-2">
             {content.people.map((person) => (
               <Card key={person.slug}>
-                <IconTile name="usuarios" />
+                <Image
+                  src={TEAM_PHOTOS[person.slug]}
+                  alt={person.photoAlt}
+                  placeholder="blur"
+                  sizes="(min-width: 768px) 176px, 128px"
+                  className="h-32 w-32 rounded-xl object-cover tablet:h-44 tablet:w-44"
+                />
                 <h2 className="mt-4 text-headline-md text-brand-navy">{person.name}</h2>
                 <p className="text-label-md text-signal-orange normal-case tracking-normal">{person.jobTitle}</p>
                 <p className="mt-3 text-body-md text-on-surface-variant">{person.bio}</p>

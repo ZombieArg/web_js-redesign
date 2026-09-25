@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import { Field } from "@/components/ui/Field";
 import { Button } from "@/components/ui/Button";
 import { sendContactForm } from "@/lib/api/contact";
+import { captureEvent } from "@/lib/analytics";
 
 export function ContactForm() {
   const tForms = useTranslations("forms");
@@ -26,6 +27,12 @@ export function ContactForm() {
         process: String(data.get("process") ?? ""),
         origin: String(data.get("origin") ?? ""),
       });
+      // Evento de conversión del diagnóstico (feedback SEO/GEO ítem 11).
+      // Solo se manda si el envío al backend salió bien — un submit fallido
+      // no es una conversión. Sin datos personales en las props: el contenido
+      // del formulario ya viaja al backend de mail, no hace falta duplicarlo
+      // en el producto de analítica.
+      captureEvent("diagnostico_solicitado", { form: "contacto" });
       toast.success(tToast("success"));
       event.currentTarget.reset();
     } catch {

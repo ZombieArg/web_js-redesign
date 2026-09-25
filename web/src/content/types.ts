@@ -138,6 +138,8 @@ export interface PersonContent {
   slug: "juanma" | "eduardo";
   name: string;
   jobTitle: string;
+  /** Alt de la foto. Es contenido, se traduce; la imagen se mapea por slug en la pagina. */
+  photoAlt: string;
   bio: string;
 }
 
