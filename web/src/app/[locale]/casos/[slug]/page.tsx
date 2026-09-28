@@ -6,11 +6,12 @@ import { TranslationPendingNotice } from "@/components/ui/TranslationPendingNoti
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { buildCaseGraph } from "@/lib/seo/graphs/casos";
-import { casos, getCaseBySlug } from "@/content/casos/data";
+import { caseSlugs, getCaseBySlug, casosHubContent } from "@/content/casos/data";
+import { resolveContent } from "@/content/types";
 import { routing } from "@/i18n/routing";
 
 export function generateStaticParams() {
-  return routing.locales.flatMap((locale) => casos.map((item) => ({ locale, slug: item.slug })));
+  return routing.locales.flatMap((locale) => caseSlugs.map((slug) => ({ locale, slug })));
 }
 
 export async function generateMetadata({
@@ -19,12 +20,14 @@ export async function generateMetadata({
   params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
   const { locale, slug } = await params;
-  const item = getCaseBySlug(slug);
+  const item = getCaseBySlug(slug, locale);
   if (!item) return {};
+  const { content } = resolveContent(locale, casosHubContent);
   return buildMetadata({
     locale,
     path: `/casos/${slug}`,
-    title: `${item.title} | Casos | Data Voices`,
+    title: `${item.title} | ${content.breadcrumb.casos} | Data Voices`,
+    // body es el resumen corto, no la narrativa — ver el comentario en CaseItem.
     description: item.body ?? item.summary,
     translationStatus: item.translationStatus,
   });
@@ -33,7 +36,7 @@ export async function generateMetadata({
 export default async function Page({ params }: { params: Promise<{ locale: string; slug: string }> }) {
   const { locale, slug } = await params;
   setRequestLocale(locale);
-  const item = getCaseBySlug(slug);
+  const item = getCaseBySlug(slug, locale);
   if (!item) notFound();
 
   const isPending = locale !== routing.defaultLocale && item.translationStatus === "pending";

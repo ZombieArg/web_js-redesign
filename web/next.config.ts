@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
+import { LEGACY_REDIRECTS } from "./src/lib/legacy-redirects";
 
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
@@ -9,23 +10,15 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: __dirname,
   },
+  // Fallback para self-hosted. En la práctica los resuelve proxy.ts antes,
+  // porque el middleware corre primero y con localePrefix "as-needed" reescribe
+  // el path — ver el comentario largo ahí. Se derivan del mismo módulo para que
+  // las dos capas no se desincronicen.
   async redirects() {
-    return [
-      { source: "/data-ai", destination: "/servicios/ia-sobre-datos", permanent: true },
-      { source: "/software-dev", destination: "/servicios/desarrollo-software-ia", permanent: true },
-      { source: "/consulting", destination: "/servicios/consultoria", permanent: true },
-      { source: "/en/data-ai", destination: "/en/servicios/ia-sobre-datos", permanent: true },
-      {
-        source: "/en/software-dev",
-        destination: "/en/servicios/desarrollo-software-ia",
-        permanent: true,
-      },
-      { source: "/en/consulting", destination: "/en/servicios/consultoria", permanent: true },
-      // Renombre del caso (24/09/2026): el cliente pidió no nombrar al organismo.
-      { source: "/casos/bid", destination: "/casos/organismo-internacional", permanent: true },
-      { source: "/en/casos/bid", destination: "/en/casos/organismo-internacional", permanent: true },
-      // /cecilia se mantiene igual (URL histórica) — sin redirect, excluida a propósito.
-    ];
+    return Object.entries(LEGACY_REDIRECTS).flatMap(([source, destination]) => [
+      { source, destination, permanent: true },
+      { source: `/en${source}`, destination: `/en${destination}`, permanent: true },
+    ]);
   },
 };
 

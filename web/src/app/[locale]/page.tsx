@@ -70,6 +70,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <Container>
         <LogoRow
           heading={content.logoRow.heading}
+          linkLabel={content.logoRow.linkLabel}
           logos={content.logoRow.logos.map((logo) => ({
             src: LOGOS[logo.key as keyof typeof LOGOS],
             alt: logo.alt,

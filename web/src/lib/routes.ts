@@ -1,4 +1,4 @@
-import { casos } from "@/content/casos/data";
+import { caseSlugs } from "@/content/casos/data";
 import { homeContent } from "@/content/home";
 import { ceciliaContent } from "@/content/cecilia";
 import { asistentesIaContent } from "@/content/servicios/asistentes-ia";
@@ -34,11 +34,11 @@ export const ROUTES: RouteEntry[] = [
     translationStatus: statusOf(desarrolloSoftwareIaContent),
   },
   { path: "/servicios/consultoria", priority: 0.8, translationStatus: statusOf(consultoriaContent) },
-  { path: "/casos", priority: 0.7, translationStatus: "pending" },
-  ...casos.map((item) => ({
-    path: `/casos/${item.slug}`,
+  { path: "/casos", priority: 0.7, translationStatus: "live" },
+  ...caseSlugs.map((slug) => ({
+    path: `/casos/${slug}`,
     priority: 0.6,
-    translationStatus: item.translationStatus,
+    translationStatus: "live" as const,
   })),
   { path: "/prensa", priority: 0.4, translationStatus: statusOf(prensaPageContent) },
   { path: "/nosotros", priority: 0.7, translationStatus: statusOf(nosotrosContent) },

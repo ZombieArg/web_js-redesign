@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import { Container } from "@/components/ui/Container";
 import { Badge } from "@/components/ui/Badge";
 import { IconTile } from "@/components/ui/IconTile";
@@ -5,11 +6,16 @@ import { CtaBand } from "@/components/ui/CtaBand";
 import type { CaseItem } from "@/content/types";
 
 /**
- * Renderiza texto largo, métricas y video de forma condicional — sin esos
- * campos (brief §2.2, pendiente de Íntimo Growth), no rompe ni muestra
- * relleno inventado.
+ * Todo lo que no sea título, tag y summary se renderiza condicionalmente: una
+ * ficha sin narrativa ni métricas no rompe ni muestra relleno inventado.
+ *
+ * Las secciones de `narrative` son h2 reales. Antes la ficha tenía un único h2
+ * (el del CTA de cierre), así que no tenía estructura para el lector ni para
+ * los buscadores.
  */
 export function CaseDetailTemplate({ item }: { item: CaseItem }) {
+  const t = useTranslations("buttons");
+
   return (
     <>
       <section className="py-section">
@@ -25,8 +31,19 @@ export function CaseDetailTemplate({ item }: { item: CaseItem }) {
 
           {item.body && <p className="mt-6 max-w-[720px] text-body-md text-on-surface-variant">{item.body}</p>}
 
+          {item.metrics && (
+            <div className="mt-10 grid grid-cols-1 gap-6 tablet:grid-cols-3">
+              {item.metrics.map((metric) => (
+                <div key={metric.label}>
+                  <p className="text-headline-lg text-brand-navy">{metric.value}</p>
+                  <p className="mt-1 text-body-md text-on-surface-variant">{metric.label}</p>
+                </div>
+              ))}
+            </div>
+          )}
+
           {item.highlights && (
-            <ul className="mt-8 grid grid-cols-1 gap-3 tablet:grid-cols-2">
+            <ul className="mt-10 grid grid-cols-1 gap-3 tablet:grid-cols-2">
               {item.highlights.map((h) => (
                 <li
                   key={h.text}
@@ -41,19 +58,19 @@ export function CaseDetailTemplate({ item }: { item: CaseItem }) {
             </ul>
           )}
 
-          {item.metrics && (
-            <div className="mt-8 grid grid-cols-1 gap-6 tablet:grid-cols-3">
-              {item.metrics.map((metric) => (
-                <div key={metric.label}>
-                  <p className="text-headline-lg text-brand-navy">{metric.value}</p>
-                  <p className="mt-1 text-body-md text-on-surface-variant">{metric.label}</p>
-                </div>
+          {item.narrative?.map((section) => (
+            <div key={section.heading} className="mt-12 max-w-[720px]">
+              <h2 className="text-headline-md text-brand-navy">{section.heading}</h2>
+              {section.paragraphs.map((paragraph) => (
+                <p key={paragraph.slice(0, 60)} className="mt-4 text-body-md text-on-surface-variant">
+                  {paragraph}
+                </p>
               ))}
             </div>
-          )}
+          ))}
 
           {item.videoEmbedUrl && (
-            <div className="mt-8 aspect-video w-full max-w-[720px] overflow-hidden rounded-xl border border-divider">
+            <div className="mt-10 aspect-video w-full max-w-[720px] overflow-hidden rounded-xl border border-divider">
               <iframe
                 src={item.videoEmbedUrl}
                 title={item.title}
@@ -64,19 +81,26 @@ export function CaseDetailTemplate({ item }: { item: CaseItem }) {
             </div>
           )}
 
-          {item.productUrl && (
-            <a href={item.productUrl} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex text-label-md text-signal-orange normal-case tracking-normal">
-              Visitar producto →
+          {item.productUrl && item.productLinkLabel && (
+            <a
+              href={item.productUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 inline-flex text-label-md text-signal-orange normal-case tracking-normal"
+            >
+              {item.productLinkLabel} →
             </a>
           )}
         </Container>
       </section>
 
-      <CtaBand
-        heading="¿Un proceso parecido en tu empresa?"
-        primaryCta={{ label: "Pedí un diagnóstico gratuito", href: "/contacto" }}
-        tone="navy"
-      />
+      {item.ctaHeading && (
+        <CtaBand
+          heading={item.ctaHeading}
+          primaryCta={{ label: t("diagnostico"), href: "/contacto" }}
+          tone="navy"
+        />
+      )}
     </>
   );
 }

@@ -1,6 +1,6 @@
 import { SITE_URL, CONTACT, SOCIAL, ORG } from "@/lib/constants";
 import { ROUTES } from "@/lib/routes";
-import { casos } from "@/content/casos/data";
+import { getCasos } from "@/content/casos/data";
 
 export const dynamic = "force-static";
 
@@ -22,7 +22,7 @@ export function GET() {
     (r) => `- ${LABELS[r.path]}: ${SITE_URL}${r.path === "/" ? "/" : r.path}`,
   );
 
-  const caseNames = casos.map((c) => `- ${c.title}`).join("\n");
+  const caseNames = getCasos("es").map((c) => `- ${c.title}`).join("\n");
 
   const body = `# ${ORG.name}
 > Consultora argentina de inteligencia artificial: implementación de IA, desarrollo de software a medida y agentes de IA para empresas.

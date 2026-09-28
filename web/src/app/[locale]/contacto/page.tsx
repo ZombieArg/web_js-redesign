@@ -83,7 +83,6 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
                 <dd>datavoices.com.ar</dd>
               </div>
             </dl>
-            <p className="mt-6 text-caption text-outline">{content.afterSubmitNote}</p>
           </div>
 
           <ContactForm />

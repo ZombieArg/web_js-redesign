@@ -85,6 +85,16 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
 
       <section className="py-section">
         <Container>
+          <h2 className="text-headline-md text-brand-navy">{content.team.heading}</h2>
+          <p className="mt-4 max-w-[720px] text-body-md text-on-surface-variant">{content.team.body}</p>
+          <Link href="/prensa" className="mt-4 inline-flex text-label-md text-signal-orange normal-case tracking-normal">
+            {content.team.pressLinkLabel} →
+          </Link>
+        </Container>
+      </section>
+
+      <section className="py-section">
+        <Container>
           <div className="rounded-xl border-l-[3px] border-l-signal-orange border-y border-r border-divider bg-surface-container-low p-8">
             <div className="mb-4 flex items-center gap-3">
               <IconTile name="seguridad" />

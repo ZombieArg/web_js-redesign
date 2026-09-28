@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { Logo } from "@/components/layout/Logo";
 import { CONTACT } from "@/lib/constants";
 
 const SERVICE_LINKS = [
@@ -16,10 +17,7 @@ export function Footer() {
     <footer className="bg-brand-navy py-16 text-white">
       <div className="mx-auto grid w-full max-w-[1280px] grid-cols-1 gap-10 px-margin-mobile desktop:grid-cols-4 desktop:px-margin-desktop">
         <div>
-          <div className="flex items-center gap-2">
-            <span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-signal-orange" />
-            <span className="font-wordmark text-[17px] font-bold text-white">Data Voices</span>
-          </div>
+          <Logo tone="inverse" />
           <p className="mt-4 max-w-xs text-body-md text-white/70">{t("footer.tagline")}</p>
           <p className="mt-4 text-caption text-white/50">{t("footer.cityLine")}</p>
         </div>

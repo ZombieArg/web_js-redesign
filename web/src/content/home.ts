@@ -15,6 +15,7 @@ const es: HomeContent = {
   },
   logoRow: {
     heading: "Confiaron en nosotros",
+    linkLabel: "Ver el portafolio",
     logos: [
       { key: "chp", alt: "Civic Health Project" },
       { key: "municipioLobos", alt: "Municipio de Lobos" },
@@ -166,6 +167,7 @@ const en: HomeContent = {
   },
   logoRow: {
     heading: "Trusted by",
+    linkLabel: "See the portfolio",
     logos: [
       { key: "chp", alt: "Civic Health Project" },
       { key: "municipioLobos", alt: "Municipio de Lobos" },

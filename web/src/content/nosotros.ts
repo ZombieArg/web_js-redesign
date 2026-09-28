@@ -29,6 +29,11 @@ const es: NosotrosContent = {
       bio: "Más de 20 años construyendo software. GLG y Ansel Health. React, Node, TypeScript. Trabajo citado con Manchester United, Debenhams y OVO Energy.",
     },
   ],
+  team: {
+    heading: "El equipo",
+    body: "Además de los fundadores, Data Voices trabaja con un equipo de desarrollo, análisis de datos e implementación. Esa capacidad es la que permite sostener proyectos en producción y no solo prototipos: cuando un sistema entra a operar, hay gente detrás manteniéndolo.",
+    pressLinkLabel: "También salimos en medios",
+  },
   institutionalNote: {
     heading: "Eje institucional",
     text: "El trabajo con organismos internacionales es institucional y de escala. Portafolio público, no un logo de más.",
@@ -65,6 +70,11 @@ const en: NosotrosContent = {
       bio: "20+ years building software. GLG and Ansel Health. React, Node, TypeScript. Work cited with Manchester United, Debenhams, and OVO Energy.",
     },
   ],
+  team: {
+    heading: "The team",
+    body: "Beyond the founders, Data Voices works with a team across development, data analysis, and implementation. That capacity is what makes it possible to sustain systems in production rather than just prototypes: when something goes live, there are people behind it keeping it running.",
+    pressLinkLabel: "We have also been in the press",
+  },
   institutionalNote: {
     heading: "Institutional track record",
     text: "Our work with international organizations is institutional and at scale. Public portfolio, not just another logo.",

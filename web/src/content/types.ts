@@ -113,7 +113,7 @@ export interface ProductPageContent {
 export interface HomeContent {
   seo: SeoContent;
   hero: { badge: string; h1: string; subhead: string; cta: CtaData };
-  logoRow: { heading: string; logos: { key: string; alt: string }[] };
+  logoRow: { heading: string; linkLabel: string; logos: { key: string; alt: string }[] };
   whoWeAre: { heading: string; body: string; badges: string[] };
   services: {
     heading: string;
@@ -149,6 +149,8 @@ export interface NosotrosContent {
   entityParagraph: string;
   people: PersonContent[];
   /** Nota del eje institucional. El heading es contenido (localizable), no markup. */
+  /** Bloque de equipo: aclara que Data Voices no son solo los dos fundadores. */
+  team: { heading: string; body: string; pressLinkLabel: string };
   institutionalNote: { heading: string; text: string; linkLabel: string; href: string };
   closingCta: CtaData;
 }
@@ -156,7 +158,6 @@ export interface NosotrosContent {
 export interface ContactoContent {
   seo: SeoContent;
   hero: { h1: string; subhead: string };
-  afterSubmitNote: string;
 }
 
 export interface CaseItem {
@@ -166,11 +167,22 @@ export interface CaseItem {
   title: string;
   summary: string;
   caption?: string;
+  /**
+   * Resumen corto, de un párrafo. Alimenta la meta description y la
+   * description del schema, así que NO va acá la narrativa larga — se
+   * truncaría mal en buscadores. La narrativa va en `narrative`.
+   */
   body?: string;
-  highlights?: { emoji: string; text: string }[];
+  /** Narrativa del caso, en secciones con encabezado propio (cada una es un h2). */
+  narrative?: { heading: string; paragraphs: string[] }[];
+  /** `isAward` marca el destacado que va como `award` en el schema. */
+  highlights?: { emoji: string; text: string; isAward?: boolean }[];
   metrics?: { label: string; value: string }[];
   productUrl?: string;
+  productLinkLabel?: string;
   videoEmbedUrl?: string;
+  /** Cierre de la ficha. Es contenido porque se traduce. */
+  ctaHeading?: string;
   translationStatus: TranslationStatus;
 }
 
