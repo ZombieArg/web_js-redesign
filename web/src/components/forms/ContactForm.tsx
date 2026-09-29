@@ -15,8 +15,14 @@ export function ContactForm() {
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    // El elemento se guarda ANTES del await. event.currentTarget solo es válido
+    // durante el despacho sincrónico del evento y queda en null después, así que
+    // un event.currentTarget.reset() posterior al await tiraba TypeError. Como
+    // ese reset vivía dentro del try, lo atrapaba el catch y se veían los dos
+    // toasts a la vez, con el mail ya enviado.
+    const form = event.currentTarget;
+    const data = new FormData(form);
     setSubmitting(true);
-    const data = new FormData(event.currentTarget);
 
     try {
       await sendContactForm({
@@ -27,19 +33,23 @@ export function ContactForm() {
         process: String(data.get("process") ?? ""),
         origin: String(data.get("origin") ?? ""),
       });
-      // Evento de conversión del diagnóstico (feedback SEO/GEO ítem 11).
-      // Solo se manda si el envío al backend salió bien — un submit fallido
-      // no es una conversión. Sin datos personales en las props: el contenido
-      // del formulario ya viaja al backend de mail, no hace falta duplicarlo
-      // en el producto de analítica.
-      captureEvent("diagnostico_solicitado", { form: "contacto" });
-      toast.success(tToast("success"));
-      event.currentTarget.reset();
     } catch {
       toast.error(tToast("error"));
+      return;
     } finally {
       setSubmitting(false);
     }
+
+    // Todo lo de acá queda FUERA del try a propósito: una vez que el envío
+    // salió bien, nada posterior puede terminar mostrando el toast de error.
+    //
+    // Evento de conversión del diagnóstico (feedback SEO/GEO ítem 11): solo se
+    // manda si el backend confirmó. Sin datos personales en las props — el
+    // contenido del formulario ya viaja al backend de mail, no hace falta
+    // duplicarlo en el producto de analítica.
+    captureEvent("diagnostico_solicitado", { form: "contacto" });
+    toast.success(tToast("success"));
+    form.reset();
   }
 
   return (
