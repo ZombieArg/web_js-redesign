@@ -12,6 +12,12 @@ export function ContactForm() {
   const tForms = useTranslations("forms");
   const tToast = useTranslations("toast");
   const [submitting, setSubmitting] = useState(false);
+  // Antes era texto libre; pasa a selector fijo (feedback 29/09/2026). El
+  // value de cada opción es la clave (no el label traducido), así el dato
+  // que llega al mail es estable entre ES/EN y no depende de la redacción.
+  const originOptions = Object.entries(tForms.raw("originOptions") as Record<string, string>).map(
+    ([value, label]) => ({ value, label }),
+  );
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -25,13 +31,18 @@ export function ContactForm() {
     setSubmitting(true);
 
     try {
+      const originKey = String(data.get("origin") ?? "");
+      // El mail necesita el texto legible ("Redes sociales"), no la clave
+      // interna del <option> ("socialMedia") que viaja en el FormData.
+      const originLabel = originOptions.find((o) => o.value === originKey)?.label ?? originKey;
+
       await sendContactForm({
         name: String(data.get("name") ?? ""),
         company: String(data.get("company") ?? ""),
         email: String(data.get("email") ?? ""),
         whatsapp: String(data.get("whatsapp") ?? ""),
         process: String(data.get("process") ?? ""),
-        origin: String(data.get("origin") ?? ""),
+        origin: originLabel,
       });
     } catch {
       toast.error(tToast("error"));
@@ -61,7 +72,7 @@ export function ContactForm() {
         <Field type="tel" name="whatsapp" label={tForms("whatsapp")} required />
       </div>
       <Field type="textarea" name="process" label={tForms("process")} required />
-      <Field type="text" name="origin" label={tForms("originRequired")} required />
+      <Field type="select" name="origin" label={tForms("originRequired")} options={originOptions} required />
       <Button type="submit" variant="primary" size="lg" disabled={submitting} className="self-start">
         {submitting ? tForms("submitting") : tForms("submit")}
       </Button>

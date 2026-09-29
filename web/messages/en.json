@@ -9,6 +9,7 @@
     },
     "casos": "Case Studies",
     "nosotros": "About us",
+    "prensa": "Press",
     "contacto": "Contact",
     "cta": "Get a free diagnostic",
     "openMenu": "Open menu",
@@ -28,9 +29,7 @@
     },
     "tagline": "AI consultancy for businesses. We design and implement AI on top of what your company already does.",
     "cityLine": "Based in Buenos Aires, Argentina",
-    "rights": "Data Voices. All rights reserved.",
-    "legal": "Terms of Service",
-    "privacy": "Privacy & Security"
+    "rights": "Data Voices. All rights reserved."
   },
   "buttons": {
     "diagnostico": "Get a free diagnostic",
@@ -50,6 +49,15 @@
     "process": "Which process do you want to review",
     "origin": "How did you hear about us",
     "originRequired": "How did you hear about us (required)",
+    "originOptions": {
+      "google": "Google / search",
+      "socialMedia": "Social media",
+      "referral": "Someone recommended us",
+      "event": "Event or talk",
+      "press": "Press coverage",
+      "existingClient": "We are already a client",
+      "other": "Other"
+    },
     "submit": "Request the diagnostic",
     "submitting": "Sending…",
     "requiredField": "This field is required",

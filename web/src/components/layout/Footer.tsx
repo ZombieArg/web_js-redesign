@@ -76,12 +76,12 @@ export function Footer() {
         </div>
       </div>
 
+      {/* Términos y Privacidad se sacaron (29/09/2026): eran texto sin link a
+          ninguna página. No se fabrica una Terms of Service / Privacy Policy
+          — es contenido legal real, no copy de producto. Vuelven cuando haya
+          páginas reales para linkear. */}
       <div className="mx-auto mt-12 flex w-full max-w-[1280px] flex-col gap-2 border-t border-white/10 px-margin-mobile pt-6 text-caption text-white/50 desktop:flex-row desktop:items-center desktop:justify-between desktop:px-margin-desktop">
         <p>© {new Date().getFullYear()} {t("footer.rights")}</p>
-        <div className="flex gap-4">
-          <span>{t("footer.legal")}</span>
-          <span>{t("footer.privacy")}</span>
-        </div>
       </div>
     </footer>
   );

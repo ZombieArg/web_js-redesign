@@ -17,6 +17,7 @@ const SERVICE_LINKS = [
 export function Header() {
   const t = useTranslations("nav");
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [nosotrosOpen, setNosotrosOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
@@ -61,9 +62,32 @@ export function Header() {
           <Link href="/casos" className="text-label-md normal-case tracking-normal text-on-surface-variant hover:text-brand-navy">
             {t("casos")}
           </Link>
-          <Link href="/nosotros" className="text-label-md normal-case tracking-normal text-on-surface-variant hover:text-brand-navy">
-            {t("nosotros")}
-          </Link>
+          {/* Quiénes somos + Prensa como sublink, en vez de un ítem suelto en el
+              header (feedback de diseño 29/09/2026). Prensa sigue disponible
+              también en el footer. */}
+          <div
+            className="group relative"
+            onMouseEnter={() => setNosotrosOpen(true)}
+            onMouseLeave={() => setNosotrosOpen(false)}
+          >
+            <Link
+              href="/nosotros"
+              className="text-label-md normal-case tracking-normal text-on-surface-variant hover:text-brand-navy"
+              aria-expanded={nosotrosOpen}
+            >
+              {t("nosotros")}
+            </Link>
+            {nosotrosOpen && (
+              <div className="absolute left-0 top-full w-48 rounded-md border border-divider bg-surface-container-lowest py-2 shadow-card-hover">
+                <Link
+                  href="/prensa"
+                  className="block px-4 py-2 text-body-md text-on-surface-variant hover:bg-surface-container-low hover:text-brand-navy"
+                >
+                  {t("prensa")}
+                </Link>
+              </div>
+            )}
+          </div>
           <Link href="/contacto" className="text-label-md normal-case tracking-normal text-on-surface-variant hover:text-brand-navy">
             {t("contacto")}
           </Link>
@@ -104,6 +128,9 @@ export function Header() {
           </Link>
           <Link href="/nosotros" className="py-2 text-body-md text-on-surface-variant">
             {t("nosotros")}
+          </Link>
+          <Link href="/prensa" className="py-2 pl-4 text-body-md text-on-surface-variant">
+            {t("prensa")}
           </Link>
           <Link href="/contacto" className="py-2 text-body-md text-on-surface-variant">
             {t("contacto")}

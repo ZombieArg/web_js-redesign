@@ -9,6 +9,7 @@
     },
     "casos": "Casos",
     "nosotros": "Quiénes somos",
+    "prensa": "Prensa",
     "contacto": "Contacto",
     "cta": "Pedí un diagnóstico gratuito",
     "openMenu": "Abrir menú",
@@ -28,9 +29,7 @@
     },
     "tagline": "Consultora de inteligencia artificial para empresas. Diseñamos e implementamos IA sobre lo que tu empresa ya hace.",
     "cityLine": "Sede Buenos Aires, Argentina",
-    "rights": "Data Voices. Todos los derechos reservados.",
-    "legal": "Términos del Servicio",
-    "privacy": "Privacidad y Seguridad"
+    "rights": "Data Voices. Todos los derechos reservados."
   },
   "buttons": {
     "diagnostico": "Pedí un diagnóstico gratuito",
@@ -50,6 +49,15 @@
     "process": "Qué proceso querés revisar",
     "origin": "Cómo llegaste",
     "originRequired": "Cómo llegaste (obligatorio)",
+    "originOptions": {
+      "google": "Google / búsqueda",
+      "socialMedia": "Redes sociales",
+      "referral": "Recomendación de alguien",
+      "event": "Evento o charla",
+      "press": "Nota de prensa",
+      "existingClient": "Ya somos clientes",
+      "other": "Otro"
+    },
     "submit": "Pedí el diagnóstico",
     "submitting": "Enviando…",
     "requiredField": "Este campo es obligatorio",

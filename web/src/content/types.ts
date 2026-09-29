@@ -123,7 +123,7 @@ export interface HomeContent {
   cases: {
     heading: string;
     linkLabel: string;
-    items: { tag: string; title: string; description: string; caption?: string; href: string }[];
+    items: { iconName: IconName; tag: string; title: string; description: string; caption?: string; href: string }[];
   };
   testimonials: {
     heading: string;

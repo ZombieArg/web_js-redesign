@@ -30,12 +30,19 @@ export function LogoRow({
       </div>
       <div className="flex flex-wrap items-center gap-x-12 gap-y-8">
         {logos.map((logo) => (
-          <Image
-            key={logo.alt}
-            src={logo.src}
-            alt={logo.alt}
-            className="h-14 w-auto object-contain transition-opacity duration-200 hover:opacity-80"
-          />
+          // Caja h-14 x w-32 en vez de solo h-14: con altura fija sola, un
+          // logo angosto y vertical (86x131, ratio 0.66) rendereaba mucho más
+          // chico en ancho que uno ancho y bajo (1024x137, ratio 7.47) — se
+          // notaba en Bahía de los Lobos vs. el resto (feedback 29/09/2026).
+          // Acotando ambas dimensiones, object-contain reparte el espacio
+          // parejo sin distorsionar ningún logo.
+          <div key={logo.alt} className="flex h-14 w-32 items-center justify-center">
+            <Image
+              src={logo.src}
+              alt={logo.alt}
+              className="h-full w-full object-contain transition-opacity duration-200 hover:opacity-80"
+            />
+          </div>
         ))}
       </div>
     </div>

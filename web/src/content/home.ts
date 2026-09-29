@@ -80,6 +80,7 @@ const es: HomeContent = {
     linkLabel: "Ver portafolio completo",
     items: [
       {
+        iconName: "seguridad",
         tag: "Sector Público / Multilateral",
         title: "Trabajo con un organismo internacional",
         description: "Portafolio público, escala institucional.",
@@ -87,13 +88,18 @@ const es: HomeContent = {
         href: "/casos/organismo-internacional",
       },
       {
+        iconName: "usuarios",
         tag: "HR Tech",
         title: "Real Time Interview Agent",
         description: "Entrevistas de RR. HH. en tiempo real.",
-        caption: "Latencia inferior a 450ms en streaming de voz",
+        // Reemplaza el "<450ms" que se retiró del caso (28/09/2026): no
+        // tenía documento primario. Se usan los tiempos con fuente
+        // (Stress Tests Report), consistentes con la ficha del caso.
+        caption: "~3 s en capturar la pregunta, ~6,45 s en procesar la respuesta",
         href: "/casos/real-time-interview-agent",
       },
       {
+        iconName: "documentos",
         tag: "Civic Tech",
         title: "Normsy",
         description: "Estudio con 1.021 participantes.",
@@ -101,6 +107,7 @@ const es: HomeContent = {
         href: "/casos/normsy",
       },
       {
+        iconName: "cecilia",
         tag: "Conversacional",
         title: "Cecilia",
         description: "Atención por WhatsApp en municipios y comercio.",
@@ -231,6 +238,7 @@ const en: HomeContent = {
     linkLabel: "See full portfolio",
     items: [
       {
+        iconName: "seguridad",
         tag: "Public Sector / Multilateral",
         title: "Work with an international organization",
         description: "Public portfolio, institutional scale.",
@@ -238,13 +246,17 @@ const en: HomeContent = {
         href: "/casos/organismo-internacional",
       },
       {
+        iconName: "usuarios",
         tag: "HR Tech",
         title: "Real Time Interview Agent",
         description: "Real-time HR interviews.",
-        caption: "Sub-450ms latency on voice streaming",
+        // Replaces the unsupported "<450ms" claim removed from the case
+        // (28/09/2026). Matches the verified metrics on the case page.
+        caption: "~3 s to capture the question, ~6.45 s to process the answer",
         href: "/casos/real-time-interview-agent",
       },
       {
+        iconName: "documentos",
         tag: "Civic Tech",
         title: "Normsy",
         description: "Study with 1,021 participants.",
@@ -252,6 +264,7 @@ const en: HomeContent = {
         href: "/casos/normsy",
       },
       {
+        iconName: "cecilia",
         tag: "Conversational",
         title: "Cecilia",
         description: "WhatsApp support for municipalities and retail.",

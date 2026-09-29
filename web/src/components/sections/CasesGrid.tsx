@@ -20,7 +20,7 @@ export function CasesGrid({ cases }: { cases: HomeContent["cases"] }) {
             <Card key={item.title} as="article">
               <div className="mb-4 flex items-center justify-between">
                 <Badge tone="neutral">{item.tag}</Badge>
-                <Icon name="integraciones" className="text-icon-navy" />
+                <Icon name={item.iconName} className="text-icon-navy" />
               </div>
               <h3 className="text-headline-md text-brand-navy">{item.title}</h3>
               <p className="mt-2 text-body-md text-on-surface-variant">{item.description}</p>
