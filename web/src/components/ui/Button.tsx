@@ -42,20 +42,24 @@ const sizes: Record<Size, string> = {
 };
 
 export function Button(props: ButtonProps) {
-  const { variant = "primary", size = "md", iconRight, className, children } = props;
+  // Las props propias del componente se sacan acá para que NO lleguen al DOM.
+  // Antes se hacía `const { ...rest } = props`, que no excluye nada: className
+  // del llamador quedaba en rest y, al spreadearse después de className={classes},
+  // pisaba todos los estilos del botón (un submit con className quedaba sin fondo
+  // ni padding). variant y size además llegaban al elemento como atributos.
+  const { variant = "primary", size = "md", iconRight, className, children, ...rest } = props;
   const classes = clsx(base, variants[variant], variant !== "ghost" && sizes[size], className);
 
-  if ("href" in props && props.href) {
-    const { href, external, ...rest } = props;
+  if ("href" in rest && rest.href) {
+    const { href, external, ...anchorRest } = rest as AnchorHTMLAttributes<HTMLAnchorElement> & {
+      href: string;
+      external?: boolean;
+    };
     if (external) {
       return (
-        <a
-          href={href}
-          className={classes}
-          target="_blank"
-          rel="noopener noreferrer"
-          {...(rest as AnchorHTMLAttributes<HTMLAnchorElement>)}
-        >
+        // El spread va primero y className después, para que un className
+        // entrante no pueda volver a pisar los estilos.
+        <a {...anchorRest} href={href} target="_blank" rel="noopener noreferrer" className={classes}>
           {children}
           {iconRight}
         </a>
@@ -63,16 +67,15 @@ export function Button(props: ButtonProps) {
     }
     return (
       // @ts-expect-error -- next-intl Link tipa href contra las rutas conocidas de routing.ts
-      <Link href={href} className={classes} {...rest}>
+      <Link {...anchorRest} href={href} className={classes}>
         {children}
         {iconRight}
       </Link>
     );
   }
 
-  const { ...rest } = props as ButtonAsButton;
   return (
-    <button className={classes} {...rest}>
+    <button {...(rest as ButtonHTMLAttributes<HTMLButtonElement>)} className={classes}>
       {children}
       {iconRight}
     </button>

@@ -29,8 +29,16 @@ export const NOINDEX_ALL = process.env.NEXT_PUBLIC_NOINDEX_ALL === "true";
 export const POSTHOG_KEY = process.env.NEXT_PUBLIC_POSTHOG_KEY ?? "";
 export const POSTHOG_HOST = process.env.NEXT_PUBLIC_POSTHOG_HOST ?? "https://us.i.posthog.com";
 
-export const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_BASE_URL ?? "https://ceciliabot.datavoices.com.ar/api";
+/**
+ * Base del envío del formulario. Por defecto es relativa: el endpoint vive en
+ * el mismo sitio, como Netlify Function (netlify/functions/send-email.mts, que
+ * declara path "/api/send-email"). Antes apuntaba a
+ * https://ceciliabot.datavoices.com.ar/api, que hoy corre el backend de Cecilia
+ * y no tiene rutas de mail — devolvía 404, también en el sitio viejo.
+ *
+ * Se deja la env var por si algún día el endpoint vuelve a vivir afuera.
+ */
+export const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL ?? "/api";
 
 export const CONTACT = {
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hola@datavoices.com.ar",
