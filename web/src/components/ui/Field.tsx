@@ -26,6 +26,7 @@ type TextareaField = FieldBase & {
 type SelectField = FieldBase & {
   type: "select";
   options: { value: string; label: string }[];
+  placeholder?: string;
   inputProps?: SelectHTMLAttributes<HTMLSelectElement>;
 };
 
@@ -48,7 +49,7 @@ export function Field(props: FieldProps) {
 
       {props.type === "select" && (
         <select id={id} name={name} required={required} className={inputClasses(!!error)} {...props.inputProps}>
-          <option value="">—</option>
+          <option value="" disabled>{props.placeholder ?? "—"}</option>
           {props.options.map((opt) => (
             <option key={opt.value} value={opt.value}>
               {opt.label}
@@ -68,7 +69,7 @@ export function Field(props: FieldProps) {
         />
       )}
 
-      {error && <span className="text-caption text-error">{error}</span>}
+      {error && <span id={`${id}-error`} role="alert" className="text-caption text-error">{error}</span>}
     </div>
   );
 }

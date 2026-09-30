@@ -7,7 +7,9 @@ export interface ContactFormValues {
   email: string;
   whatsapp: string;
   process: string;
-  origin: string;
+  origen_declarado: string;
+  origen_declarado_otro: string;
+  originLabel: string;
 }
 
 /**
@@ -23,7 +25,9 @@ export async function sendContactForm(values: ContactFormValues) {
     `Empresa: ${values.company}`,
     `WhatsApp: ${values.whatsapp}`,
     `Proceso a revisar: ${values.process}`,
-    `Cómo llegó: ${values.origin}`,
+    `Cómo nos conociste: ${values.originLabel}`,
+    `origen_declarado: ${values.origen_declarado}`,
+    `origen_declarado_otro: ${values.origen_declarado_otro}`,
   ].join("\n");
 
   const response = await axios.post(`${API_BASE_URL}/send-email`, {

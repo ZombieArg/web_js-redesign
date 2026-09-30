@@ -66,27 +66,45 @@ export function Header() {
               header (feedback de diseño 29/09/2026). Prensa sigue disponible
               también en el footer. */}
           <div
-            className="group relative"
+            className="group relative flex items-center"
             onMouseEnter={() => setNosotrosOpen(true)}
-            onMouseLeave={() => setNosotrosOpen(false)}
+            onMouseLeave={(event) => {
+              if (!event.currentTarget.contains(document.activeElement)) setNosotrosOpen(false);
+            }}
+            onBlur={(event) => {
+              if (!event.currentTarget.contains(event.relatedTarget)) setNosotrosOpen(false);
+            }}
+            onKeyDown={(event) => {
+              if (event.key === "Escape") setNosotrosOpen(false);
+            }}
           >
             <Link
               href="/nosotros"
               className="text-label-md normal-case tracking-normal text-on-surface-variant hover:text-brand-navy"
-              aria-expanded={nosotrosOpen}
+              onFocus={() => setNosotrosOpen(true)}
             >
               {t("nosotros")}
             </Link>
-            {nosotrosOpen && (
-              <div className="absolute left-0 top-full w-48 rounded-md border border-divider bg-surface-container-lowest py-2 shadow-card-hover">
-                <Link
-                  href="/prensa"
-                  className="block px-4 py-2 text-body-md text-on-surface-variant hover:bg-surface-container-low hover:text-brand-navy"
-                >
-                  {t("prensa")}
-                </Link>
-              </div>
-            )}
+            <button
+              type="button"
+              className="ml-1 p-1 text-on-surface-variant hover:text-brand-navy"
+              aria-label={t("pressSubmenu")}
+              aria-expanded={nosotrosOpen}
+              aria-controls="press-submenu"
+              onClick={() => setNosotrosOpen((open) => !open)}
+            >
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                <path d="m2 4 4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+            <div id="press-submenu" hidden={!nosotrosOpen} className="absolute left-0 top-full w-48 rounded-md border border-divider bg-surface-container-lowest py-2 shadow-card-hover">
+              <Link
+                href="/prensa"
+                className="block px-4 py-2 text-body-md text-on-surface-variant hover:bg-surface-container-low hover:text-brand-navy"
+              >
+                {t("prensa")}
+              </Link>
+            </div>
           </div>
           <Link href="/contacto" className="text-label-md normal-case tracking-normal text-on-surface-variant hover:text-brand-navy">
             {t("contacto")}
