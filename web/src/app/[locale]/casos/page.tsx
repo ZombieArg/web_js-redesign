@@ -80,6 +80,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
               {item.caption && <p className="mt-3 text-caption text-outline">{item.caption}</p>}
               <Link
                 href={{ pathname: "/casos/[slug]", params: { slug: item.slug } }}
+                data-case-slug={item.slug}
                 className="mt-4 inline-flex text-label-md text-signal-orange normal-case tracking-normal"
               >
                 {content.cardLinkLabel} →

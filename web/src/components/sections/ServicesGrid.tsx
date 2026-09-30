@@ -17,7 +17,7 @@ export function ServicesGrid({ services }: { services: HomeContent["services"] }
               <h3 className="mt-4 text-headline-md text-brand-navy">{item.title}</h3>
               <p className="mt-2 text-body-md text-on-surface-variant">{item.description}</p>
               {/* @ts-expect-error -- next-intl Link tipa href contra rutas conocidas de routing.ts */}
-              <Link href={item.href} className="mt-4 inline-flex text-label-md text-signal-orange normal-case tracking-normal">
+              <Link href={item.href} data-service-slug={item.href.split("/").pop()} className="mt-4 inline-flex text-label-md text-signal-orange normal-case tracking-normal">
                 {item.linkLabel} →
               </Link>
             </Card>

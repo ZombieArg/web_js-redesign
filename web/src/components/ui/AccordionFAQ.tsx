@@ -5,9 +5,9 @@ export function AccordionFAQ({
 }) {
   return (
     <div className="mx-auto max-w-[720px] divide-y divide-divider rounded-xl border border-divider bg-surface-container-lowest">
-      {items.map((item) => (
+      {items.map((item, index) => (
         <details key={item.question} className="group p-6">
-          <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-body-md font-semibold text-on-surface marker:content-none">
+          <summary data-faq-id={`faq-${index + 1}`} className="flex cursor-pointer list-none items-center justify-between gap-4 text-body-md font-semibold text-on-surface marker:content-none">
             {item.question}
             <span
               aria-hidden="true"

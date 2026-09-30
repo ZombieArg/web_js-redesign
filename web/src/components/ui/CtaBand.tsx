@@ -41,12 +41,13 @@ export function CtaBand({
           </p>
         )}
         <div className="flex flex-wrap items-center justify-center gap-4">
-          <Button href={primaryCta.href} external={primaryCta.external} variant="primary" size="lg">
+          <Button href={primaryCta.href} data-cta-id="closing_primary" external={primaryCta.external} variant="primary" size="lg">
             {primaryCta.label}
           </Button>
           {secondaryCta && (
             <Button
               href={secondaryCta.href}
+              data-cta-id="closing_secondary"
               external={secondaryCta.external}
               variant="secondary"
               size="lg"

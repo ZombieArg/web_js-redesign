@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Container } from "@/components/ui/Container";
 import { TranslationPendingNotice } from "@/components/ui/TranslationPendingNotice";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buildMetadata } from "@/lib/seo/metadata";
-import { SITE_URL, CONTACT } from "@/lib/constants";
+import { SITE_URL, CONTACT, whatsappHref } from "@/lib/constants";
 import { SCHEMA_IDS } from "@/lib/seo/ids";
 import { contactoContent } from "@/content/contacto";
 import { resolveContent } from "@/content/types";
@@ -37,6 +37,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
   const { locale } = await params;
   setRequestLocale(locale);
   const { content, translationStatus } = resolveContent(locale, contactoContent);
+  const tContactLinks = await getTranslations({ locale, namespace: "contactLinks" });
 
   return (
     <>
@@ -75,8 +76,15 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
                 </dd>
               </div>
               <div>
-                <dt className="sr-only">Teléfono</dt>
-                <dd>{CONTACT.phoneDisplay}</dd>
+                <dt className="sr-only">WhatsApp</dt>
+                <dd>
+                  <a href={whatsappHref()} target="_blank" rel="noopener noreferrer" className="text-brand-navy">
+                    {CONTACT.phoneDisplay} (WhatsApp)
+                  </a>
+                  <a href={`tel:${CONTACT.phoneE164}`} className="ml-3 text-brand-navy">
+                    {tContactLinks("call")}
+                  </a>
+                </dd>
               </div>
               <div>
                 <dt className="sr-only">Ciudad</dt>

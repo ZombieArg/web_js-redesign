@@ -44,6 +44,7 @@ export function Header() {
                   <Link
                     key={item.key}
                     href={item.href}
+                    data-service-slug={item.href.split("/").pop()}
                     className="block px-4 py-2 text-body-md text-on-surface-variant hover:bg-surface-container-low hover:text-brand-navy"
                   >
                     {t(`services.${item.key}`)}
@@ -106,14 +107,14 @@ export function Header() {
               </Link>
             </div>
           </div>
-          <Link href="/contacto" className="text-label-md normal-case tracking-normal text-on-surface-variant hover:text-brand-navy">
+          <Link href="/contacto" data-cta-id="header_contact" className="text-label-md normal-case tracking-normal text-on-surface-variant hover:text-brand-navy">
             {t("contacto")}
           </Link>
           <LanguageSwitcher />
         </nav>
 
         <div className="hidden desktop:block">
-          <Button href="/contacto" variant="primary">
+          <Button href="/contacto" data-cta-id="header_diagnostic" variant="primary">
             {t("cta")}
           </Button>
         </div>
@@ -134,7 +135,7 @@ export function Header() {
       {mobileOpen && (
         <nav className="flex flex-col gap-1 border-t border-divider bg-neutral-base px-margin-mobile py-4 desktop:hidden">
           {SERVICE_LINKS.map((item) => (
-            <Link key={item.key} href={item.href} className="py-2 text-body-md text-on-surface-variant">
+            <Link key={item.key} href={item.href} data-service-slug={item.href.split("/").pop()} className="py-2 text-body-md text-on-surface-variant">
               {t(`services.${item.key}`)}
             </Link>
           ))}
@@ -150,13 +151,13 @@ export function Header() {
           <Link href="/prensa" className="py-2 pl-4 text-body-md text-on-surface-variant">
             {t("prensa")}
           </Link>
-          <Link href="/contacto" className="py-2 text-body-md text-on-surface-variant">
+          <Link href="/contacto" data-cta-id="mobile_contact" className="py-2 text-body-md text-on-surface-variant">
             {t("contacto")}
           </Link>
           <div className="mt-2 flex items-center justify-between">
             <LanguageSwitcher />
           </div>
-          <Button href="/contacto" variant="primary" className="mt-3 w-full">
+          <Button href="/contacto" data-cta-id="mobile_diagnostic" variant="primary" className="mt-3 w-full">
             {t("cta")}
           </Button>
         </nav>

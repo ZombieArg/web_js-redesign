@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useRef, useState, type FormEvent } from "react";
 import toast from "react-hot-toast";
 import { useTranslations } from "next-intl";
 import { Field } from "@/components/ui/Field";
@@ -16,6 +16,8 @@ export function ContactForm() {
   const [submitting, setSubmitting] = useState(false);
   const [origin, setOrigin] = useState("");
   const [originError, setOriginError] = useState("");
+  const startedRef = useRef(false);
+  const validationErrorRef = useRef(false);
   const originOptions = ORIGIN_VALUES.map((value) => ({ value, label: tForms(`originOptions.${value}`) }));
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -30,6 +32,7 @@ export function ContactForm() {
     const originKey = String(data.get("origen_declarado") ?? "");
     if (!ORIGIN_VALUES.some((value) => value === originKey)) {
       setOriginError(tForms("originChooseError"));
+      captureEvent("form_error", { form_id: "diagnostico", error_type: "validation" });
       return;
     }
     const originOther = originKey === "otro"
@@ -49,6 +52,7 @@ export function ContactForm() {
         originLabel: originOptions.find((option) => option.value === originKey)?.label ?? originKey,
       });
     } catch {
+      captureEvent("form_error", { form_id: "diagnostico", error_type: "send_failed" });
       toast.error(tToast("error"));
       return;
     } finally {
@@ -59,14 +63,31 @@ export function ContactForm() {
     form.reset();
     setOrigin("");
     setOriginError("");
-    // Ambos eventos se envían solo tras la confirmación del mail. El texto
-    // libre de "Otro" y los datos personales nunca pasan a PostHog.
-    captureEvent("form_submit", { origen_declarado: originKey });
-    captureEvent("diagnostico_solicitado", { form: "contacto" });
+    // La conversión se mide una sola vez, después de confirmar el envío.
+    // El texto libre de "Otro" y los datos personales no pasan a PostHog.
+    captureEvent("form_submit", { form_id: "diagnostico", origen_declarado: originKey });
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-5 rounded-xl border border-divider bg-surface-container-lowest p-8 shadow-card">
+    <form
+      onSubmit={handleSubmit}
+      onFocusCapture={(event) => {
+        if (startedRef.current || !(event.target instanceof HTMLInputElement || event.target instanceof HTMLTextAreaElement || event.target instanceof HTMLSelectElement)) return;
+        startedRef.current = true;
+        captureEvent("form_start", { form_id: "diagnostico" });
+      }}
+      onChangeCapture={() => { validationErrorRef.current = false; }}
+      onInvalidCapture={() => {
+        if (!startedRef.current) {
+          startedRef.current = true;
+          captureEvent("form_start", { form_id: "diagnostico" });
+        }
+        if (validationErrorRef.current) return;
+        validationErrorRef.current = true;
+        captureEvent("form_error", { form_id: "diagnostico", error_type: "validation" });
+      }}
+      className="flex flex-col gap-5 rounded-xl border border-divider bg-surface-container-lowest p-8 shadow-card"
+    >
       <div className="grid grid-cols-1 gap-5 tablet:grid-cols-2">
         <Field type="text" name="name" label={tForms("name")} required />
         <Field type="text" name="company" label={tForms("company")} required />

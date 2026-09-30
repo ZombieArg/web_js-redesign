@@ -23,11 +23,11 @@ export function ProductPageTemplate({ content }: { content: ProductPageContent }
           </h1>
           <p className="mt-6 max-w-[640px] text-body-lg text-on-surface-variant">{hero.subhead}</p>
           <div className="mt-8 flex flex-wrap gap-4">
-            <Button href={hero.primaryCta.href} external={hero.primaryCta.external} variant="primary" size="lg">
+            <Button href={hero.primaryCta.href} data-cta-id="product_hero_primary" external={hero.primaryCta.external} variant="primary" size="lg">
               {hero.primaryCta.label}
             </Button>
             {hero.secondaryCta && (
-              <Button href={hero.secondaryCta.href} external={hero.secondaryCta.external} variant="secondary" size="lg">
+              <Button href={hero.secondaryCta.href} data-cta-id="product_hero_secondary" external={hero.secondaryCta.external} variant="secondary" size="lg">
                 {hero.secondaryCta.label}
               </Button>
             )}

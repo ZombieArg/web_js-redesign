@@ -30,7 +30,11 @@
     },
     "tagline": "AI consultancy for businesses. We design and implement AI on top of what your company already does.",
     "cityLine": "Based in Buenos Aires, Argentina",
+    "socialHeading": "Follow us",
     "rights": "Data Voices. All rights reserved."
+  },
+  "contactLinks": {
+    "call": "Call"
   },
   "buttons": {
     "diagnostico": "Get a free diagnostic",

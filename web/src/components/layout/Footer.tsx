@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { Logo } from "@/components/layout/Logo";
-import { CONTACT } from "@/lib/constants";
+import { CONTACT, SOCIAL, whatsappHref } from "@/lib/constants";
 
 const SERVICE_LINKS = [
   { key: "asistentesIa", href: "/servicios/asistentes-ia" },
@@ -20,6 +20,15 @@ export function Footer() {
           <Logo tone="inverse" />
           <p className="mt-4 max-w-xs text-body-md text-white/70">{t("footer.tagline")}</p>
           <p className="mt-4 text-caption text-white/50">{t("footer.cityLine")}</p>
+          <p className="mt-6 text-label-md text-white/60">{t("footer.socialHeading")}</p>
+          <div className="mt-3 flex flex-wrap gap-4 text-body-md text-white/80">
+            <a href={SOCIAL.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-white">
+              LinkedIn
+            </a>
+            <a href={SOCIAL.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-white">
+              Instagram
+            </a>
+          </div>
         </div>
 
         <div>
@@ -27,7 +36,7 @@ export function Footer() {
           <ul className="mt-4 flex flex-col gap-2">
             {SERVICE_LINKS.map((item) => (
               <li key={item.key}>
-                <Link href={item.href} className="text-body-md text-white/80 hover:text-white">
+                <Link href={item.href} data-service-slug={item.href.split("/").pop()} className="text-body-md text-white/80 hover:text-white">
                   {t(`nav.services.${item.key}`)}
                 </Link>
               </li>
@@ -55,7 +64,7 @@ export function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/contacto" className="text-body-md text-white/80 hover:text-white">
+              <Link href="/contacto" data-cta-id="footer_diagnostic" className="text-body-md text-white/80 hover:text-white">
                 {t("footer.institutional.diagnostico")}
               </Link>
             </li>
@@ -70,7 +79,14 @@ export function Footer() {
                 {CONTACT.email}
               </a>
             </li>
-            <li>{CONTACT.phoneDisplay}</li>
+            <li>
+              <a href={whatsappHref()} target="_blank" rel="noopener noreferrer" className="hover:text-white">
+                {CONTACT.phoneDisplay} (WhatsApp)
+              </a>
+              <a href={`tel:${CONTACT.phoneE164}`} className="ml-3 hover:text-white">
+                {t("contactLinks.call")}
+              </a>
+            </li>
             <li>{CONTACT.city}, Argentina</li>
           </ul>
         </div>

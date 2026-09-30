@@ -46,6 +46,7 @@ export const CONTACT = {
   whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "5491173709382",
   /** Formato de despliegue visual. */
   phoneDisplay: "+54 9 11 7370-9382",
+  phoneE164: `+${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "5491173709382"}`,
   city: "Buenos Aires",
   region: "CABA",
   country: "AR",
@@ -58,6 +59,7 @@ export function whatsappHref(message?: string): string {
 
 export const SOCIAL = {
   linkedin: "https://www.linkedin.com/company/data-voices/",
+  instagram: "https://www.instagram.com/datavoices/",
 } as const;
 
 export const ORG = {

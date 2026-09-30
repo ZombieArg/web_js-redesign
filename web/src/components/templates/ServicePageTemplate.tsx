@@ -29,11 +29,11 @@ export function ServicePageTemplate({ content }: { content: ServicePageContent }
           </h1>
           <p className="mt-6 max-w-[640px] text-body-lg text-on-surface-variant">{hero.subhead}</p>
           <div className="mt-8 flex flex-wrap gap-4">
-            <Button href={hero.primaryCta.href} external={hero.primaryCta.external} variant="primary" size="lg">
+            <Button href={hero.primaryCta.href} data-cta-id="service_hero_primary" external={hero.primaryCta.external} variant="primary" size="lg">
               {hero.primaryCta.label}
             </Button>
             {hero.secondaryCta && (
-              <Button href={hero.secondaryCta.href} external={hero.secondaryCta.external} variant="secondary" size="lg">
+              <Button href={hero.secondaryCta.href} data-cta-id="service_hero_secondary" external={hero.secondaryCta.external} variant="secondary" size="lg">
                 {hero.secondaryCta.label}
               </Button>
             )}
@@ -80,7 +80,7 @@ export function ServicePageTemplate({ content }: { content: ServicePageContent }
                     </ul>
                   )}
                   {/* @ts-expect-error -- next-intl Link tipa href contra rutas conocidas de routing.ts */}
-                  <Link href={item.link.href} className="card-link mt-4 inline-flex text-label-md text-signal-orange normal-case tracking-normal">
+                  <Link href={item.link.href} data-service-slug={item.link.href.split("/").pop()} className="card-link mt-4 inline-flex text-label-md text-signal-orange normal-case tracking-normal">
                     {item.link.label} →
                   </Link>
                 </Card>

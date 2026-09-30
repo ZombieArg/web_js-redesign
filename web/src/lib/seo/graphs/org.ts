@@ -27,7 +27,7 @@ export function buildOrgNode() {
     },
     email: CONTACT.email,
     telephone: CONTACT.phoneDisplay,
-    sameAs: [SOCIAL.linkedin, `${SITE_URL}/`],
+    sameAs: [SOCIAL.linkedin, SOCIAL.instagram, `${SITE_URL}/`],
     founder: [{ "@id": SCHEMA_IDS.person.juanma }, { "@id": SCHEMA_IDS.person.eduardo }],
     knowsAbout: [
       "Inteligencia artificial para empresas",

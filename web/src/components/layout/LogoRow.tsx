@@ -23,6 +23,7 @@ export function LogoRow({
         <p className="text-label-md text-outline">{heading}</p>
         <Link
           href="/casos"
+          data-cta-id="home_portfolio"
           className="text-label-md text-signal-orange normal-case tracking-normal hover:underline"
         >
           {linkLabel} →

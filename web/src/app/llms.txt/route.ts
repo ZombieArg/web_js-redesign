@@ -31,6 +31,7 @@ export function GET() {
 Sitio: ${SITE_URL}/
 Contacto: ${CONTACT.email} · ${CONTACT.phoneDisplay}
 LinkedIn: ${SOCIAL.linkedin}
+Instagram: ${SOCIAL.instagram}
 Diagnóstico gratuito de IA: ${SITE_URL}/contacto
 
 ## Líneas de servicio

@@ -30,7 +30,11 @@
     },
     "tagline": "Consultora de inteligencia artificial para empresas. Diseñamos e implementamos IA sobre lo que tu empresa ya hace.",
     "cityLine": "Sede Buenos Aires, Argentina",
+    "socialHeading": "Seguinos",
     "rights": "Data Voices. Todos los derechos reservados."
+  },
+  "contactLinks": {
+    "call": "Llamar"
   },
   "buttons": {
     "diagnostico": "Pedí un diagnóstico gratuito",
