@@ -86,10 +86,6 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
                   </a>
                 </dd>
               </div>
-              <div>
-                <dt className="sr-only">Ciudad</dt>
-                <dd>datavoices.com.ar</dd>
-              </div>
             </dl>
           </div>
 

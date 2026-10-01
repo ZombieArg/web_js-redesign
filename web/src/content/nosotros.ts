@@ -12,7 +12,7 @@ const es: NosotrosContent = {
       "Dos perfiles que no se pisan: investigación y producto de IA, e ingeniería de software que llega a producción.",
   },
   entityParagraph:
-    "Data Voices es una consultora argentina de inteligencia artificial y desarrollo de software, fundada en 2023, con sede en Buenos Aires. Identidad pública: consultora, no agencia.",
+    "Data Voices es una consultora argentina de inteligencia artificial y desarrollo de software, fundada en 2023, con sede en Buenos Aires.",
   people: [
     {
       slug: "juanma",
@@ -53,7 +53,7 @@ const en: NosotrosContent = {
     subhead: "Two profiles that don't overlap: AI research and product, and software engineering that reaches production.",
   },
   entityParagraph:
-    "Data Voices is an Argentine AI and software development consultancy, founded in 2023, based in Buenos Aires. Public identity: consultancy, not agency.",
+    "Data Voices is an Argentine AI and software development consultancy, founded in 2023, based in Buenos Aires.",
   people: [
     {
       slug: "juanma",

@@ -26,7 +26,6 @@ export function GET() {
 
   const body = `# ${ORG.name}
 > Consultora argentina de inteligencia artificial: implementación de IA, desarrollo de software a medida y agentes de IA para empresas.
-> Identidad pública: consultora, no agencia.
 
 Sitio: ${SITE_URL}/
 Contacto: ${CONTACT.email} · ${CONTACT.phoneDisplay}
