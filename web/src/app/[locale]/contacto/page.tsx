@@ -70,7 +70,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
               <div>
                 <dt className="sr-only">Email</dt>
                 <dd>
-                  <a href={`mailto:${CONTACT.email}`} className="text-brand-navy">
+                  <a href={`mailto:${CONTACT.email}`} data-contact-channel="email" data-contact-location="body" className="text-brand-navy">
                     {CONTACT.email}
                   </a>
                 </dd>
@@ -78,10 +78,10 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
               <div>
                 <dt className="sr-only">WhatsApp</dt>
                 <dd>
-                  <a href={whatsappHref()} target="_blank" rel="noopener noreferrer" className="text-brand-navy">
+                  <a href={whatsappHref()} data-contact-channel="whatsapp" data-contact-location="body" target="_blank" rel="noopener noreferrer" className="text-brand-navy">
                     {CONTACT.phoneDisplay} (WhatsApp)
                   </a>
-                  <a href={`tel:${CONTACT.phoneE164}`} className="ml-3 text-brand-navy">
+                  <a href={`tel:${CONTACT.phoneE164}`} data-contact-channel="phone" data-contact-location="body" className="ml-3 text-brand-navy">
                     {tContactLinks("call")}
                   </a>
                 </dd>

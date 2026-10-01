@@ -41,13 +41,16 @@ export function CtaBand({
           </p>
         )}
         <div className="flex flex-wrap items-center justify-center gap-4">
-          <Button href={primaryCta.href} data-cta-id="closing_primary" external={primaryCta.external} variant="primary" size="lg">
+          <Button href={primaryCta.href} data-cta-id={primaryCta.href === "/contacto" ? "cierre_diagnostico" : undefined} data-cta-location="body" data-cta-section="cierre" external={primaryCta.external} variant="primary" size="lg">
             {primaryCta.label}
           </Button>
           {secondaryCta && (
             <Button
               href={secondaryCta.href}
-              data-cta-id="closing_secondary"
+              data-cta-id={secondaryCta.href === "/contacto" ? "cierre_diagnostico" : undefined}
+              data-cta-location="body"
+              data-cta-section="cierre"
+              data-service-slug={secondaryCta.href.startsWith("/servicios/") ? secondaryCta.href.split("/").pop() : undefined}
               external={secondaryCta.external}
               variant="secondary"
               size="lg"

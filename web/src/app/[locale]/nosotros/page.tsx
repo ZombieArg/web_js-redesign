@@ -102,7 +102,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
             </div>
             <p className="max-w-[640px] text-body-md text-on-surface-variant">{content.institutionalNote.text}</p>
             {/* @ts-expect-error -- next-intl Link tipa href contra rutas conocidas de routing.ts */}
-            <Link href={content.institutionalNote.href} className="mt-4 inline-flex text-label-md text-signal-orange normal-case tracking-normal">
+            <Link href={content.institutionalNote.href} data-case-slug={content.institutionalNote.href.split("/").pop()} className="mt-4 inline-flex text-label-md text-signal-orange normal-case tracking-normal">
               {content.institutionalNote.linkLabel} →
             </Link>
           </div>

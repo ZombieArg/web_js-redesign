@@ -13,7 +13,7 @@ export function HomeHero({ hero }: { hero: HomeContent["hero"] }) {
         <h1 className="max-w-[820px] text-display-lg-mobile text-brand-navy desktop:text-display-lg">{hero.h1}</h1>
         <p className="mt-6 max-w-[600px] text-body-lg text-on-surface-variant">{hero.subhead}</p>
         <div className="mt-8">
-          <Button href={hero.cta.href} data-cta-id="home_hero_diagnostic" variant="primary" size="lg">
+          <Button href={hero.cta.href} data-cta-id="hero_diagnostico" data-cta-location="hero" data-cta-section="home" variant="primary" size="lg">
             {hero.cta.label}
           </Button>
         </div>

@@ -53,7 +53,7 @@ export function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/casos" className="text-body-md text-white/80 hover:text-white">
+              <Link href="/casos" data-case-slug="casos" className="text-body-md text-white/80 hover:text-white">
                 {t("footer.institutional.casos")}
               </Link>
             </li>
@@ -64,7 +64,7 @@ export function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/contacto" data-cta-id="footer_diagnostic" className="text-body-md text-white/80 hover:text-white">
+              <Link href="/contacto" data-cta-id="cierre_diagnostico" data-cta-location="footer" className="text-body-md text-white/80 hover:text-white">
                 {t("footer.institutional.diagnostico")}
               </Link>
             </li>
@@ -75,15 +75,15 @@ export function Footer() {
           <p className="text-label-md text-white/60">{t("footer.contactHeading")}</p>
           <ul className="mt-4 flex flex-col gap-2 text-body-md text-white/80">
             <li>
-              <a href={`mailto:${CONTACT.email}`} className="hover:text-white">
+              <a href={`mailto:${CONTACT.email}`} data-contact-channel="email" data-contact-location="footer" className="hover:text-white">
                 {CONTACT.email}
               </a>
             </li>
             <li>
-              <a href={whatsappHref()} target="_blank" rel="noopener noreferrer" className="hover:text-white">
+              <a href={whatsappHref()} data-contact-channel="whatsapp" data-contact-location="footer" target="_blank" rel="noopener noreferrer" className="hover:text-white">
                 {CONTACT.phoneDisplay} (WhatsApp)
               </a>
-              <a href={`tel:${CONTACT.phoneE164}`} className="ml-3 hover:text-white">
+              <a href={`tel:${CONTACT.phoneE164}`} data-contact-channel="phone" data-contact-location="footer" className="ml-3 hover:text-white">
                 {t("contactLinks.call")}
               </a>
             </li>

@@ -23,11 +23,11 @@ export function ProductPageTemplate({ content }: { content: ProductPageContent }
           </h1>
           <p className="mt-6 max-w-[640px] text-body-lg text-on-surface-variant">{hero.subhead}</p>
           <div className="mt-8 flex flex-wrap gap-4">
-            <Button href={hero.primaryCta.href} data-cta-id="product_hero_primary" external={hero.primaryCta.external} variant="primary" size="lg">
+            <Button href={hero.primaryCta.href} data-cta-id={hero.primaryCta.href === "/contacto" ? "hero_diagnostico" : undefined} data-cta-location="hero" data-cta-section="cecilia" external={hero.primaryCta.external} variant="primary" size="lg">
               {hero.primaryCta.label}
             </Button>
             {hero.secondaryCta && (
-              <Button href={hero.secondaryCta.href} data-cta-id="product_hero_secondary" external={hero.secondaryCta.external} variant="secondary" size="lg">
+              <Button href={hero.secondaryCta.href} data-cta-id={hero.secondaryCta.href === "/contacto" ? "hero_diagnostico" : undefined} data-cta-location="hero" data-cta-section="cecilia" data-contact-channel={hero.secondaryCta.href.includes("wa.me/") ? "whatsapp" : undefined} data-contact-location={hero.secondaryCta.href.includes("wa.me/") ? "hero" : undefined} data-service-slug={hero.secondaryCta.href.startsWith("/servicios/") ? hero.secondaryCta.href.split("/").pop() : undefined} external={hero.secondaryCta.external} variant="secondary" size="lg">
                 {hero.secondaryCta.label}
               </Button>
             )}

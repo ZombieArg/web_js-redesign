@@ -7,6 +7,7 @@ import { Field } from "@/components/ui/Field";
 import { Button } from "@/components/ui/Button";
 import { sendContactForm } from "@/lib/api/contact";
 import { captureEvent } from "@/lib/analytics";
+import { isAxiosError } from "axios";
 
 const ORIGIN_VALUES = ["busqueda", "asistente_ia", "linkedin", "referido", "evento", "prensa", "otro"] as const;
 
@@ -51,8 +52,11 @@ export function ContactForm() {
         origen_declarado_otro: originOther,
         originLabel: originOptions.find((option) => option.value === originKey)?.label ?? originKey,
       });
-    } catch {
-      captureEvent("form_error", { form_id: "diagnostico", error_type: "send_failed" });
+    } catch (error) {
+      captureEvent("form_error", {
+        form_id: "diagnostico",
+        error_type: isAxiosError(error) && error.response ? "server" : "network",
+      });
       toast.error(tToast("error"));
       return;
     } finally {
@@ -73,6 +77,11 @@ export function ContactForm() {
       onSubmit={handleSubmit}
       onFocusCapture={(event) => {
         if (startedRef.current || !(event.target instanceof HTMLInputElement || event.target instanceof HTMLTextAreaElement || event.target instanceof HTMLSelectElement)) return;
+        startedRef.current = true;
+        captureEvent("form_start", { form_id: "diagnostico" });
+      }}
+      onInputCapture={() => {
+        if (startedRef.current) return;
         startedRef.current = true;
         captureEvent("form_start", { form_id: "diagnostico" });
       }}
@@ -125,7 +134,7 @@ export function ContactForm() {
           inputProps={{ maxLength: 100 }}
         />
       )}
-      <Button type="submit" variant="primary" size="lg" disabled={submitting} className="self-start">
+      <Button type="submit" data-cta-id="form_submit_diagnostico" data-cta-location="form" data-cta-section="diagnostico" variant="primary" size="lg" disabled={submitting} className="self-start">
         {submitting ? tForms("submitting") : tForms("submit")}
       </Button>
     </form>

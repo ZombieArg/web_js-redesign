@@ -23,7 +23,6 @@ function initPostHog() {
       api_host: POSTHOG_HOST,
       capture_pageview: false,
       capture_pageleave: true,
-      autocapture: false,
       person_profiles: "identified_only",
     });
   }
@@ -35,9 +34,9 @@ function PageviewTracker() {
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    if (!initPostHog()) return;
     updateTouches();
-    if (pageContext(pathname).page_type === "service") {
+    if (!initPostHog()) return;
+    if (pageContext(pathname).page_type === "servicio") {
       rememberServiceInterest(pathname.split("/").pop() ?? "");
     }
     posthog.register({ ...attributionContext(), ...pageContext(pathname) });
@@ -58,23 +57,42 @@ function PageviewTracker() {
         return;
       }
 
+      const submit = target.closest<HTMLButtonElement>("button[data-cta-id]");
+      if (submit && submit.type === "submit" && submit.dataset.ctaLocation === "form") {
+        captureEvent("cta_diagnostico_click", {
+          cta_id: submit.dataset.ctaId,
+          cta_location: submit.dataset.ctaLocation,
+          cta_section: submit.dataset.ctaSection ?? null,
+        });
+        return;
+      }
       const link = target.closest<HTMLAnchorElement>("a[href]");
       if (!link) return;
       const href = link.getAttribute("href") ?? "";
-      if (href.startsWith("tel:")) {
-        captureEvent("phone_click");
-      } else if (href.includes("wa.me/")) {
-        captureEvent("whatsapp_click");
-      } else if (link.dataset.serviceSlug) {
-        rememberServiceInterest(link.dataset.serviceSlug);
-        captureEvent("service_click", { service_slug: link.dataset.serviceSlug });
-      } else if (link.dataset.caseSlug) {
-        captureEvent("case_click", { case_slug: link.dataset.caseSlug });
-      } else if (link.dataset.ctaId) {
-        if (href.endsWith("/contacto") || href.endsWith("/en/contacto")) {
-          rememberEntryCta(`${window.location.pathname}:${link.dataset.ctaId}`);
-        }
-        captureEvent("cta_click", { cta_id: link.dataset.ctaId });
+      const channel = link.dataset.contactChannel;
+      if (channel && link.dataset.contactLocation
+        && ((channel === "email" && href.startsWith("mailto:"))
+          || (channel === "phone" && href.startsWith("tel:"))
+          || (channel === "whatsapp" && href.includes("wa.me/")))) {
+        captureEvent("contact_click", { channel, location: link.dataset.contactLocation });
+      } else if (link.dataset.serviceSlug && /^\/(?:en\/)?servicios\//.test(href)) {
+        const slug = link.dataset.serviceSlug;
+        rememberServiceInterest(slug);
+        captureEvent("service_interest_click", {
+          service_slug: slug,
+          location: link.dataset.ctaLocation ?? (link.closest("header") ? "header" : link.closest("footer") ? "footer" : "body"),
+        });
+      } else if (link.dataset.caseSlug && /^\/(?:en\/)?casos(?:\/|$)/.test(href)) {
+        captureEvent("case_interest_click", { case_slug: link.dataset.caseSlug });
+      } else if (link.dataset.ctaId && link.dataset.ctaLocation && /^\/(?:en\/)?contacto\/?$/.test(href)) {
+        rememberEntryCta(link.dataset.ctaId);
+        captureEvent("cta_diagnostico_click", {
+          cta_id: link.dataset.ctaId,
+          cta_location: link.dataset.ctaLocation,
+          cta_section: link.dataset.ctaSection ?? null,
+        });
+      } else if (link.dataset.ctaLocation && /^\/(?:en\/)?cecilia\/?$/.test(href)) {
+        captureEvent("cecilia_interest_click", { cta_location: link.dataset.ctaLocation });
       }
     }
     document.addEventListener("click", trackClick);
@@ -85,6 +103,5 @@ function PageviewTracker() {
 }
 
 export function PostHogProvider() {
-  if (!POSTHOG_KEY) return null;
   return <PageviewTracker />;
 }
