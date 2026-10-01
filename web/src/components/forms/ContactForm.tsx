@@ -134,7 +134,7 @@ export function ContactForm() {
           inputProps={{ maxLength: 100 }}
         />
       )}
-      <Button type="submit" data-cta-id="form_submit_diagnostico" data-cta-location="form" data-cta-section="diagnostico" variant="primary" size="lg" disabled={submitting} className="self-start">
+      <Button type="submit" onClick={() => { validationErrorRef.current = false; }} variant="primary" size="lg" disabled={submitting} className="self-start">
         {submitting ? tForms("submitting") : tForms("submit")}
       </Button>
     </form>

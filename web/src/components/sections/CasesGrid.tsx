@@ -11,7 +11,7 @@ export function CasesGrid({ cases }: { cases: HomeContent["cases"] }) {
       <Container>
         <div className="mb-12 flex flex-wrap items-end justify-between gap-4">
           <h2 className="text-headline-md text-brand-navy desktop:text-headline-lg">{cases.heading}</h2>
-          <Link href="/casos" data-case-slug="casos" className="text-label-md text-signal-orange normal-case tracking-normal">
+          <Link href="/casos" className="text-label-md text-signal-orange normal-case tracking-normal">
             {cases.linkLabel} →
           </Link>
         </div>

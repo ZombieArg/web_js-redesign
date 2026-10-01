@@ -61,7 +61,7 @@ export function Header() {
             )}
           </div>
 
-          <Link href="/casos" data-case-slug="casos" className="text-label-md normal-case tracking-normal text-on-surface-variant hover:text-brand-navy">
+          <Link href="/casos" className="text-label-md normal-case tracking-normal text-on-surface-variant hover:text-brand-navy">
             {t("casos")}
           </Link>
           {/* Quiénes somos + Prensa como sublink, en vez de un ítem suelto en el
@@ -143,7 +143,7 @@ export function Header() {
           <Link href="/cecilia" data-cta-location="header" className="py-2 text-body-md text-on-surface-variant">
             Cecilia
           </Link>
-          <Link href="/casos" data-case-slug="casos" className="py-2 text-body-md text-on-surface-variant">
+          <Link href="/casos" className="py-2 text-body-md text-on-surface-variant">
             {t("casos")}
           </Link>
           <Link href="/nosotros" className="py-2 text-body-md text-on-surface-variant">

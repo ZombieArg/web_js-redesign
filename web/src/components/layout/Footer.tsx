@@ -53,7 +53,7 @@ export function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/casos" data-case-slug="casos" className="text-body-md text-white/80 hover:text-white">
+              <Link href="/casos" className="text-body-md text-white/80 hover:text-white">
                 {t("footer.institutional.casos")}
               </Link>
             </li>

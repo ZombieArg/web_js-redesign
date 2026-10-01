@@ -23,6 +23,7 @@ function initPostHog() {
       api_host: POSTHOG_HOST,
       capture_pageview: false,
       capture_pageleave: true,
+      disable_session_recording: true,
       person_profiles: "identified_only",
     });
   }
@@ -57,15 +58,6 @@ function PageviewTracker() {
         return;
       }
 
-      const submit = target.closest<HTMLButtonElement>("button[data-cta-id]");
-      if (submit && submit.type === "submit" && submit.dataset.ctaLocation === "form") {
-        captureEvent("cta_diagnostico_click", {
-          cta_id: submit.dataset.ctaId,
-          cta_location: submit.dataset.ctaLocation,
-          cta_section: submit.dataset.ctaSection ?? null,
-        });
-        return;
-      }
       const link = target.closest<HTMLAnchorElement>("a[href]");
       if (!link) return;
       const href = link.getAttribute("href") ?? "";
@@ -82,7 +74,7 @@ function PageviewTracker() {
           service_slug: slug,
           location: link.dataset.ctaLocation ?? (link.closest("header") ? "header" : link.closest("footer") ? "footer" : "body"),
         });
-      } else if (link.dataset.caseSlug && /^\/(?:en\/)?casos(?:\/|$)/.test(href)) {
+      } else if (link.dataset.caseSlug && /^\/(?:en\/)?casos\/[^/]+\/?$/.test(href)) {
         captureEvent("case_interest_click", { case_slug: link.dataset.caseSlug });
       } else if (link.dataset.ctaId && link.dataset.ctaLocation && /^\/(?:en\/)?contacto\/?$/.test(href)) {
         rememberEntryCta(link.dataset.ctaId);
