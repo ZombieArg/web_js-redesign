@@ -70,3 +70,15 @@
   to = "/en/casos/organismo-internacional"
   status = 308
   force = true
+
+[[redirects]]
+  from = "/casos/social-media-detoxifier"
+  to = "/casos/normsy"
+  status = 308
+  force = true
+
+[[redirects]]
+  from = "/en/casos/social-media-detoxifier"
+  to = "/en/casos/normsy"
+  status = 308
+  force = true
