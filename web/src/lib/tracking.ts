@@ -136,10 +136,8 @@ export function attributionContext(): Record<string, string | null> {
   const first = readTouch(FIRST_TOUCH_KEY);
   const last = readTouch(LAST_TOUCH_KEY);
   let entry_cta_id: string | null = null;
-  let service_interest: string | null = null;
   try {
     entry_cta_id = window.sessionStorage.getItem(CTA_KEY);
-    service_interest = window.sessionStorage.getItem(SERVICE_KEY);
   } catch { /* Storage may be disabled. */ }
   return {
     origen: first?.origen ?? "directo",
@@ -153,8 +151,17 @@ export function attributionContext(): Record<string, string | null> {
     last_referrer_domain: last?.referrer_domain ?? "",
     landing_page: first?.landing_page ?? window.location.pathname,
     entry_cta_id,
-    service_interest,
   };
+}
+
+export function storedServiceInterest(): string | null {
+  if (typeof window === "undefined") return null;
+  try {
+    const slug = window.sessionStorage.getItem(SERVICE_KEY);
+    return slug && SERVICE_SLUGS.has(slug) ? slug : null;
+  } catch {
+    return null;
+  }
 }
 
 export function rememberEntryCta(id: string): void {

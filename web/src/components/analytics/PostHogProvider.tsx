@@ -40,6 +40,8 @@ function PageviewTracker() {
     if (pageContext(pathname).page_type === "servicio") {
       rememberServiceInterest(pathname.split("/").pop() ?? "");
     }
+    // Remove the super property saved by earlier releases before any event is sent.
+    posthog.unregister("service_interest");
     posthog.register({ ...attributionContext(), ...pageContext(pathname) });
     const query = searchParams.toString();
     posthog.capture("$pageview", {

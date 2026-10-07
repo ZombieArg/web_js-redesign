@@ -10,6 +10,10 @@ const source = fs.readFileSync(path.join(path.dirname(fileURLToPath(import.meta.
 const js = ts.transpileModule(source, {
   compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 },
 }).outputText;
+const analyticsSource = fs.readFileSync(path.join(path.dirname(fileURLToPath(import.meta.url)), "../src/lib/analytics.ts"), "utf8");
+const analyticsJs = ts.transpileModule(analyticsSource, {
+  compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022, esModuleInterop: true },
+}).outputText;
 
 function storage() {
   const entries = new Map();
@@ -81,4 +85,38 @@ test("expired first touch is rewritten; own referrer is ignored", () => {
   assert.equal(tracking.pageContext("/en/cecilia").page_type, "cecilia");
   assert.equal(tracking.pageContext("/en/cecilia").lang, "en");
   assert.equal(tracking.pageContext("/casos/normsy").page_type, "caso");
+});
+
+test("service interest is sent only with form start and submit", () => {
+  const { tracking, sessionStorage, window } = setup();
+  const events = [];
+  const posthog = { __loaded: true, capture: (name, properties) => events.push({ name, properties }) };
+  const context = {
+    exports: {},
+    require: (id) => {
+      if (id === "posthog-js") return posthog;
+      if (id === "@/lib/constants") return { POSTHOG_KEY: "test-key" };
+      if (id === "@/lib/tracking") return tracking;
+      throw new Error(`Unexpected import: ${id}`);
+    },
+    window,
+  };
+  sessionStorage.setItem("dv_service_interest", "consultoria");
+  assert.equal(Object.hasOwn(tracking.attributionContext(), "service_interest"), false);
+  vm.runInNewContext(analyticsJs, context);
+  context.exports.captureEvent("$pageview");
+  context.exports.captureEvent("form_start", { form_id: "diagnostico" });
+  context.exports.captureEvent("form_error", { form_id: "diagnostico" });
+  context.exports.captureEvent("form_submit", { form_id: "diagnostico" });
+
+  assert.deepEqual(events.map(({ name, properties }) => [name, properties.service_interest]), [
+    ["$pageview", undefined],
+    ["form_start", "consultoria"],
+    ["form_error", undefined],
+    ["form_submit", "consultoria"],
+  ]);
+
+  sessionStorage.setItem("dv_service_interest", "invalid-slug");
+  context.exports.captureEvent("form_submit");
+  assert.equal(Object.hasOwn(events.at(-1).properties, "service_interest"), false);
 });
