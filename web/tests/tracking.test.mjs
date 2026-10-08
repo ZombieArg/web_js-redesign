@@ -20,6 +20,7 @@ function storage() {
   return {
     getItem: (key) => entries.get(key) ?? null,
     setItem: (key, value) => entries.set(key, value),
+    removeItem: (key) => entries.delete(key),
   };
 }
 
@@ -116,7 +117,11 @@ test("service interest is sent only with form start and submit", () => {
     ["form_submit", "consultoria"],
   ]);
 
-  sessionStorage.setItem("dv_service_interest", "invalid-slug");
+  sessionStorage.removeItem("dv_service_interest");
   context.exports.captureEvent("form_submit");
+  assert.equal(Object.hasOwn(events.at(-1).properties, "service_interest"), false);
+
+  sessionStorage.setItem("dv_service_interest", "invalid-slug");
+  context.exports.captureEvent("form_start");
   assert.equal(Object.hasOwn(events.at(-1).properties, "service_interest"), false);
 });
