@@ -1,8 +1,8 @@
 # Revisión editorial del blog
 
-Los cinco artículos están disponibles para revisión en desarrollo. Los dos primeros provienen de borradores completos del ZIP; los otros tres fueron redactados a partir de briefs. Las cuatro imágenes del ZIP son capturas de referencia de escritorio y móvil, no ilustraciones finales de los artículos. El blog usa diagramas hechos con componentes del sitio en vez de publicar esas capturas o los marcadores de imagen.
+Los cinco artículos están disponibles para revisión en desarrollo y en `https://datavoices-redesign-preview.netlify.app/blog`. Los dos primeros provienen de borradores completos del ZIP; los otros tres fueron redactados a partir de briefs. Las cuatro imágenes del ZIP son capturas de referencia de escritorio y móvil, no ilustraciones finales de los artículos. El blog usa diagramas hechos con componentes del sitio en vez de publicar esas capturas o los marcadores de imagen.
 
-El contenido sigue sin publicarse: en builds de producción `NEXT_PUBLIC_BLOG_PUBLIC` queda vacío, el blog no aparece en la navegación ni en el sitemap, el índice muestra «Próximamente» y las URLs de artículos responden 404. Las vistas de desarrollo llevan `noindex` y muestran «Borrador para revisión editorial».
+El contenido sigue sin publicarse en el sitio principal: allí `NEXT_PUBLIC_BLOG_PUBLIC` queda vacío, el blog no aparece en la navegación ni en el sitemap, el índice muestra «Próximamente» y las URLs de artículos responden 404. El sitio separado de preview tiene `NEXT_PUBLIC_BLOG_PUBLIC=true`, `NEXT_PUBLIC_NOINDEX_ALL=true` y URL canónica propia; muestra «Contenido en revisión editorial» en el índice y «Borrador para revisión editorial» en cada nota. La versión en inglés continúa pendiente de traducción.
 
 ## Antes de habilitarlo en producción
 
