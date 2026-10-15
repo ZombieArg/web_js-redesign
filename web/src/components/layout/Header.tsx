@@ -6,6 +6,7 @@ import { Link } from "@/i18n/navigation";
 import { Logo } from "./Logo";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { Button } from "@/components/ui/Button";
+import { BLOG_PREVIEW } from "@/content/blog/data";
 
 const SERVICE_LINKS = [
   { key: "asistentesIa", href: "/servicios/asistentes-ia" },
@@ -90,7 +91,7 @@ export function Header() {
             <button
               type="button"
               className="ml-1 p-1 text-on-surface-variant hover:text-brand-navy"
-              aria-label={t("pressSubmenu")}
+              aria-label={t("institutionalSubmenu")}
               aria-expanded={nosotrosOpen}
               aria-controls="press-submenu"
               onClick={() => setNosotrosOpen((open) => !open)}
@@ -106,6 +107,7 @@ export function Header() {
               >
                 {t("prensa")}
               </Link>
+              {BLOG_PREVIEW && <Link href="/blog" className="block px-4 py-2 text-body-md text-on-surface-variant hover:bg-surface-container-low hover:text-brand-navy">Blog</Link>}
             </div>
           </div>
           <Link href="/contacto" data-cta-id="header_diagnostico" data-cta-location="header" className="text-label-md normal-case tracking-normal text-on-surface-variant hover:text-brand-navy">
@@ -146,6 +148,7 @@ export function Header() {
           <Link href="/casos" className="py-2 text-body-md text-on-surface-variant">
             {t("casos")}
           </Link>
+          {BLOG_PREVIEW && <Link href="/blog" className="py-2 text-body-md text-on-surface-variant">Blog</Link>}
           <Link href="/nosotros" className="py-2 text-body-md text-on-surface-variant">
             {t("nosotros")}
           </Link>

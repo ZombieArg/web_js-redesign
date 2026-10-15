@@ -1,34 +1,20 @@
 import type { Metadata } from "next";
 import { setRequestLocale, getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
+import { BlogDirectory } from "@/components/blog/BlogDirectory";
 import { Container } from "@/components/ui/Container";
-import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Button } from "@/components/ui/Button";
+import { TranslationPendingNotice } from "@/components/ui/TranslationPendingNotice";
 import { buildMetadata } from "@/lib/seo/metadata";
-import { blogPosts } from "@/content/blog/data";
+import { BLOG_PUBLIC, visibleBlogPosts } from "@/content/blog/data";
+import { NOINDEX_ALL } from "@/lib/constants";
 import { routing } from "@/i18n/routing";
 
-const PATH = "/blog";
+export function generateStaticParams() { return routing.locales.map((locale) => ({ locale })); }
 
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
-}
-
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  return buildMetadata({
-    locale,
-    path: PATH,
-    title: "Blog | Data Voices",
-    description: "Notas de Data Voices sobre implementación de inteligencia artificial.",
-    // Todavía no hay posts (brief §2.1). Feedback SEO/GEO ítem 2: sin posts,
-    // /blog no se indexa en NINGÚN locale (antes solo se excluía en /en,
-    // porque translationStatus solo afecta al locale no-default — la home
-    // en español quedaba index,follow con un "Próximamente" vacío).
-    noindex: blogPosts.length === 0,
-  });
+  return buildMetadata({ locale, path: "/blog", title: "Blog | Data Voices", description: "Guías para evaluar e implementar inteligencia artificial en empresas.", translationStatus: "pending", noindex: !BLOG_PUBLIC });
 }
 
 export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
@@ -36,14 +22,26 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
   setRequestLocale(locale);
   const t = await getTranslations("translation");
 
-  return (
-    <section className="py-section">
-      <Container>
-        <SectionHeading kicker="Contenido" title="Blog" align="center" />
-        {blogPosts.length === 0 && (
-          <p className="text-center text-body-lg text-on-surface-variant">{t("comingSoon")}</p>
-        )}
+  if (!visibleBlogPosts.length) return <section className="py-section"><Container><h1 className="text-center text-headline-lg text-brand-navy">Blog</h1><p className="mt-6 text-center text-body-lg text-on-surface-variant">{t("comingSoon")}</p></Container></section>;
+
+  return <>
+    {locale === "en" && <TranslationPendingNotice />}
+    <div className="bg-neutral-base py-12 desktop:py-16">
+      <Container className="max-w-[960px]">
+        <nav className="text-caption text-slate-gray" aria-label="Ruta de navegación"><Link href="/" className="underline hover:text-brand-navy">Inicio</Link><span aria-hidden="true"> › </span>Blog</nav>
+        <div className="mt-8">
+          {NOINDEX_ALL && <p className="mb-4 text-label-md text-slate-gray">Contenido en revisión editorial</p>}
+          <p className="text-label-md uppercase tracking-wider text-slate-gray">Ideas para llevar a la práctica</p>
+          <h1 className="mt-3 text-display-lg-mobile text-brand-navy desktop:text-display-lg">Blog de Data Voices</h1>
+          <p className="mt-5 max-w-[720px] text-body-lg text-on-surface-variant">Guías para evaluar e implementar IA en empresas, con criterios que podés usar antes de contratar o construir.</p>
+        </div>
+        <BlogDirectory posts={visibleBlogPosts} />
+        <div className="mt-12 rounded-lg border border-divider bg-white p-7 desktop:p-10">
+          <h2 className="text-headline-md text-brand-navy">¿Tenés un proceso concreto para revisar?</h2>
+          <p className="mt-3 text-body-md text-on-surface-variant">Llevalo a una primera conversación con el equipo.</p>
+          <Button href="/contacto" data-cta-id="cierre_diagnostico" data-cta-location="blog" className="mt-6">Pedí un diagnóstico gratuito</Button>
+        </div>
       </Container>
-    </section>
-  );
+    </div>
+  </>;
 }

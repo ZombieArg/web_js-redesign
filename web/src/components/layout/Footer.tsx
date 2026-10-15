@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { Logo } from "@/components/layout/Logo";
 import { CONTACT, SOCIAL, whatsappHref } from "@/lib/constants";
+import { BLOG_PREVIEW } from "@/content/blog/data";
 
 const SERVICE_LINKS = [
   { key: "asistentesIa", href: "/servicios/asistentes-ia" },
@@ -57,7 +58,7 @@ export function Footer() {
                 {t("footer.institutional.casos")}
               </Link>
             </li>
-            {/* Blog fuera del footer hasta que haya posts reales (feedback SEO/GEO ítem 2) */}
+            {BLOG_PREVIEW && <li><Link href="/blog" className="text-body-md text-white/80 hover:text-white">{t("footer.institutional.blog")}</Link></li>}
             <li>
               <Link href="/prensa" className="text-body-md text-white/80 hover:text-white">
                 {t("footer.institutional.prensa")}

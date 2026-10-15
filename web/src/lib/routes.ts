@@ -8,6 +8,7 @@ import { consultoriaContent } from "@/content/servicios/consultoria";
 import { nosotrosContent } from "@/content/nosotros";
 import { contactoContent } from "@/content/contacto";
 import { prensaPageContent } from "@/content/prensa/page-content";
+import { BLOG_PUBLIC, blogPosts } from "@/content/blog/data";
 import type { Localized, TranslationStatus } from "@/content/types";
 
 export interface RouteEntry {
@@ -43,5 +44,8 @@ export const ROUTES: RouteEntry[] = [
   { path: "/prensa", priority: 0.4, translationStatus: statusOf(prensaPageContent) },
   { path: "/nosotros", priority: 0.7, translationStatus: statusOf(nosotrosContent) },
   { path: "/contacto", priority: 0.6, translationStatus: statusOf(contactoContent) },
-  // /blog se excluye del sitemap: sin posts todavía (content/blog/data.ts).
+  ...(BLOG_PUBLIC ? [
+    { path: "/blog", priority: 0.6, translationStatus: "pending" as const },
+    ...blogPosts.map((post) => ({ path: `/blog/${post.slug}`, priority: 0.5, translationStatus: post.translationStatus })),
+  ] : []),
 ];
