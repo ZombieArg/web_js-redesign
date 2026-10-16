@@ -64,7 +64,13 @@ function PageviewTracker() {
       if (!link) return;
       const href = link.getAttribute("href") ?? "";
       const channel = link.dataset.contactChannel;
-      if (channel && link.dataset.contactLocation
+      if (link.dataset.postSlug && link.dataset.postCategory && /^\/(?:en\/)?blog\/[^/]+\/?$/.test(href)) {
+        captureEvent("blog_post_click", {
+          post_slug: link.dataset.postSlug,
+          post_category: link.dataset.postCategory,
+          click_target: link.closest("h2") ? "title" : "read_more",
+        });
+      } else if (channel && link.dataset.contactLocation
         && ((channel === "email" && href.startsWith("mailto:"))
           || (channel === "phone" && href.startsWith("tel:"))
           || (channel === "whatsapp" && href.includes("wa.me/")))) {

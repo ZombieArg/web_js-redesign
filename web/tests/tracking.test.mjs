@@ -88,6 +88,16 @@ test("expired first touch is rewritten; own referrer is ignored", () => {
   assert.equal(tracking.pageContext("/casos/normsy").page_type, "caso");
 });
 
+test("blog index and articles have distinct page types in both locales", () => {
+  const { tracking } = setup();
+  assert.equal(tracking.pageContext("/blog").page_type, "blog");
+  assert.equal(tracking.pageContext("/es/blog").page_type, "blog");
+  assert.equal(tracking.pageContext("/en/blog/").page_type, "blog");
+  assert.equal(tracking.pageContext("/blog/agente-de-ia-vs-chatbot").page_type, "blog_post");
+  assert.equal(tracking.pageContext("/en/blog/agente-de-ia-vs-chatbot").page_type, "blog_post");
+  assert.equal(tracking.pageContext("/blogger").page_type, "otro");
+});
+
 test("service interest is sent only with form start and submit", () => {
   const { tracking, sessionStorage, window } = setup();
   const events = [];

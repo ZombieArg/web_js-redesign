@@ -119,11 +119,13 @@ export function updateTouches(): void {
 
 export function pageContext(pathname: string): { page_path: string; lang: "es" | "en"; page_type: string } {
   const lang = pathname === "/en" || pathname.startsWith("/en/") ? "en" : "es";
-  const path = (lang === "en" ? pathname.replace(/^\/en/, "") : pathname).replace(/\/$/, "") || "/";
+  const path = pathname.replace(/^\/(?:es|en)(?=\/|$)/, "").replace(/\/$/, "") || "/";
   const page_type = path === "/" ? "home"
     : path === "/contacto" ? "contacto"
     : path === "/cecilia" ? "cecilia"
     : path === "/nosotros" ? "nosotros"
+    : path === "/blog" ? "blog"
+    : path.startsWith("/blog/") ? "blog_post"
     : path === "/casos" || path.startsWith("/casos/") ? "caso"
     : path === "/prensa" || path.startsWith("/prensa/") ? "prensa"
     : path.startsWith("/servicios/") ? "servicio"

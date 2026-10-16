@@ -2,26 +2,40 @@
 
 import { useState } from "react";
 import { Link } from "@/i18n/navigation";
+import { captureEvent } from "@/lib/analytics";
 import { blogAuthors, blogCategoryLabels, type BlogCategory, type BlogItem } from "@/content/blog/data";
 
-const filters: { label: string; value: BlogCategory | "todas" }[] = [
-  { label: "Todas", value: "todas" },
-  { label: "Evaluar proveedores", value: "proveedores" },
-  { label: "Agentes y asistentes", value: "agentes" },
-  { label: "Implementación", value: "implementacion" },
+const categoryTrackingValue: Record<BlogCategory, string> = {
+  proveedores: "evaluar-proveedores",
+  agentes: "agentes-asistentes",
+  implementacion: "implementacion",
+};
+
+const filters: { label: string; value: BlogCategory | "todas"; trackingValue: string }[] = [
+  { label: "Todas", value: "todas", trackingValue: "todas" },
+  { label: "Evaluar proveedores", value: "proveedores", trackingValue: "evaluar-proveedores" },
+  { label: "Agentes y asistentes", value: "agentes", trackingValue: "agentes-asistentes" },
+  { label: "Implementación", value: "implementacion", trackingValue: "implementacion" },
 ];
 
 export function BlogDirectory({ posts }: { posts: BlogItem[] }) {
   const [filter, setFilter] = useState<BlogCategory | "todas">("todas");
   const visible = filter === "todas" ? posts : posts.filter((post) => post.category === filter);
 
+  function selectFilter(item: (typeof filters)[number]) {
+    if (filter === item.value) return;
+    captureEvent("blog_filter_click", { filter: item.trackingValue });
+    setFilter(item.value);
+  }
+
   return <>
     <div className="mt-10 flex flex-wrap gap-2 border-b border-divider pb-7" role="group" aria-label="Filtrar artículos">
       {filters.map((item) => <button
         key={item.value}
         type="button"
+        data-blog-filter={item.trackingValue}
         aria-pressed={filter === item.value}
-        onClick={() => setFilter(item.value)}
+        onClick={() => selectFilter(item)}
         className={`rounded-full border px-4 py-2 text-label-md transition-colors ${filter === item.value ? "border-brand-navy bg-brand-navy text-white" : "border-divider bg-white text-brand-navy hover:border-brand-navy"}`}
       >{item.label}</button>)}
     </div>
@@ -34,10 +48,10 @@ export function BlogDirectory({ posts }: { posts: BlogItem[] }) {
           <span>{post.readingMinutes} min de lectura</span>
         </div>
         <h2 className="max-w-[850px] text-[25px] font-semibold leading-tight text-brand-navy desktop:text-headline-md">
-          <Link href={{ pathname: "/blog/[slug]", params: { slug: post.slug } }} className="hover:underline hover:underline-offset-4">{post.title}</Link>
+          <Link href={{ pathname: "/blog/[slug]", params: { slug: post.slug } }} data-post-slug={post.slug} data-post-category={categoryTrackingValue[post.category]} className="hover:underline hover:underline-offset-4">{post.title}</Link>
         </h2>
         <p className="mt-3 max-w-[800px] text-body-md text-on-surface-variant desktop:text-body-lg">{post.excerpt}</p>
-        <Link href={{ pathname: "/blog/[slug]", params: { slug: post.slug } }} className="mt-4 inline-block text-label-md text-brand-navy underline-offset-4 hover:underline">Leer artículo →</Link>
+        <Link href={{ pathname: "/blog/[slug]", params: { slug: post.slug } }} data-post-slug={post.slug} data-post-category={categoryTrackingValue[post.category]} className="mt-4 inline-block text-label-md text-brand-navy underline-offset-4 hover:underline">Leer artículo →</Link>
       </article>)}
     </div>
   </>;
