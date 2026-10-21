@@ -1,3 +1,9 @@
+Esta guía responde cómo elegir una consultora de inteligencia artificial cuando ya tenés dos o tres propuestas en la mesa, o estás por pedirlas. Vas a encontrar siete criterios con la prueba concreta que conviene pedir para cada uno.
+
+También vas a encontrar diez preguntas literales para copiar en un mail antes de firmar, y lo que debería entregarte un diagnóstico inicial.
+
+Todo empieza antes de la primera reunión, con el problema que querés resolver.
+
 ## Antes de buscar: qué problema querés resolver
 
 Conviene llegar a la primera reunión con un proceso concreto y medible, porque sin él ninguna consultora puede proponerte algo comparable. Vale igual para una pyme que para una empresa grande que contrata consultoría en inteligencia artificial.

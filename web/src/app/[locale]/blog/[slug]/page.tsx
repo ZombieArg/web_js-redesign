@@ -16,7 +16,6 @@ type Props = { params: Promise<{ locale: string; slug: string }> };
 export const dynamicParams = false;
 
 const visualSteps: Record<string, [string, string, string]> = {
-  "como-elegir-consultora-inteligencia-artificial": ["Evidencia", "Método", "Responsables"],
   "agente-de-ia-vs-chatbot": ["Canal", "Fuente de verdad", "Acción permitida"],
   "como-elegir-chatbot-whatsapp-ia": ["Acceso oficial", "Datos propios", "Derivación"],
   "por-que-fallan-los-proyectos-de-ia": ["Proceso", "Piloto", "Producción"],
@@ -42,6 +41,10 @@ export default async function Page({ params }: Props) {
 
   const blocks = readArticle(post.slug);
   const sections = articleSections(blocks);
+  const hasInlineGuide = post.slug === "como-elegir-consultora-inteligencia-artificial";
+  const firstHeadingIndex = hasInlineGuide ? blocks.findIndex((block) => block.type === "heading") : 0;
+  const introBlocks = hasInlineGuide ? blocks.slice(0, firstHeadingIndex) : [];
+  const articleBlocks = hasInlineGuide ? blocks.slice(firstHeadingIndex) : blocks;
   const related = visibleBlogPosts.filter((item) => item.slug !== post.slug).sort((a, b) => Number(b.category === post.category) - Number(a.category === post.category)).slice(0, 3);
 
   return <>
@@ -49,13 +52,13 @@ export default async function Page({ params }: Props) {
     <div className="bg-neutral-base py-10 desktop:py-14">
       <Container>
         <nav className="mb-10 text-caption text-slate-gray" aria-label="Ruta de navegación"><Link href="/" className="underline hover:text-brand-navy">Inicio</Link><span aria-hidden="true"> › </span><Link href="/blog" className="underline hover:text-brand-navy">Blog</Link><span aria-hidden="true"> › </span><span>{blogCategoryLabels[post.category]}</span></nav>
-        <div className="grid gap-10 desktop:grid-cols-[220px_minmax(0,1fr)] desktop:gap-12">
-          <aside className="hidden desktop:block">
+        <div className={hasInlineGuide ? "mx-auto max-w-[820px]" : "grid gap-10 desktop:grid-cols-[220px_minmax(0,1fr)] desktop:gap-12"}>
+          {!hasInlineGuide && <aside className="hidden desktop:block">
             <nav className="sticky top-28 rounded-lg border border-divider bg-white p-5" aria-label="En esta guía">
               <p className="mb-4 text-caption font-semibold uppercase tracking-wider text-slate-gray">En esta guía</p>
               <ol className="space-y-3 text-caption leading-snug text-brand-navy">{sections.map((section, index) => <li key={section.id}><a href={`#${section.id}`} className="hover:underline">{index + 1}. {section.text}</a></li>)}</ol>
             </nav>
-          </aside>
+          </aside>}
           <article className="min-w-0 max-w-[820px]">
             <span className="rounded-xs bg-primary-fixed px-2 py-1 text-caption font-semibold text-brand-navy">{blogCategoryLabels[post.category]}</span>
             <h1 className="mt-4 text-display-lg-mobile text-brand-navy desktop:text-[48px] desktop:leading-[1.12]">{post.title}</h1>
@@ -65,12 +68,18 @@ export default async function Page({ params }: Props) {
               <p className="mb-2 text-caption font-semibold uppercase tracking-wider text-slate-gray">Respuesta directa</p>
               <p className="text-body-lg leading-relaxed text-brand-navy">{post.lead}</p>
             </div>
-            <details className="mt-6 rounded-sm border border-divider bg-white p-5 desktop:hidden"><summary className="cursor-pointer font-semibold text-brand-navy">En esta guía</summary><ol className="mt-4 space-y-3 text-body-md text-brand-navy">{sections.map((section, index) => <li key={section.id}><a href={`#${section.id}`}>{index + 1}. {section.text}</a></li>)}</ol></details>
-            <figure className="mt-8 overflow-hidden rounded-lg border border-divider bg-white" aria-label={`Esquema de ${post.title}`}>
+            {hasInlineGuide && <>
+              <div className="mt-8"><ArticleBody blocks={introBlocks} /></div>
+              <nav className="mt-5 text-body-md text-brand-navy" aria-label="En esta guía">
+                <ul className="list-disc space-y-1 pl-6">{sections.map((section) => <li key={section.id}><a href={`#${section.id}`} className="underline underline-offset-2 hover:text-secondary">{section.text}</a></li>)}</ul>
+              </nav>
+            </>}
+            {!hasInlineGuide && <details className="mt-6 rounded-sm border border-divider bg-white p-5 desktop:hidden"><summary className="cursor-pointer font-semibold text-brand-navy">En esta guía</summary><ol className="mt-4 space-y-3 text-body-md text-brand-navy">{sections.map((section, index) => <li key={section.id}><a href={`#${section.id}`}>{index + 1}. {section.text}</a></li>)}</ol></details>}
+            {!hasInlineGuide && <figure className="mt-8 overflow-hidden rounded-lg border border-divider bg-white" aria-label={`Esquema de ${post.title}`}>
               <div className="bg-brand-navy px-6 py-5 text-white"><span className="text-caption uppercase tracking-widest text-white/70">Mapa de decisión</span><p className="mt-1 text-headline-md">Del problema a una decisión concreta</p></div>
               <div className="grid gap-3 p-5 tablet:grid-cols-3">{visualSteps[post.slug].map((step, index) => <div key={step} className="rounded-sm bg-surface-container-low p-4"><span className="text-caption font-semibold text-slate-gray">0{index + 1}</span><p className="mt-3 text-label-md text-brand-navy">{step}</p></div>)}</div>
-            </figure>
-            <ArticleBody blocks={blocks} />
+            </figure>}
+            <ArticleBody blocks={articleBlocks} />
             <div className="mt-14 rounded-lg border border-divider bg-white p-7 desktop:p-9"><h2 className="text-headline-md text-brand-navy">¿Tenés un proceso concreto para revisar?</h2><p className="mt-3 text-body-md text-on-surface-variant">Llevalo a una primera conversación con el equipo.</p><Button href="/contacto" data-cta-id="cierre_diagnostico" data-cta-location="blog_article" className="mt-6">Pedí un diagnóstico gratuito</Button></div>
           </article>
         </div>
