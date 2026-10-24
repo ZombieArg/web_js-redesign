@@ -171,6 +171,10 @@ body {
 .blog-prose th { background: var(--color-surface-container-low); color: var(--color-brand-navy); font-weight: 650; text-align: left; }
 .blog-prose th, .blog-prose td { padding: .85rem 1rem; border-bottom: 1px solid var(--color-divider); vertical-align: top; }
 .blog-prose tr:last-child td { border-bottom: 0; }
+.blog-faq { margin: 0 0 .75rem; border: 1px solid var(--color-divider); border-radius: var(--radius-sm); background: white; }
+.blog-faq summary { cursor: pointer; padding: 1rem 1.25rem; color: var(--color-brand-navy); font-weight: 650; }
+.blog-faq > .blog-prose { padding: 0 1.25rem 1rem; }
+.blog-faq > .blog-prose p:last-child { margin-bottom: 0; }
 
 * {
   box-sizing: border-box;

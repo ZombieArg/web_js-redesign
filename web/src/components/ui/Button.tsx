@@ -2,7 +2,7 @@ import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from "reac
 import clsx from "clsx";
 import { Link } from "@/i18n/navigation";
 
-type Variant = "primary" | "secondary" | "ghost";
+type Variant = "primary" | "secondary" | "ghost" | "blogHeader";
 type Size = "md" | "lg";
 
 interface BaseProps {
@@ -33,6 +33,8 @@ const variants: Record<Variant, string> = {
   primary: "bg-signal-orange text-white hover:bg-[#e64a17] hover:shadow-card-hover",
   secondary:
     "border border-brand-navy text-brand-navy bg-transparent hover:bg-brand-navy hover:text-white",
+  blogHeader:
+    "border-[1.5px] border-brand-navy bg-white text-brand-navy hover:bg-brand-navy hover:text-white",
   ghost: "bg-transparent text-brand-navy px-2 hover:bg-surface-container-high",
 };
 

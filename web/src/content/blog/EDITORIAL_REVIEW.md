@@ -2,7 +2,16 @@
 
 Los cinco artículos están disponibles para revisión en desarrollo y en `https://datavoices-redesign-preview.netlify.app/blog`. Los dos primeros provienen de borradores completos del ZIP; los otros tres fueron redactados a partir de briefs. Las cuatro imágenes del ZIP son capturas de referencia de escritorio y móvil, no ilustraciones finales de los artículos. El blog usa diagramas hechos con componentes del sitio en vez de publicar esas capturas o los marcadores de imagen.
 
-El contenido sigue sin publicarse en el sitio principal: allí `NEXT_PUBLIC_BLOG_PUBLIC` queda vacío, el blog no aparece en la navegación ni en el sitemap, el índice muestra «Próximamente» y las URLs de artículos responden 404. El sitio separado de preview tiene `NEXT_PUBLIC_BLOG_PUBLIC=true`, `NEXT_PUBLIC_NOINDEX_ALL=true` y URL canónica propia. Cada nota muestra «Borrador para revisión editorial». La versión en inglés continúa pendiente de traducción.
+El contenido sigue sin publicarse en el sitio principal: allí `NEXT_PUBLIC_BLOG_PUBLIC` queda vacío, el blog no aparece en la navegación ni en el sitemap, el índice muestra «Próximamente» y las URLs de artículos responden 404. El sitio separado de preview tiene `NEXT_PUBLIC_BLOG_PUBLIC=true`, `NEXT_PUBLIC_NOINDEX_ALL=true` y URL canónica propia. Las notas ya no muestran el rótulo «Borrador para revisión editorial»; la versión en inglés continúa pendiente de traducción.
+
+## Publicación de la nota 1
+
+1. Revisar la nota 1 en preview y obtener el visto bueno editorial sobre autoría, afirmaciones y enlaces. Las otras cuatro notas siguen visibles en preview y no están marcadas como publicadas.
+2. En el sitio de producción, configurar `NEXT_PUBLIC_BLOG_PUBLIC=true`, mantener `NEXT_PUBLIC_NOINDEX_ALL` vacío y fijar `NEXT_PUBLIC_BLOG_NOTA_01_PUBLISHED_AT` a la fecha y hora reales del deploy en Buenos Aires, con formato ISO 8601 y `-03:00`. Si falta esa fecha, ninguna nota se publica. `NEXT_PUBLIC_BLOG_NOTA_01_MODIFIED_AT` puede quedar vacío en el primer deploy.
+3. Confirmar `NEXT_PUBLIC_SITE_URL=https://datavoices.com.ar`, desplegar y verificar la nota, `/blog`, el sitemap, `robots`, canonical, hreflang, Open Graph, JSON-LD y que las otras cuatro URLs de notas sigan sin publicarse.
+4. Si se edita la nota después de publicarla, fijar `NEXT_PUBLIC_BLOG_NOTA_01_MODIFIED_AT` a la fecha y hora reales de esa edición. El texto «Actualizado el» y `dateModified` usan ese mismo valor.
+
+El JSON-LD se incluye en el HTML de la página como `<script type="application/ld+json">`, según la guía de Next.js 16 para App Router. Este framework lo serializa en el cuerpo del documento; los metadatos Open Graph y canonical sí van en `<head>`.
 
 ## Antes de habilitarlo en producción
 

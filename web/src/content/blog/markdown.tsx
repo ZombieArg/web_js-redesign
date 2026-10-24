@@ -126,3 +126,25 @@ export function ArticleBody({ blocks }: { blocks: Block[] }) {
 export function articleSections(blocks: Block[]) {
   return blocks.filter((block): block is Extract<Block, { type: "heading" }> => block.type === "heading" && block.level === 2);
 }
+
+export function articleFaqSection(blocks: Block[]) {
+  const start = blocks.findIndex((block) => block.type === "heading" && block.level === 2 && block.text === "Preguntas frecuentes");
+  if (start < 0) return null;
+  const nextHeading = blocks.findIndex((block, index) => index > start && block.type === "heading" && block.level === 2);
+  const end = nextHeading < 0 ? blocks.length : nextHeading;
+  const faqBlocks = blocks.slice(start + 1, end);
+  const items: { question: string; id: string; answerBlocks: Block[]; answer: string }[] = [];
+
+  for (const block of faqBlocks) {
+    if (block.type === "heading" && block.level === 3) {
+      items.push({ question: block.text, id: block.id, answerBlocks: [], answer: "" });
+    } else if (items.length) {
+      items[items.length - 1].answerBlocks.push(block);
+    }
+  }
+  for (const item of items) {
+    item.answer = item.answerBlocks.filter((block): block is Extract<Block, { type: "paragraph" }> => block.type === "paragraph").map((block) => block.text).join(" ");
+  }
+
+  return { before: blocks.slice(0, start), heading: blocks[start] as Extract<Block, { type: "heading" }>, items, after: blocks.slice(end) };
+}

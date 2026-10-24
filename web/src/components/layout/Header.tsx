@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 import { Logo } from "./Logo";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { Button } from "@/components/ui/Button";
@@ -17,6 +17,8 @@ const SERVICE_LINKS = [
 
 export function Header() {
   const t = useTranslations("nav");
+  const pathname = usePathname();
+  const isBlogRoute = pathname === "/blog" || pathname.startsWith("/blog/");
   const [servicesOpen, setServicesOpen] = useState(false);
   const [nosotrosOpen, setNosotrosOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -110,14 +112,14 @@ export function Header() {
               {BLOG_PREVIEW && <Link href="/blog" className="block px-4 py-2 text-body-md text-on-surface-variant hover:bg-surface-container-low hover:text-brand-navy">Blog</Link>}
             </div>
           </div>
-          <Link href="/contacto" data-cta-id="header_diagnostico" data-cta-location="header" className="text-label-md normal-case tracking-normal text-on-surface-variant hover:text-brand-navy">
+          {!isBlogRoute && <Link href="/contacto" data-cta-id="header_diagnostico" data-cta-location="header" className="text-label-md normal-case tracking-normal text-on-surface-variant hover:text-brand-navy">
             {t("contacto")}
-          </Link>
+          </Link>}
           <LanguageSwitcher />
         </nav>
 
         <div className="hidden desktop:block">
-          <Button href="/contacto" data-cta-id="header_diagnostico" data-cta-location="header" variant="primary">
+          <Button href="/contacto" data-cta-id="header_diagnostico" data-cta-location="header" variant={isBlogRoute ? "blogHeader" : "primary"}>
             {t("cta")}
           </Button>
         </div>
@@ -155,13 +157,13 @@ export function Header() {
           <Link href="/prensa" className="py-2 pl-4 text-body-md text-on-surface-variant">
             {t("prensa")}
           </Link>
-          <Link href="/contacto" data-cta-id="header_diagnostico" data-cta-location="header" className="py-2 text-body-md text-on-surface-variant">
+          {!isBlogRoute && <Link href="/contacto" data-cta-id="header_diagnostico" data-cta-location="header" className="py-2 text-body-md text-on-surface-variant">
             {t("contacto")}
-          </Link>
+          </Link>}
           <div className="mt-2 flex items-center justify-between">
             <LanguageSwitcher />
           </div>
-          <Button href="/contacto" data-cta-id="header_diagnostico" data-cta-location="header" variant="primary" className="mt-3 w-full">
+          <Button href="/contacto" data-cta-id="header_diagnostico" data-cta-location="header" variant={isBlogRoute ? "blogHeader" : "primary"} className="mt-3 w-full">
             {t("cta")}
           </Button>
         </nav>

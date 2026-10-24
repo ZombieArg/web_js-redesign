@@ -1,4 +1,5 @@
 import type { TranslationStatus } from "../types";
+import { NOINDEX_ALL } from "@/lib/constants";
 
 export type BlogCategory = "proveedores" | "agentes" | "implementacion";
 
@@ -12,11 +13,30 @@ export interface BlogItem {
   authors: ("juanma" | "eduardo")[];
   readingMinutes: number;
   translationStatus: TranslationStatus;
+  /** Se habilita solo cuando la nota ya está publicada en el sitio principal. */
+  isPublished?: boolean;
+  publishedAt?: string;
+  modifiedAt?: string;
 }
 
-// Los textos siguen en revisión editorial. Producción requiere una habilitación explícita.
+// Preview muestra los borradores; producción requiere la bandera del blog y una fecha real por nota.
 export const BLOG_PUBLIC = process.env.NEXT_PUBLIC_BLOG_PUBLIC === "true";
 export const BLOG_PREVIEW = process.env.NODE_ENV === "development" || BLOG_PUBLIC;
+const nota01ReleaseAt = process.env.NEXT_PUBLIC_BLOG_NOTA_01_PUBLISHED_AT;
+const nota01ModifiedAt = process.env.NEXT_PUBLIC_BLOG_NOTA_01_MODIFIED_AT;
+for (const [name, value] of [["NEXT_PUBLIC_BLOG_NOTA_01_PUBLISHED_AT", nota01ReleaseAt], ["NEXT_PUBLIC_BLOG_NOTA_01_MODIFIED_AT", nota01ModifiedAt]]) {
+  if (value && !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}-03:00$/.test(value)) {
+    throw new Error(`${name} debe tener formato YYYY-MM-DDTHH:mm:ss-03:00`);
+  }
+}
+function previewTimestamp() {
+  const parts = Object.fromEntries(new Intl.DateTimeFormat("en-US", {
+    timeZone: "America/Argentina/Buenos_Aires", year: "numeric", month: "2-digit", day: "2-digit",
+    hour: "2-digit", minute: "2-digit", second: "2-digit", hourCycle: "h23", timeZoneName: "longOffset",
+  }).formatToParts(new Date()).map(({ type, value }) => [type, value]));
+  return `${parts.year}-${parts.month}-${parts.day}T${parts.hour}:${parts.minute}:${parts.second}${parts.timeZoneName.replace("GMT", "")}`;
+}
+const nota01PreviewDate = (process.env.NODE_ENV === "development" || NOINDEX_ALL) ? previewTimestamp() : undefined;
 
 export const blogPosts: BlogItem[] = [
   {
@@ -26,6 +46,8 @@ export const blogPosts: BlogItem[] = [
     excerpt: "Criterios, preguntas para hacer antes de firmar y señales de alerta para elegir una consultora de IA. Sin rankings ni promesas: cómo evaluar con evidencia.",
     lead: "Elegir una consultora de IA es verificar cuatro cosas: casos en producción, no demos; un método para pasar del diagnóstico a la implementación; claridad sobre quién es dueño del código y de los datos; y cómo se mide el resultado. Si una consultora no puede mostrarte las cuatro con evidencia, seguí buscando.",
     category: "proveedores", authors: ["juanma"], readingMinutes: 11, translationStatus: "pending",
+    isPublished: Boolean(nota01ReleaseAt), publishedAt: nota01ReleaseAt ?? nota01PreviewDate,
+    modifiedAt: nota01ModifiedAt ?? nota01ReleaseAt ?? nota01PreviewDate,
   },
   {
     slug: "agente-de-ia-vs-chatbot",
@@ -61,14 +83,20 @@ export const blogPosts: BlogItem[] = [
   },
 ];
 
-export const visibleBlogPosts = BLOG_PREVIEW ? blogPosts : [];
+export const publishedBlogPosts = blogPosts.filter((post) => post.isPublished);
+export const visibleBlogPosts = !BLOG_PREVIEW ? [] : (process.env.NODE_ENV === "development" || NOINDEX_ALL ? blogPosts : publishedBlogPosts);
 export const blogCategoryLabels: Record<BlogCategory, string> = {
   proveedores: "Evaluar proveedores",
   agentes: "Agentes y asistentes",
   implementacion: "Implementación",
 };
+export const blogCategoryTrackingValue: Record<BlogCategory, string> = {
+  proveedores: "evaluar-proveedores",
+  agentes: "agentes-asistentes",
+  implementacion: "implementacion",
+};
 
 export const blogAuthors = {
-  juanma: { name: "Juan Manuel Ortiz de Zárate", shortName: "Juanma" },
-  eduardo: { name: "Eduardo Pan", shortName: "Eduardo Pan" },
+  juanma: { name: "Juan Manuel Ortiz de Zárate", shortName: "Juanma", jobTitle: "co-fundador y CTO de Data Voices" },
+  eduardo: { name: "Eduardo Pan", shortName: "Eduardo Pan", jobTitle: "co-fundador y Senior Software Developer de Data Voices" },
 };

@@ -1,7 +1,7 @@
 import { SITE_URL, CONTACT, SOCIAL, ORG } from "@/lib/constants";
 import { ROUTES } from "@/lib/routes";
 import { getCasos } from "@/content/casos/data";
-import { BLOG_PUBLIC, blogPosts } from "@/content/blog/data";
+import { BLOG_PUBLIC, visibleBlogPosts } from "@/content/blog/data";
 
 export const dynamic = "force-static";
 
@@ -25,7 +25,7 @@ export function GET() {
   );
 
   const caseNames = getCasos("es").map((c) => `- ${c.title}`).join("\n");
-  const blogNames = BLOG_PUBLIC ? blogPosts.map((post) => `- ${post.title}: ${SITE_URL}/blog/${post.slug}`).join("\n") : "";
+  const blogNames = BLOG_PUBLIC ? visibleBlogPosts.map((post) => `- ${post.title}: ${SITE_URL}/blog/${post.slug}`).join("\n") : "";
 
   const body = `# ${ORG.name}
 > Consultora argentina de inteligencia artificial: implementación de IA, desarrollo de software a medida y agentes de IA para empresas.
@@ -48,7 +48,7 @@ ${pages.join("\n")}
 ## Casos citables
 ${caseNames}
 
-${BLOG_PUBLIC ? `## Guías del blog\n${blogNames}\n` : ""}
+${BLOG_PUBLIC && blogNames ? `## Guías del blog\n${blogNames}\n` : ""}
 
 ## Personas
 - Juan Manuel Ortiz de Zárate — co-fundador, CTO
