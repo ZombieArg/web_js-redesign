@@ -119,10 +119,14 @@ function inline(text: string): ReactNode[] {
   return nodes;
 }
 
+export function HtmlComment({ text }: { text: string }) {
+  return <template dangerouslySetInnerHTML={{ __html: `<!--${text}-->` }} />;
+}
+
 export function ArticleBody({ blocks }: { blocks: Block[] }) {
   return <div className="blog-prose">
     {blocks.map((block, index) => {
-      if (block.type === "comment") return <template key={index} dangerouslySetInnerHTML={{ __html: `<!--${block.text}-->` }} />;
+      if (block.type === "comment") return <HtmlComment key={index} text={block.text} />;
       if (block.type === "heading") {
         return block.level === 2
           ? <h2 key={index} id={block.id}>{block.text}</h2>
