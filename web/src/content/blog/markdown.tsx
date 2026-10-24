@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 
 export type Block =
   | { type: "heading"; level: 2 | 3; text: string; id: string }
+  | { type: "comment"; text: string }
   | { type: "paragraph"; text: string }
   | { type: "quote"; text: string }
   | { type: "list"; ordered: boolean; items: string[] }
@@ -29,7 +30,22 @@ export function readArticle(slug: string) {
 
   while (i < lines.length) {
     const line = lines[i].trim();
-    if (!line || line === "---" || line.startsWith("<!--")) { i++; continue; }
+    if (!line || line === "---") { i++; continue; }
+
+    if (line.startsWith("<!--")) {
+      const comment = [line];
+      while (!comment[comment.length - 1].includes("-->")) {
+        i++;
+        if (i >= lines.length) throw new Error(`Comentario HTML sin cierre en ${slug}.md`);
+        comment.push(lines[i]);
+      }
+      const source = comment.join("\n");
+      const close = source.indexOf("-->");
+      if (source.slice(close + 3).trim()) throw new Error(`Texto después de comentario HTML en ${slug}.md`);
+      blocks.push({ type: "comment", text: source.slice(4, close) });
+      i++;
+      continue;
+    }
 
     const heading = /^(#{2,3})\s+(.+)$/.exec(line);
     if (heading) {
@@ -71,7 +87,7 @@ export function readArticle(slug: string) {
     }
 
     const paragraph: string[] = [];
-    while (i < lines.length && lines[i].trim() && !/^(#{2,3}\s|\||[-*]\s|\d+\.\s|>\s|---$)/.test(lines[i].trim())) {
+    while (i < lines.length && lines[i].trim() && !/^(<!--|#{2,3}\s|\||[-*]\s|\d+\.\s|>\s|---$)/.test(lines[i].trim())) {
       paragraph.push(lines[i].trim());
       i++;
     }
@@ -106,6 +122,7 @@ function inline(text: string): ReactNode[] {
 export function ArticleBody({ blocks }: { blocks: Block[] }) {
   return <div className="blog-prose">
     {blocks.map((block, index) => {
+      if (block.type === "comment") return <template key={index} dangerouslySetInnerHTML={{ __html: `<!--${block.text}-->` }} />;
       if (block.type === "heading") {
         return block.level === 2
           ? <h2 key={index} id={block.id}>{block.text}</h2>
