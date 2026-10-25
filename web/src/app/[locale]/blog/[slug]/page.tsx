@@ -63,11 +63,9 @@ export default async function Page({ params }: Props) {
 
   return <>
     {locale === "en" && <TranslationPendingNotice />}
-    {locale === "es" && post.publishedAt && faqSection && <>
-      {markers && <HtmlComment text={markers.schemaStart} />}
-      <JsonLd data={{ "@context": "https://schema.org", "@graph": buildBlogGraph(post, locale, post.publishedAt, post.modifiedAt ?? post.publishedAt, faqSection.items) }} />
-      {markers && <HtmlComment text={markers.schemaEnd} />}
-    </>}
+    {locale === "es" && markers && <HtmlComment text={markers.schemaStart} />}
+    {locale === "es" && post.publishedAt && faqSection && <JsonLd data={{ "@context": "https://schema.org", "@graph": buildBlogGraph(post, locale, post.publishedAt, post.modifiedAt ?? post.publishedAt, faqSection.items) }} />}
+    {locale === "es" && markers && <HtmlComment text={markers.schemaEnd} />}
     <div className="bg-neutral-base py-10 desktop:py-14">
       <Container>
         <nav className="mb-10 text-caption text-slate-gray" aria-label="Ruta de navegación"><Link href="/" className="underline hover:text-brand-navy">Inicio</Link><span aria-hidden="true"> › </span><Link href="/blog" className="underline hover:text-brand-navy">Blog</Link><span aria-hidden="true"> › </span><Link href="/blog" className="underline hover:text-brand-navy">{blogCategoryLabels[post.category]}</Link><span aria-hidden="true"> › </span><span>{post.breadcrumbTitle}</span></nav>
