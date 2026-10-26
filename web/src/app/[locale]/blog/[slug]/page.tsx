@@ -4,10 +4,9 @@ import { setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
-import { JsonLd } from "@/components/seo/JsonLd";
+import { HeadJsonLd } from "@/components/seo/HeadJsonLd";
 import { TranslationPendingNotice } from "@/components/ui/TranslationPendingNotice";
-import { ArticleBody, HtmlComment, articleFaqSection, articleSections, readArticle } from "@/content/blog/markdown";
-import { blogHtmlMarkers } from "@/content/blog/markers";
+import { ArticleBody, articleFaqSection, articleSections, readArticle } from "@/content/blog/markdown";
 import { BLOG_PUBLIC, blogAuthors, blogCategoryLabels, blogCategoryTrackingValue, publishedBlogPosts, visibleBlogPosts } from "@/content/blog/data";
 import { SITE_URL } from "@/lib/constants";
 import { buildMetadata } from "@/lib/seo/metadata";
@@ -58,14 +57,11 @@ export default async function Page({ params }: Props) {
   const introBlocks = firstHeadingIndex < 0 ? blocks : blocks.slice(0, firstHeadingIndex);
   const articleBlocks = firstHeadingIndex < 0 ? [] : blocks.slice(firstHeadingIndex);
   const faqSection = articleFaqSection(articleBlocks);
-  const markers = blogHtmlMarkers[post.slug];
   const related = publishedBlogPosts.filter((item) => item.slug !== post.slug).sort((a, b) => Number(b.category === post.category) - Number(a.category === post.category)).slice(0, 3);
 
   return <>
     {locale === "en" && <TranslationPendingNotice />}
-    {locale === "es" && markers && <HtmlComment text={markers.schemaStart} />}
-    {locale === "es" && post.publishedAt && faqSection && <JsonLd data={{ "@context": "https://schema.org", "@graph": buildBlogGraph(post, locale, post.publishedAt, post.modifiedAt ?? post.publishedAt, faqSection.items) }} />}
-    {locale === "es" && markers && <HtmlComment text={markers.schemaEnd} />}
+    {locale === "es" && post.publishedAt && faqSection && <HeadJsonLd data={{ "@context": "https://schema.org", "@graph": buildBlogGraph(post, locale, post.publishedAt, post.modifiedAt ?? post.publishedAt, faqSection.items) }} />}
     <div className="bg-neutral-base py-10 desktop:py-14">
       <Container>
         <nav className="mb-10 text-caption text-slate-gray" aria-label="Ruta de navegación"><Link href="/" className="underline hover:text-brand-navy">Inicio</Link><span aria-hidden="true"> › </span><Link href="/blog" className="underline hover:text-brand-navy">Blog</Link><span aria-hidden="true"> › </span><Link href="/blog" className="underline hover:text-brand-navy">{blogCategoryLabels[post.category]}</Link><span aria-hidden="true"> › </span><span>{post.breadcrumbTitle}</span></nav>
@@ -73,12 +69,9 @@ export default async function Page({ params }: Props) {
           <article className="min-w-0 max-w-[820px]">
             <span className="rounded-xs bg-primary-fixed px-2 py-1 text-caption font-semibold text-brand-navy">{blogCategoryLabels[post.category]}</span>
             <h1 className="mt-4 text-display-lg-mobile text-brand-navy desktop:text-[48px] desktop:leading-[1.12]">{post.title}</h1>
-            {markers && <HtmlComment text={markers.author} />}
             <p className="mt-5 text-body-md text-on-surface-variant">Por {post.authors.map((author, index) => <span key={author}>{index > 0 && " "}<Link href="/nosotros" className="font-semibold text-brand-navy underline underline-offset-2">{blogAuthors[author].shortName}</Link>{author === "juanma" && ` (${blogAuthors[author].name})`}, {blogAuthors[author].jobTitle}{blogAuthors[author].credentials && `. ${blogAuthors[author].credentials}`}{index === post.authors.length - 1 ? "." : ";"}</span>)} <span className="mx-2 text-slate-gray">·</span> {post.readingMinutes} min de lectura</p>
-            {post.publishedAt && <p className="mt-2 text-caption text-slate-gray"><time dateTime={post.modifiedAt ?? post.publishedAt}>Actualizado el {new Intl.DateTimeFormat("es-AR", { day: "numeric", month: "long", year: "numeric", timeZone: "America/Argentina/Buenos_Aires" }).format(new Date(post.modifiedAt ?? post.publishedAt))}</time></p>}
-            {markers && <HtmlComment text={markers.answer} />}
+            {post.publishedAt && <p className="mt-2 text-caption text-slate-gray"><time dateTime={post.modifiedAt ?? post.publishedAt}>Actualizado el {new Intl.DateTimeFormat("es-AR", { day: "numeric", month: "long", year: "numeric", timeZone: "America/Argentina/Buenos_Aires" }).format(new Date(`${(post.modifiedAt ?? post.publishedAt).slice(0, 10)}T12:00:00-03:00`))}</time></p>}
             <div className="mt-8 rounded-sm border-l-4 border-brand-navy bg-white p-6 shadow-card">
-              <p className="mb-2 text-caption font-semibold uppercase tracking-wider text-slate-gray">Respuesta directa</p>
               <p className="text-body-lg leading-relaxed text-brand-navy">{post.lead}</p>
             </div>
             {introBlocks.length > 0 && <div className="mt-8"><ArticleBody blocks={introBlocks} /></div>}
@@ -87,12 +80,10 @@ export default async function Page({ params }: Props) {
             </nav>
             {faqSection ? <>
               <ArticleBody blocks={faqSection.before} />
-              {markers && <HtmlComment text={markers.faqStart} />}
               <section className="blog-prose" aria-labelledby={faqSection.heading.id}>
                 <h2 id={faqSection.heading.id}>{faqSection.heading.text}</h2>
                 {faqSection.items.map((item) => <details key={item.id} open className="blog-faq"><summary data-faq-id={item.id}>{item.question}</summary><ArticleBody blocks={item.answerBlocks} /></details>)}
               </section>
-              {markers && <HtmlComment text={markers.faqEnd} />}
               <ArticleBody blocks={faqSection.after} />
             </> : <ArticleBody blocks={articleBlocks} />}
             <div className="mt-14 rounded-lg border border-divider bg-white p-7 desktop:p-9"><h2 className="text-headline-md text-brand-navy">¿Tenés un proceso concreto para revisar?</h2><p className="mt-3 text-body-md text-on-surface-variant">Llevalo a una primera conversación con el equipo.</p><Button href="/contacto" data-cta-id="blog_post_cierre_diagnostico" data-cta-location="blog_article" className="mt-6">Pedí un diagnóstico gratuito</Button></div>

@@ -4,7 +4,6 @@ import type { ReactNode } from "react";
 
 export type Block =
   | { type: "heading"; level: 2 | 3; text: string; id: string }
-  | { type: "comment"; text: string }
   | { type: "paragraph"; text: string }
   | { type: "quote"; text: string }
   | { type: "list"; ordered: boolean; items: string[] }
@@ -42,7 +41,6 @@ export function readArticle(slug: string) {
       const source = comment.join("\n");
       const close = source.indexOf("-->");
       if (source.slice(close + 3).trim()) throw new Error(`Texto después de comentario HTML en ${slug}.md`);
-      blocks.push({ type: "comment", text: source.slice(4, close) });
       i++;
       continue;
     }
@@ -99,6 +97,12 @@ export function readArticle(slug: string) {
 
 const inlinePattern = /(\[([^\]]+)\]\(([^)]+)\)|\*\*([^*]+)\*\*|\*([^*]+)\*|`([^`]+)`)/g;
 
+function plainInline(text: string) {
+  return text.replace(inlinePattern, (_match, _formatted, linkText, _href, boldText, italicText, codeText) =>
+    linkText ?? boldText ?? italicText ?? codeText ?? "",
+  ).replace(/\\([.#|])/g, "$1");
+}
+
 function inline(text: string): ReactNode[] {
   const nodes: ReactNode[] = [];
   let from = 0;
@@ -119,14 +123,9 @@ function inline(text: string): ReactNode[] {
   return nodes;
 }
 
-export function HtmlComment({ text }: { text: string }) {
-  return <template dangerouslySetInnerHTML={{ __html: `<!--${text}-->` }} />;
-}
-
 export function ArticleBody({ blocks }: { blocks: Block[] }) {
   return <div className="blog-prose">
     {blocks.map((block, index) => {
-      if (block.type === "comment") return <HtmlComment key={index} text={block.text} />;
       if (block.type === "heading") {
         return block.level === 2
           ? <h2 key={index} id={block.id}>{block.text}</h2>
@@ -164,7 +163,7 @@ export function articleFaqSection(blocks: Block[]) {
     }
   }
   for (const item of items) {
-    item.answer = item.answerBlocks.filter((block): block is Extract<Block, { type: "paragraph" }> => block.type === "paragraph").map((block) => block.text).join(" ");
+    item.answer = item.answerBlocks.filter((block): block is Extract<Block, { type: "paragraph" }> => block.type === "paragraph").map((block) => plainInline(block.text)).join(" ");
   }
 
   return { before: blocks.slice(0, start), heading: blocks[start] as Extract<Block, { type: "heading" }>, items, after: blocks.slice(end) };

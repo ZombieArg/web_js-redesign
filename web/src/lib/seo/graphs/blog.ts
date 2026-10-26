@@ -38,7 +38,8 @@ export function buildBlogGraph(post: BlogItem, locale: string, datePublished: st
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Inicio", item: `${SITE_URL}/` },
         { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE_URL}/blog` },
-        { "@type": "ListItem", position: 3, name: post.title, item: url },
+        { "@type": "ListItem", position: 3, name: blogCategoryLabels[post.category], item: `${SITE_URL}/blog` },
+        { "@type": "ListItem", position: 4, name: post.breadcrumbTitle, item: url },
       ],
     },
     {
