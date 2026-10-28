@@ -1,38 +1,22 @@
 import axios from "axios";
-import { API_BASE_URL } from "@/lib/constants";
 
 export interface ContactFormValues {
+  event_id: string;
   name: string;
   company: string;
   email: string;
   whatsapp: string;
   process: string;
   origen_declarado: string;
-  origen_declarado_otro: string;
-  originLabel: string;
+  origen_declarado_otro: string | null;
+  utm_source: string | null;
+  utm_medium: string | null;
+  utm_campaign: string | null;
+  landing_url: string;
+  website: string;
 }
 
-/**
- * Mismo endpoint que el sitio legacy (client/src/api/email.ts):
- * POST {API_BASE_URL}/send-email, body {email, message}. La API actual solo
- * acepta esos dos campos — los campos nuevos del formulario (empresa,
- * WhatsApp, proceso, origen) se componen dentro de `message` en vez de
- * inventar un contrato de API nuevo que el backend no entiende todavía.
- */
 export async function sendContactForm(values: ContactFormValues) {
-  const message = [
-    `Nombre: ${values.name}`,
-    `Empresa: ${values.company}`,
-    `WhatsApp: ${values.whatsapp}`,
-    `Proceso a revisar: ${values.process}`,
-    `Cómo nos conociste: ${values.originLabel}`,
-    `origen_declarado: ${values.origen_declarado}`,
-    `origen_declarado_otro: ${values.origen_declarado_otro}`,
-  ].join("\n");
-
-  const response = await axios.post(`${API_BASE_URL}/send-email`, {
-    email: values.email,
-    message,
-  });
-  return response.data;
+  const response = await axios.post("/api/contact", values, { timeout: 15_000 });
+  return response.data as { ok: true; event_id: string; opportunity_id: string };
 }
