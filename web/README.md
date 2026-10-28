@@ -35,8 +35,10 @@ funcional a los valores de producción, ver `src/lib/constants.ts`).
   (global), Service+FAQPage (cada servicio y Cecilia), Person×2 (Nosotros), CreativeWork+Breadcrumb
   (cada caso). Verificado que el `@id` de cada nodo coincide con la URL canónica `es`.
 - Redirects legacy (`/data-ai`, `/software-dev`, `/consulting` → `/servicios/...`, ambos locales).
-- Formulario de contacto conectado al mismo backend que el sitio legacy
-  (`ceciliabot.datavoices.com.ar/api/send-email`), sin cambios de contrato.
+- Formulario de contacto conectado al CRM Data Voices mediante `/api/contact`,
+  Route Handler del servidor que envía campos estructurados e `event_id` estable
+  a `/api/inbound/web`. Requiere `CRM_INGEST_URL` y `CRM_WEB_INGEST_TOKEN` en Netlify.
+  El email de aviso es opcional y se envía después de confirmar el alta en CRM.
 - `netlify.toml` listo para un sitio Netlify nuevo apuntando a esta carpeta.
 - Datos de contacto unificados en `lib/constants.ts` (el sitio legacy tenía 4 números distintos).
 
@@ -63,8 +65,8 @@ funcional a los valores de producción, ver `src/lib/constants.ts`).
    sin narrativa larga, métricas ni video — eso depende del copy de Íntimo Growth (brief §2.2).
    `CaseDetailTemplate.tsx` ya soporta esos campos, se agregan en `content/casos/data.ts` sin tocar
    el template.
-2. **Blog.** Sin posts todavía (brief §2.1). El hub muestra "Próximamente"; agregar entradas a
-   `content/blog/data.ts` cuando haya copy.
+2. **Blog.** Hay cinco notas en `content/blog/data.ts` para revisión en preview. Su publicación
+   depende de `NEXT_PUBLIC_BLOG_PUBLIC=true` y de la aprobación editorial.
 3. **Prensa.** Hub funcional con links de salida a las 4 notas reales. Convertirlas en "páginas
    propias" (`/prensa/[slug]`) es trabajo de copy, no técnico — la ruta ni el tipo están armados
    todavía porque no hay contenido propio que mostrar ahí (evita fabricar una página vacía).
@@ -73,29 +75,19 @@ funcional a los valores de producción, ver `src/lib/constants.ts`).
    pendiente de Data Voices, no algo que haya que resolver en este código.
 5. **Demo interactivo del bot** (`webBot.ts`/`Hero.tsx` del sitio legacy) — no está en el mockup
    nuevo, se dejó fuera de este sprint a propósito.
-6. **Deploy real.** `netlify.toml` está listo pero no se creó ni conectó ningún sitio de Netlify
-   todavía (paso manual, fuera del alcance de este commit — ver sección de deploy más abajo).
+6. **Deploy real.** `netlify.toml` está listo. Falta verificar el sitio, rama y SHA publicados en
+   Netlify antes de integrar el formulario del CRM en producción.
 7. **Assets.** Falta la foto de Leopoldo Reyes (testimonio omitido del array por esa razón, no por
    error) y el logo de "M4" (mencionado en el copy de Home, sin archivo disponible — se omitió de
    `logoRow` en vez de mostrar un logo roto).
 
 ## Deploy a Netlify — qué falta para hacerlo
 
-`netlify.toml` (base `web`, build `npm run build`, publish `.next`, plugin
-`@netlify/plugin-nextjs`) está listo y no requiere cambios. Lo que falta es credencial/acceso, no
-código. Dos caminos, sin que ninguno toque el sitio de producción actual:
-
-- **Lo hace el equipo de Data Voices** (recomendado para un primer preview): crear un sitio nuevo en
-  el dashboard de Netlify, conectarlo a este repo apuntando a la branch `redesign-nextjs` con
-  `base = web`, y Netlify hace build/deploy solo en cada push. No requiere compartir ningún token.
-- **Lo hago yo vía Netlify CLI**: necesito un `NETLIFY_AUTH_TOKEN` (Personal Access Token de
-  Netlify, User settings → Applications) puesto como variable de entorno en este entorno, y el
-  `site_id` del sitio ya sea existente o a crear. Con eso puedo correr `netlify deploy` (preview) o
-  `netlify deploy --prod` desde `web/`. No hace falta que sea la cuenta de producción — un sitio
-  Netlify nuevo y separado alcanza para este preview.
-
-En cualquiera de los dos casos, antes de un deploy a producción real hay que decidir el corte de
-DNS/dominio (`datavoices.com.ar` sigue apuntando al sitio Vite actual hasta ese paso manual).
+`netlify.toml` usa `npm run build:netlify`, publica `.next` y ejecuta el plugin de Next. La rama
+`feat/crm-web-ingest` agrega `/api/contact`; antes de publicarla hay que resolver el merge pendiente,
+confirmar el SHA que sirve Netlify y configurar `CRM_INGEST_URL` y `CRM_WEB_INGEST_TOKEN` como
+variables de servidor. El CRM de destino corre en Hetzner. La validación local del formulario y sus
+reintentos no sustituye una prueba del deploy publicado.
 
 ## Decisión técnica que se apartó del plan original
 
