@@ -39,6 +39,7 @@ funcional a los valores de producción, ver `src/lib/constants.ts`).
   Route Handler del servidor que envía campos estructurados e `event_id` estable
   a `/api/inbound/web`. Requiere `CRM_INGEST_URL` y `CRM_WEB_INGEST_TOKEN` en Netlify.
   El email de aviso es opcional y se envía después de confirmar el alta en CRM.
+  `netlify/edge-functions/contact-rate-limit.ts` limita a cinco solicitudes por IP y minuto en Netlify; verificar que la regla aparezca en el log del deploy. El honeypot sigue activo.
 - `netlify.toml` listo para un sitio Netlify nuevo apuntando a esta carpeta.
 - Datos de contacto unificados en `lib/constants.ts` (el sitio legacy tenía 4 números distintos).
 
