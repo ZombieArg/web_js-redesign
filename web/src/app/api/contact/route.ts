@@ -65,14 +65,17 @@ async function sendNotification(input: ContactInput) {
     `WhatsApp: ${input.whatsapp}`, `Proceso a revisar: ${input.process}`,
     `Origen declarado: ${input.origen_declarado}${input.origen_declarado_otro ? ` (${input.origen_declarado_otro})` : ""}`,
   ].join("\n");
-  const form = new URLSearchParams({ from, to, "h:Reply-To": input.email,
-    subject: `Nuevo diagnóstico solicitado — ${input.email}`, text });
+  const form = new FormData();
+  form.set("from", from);
+  form.set("to", to);
+  form.set("h:Reply-To", input.email);
+  form.set("subject", `Nuevo diagnóstico solicitado — ${input.email}`);
+  form.set("text", text);
   const base = (process.env.MAILGUN_BASE_URL || "https://api.mailgun.net").replace(/\/$/, "");
   try {
     const response = await fetch(`${base}/v3/${domain}/messages`, {
       method: "POST",
-      headers: { Authorization: `Basic ${Buffer.from(`api:${key}`).toString("base64")}`,
-        "Content-Type": "application/x-www-form-urlencoded" },
+      headers: { Authorization: `Basic ${Buffer.from(`api:${key}`).toString("base64")}` },
       body: form,
       signal: AbortSignal.timeout(3000),
     });
