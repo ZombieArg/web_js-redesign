@@ -64,12 +64,12 @@ export const blogPosts: BlogItem[] = [
   {
     slug: "por-que-fallan-los-proyectos-de-ia",
     title: "Por qué fallan los proyectos de IA y qué frena a los pilotos antes de producción",
-    seoTitle: "Por qué fallan los proyectos de IA",
+    seoTitle: "Por qué fallan los proyectos de IA y cómo evaluar el tuyo",
     breadcrumbTitle: "Por qué fallan los proyectos de IA",
-    excerpt: "Proceso, datos, equipo, métrica y alcance: las causas que frenan los pilotos y una forma concreta de evaluarlas antes de invertir.",
-    lead: "Muchos proyectos de IA no se traban por el modelo, sino antes, en la organización. Un piloto no llega a producción cuando nadie definió el proceso, los datos no están listos, el equipo que tiene que usarlo no se preparó o no hay una métrica acordada. Todo eso se puede evaluar antes de invertir.",
-    category: "implementacion", authors: ["juanma"], readingMinutes: 9, translationStatus: "pending",
-    ...publicationFor(),
+    excerpt: "Por qué fallan los proyectos de IA: procesos, datos, equipo y métrica. Mitos, causas y cómo evaluar tu piloto antes de invertir.",
+    lead: "Un proyecto de IA suele trabarse en la organización antes que en el modelo. Un piloto no llega a producción cuando nadie definió el proceso, los datos no están listos, el equipo que tiene que usarlo no se preparó o no hay una métrica acordada. Todo eso se puede evaluar antes de invertir.",
+    category: "implementacion", authors: ["juanma"], readingMinutes: 11, translationStatus: "pending",
+    ...publicationFor(), modifiedAt: "2026-10-29", hideUpdatedAt: true,
   },
   {
     slug: "no-code-vs-desarrollo-a-medida-ia",
