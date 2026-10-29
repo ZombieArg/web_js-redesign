@@ -18,6 +18,8 @@ export interface BlogItem {
   isPublished?: boolean;
   publishedAt?: string;
   modifiedAt?: string;
+  /** Oculta solo la fecha visible; conserva las fechas de los metadatos. */
+  hideUpdatedAt?: boolean;
 }
 
 // La publicación se habilita por entorno; la fecha editorial no depende del build.
@@ -71,13 +73,13 @@ export const blogPosts: BlogItem[] = [
   },
   {
     slug: "no-code-vs-desarrollo-a-medida-ia",
-    title: "No-code, producto armado o desarrollo a medida: cómo decidir tu proyecto de IA",
+    title: "No-code vs desarrollo a medida: cómo decidir el camino de tu proyecto de IA",
     seoTitle: "No-code vs desarrollo a medida en IA: cómo decidir",
     breadcrumbTitle: "No-code vs desarrollo a medida",
-    excerpt: "Tres caminos para un proyecto de IA comparados por ajuste al proceso, integraciones, control de datos y mantenimiento.",
-    lead: "Una plataforma no-code alcanza cuando el proceso es estándar y necesitás validar rápido. Un producto armado conviene cuando tu caso es el caso común que ese producto ya resuelve. El desarrollo a medida se justifica cuando el proceso es propio, hay que integrarse con tus sistemas o necesitás más control sobre su evolución.",
-    category: "proveedores", authors: ["eduardo"], readingMinutes: 9, translationStatus: "pending",
-    ...publicationFor(),
+    excerpt: "No-code vs desarrollo a medida: criterios para elegir el camino de tu proyecto de IA según proceso, integraciones y mantenimiento.",
+    lead: "Una plataforma no-code alcanza cuando el proceso es estándar y necesitás validar rápido. Un producto armado conviene cuando tu caso es el caso común que ese producto ya resuelve. El desarrollo a medida se justifica cuando el proceso es propio, hay que integrarse con tus sistemas o no podés quedar atado a un proveedor.",
+    category: "proveedores", authors: ["eduardo"], readingMinutes: 11, translationStatus: "pending",
+    ...publicationFor(), modifiedAt: "2026-10-29", hideUpdatedAt: true,
   },
 ];
 
