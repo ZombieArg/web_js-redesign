@@ -7,6 +7,7 @@ import { Field } from "@/components/ui/Field";
 import { Button } from "@/components/ui/Button";
 import { sendContactForm } from "@/lib/api/contact";
 import { captureEvent } from "@/lib/analytics";
+import { attributionContext } from "@/lib/tracking";
 import { isAxiosError } from "axios";
 
 const ORIGIN_VALUES = ["busqueda", "asistente_ia", "linkedin", "referido", "evento", "prensa", "otro"] as const;
@@ -19,6 +20,7 @@ export function ContactForm() {
   const [originError, setOriginError] = useState("");
   const startedRef = useRef(false);
   const validationErrorRef = useRef(false);
+  const eventIdRef = useRef<string | null>(null);
   const originOptions = ORIGIN_VALUES.map((value) => ({ value, label: tForms(`originOptions.${value}`) }));
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -39,18 +41,25 @@ export function ContactForm() {
     const originOther = originKey === "otro"
       ? String(data.get("origen_declarado_otro") ?? "").trim().slice(0, 100)
       : "";
+    const attribution = attributionContext();
+    eventIdRef.current ||= crypto.randomUUID();
     setSubmitting(true);
 
     try {
       await sendContactForm({
+        event_id: eventIdRef.current,
         name: String(data.get("name") ?? ""),
         company: String(data.get("company") ?? ""),
         email: String(data.get("email") ?? ""),
         whatsapp: String(data.get("whatsapp") ?? ""),
         process: String(data.get("process") ?? ""),
         origen_declarado: originKey,
-        origen_declarado_otro: originOther,
-        originLabel: originOptions.find((option) => option.value === originKey)?.label ?? originKey,
+        origen_declarado_otro: originOther || null,
+        utm_source: attribution.last_utm_source || null,
+        utm_medium: attribution.last_utm_medium || null,
+        utm_campaign: attribution.last_utm_campaign || null,
+        landing_url: window.location.origin + window.location.pathname,
+        website: String(data.get("website") ?? ""),
       });
     } catch (error) {
       captureEvent("form_error", {
@@ -64,6 +73,7 @@ export function ContactForm() {
     }
 
     toast.success(tToast("success"));
+    eventIdRef.current = null;
     form.reset();
     setOrigin("");
     setOriginError("");
@@ -85,7 +95,7 @@ export function ContactForm() {
         startedRef.current = true;
         captureEvent("form_start", { form_id: "diagnostico" });
       }}
-      onChangeCapture={() => { validationErrorRef.current = false; }}
+      onChangeCapture={() => { validationErrorRef.current = false; if (!submitting) eventIdRef.current = null; }}
       onInvalidCapture={() => {
         if (!startedRef.current) {
           startedRef.current = true;
@@ -97,6 +107,7 @@ export function ContactForm() {
       }}
       className="flex flex-col gap-5 rounded-xl border border-divider bg-surface-container-lowest p-8 shadow-card"
     >
+      <input type="text" name="website" autoComplete="off" tabIndex={-1} aria-hidden="true" className="hidden" />
       <div className="grid grid-cols-1 gap-5 tablet:grid-cols-2">
         <Field type="text" name="name" label={tForms("name")} required />
         <Field type="text" name="company" label={tForms("company")} required />
@@ -131,6 +142,7 @@ export function ContactForm() {
           type="text"
           name="origen_declarado_otro"
           label={tForms("originOther")}
+          required
           inputProps={{ maxLength: 100 }}
         />
       )}
