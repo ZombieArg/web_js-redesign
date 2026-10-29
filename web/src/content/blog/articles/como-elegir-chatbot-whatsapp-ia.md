@@ -1,131 +1,114 @@
-## Antes de comparar: qué tiene que resolver el bot
+Esta guía reúne ocho criterios para evaluar propuestas con la misma vara. En cada uno vas a encontrar qué preguntar, qué prueba pedir y qué señal debería hacerte revisar la oferta antes de firmar.
 
-Empezá por anotar entre tres y cinco pedidos que hoy llegan a tu WhatsApp: una consulta de stock, un turno, el estado de un pedido o un reclamo. Para cada uno, describí quién responde, dónde busca la información y qué hace después. Con esa lista podés probar todas las propuestas sobre el mismo trabajo real; sin ella, solo estás comparando demostraciones.
+## Prepará tres casos reales antes de pedir una demo
 
-Definí también qué conversaciones deben llegar a una persona. Una consulta sobre horarios y un reclamo sensible no necesitan el mismo recorrido. Esa distinción condiciona la base de conocimiento, las integraciones y el costo de mantenimiento.
+Elegí tres conversaciones frecuentes: por ejemplo, una consulta de stock, un cambio de turno y un reclamo. Anotá cuánto tarda hoy tu equipo en resolverlas, en qué sistema busca la información y qué resultado espera el cliente. Quitá los datos personales antes de compartirlas con un proveedor.
 
-## Los 8 criterios para elegir un chatbot de WhatsApp con IA
+Pedí que cada propuesta resuelva esos mismos casos. Una demo preparada con preguntas fáciles muestra cómo conversa el bot; tus casos muestran si puede trabajar con tu proceso.
 
-Pedí evidencia para cada criterio. La respuesta útil de un proveedor incluye una demostración con tus casos, un documento de alcance o una cláusula contractual. Una promesa comercial aislada no alcanza.
+## Los 8 criterios para comparar proveedores
 
-| Criterio | Qué pedir como prueba | Señal de alerta |
-| --- | --- | --- |
-| 1. Acceso oficial | Arquitectura sobre WhatsApp Business Platform y quién administra la cuenta | Automatiza sesiones de WhatsApp Web sin explicar el riesgo |
-| 2. Número y cuenta | Titularidad, administradores y procedimiento de salida | El proveedor conserva el único acceso |
-| 3. Fuente de verdad | De dónde lee stock, catálogo, agenda o estado de pedidos | Respuestas basadas en información que nadie actualiza |
-| 4. Derivación | Regla, destinatario y contexto que recibe la persona | El bot insiste cuando no sabe |
-| 5. Integraciones | Sistemas conectados y acciones permitidas | Promete conectarse con todo sin revisar accesos |
-| 6. Medición | Tablero y definición de consultas resueltas, derivaciones y tiempos | Solo informa cantidad de mensajes enviados |
-| 7. Datos y consentimiento | Avisos, permisos, retención y uso de conversaciones | No distingue datos del cliente de datos del proveedor |
-| 8. Propósito de la IA | Alcance de las respuestas y controles de contenido | Se vende como asistente general sin límites claros |
+| Criterio | Pregunta que tiene que responder el proveedor | Prueba para pedir |
+| :--- | :--- | :--- |
+| 1. Acceso a WhatsApp | ¿Usa la plataforma oficial y cómo se conecta? | Arquitectura y accesos necesarios |
+| 2. Control de la cuenta y los datos | ¿Qué conserva mi empresa si termina el contrato? | Titularidad, administradores y plan de salida |
+| 3. Respuestas confiables | ¿De dónde sale cada dato y quién lo actualiza? | Demo con información vigente y un dato faltante |
+| 4. Acciones e integraciones | ¿Qué puede consultar o ejecutar en mis sistemas? | Alcance, permisos y prueba de una acción |
+| 5. Atención humana | ¿Cuándo deriva y qué recibe la persona? | Prueba de derivación dentro y fuera de horario |
+| 6. Privacidad y permisos | ¿Qué datos guarda y para qué los usa? | Política, consentimientos y reglas de retención |
+| 7. Medición | ¿Cómo sabremos si mejoró la atención? | Indicadores y línea de base |
+| 8. Costo y soporte | ¿Qué pago, quién factura y quién resuelve fallas? | Presupuesto desglosado y acuerdo de soporte |
 
-### Acceso oficial a WhatsApp
+### 1. Confirmá el acceso oficial a WhatsApp
 
-Preguntá: «¿Usan la plataforma oficial de WhatsApp Business y quién es el titular de la cuenta?». La aplicación WhatsApp Business y la plataforma con API resuelven necesidades distintas. Una automatización basada en sesiones no oficiales puede interrumpirse y deja sin una ruta clara de soporte.
+Para automatizar e integrar sistemas a escala, preguntá si la solución usa la plataforma oficial de WhatsApp Business, directamente o mediante un proveedor de soluciones. Pedí un esquema simple de la conexión y de los accesos que requiere. La aplicación WhatsApp Business puede alcanzar para atención manual de bajo volumen; la plataforma permite acceso programático e integraciones.
 
-### Dueño del número y las conversaciones
+**Señal de alerta:** la propuesta depende de mantener abierta una sesión automatizada de WhatsApp Web y no explica sus condiciones de uso ni qué pasa si se interrumpe el acceso. La [política de mensajes para empresas](https://whatsappbusiness.com/policy/) prevé limitar o retirar el acceso ante incumplimientos.
 
-Preguntá: «Si cambio de proveedor, ¿conservo el número, la cuenta y el acceso a los datos que me corresponden?». Pedí que el contrato describa administradores, exportación posible y procedimiento de transición. No des por hecho que todo historial es portable de la misma manera: depende de la arquitectura y de las reglas de la plataforma.
+### 2. Asegurá el control de la cuenta, el número y los datos
 
-### Fuente de verdad
+Separá tres cosas que suelen venderse como si fueran una: el número telefónico, la cuenta de WhatsApp Business y los datos que guarda la plataforma del proveedor. Pedí que el contrato identifique al titular, los administradores, los accesos y el procedimiento de salida. Si cambiás de proveedor, necesitás saber qué datos podés exportar, en qué formato y con qué plazo.
 
-Preguntá: «¿De qué sistema sale esta respuesta y cada cuánto se actualiza?». Un bot que responde stock o turnos necesita leer la fuente vigente; un documento desactualizado produce respuestas convincentes pero incorrectas.
+**Señal de alerta:** el proveedor es el único administrador o promete trasladar todo el historial sin precisar qué información conserva cada sistema. La continuidad del número y la exportación de conversaciones deben comprobarse para la solución concreta.
 
-### Derivación a una persona
+### 3. Probá de dónde salen las respuestas
 
-Preguntá: «¿Cuándo deriva, a quién y con qué historial?». Probá fuera del horario de atención y con una consulta que no esté en la base. La persona debería recibir el contexto para no hacer repetir todo al cliente.
+Una respuesta bien redactada puede estar equivocada. Preguntá qué fuente usa el bot para cada caso: una base de conocimiento, el catálogo, el CRM o la agenda. Definí quién actualiza esa fuente y qué hace el bot si el dato falta o contradice otra información.
 
-### Integraciones y acciones
+**Prueba:** cambiá un precio o una disponibilidad en el sistema de origen y verificá cuándo se refleja en la respuesta. Después consultá por algo que no esté cargado. El bot debería reconocer el límite y ofrecer una salida útil.
 
-Preguntá: «¿Solo informa o también agenda, carga pedidos y consulta estados?». Cada acción necesita permisos, registro y una decisión sobre cuándo pedir aprobación humana. La integración debe responder al proceso que definiste, no a una lista genérica de logos.
+### 4. Delimitá integraciones y acciones
 
-### Medición
+“Se integra con todo” no define un alcance. Para cada sistema, pedí una lista de datos que puede leer y acciones que puede ejecutar: consultar un pedido, reservar un turno, cargar una venta o abrir un reclamo. Establecé qué acciones requieren confirmación del cliente o aprobación del equipo y cómo se registra cada ejecución.
 
-Preguntá: «¿Qué indicador va a mostrar que mejoró la atención?». Compará tiempos de respuesta, consultas resueltas y derivaciones útiles con la situación previa. Contar mensajes no demuestra que un pedido se haya resuelto.
+**Prueba:** hacé completar una acción de principio a fin con un caso de prueba y comprobá el resultado en el sistema de destino. Si solo necesitás responder preguntas estables, quizá alcance con un chatbot; si además debe actuar, evaluá un [agente de IA](/blog/agente-de-ia-vs-chatbot).
 
-### Datos y consentimiento
+### 5. Diseñá la derivación a una persona
 
-Preguntá: «¿Qué datos se guardan, durante cuánto tiempo y para qué se usan?». Revisá avisos y consentimientos, accesos del equipo y la política sobre uso de conversaciones para entrenar o mejorar modelos. La [política de WhatsApp Business](https://whatsappbusiness.com/policy/) exige avisos y permisos adecuados para tratar la información de las personas.
+Definí cuándo el bot deja de intentar responder, a quién deriva y qué contexto recibe quien continúa la conversación. Probá preguntas ambiguas, reclamos y fallas de integración. Fuera de horario, el cliente necesita saber cuándo recibirá respuesta o qué otra vía tiene disponible.
 
-### Propósito de la IA
+La [política de WhatsApp Business](https://whatsappbusiness.com/policy/) permite respuestas automáticas dentro de la ventana de atención de 24 horas y exige vías de escalamiento claras y directas. Una transferencia dentro del chat es una opción; también contempla teléfono, correo, soporte web o formulario. Elegí la vía que tu equipo realmente pueda atender.
 
-Preguntá: «¿Sobre qué temas puede responder y qué hace fuera de ese alcance?». Delimitá productos, trámites y acciones de tu negocio. Conviene revisar las [condiciones vigentes de la plataforma](https://whatsappbusiness.com/policy/) antes de contratar, porque sus reglas cambian.
+### 6. Revisá privacidad, consentimiento y uso de los datos
 
-## API oficial, aplicación Business o rutas no oficiales
+Preguntá qué conversaciones y datos personales se almacenan, durante cuánto tiempo, quién accede y qué ocurre al terminar el contrato. Pedí la política de privacidad y verificá cómo se obtiene y registra el consentimiento para contactar a las personas, especialmente si habrá mensajes iniciados por la empresa.
 
-La aplicación WhatsApp Business sirve para atención manual y herramientas simples dentro de la propia app. La plataforma oficial permite integrar sistemas y automatizar a mayor escala. Pedí que el proveedor identifique cuál propone, qué accesos necesita y cómo manejará las plantillas y el horario de atención.
+La [política de WhatsApp Business](https://whatsappbusiness.com/policy/) exige avisos y permisos aplicables. En Argentina, el tratamiento de datos personales también está alcanzado por la [Ley 25.326](https://servicios.infoleg.gob.ar/infolegInternet/anexos/60000-64999/64790/norma.htm). Si el proveedor usa IA, pedí por escrito si las conversaciones se usan para entrenar modelos y bajo qué condiciones.
 
-Las rutas que controlan WhatsApp Web como si fueran una persona no ofrecen la misma base contractual ni técnica. Si una propuesta depende de mantener una sesión abierta, pedí que explique cómo garantiza continuidad y cumplimiento de las condiciones del servicio. WhatsApp puede [limitar el acceso por incumplimientos de sus políticas](https://whatsappbusiness.com/policy/).
+### 7. Acordá cómo se medirá el resultado
 
-## ¿Bot de flujos o agente con IA?
+Definí una línea de base antes de activar el bot: tiempo de primera respuesta, consultas resueltas, derivaciones útiles y casos que vuelven a abrirse. Pedí que el tablero distinga entre “respondió” y “resolvió”, y que muestre cuándo intervino una persona.
 
-Un bot de flujos conduce por opciones fijas. Un chatbot con IA entiende preguntas libres y responde desde una base de conocimiento. Un agente además consulta sistemas y ejecuta acciones permitidas. La elección depende de lo que pasa después de recibir el mensaje. La comparación completa está en [agente de IA vs chatbot](/blog/agente-de-ia-vs-chatbot).
+**Señal de alerta:** el único indicador de éxito es la cantidad de mensajes enviados. Ese número puede subir aunque la atención empeore.
 
-## Qué pasa cuando el bot no sabe
+### 8. Compará el costo total y el soporte
 
-El manejo de la incertidumbre se diseña antes del lanzamiento. Definí qué respuesta activa una derivación, qué horario tiene el equipo y qué mensaje recibe la persona fuera de ese horario. Probá una pregunta fuera de alcance y una falla de la integración: son mejores pruebas que una demo perfecta.
+Pedí cinco rubros separados: cargos de Meta, abono o licencia del proveedor, uso del modelo de IA, desarrollo de integraciones y mantenimiento. Sumá quién paga cada cuenta, qué límites de uso existen, qué pasa si el volumen crece y cómo se atienden incidentes. Compará propuestas para el mismo volumen y los mismos tres casos reales.
 
-La [política de mensajes de WhatsApp Business](https://whatsappbusiness.com/policy/) permite respuestas automáticas en la ventana de atención, pero pide vías de escalamiento claras y directas, como un agente humano, teléfono o correo. Pedí que el proveedor muestre esa ruta en funcionamiento.
+Meta publica cargos por mensaje entregado que dependen de la categoría y del mercado. Pedí al proveedor el tarifario vigente para tu operación, qué mensajes no tienen cargo y un ejemplo de factura. Contrastá la propuesta con la [página oficial de precios](https://whatsappbusiness.com/products/platform-pricing/) y las [preguntas frecuentes de WhatsApp Business](https://whatsappbusiness.com/resources/faq/).
 
-## De qué depende el costo de un chatbot de WhatsApp
+## ¿La app, un bot de flujos o un agente con IA?
 
-El costo total tiene componentes distintos: cargos de la plataforma por mensajes, tarifa del proveedor, consumo del modelo de IA, integraciones y mantenimiento. Pedí que cada componente aparezca separado en la propuesta, con quién paga cada cuenta y cómo se audita la factura.
+La app de WhatsApp Business sirve para atender manualmente con funciones básicas. Un bot de flujos ofrece opciones previstas. Un chatbot con IA entiende preguntas en lenguaje libre y responde desde una fuente definida. Un agente suma consultas a sistemas y acciones con permisos. Elegí según el trabajo real, no según el nombre comercial del producto.
 
-La [información oficial de precios de WhatsApp Business](https://whatsappbusiness.com/resources/faq/) describe cargos por mensajes entregados y categorías de mensajes. Las reglas han cambiado con el tiempo; verificá el esquema vigente para tu país y tipo de conversación al momento de contratar. La pregunta práctica es: «¿Los cargos de Meta están incluidos o se facturan aparte?».
+Si el proceso todavía cambia todos los días o la información no tiene un responsable de actualización, empezá por ordenar eso. Automatizar una respuesta desactualizada solo hace que el error llegue más rápido.
 
-## Diez preguntas para enviar a cualquier proveedor
+## Qué pedir sobre las reglas de Meta para IA
 
-1. ¿Qué problema concreto resuelve el bot en mi proceso actual?
-2. ¿Usan la plataforma oficial de WhatsApp Business?
-3. ¿A nombre de quién quedan el número y la cuenta?
-4. ¿Qué datos y conversaciones puedo conservar si cambio de proveedor?
-5. ¿De dónde salen las respuestas y quién actualiza esa fuente?
-6. ¿Qué acciones puede ejecutar sin supervisión?
-7. ¿Cuándo deriva a una persona y qué contexto le entrega?
-8. ¿Qué indicadores voy a ver y desde cuándo se miden?
-9. ¿Qué hacen con los datos personales y con las conversaciones?
-10. ¿Qué cargos son de Meta, cuáles del proveedor y cuáles cambian con el uso?
+Los [términos de la solución de WhatsApp Business](https://www.whatsapp.com/legal/business-solution-terms) restringen a los proveedores de IA cuando la tecnología de IA es la funcionalidad principal que ofrecen a través de la plataforma. También contemplan contratar a un proveedor de IA como tercero bajo condiciones y limitan el uso de datos de la solución para entrenar o mejorar modelos.
 
-Si también estás evaluando quién lo construye, usá la guía sobre [cómo elegir una consultora de IA](/blog/como-elegir-consultora-inteligencia-artificial) para comparar método, propiedad y mantenimiento.
+Pedí una explicación escrita de cómo encaja el servicio ofrecido a tu empresa en esas reglas y qué hace el proveedor con los datos de las conversaciones. La evaluación depende del producto y de los términos vigentes; una frase como “Meta permite cualquier bot con IA” no alcanza.
 
-## Un ejemplo: Cecilia
+## Cerrá la elección con una prueba y un acuerdo escrito
 
-[Cecilia, el chatbot de WhatsApp para empresas](/cecilia) de Data Voices atiende, agenda y resuelve pedidos. El sitio describe integraciones con Mercado Libre, Google Calendar y Tiendanube. Cubre casos comunes de atención y agenda; cuando el proceso es más específico, la alternativa es un agente a medida. Al evaluar cualquier producto, incluido Cecilia, aplicá los ocho criterios anteriores al alcance concreto de tu empresa.
+Antes de contratar, repetí los tres casos con cada finalista. Evaluá si respondió con datos correctos, si completó las acciones acordadas y si derivó bien cuando no pudo resolver. Hacé probar también una falla de sistema y una consulta fuera de horario.
+
+Dejá por escrito el alcance inicial, los responsables de actualizar información, los permisos, los indicadores, los costos y el procedimiento de salida. Así la demo se convierte en una propuesta que podés comparar y exigir.
 
 ## Preguntas frecuentes
 
-### ¿Qué miro antes de contratar un chatbot de WhatsApp?
+### ¿Necesito la API oficial o alcanza con la app de WhatsApp Business?
 
-Primero, acceso oficial a la plataforma y control del número. Después, fuente de las respuestas, derivación a una persona, integraciones y medición. Pedí una prueba con pedidos reales de tu empresa y un contrato que explique datos, mantenimiento y salida.
+La app puede alcanzar para atención manual y volumen bajo. Si necesitás automatizar, conectar sistemas y operar a mayor escala, pedí una solución sobre la plataforma oficial de WhatsApp Business y que te expliquen sus accesos y costos.
 
-### ¿Necesito la API oficial o alcanza con la aplicación Business?
+### ¿Mi empresa conserva el número si cambia de proveedor?
 
-Para atención manual y funciones sencillas puede alcanzar la aplicación. Si querés integrar sistemas, automatizar respuestas a escala o registrar acciones, evaluá la plataforma oficial con API. Pedí que el proveedor explique la arquitectura elegida y qué implica para tu cuenta.
+Depende de cómo estén registrados el número y la cuenta. Pedí que la titularidad, los administradores y el procedimiento de transición queden documentados antes de contratar. Verificá por separado qué conversaciones y datos podrás exportar.
 
-### ¿Quién queda como dueño del número y las conversaciones?
+### ¿Qué pasa si el bot no sabe la respuesta?
 
-La titularidad y los permisos deben quedar definidos por escrito. Tu empresa necesita controlar el número y la cuenta, saber qué datos se guardan y entender qué puede recuperar si cambia de proveedor. La portabilidad del historial depende de la solución concreta.
+Debe reconocer el límite y ofrecer una vía clara de atención. Probá la derivación con una consulta sin respuesta, una falla técnica y un mensaje fuera del horario humano. Definí qué contexto verá la persona que tome el caso.
 
-### ¿Conviene un bot de flujos o un agente con IA?
+### ¿Cuánto cuesta un chatbot de WhatsApp con IA?
 
-Un flujo fijo sirve cuando los pedidos son predecibles y las opciones son pocas. La IA ayuda cuando las personas preguntan de muchas formas; un agente se justifica cuando además debe consultar sistemas y ejecutar acciones. Empezá por describir el proceso, no por elegir una etiqueta.
+Sumá cargos de Meta, licencia o servicio del proveedor, consumo de IA, integraciones y mantenimiento. Pedí cada rubro por separado, un volumen de referencia y un ejemplo de factura; las tarifas de Meta dependen del mercado y pueden cambiar.
 
-### ¿Qué hace el bot cuando no sabe la respuesta?
+### ¿Un chatbot con IA puede usar las conversaciones para entrenar modelos?
 
-Debe reconocer el límite y ofrecer una salida clara. Pedí una regla de derivación, el horario de atención humana y el contexto que recibe quien continúa el caso. Probá preguntas ambiguas, datos faltantes y errores técnicos antes de ponerlo en uso.
-
-### ¿Puede integrarse con una tienda o una agenda?
-
-Sí, si la plataforma de origen ofrece acceso y la integración forma parte del alcance. La pregunta es qué datos lee, qué acciones escribe y quién autoriza esas acciones. Una lista de integraciones en una propuesta no sustituye una prueba con tu proceso.
-
-### ¿Cuánto cuesta un chatbot de WhatsApp?
-
-Depende de mensajes, proveedor, modelo de IA, integraciones y soporte. Pedí esos rubros separados y un ejemplo de factura para el volumen previsto. Las tarifas y categorías de la plataforma cambian, por lo que conviene confirmar el esquema oficial vigente antes de firmar.
-
-### ¿Pueden restringir mi número por usar un bot?
-
-WhatsApp puede limitar cuentas que incumplen sus políticas. Elegir la plataforma oficial, respetar las reglas de mensajes, contar con consentimientos adecuados y ofrecer derivación ayuda a reducir riesgos. Nadie debería prometer que un número nunca será restringido.
+No lo des por supuesto. Pedí al proveedor que explique qué datos procesa y si los usa para entrenar o mejorar modelos. Los términos de la solución de WhatsApp Business imponen restricciones específicas al uso de esos datos por proveedores de IA.
 
 ## Cómo decidir
 
-Descartá primero las propuestas que no explican el acceso oficial y el control del número. Entre las restantes, elegí la que demuestre respuestas desde una fuente vigente y una derivación que funcione. Compará el costo cuando el alcance ya sea comparable.
+Elegí la propuesta que demuestre, con tus casos, acceso oficial, respuestas desde fuentes vigentes, derivación útil y control de tu cuenta y tus datos. Compará el precio cuando el alcance y el soporte estén claros.
+
+Data Voices ofrece [Cecilia para WhatsApp](/cecilia) y desarrolla [agentes de IA para empresas](/servicios/asistentes-ia). Si estás evaluando quién implementará la solución, también podés usar la guía para [elegir una consultora de IA](/blog/como-elegir-consultora-inteligencia-artificial).

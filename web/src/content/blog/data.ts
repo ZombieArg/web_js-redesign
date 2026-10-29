@@ -54,10 +54,10 @@ export const blogPosts: BlogItem[] = [
     title: "Cómo elegir un chatbot de WhatsApp con IA: 8 criterios antes de contratar",
     seoTitle: "Cómo elegir un chatbot de WhatsApp con IA",
     breadcrumbTitle: "Cómo elegir un chatbot de WhatsApp con IA",
-    excerpt: "API oficial, dueño del número, derivación a una persona, integraciones, datos y costos: ocho criterios para comparar propuestas.",
-    lead: "Para elegir un chatbot de WhatsApp con IA, verificá primero que use la plataforma oficial y que el número y la cuenta queden bajo control de tu empresa. Después mirá de dónde salen las respuestas, cuándo deriva a una persona, con qué sistemas se integra y cómo se mide. El precio viene al final.",
+    excerpt: "Ocho criterios para comparar chatbots de WhatsApp con IA: acceso oficial, control de la cuenta, respuestas, derivación, privacidad, medición y costos.",
+    lead: "Un chatbot de WhatsApp puede responder consultas, consultar sistemas y ayudar a cerrar pedidos. Para elegir uno, empezá por el trabajo que querés resolver: qué preguntan tus clientes, dónde está la respuesta y en qué momento necesita intervenir una persona. Recién después compará proveedores.",
     category: "agentes", authors: ["eduardo"], readingMinutes: 9, translationStatus: "pending",
-    ...publicationFor(),
+    ...publicationFor(), modifiedAt: "2026-10-28",
   },
   {
     slug: "por-que-fallan-los-proyectos-de-ia",
