@@ -18,8 +18,6 @@ export interface BlogItem {
   isPublished?: boolean;
   publishedAt?: string;
   modifiedAt?: string;
-  /** Oculta solo la fecha visible; conserva las fechas de los metadatos. */
-  hideUpdatedAt?: boolean;
 }
 
 // La publicación se habilita por entorno; la fecha editorial no depende del build.
@@ -39,7 +37,7 @@ export const blogPosts: BlogItem[] = [
     excerpt: "Criterios, preguntas para hacer antes de firmar y señales de alerta para elegir una consultora de IA. Sin rankings ni promesas: cómo evaluar con evidencia.",
     lead: "Elegir una consultora de IA es verificar cuatro cosas: casos en producción, no demos; un método para pasar del diagnóstico a la implementación; claridad sobre quién es dueño del código y de los datos; y cómo se mide el resultado. Si una consultora no puede mostrarte las cuatro con evidencia, seguí buscando.",
     category: "proveedores", authors: ["juanma"], readingMinutes: 11, translationStatus: "pending",
-    ...publicationFor(),
+    ...publicationFor(), modifiedAt: "2026-10-31",
   },
   {
     slug: "agente-de-ia-vs-chatbot",
@@ -49,17 +47,17 @@ export const blogPosts: BlogItem[] = [
     excerpt: "Un chatbot responde; un agente de IA resuelve un paso del proceso. Cinco criterios para decidir qué necesita tu empresa y cuándo alcanza con un chatbot.",
     lead: "Un chatbot responde preguntas; un agente de IA resuelve un paso del proceso: consulta una fuente de verdad y ejecuta una acción, como agendar o cargar un pedido. Si solo necesitás informar, alcanza con un chatbot. Si alguien de tu equipo hace de puente entre un canal y un sistema, necesitás un agente.",
     category: "agentes", authors: ["juanma", "eduardo"], readingMinutes: 10, translationStatus: "pending",
-    ...publicationFor(),
+    ...publicationFor(), modifiedAt: "2026-10-31",
   },
   {
     slug: "como-elegir-chatbot-whatsapp-ia",
     title: "Cómo elegir un chatbot de WhatsApp con IA: 8 criterios antes de contratar",
     seoTitle: "Cómo elegir un chatbot de WhatsApp con IA",
     breadcrumbTitle: "Cómo elegir un chatbot de WhatsApp con IA",
-    excerpt: "Ocho criterios para comparar chatbots de WhatsApp con IA: acceso oficial, control de la cuenta, respuestas, derivación, privacidad, medición y costos.",
-    lead: "Un chatbot de WhatsApp puede responder consultas, consultar sistemas y ayudar a cerrar pedidos. Para elegir uno, empezá por el trabajo que querés resolver: qué preguntan tus clientes, dónde está la respuesta y en qué momento necesita intervenir una persona. Recién después compará proveedores.",
-    category: "agentes", authors: ["eduardo"], readingMinutes: 9, translationStatus: "pending",
-    ...publicationFor(), modifiedAt: "2026-10-28",
+    excerpt: "API oficial, dueño del número, derivación a una persona, integraciones, datos y costos: 8 criterios para elegir un chatbot de WhatsApp con IA.",
+    lead: "Para elegir un chatbot de WhatsApp con IA, verificá primero que use la API oficial de WhatsApp Business y que el número y las conversaciones queden a nombre de tu empresa. Después mirá de dónde saca las respuestas, cuándo deriva a una persona, con qué sistemas se integra y cómo se mide. El precio viene al final.",
+    category: "agentes", authors: ["eduardo"], readingMinutes: 11, translationStatus: "pending",
+    ...publicationFor(), modifiedAt: "2026-10-31",
   },
   {
     slug: "por-que-fallan-los-proyectos-de-ia",
@@ -69,7 +67,7 @@ export const blogPosts: BlogItem[] = [
     excerpt: "Por qué fallan los proyectos de IA: procesos, datos, equipo y métrica. Mitos, causas y cómo evaluar tu piloto antes de invertir.",
     lead: "Un proyecto de IA suele trabarse en la organización antes que en el modelo. Un piloto no llega a producción cuando nadie definió el proceso, los datos no están listos, el equipo que tiene que usarlo no se preparó o no hay una métrica acordada. Todo eso se puede evaluar antes de invertir.",
     category: "implementacion", authors: ["juanma"], readingMinutes: 11, translationStatus: "pending",
-    ...publicationFor(), modifiedAt: "2026-10-29", hideUpdatedAt: true,
+    ...publicationFor(), modifiedAt: "2026-10-31",
   },
   {
     slug: "no-code-vs-desarrollo-a-medida-ia",
@@ -79,7 +77,7 @@ export const blogPosts: BlogItem[] = [
     excerpt: "No-code vs desarrollo a medida: criterios para elegir el camino de tu proyecto de IA según proceso, integraciones y mantenimiento.",
     lead: "Una plataforma no-code alcanza cuando el proceso es estándar y necesitás validar rápido. Un producto armado conviene cuando tu caso es el caso común que ese producto ya resuelve. El desarrollo a medida se justifica cuando el proceso es propio, hay que integrarse con tus sistemas o no podés quedar atado a un proveedor.",
     category: "proveedores", authors: ["eduardo"], readingMinutes: 11, translationStatus: "pending",
-    ...publicationFor(), modifiedAt: "2026-10-29", hideUpdatedAt: true,
+    ...publicationFor(), modifiedAt: "2026-10-31",
   },
 ];
 

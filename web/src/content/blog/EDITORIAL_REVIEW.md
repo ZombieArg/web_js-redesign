@@ -1,8 +1,8 @@
 # Revisión editorial del blog
 
-Las cinco notas están disponibles en el preview `https://datavoices-redesign-preview.netlify.app/blog`. Las notas 1 y 2 provienen de borradores completos del ZIP; las notas 3 a 5 se redactaron a partir de briefs. El contenido solo muestra tablas y otros elementos presentes en el Markdown. Los comentarios editoriales del Markdown se omiten del HTML servido.
+Las cinco notas están disponibles en el preview `https://datavoices-redesign-preview.netlify.app/blog`. Las notas 1 y 2 provienen de borradores completos del ZIP; la nota 3 sigue el contenido y los títulos del PDF de revisión; las notas 4 y 5 se redactaron a partir de briefs. El contenido solo muestra tablas y otros elementos presentes en el Markdown. Los comentarios editoriales del Markdown se omiten del HTML servido.
 
-La fecha prevista para publicar las cinco notas es el 27 de octubre de 2026. `publishedAt`, `modifiedAt`, los metadatos Open Graph y el texto visible «Actualizado el» usan esa fecha fija, sin hora inventada ni dependencia de la hora del build. Si cambia el contenido de una nota después de publicarla, actualizar solo su `modifiedAt` en `src/content/blog/data.ts` al día real de esa edición.
+La fecha original de publicación de las cinco notas es el 27 de octubre de 2026. `publishedAt` conserva esa fecha y `modifiedAt` registra el día real de cada edición. Ambas fechas se conservan en los metadatos Open Graph y los datos estructurados; ninguna fecha se muestra en el cuerpo de las notas.
 
 Cada nota tiene `BlogPosting`, `BreadcrumbList` de cuatro niveles y `FAQPage` en un único `<script type="application/ld+json">` dentro del `<head>`. El FAQ se genera desde las preguntas y respuestas visibles. Los comentarios de autoría, respuesta directa, FAQ y schema de los briefs ya no se emiten en el HTML. El rótulo visual «Respuesta directa» también se quitó.
 

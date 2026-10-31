@@ -1,3 +1,7 @@
+Esta comparación de agente de IA vs chatbot sirve para decidir qué implementar antes de pedir propuestas. Vas a encontrar una tabla con cinco criterios (canal, fuente de verdad, acciones permitidas, escalamiento a una persona y medición) y la pregunta que conviene hacerle al proveedor en cada uno.
+
+También vas a encontrar la parte que un vendedor de bots no escribe: cuándo alcanza con un chatbot y cuándo un agente no vale la pena. Primero, qué es cada cosa.
+
 ## Qué es un chatbot y qué es un agente de IA
 
 Un chatbot con IA conversa en lenguaje natural y responde sobre una base de conocimiento. Un agente de IA da un paso más: toma un pedido, consulta el sistema que tiene la respuesta y ejecuta una acción acotada, como agendar, responder, filtrar candidatos o activar un flujo, dentro de los permisos que alguien definió.
@@ -24,23 +28,23 @@ Chatbot y agente de IA se diferencian en cinco criterios: canal, fuente de verda
 
 ### Canal
 
-El canal es el que usa tu cliente, y el tipo de herramienta lo deciden los otros cuatro criterios. Pregunta para el proveedor: «¿Funciona en el canal donde hoy están nuestras conversaciones?».
+El canal es el que usa tu cliente, y el tipo de herramienta lo deciden los otros cuatro criterios. Pregunta para el proveedor: “¿Funciona en el canal donde hoy están nuestras conversaciones?”.
 
 ### Fuente de verdad
 
-La fuente de verdad es el sistema que responde de verdad: CRM, base de datos o catálogo. Pregunta para el proveedor: «¿De qué sistema sale cada respuesta y cómo se mantiene actualizada?».
+La fuente de verdad es el sistema que responde de verdad: CRM, base de datos o catálogo. Pregunta para el proveedor: “¿De qué sistema sale cada respuesta y cómo se mantiene actualizada?”.
 
 ### Acciones permitidas
 
-Las acciones permitidas fijan qué puede ejecutar el agente sin supervisión. Pregunta para el proveedor: «¿Qué acciones ejecuta solo y cuáles necesitan la aprobación de una persona?».
+Las acciones permitidas fijan qué puede ejecutar el agente sin supervisión. Pregunta para el proveedor: “¿Qué acciones ejecuta solo y cuáles necesitan la aprobación de una persona?”.
 
 ### Criterio de escalamiento a una persona
 
-El escalamiento define cuándo el sistema deriva a alguien del equipo. Pregunta para el proveedor: «¿En qué casos deriva y qué contexto le llega a quien toma la conversación?».
+El escalamiento define cuándo el sistema deriva a alguien del equipo. Pregunta para el proveedor: “¿En qué casos deriva y qué contexto le llega a quien toma la conversación?”.
 
 ### Medición
 
-La medición dice si el sistema funciona. Pregunta para el proveedor: «¿Qué KPI vamos a mirar, cómo se reporta y desde cuándo?».
+La medición dice si el sistema funciona. Pregunta para el proveedor: “¿Qué KPI vamos a mirar, cómo se reporta y desde cuándo?”.
 
 ## Cuándo alcanza con un chatbot (y cuándo un agente no vale la pena)
 
@@ -65,7 +69,7 @@ Un agente bien diseñado tiene un comportamiento definido para cuando no sabe: l
 
 Cuatro mecanismos para pedir por escrito:
 
-- Un criterio explícito para decir «no sé» cuando la fuente no tiene la información.
+- Un criterio explícito para decir “no sé” cuando la fuente no tiene la información.
 - Derivación a una persona con el historial de la conversación.
 - Registro de cada ejecución: qué se preguntó, qué consultó y qué respondió.
 - Respuestas que citan la fuente, para que alguien pueda verificarlas.
@@ -76,7 +80,7 @@ La misma lógica aplica a las fallas técnicas. En el [Real Time Interview Agent
 
 Sí: un chatbot se convierte en agente cuando se le suman una fuente de verdad, acciones con permisos y un criterio de escalamiento a una persona. El canal no cambia, cambia el diseño. Por eso un mismo producto puede funcionar como chatbot o como agente según cómo se configure para cada proceso.
 
-Es la postura que Data Voices publica sobre su producto: «Cecilia puede ser las dos cosas; el diseño define cuál». Conviene evolucionar por etapas: primero el chatbot sobre la base de conocimiento, después una acción de bajo riesgo con su medición, y recién ahí acciones de más impacto.
+Es la postura que Data Voices publica sobre su producto: “Cecilia puede ser las dos cosas; el diseño define cuál”. Conviene evolucionar por etapas: primero el chatbot sobre la base de conocimiento, después una acción de bajo riesgo con su medición, y recién ahí acciones de más impacto.
 
 ## Tres ejemplos de agentes construidos por Data Voices
 
@@ -116,7 +120,7 @@ No conviene un agente cuando el proceso no está escrito, porque el agente ampli
 
 ### ¿Qué hace un agente de IA cuando no sabe la respuesta?
 
-Un agente bien diseñado aplica un criterio explícito para decir «no sé», deriva la conversación a una persona con todo el contexto, registra cada ejecución y cita la fuente de sus respuestas. Esos mecanismos se definen antes de construir, junto con las acciones que puede ejecutar sin supervisión y las que necesitan aprobación.
+Un agente bien diseñado aplica un criterio explícito para decir “no sé”, deriva la conversación a una persona con todo el contexto, registra cada ejecución y cita la fuente de sus respuestas. Esos mecanismos se definen antes de construir, junto con las acciones que puede ejecutar sin supervisión y las que necesitan aprobación.
 
 ### ¿Qué diferencia hay entre un agente de IA y una automatización tradicional?
 

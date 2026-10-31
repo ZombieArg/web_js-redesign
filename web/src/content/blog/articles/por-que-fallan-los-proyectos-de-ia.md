@@ -14,12 +14,12 @@ Una decisión sale mal cuando se confunde una prueba técnica con un proyecto li
 
 | Mito | Realidad | Qué hacer |
 | :---- | :---- | :---- |
-| «El problema es el modelo» | Según la página de consultoría: «Si la IA "ya se probó" y no quedó nadie usándola, el problema no era el modelo». | Observar quién usaría el sistema y en qué paso del proceso se traba. |
-| «Primero hay que migrar todos los datos» | La página de IA sobre datos lo resuelve así: «No como primer paso. Primero se elige un proceso y una fuente». | Probar con una fuente acotada y permisos claros. |
-| «Hay que entrenar un modelo propio» | «A veces basta con recuperar bien. Entrenar es una decisión, no un default». | Comparar opciones sobre la misma tarea y los mismos datos. |
-| «Si la demo funciona, el proyecto funciona» | La demo prueba que la idea es posible. Producción prueba que alguien la usa y la sostiene. | Probar con usuarios y casos reales antes de escalar. |
-| «La capacitación es opcional» | La consultoría de Data Voices incluye programas de capacitación para el caso en que «el cuello de botella no es el modelo, es que nadie lo usa». | Preparar a quienes van a operar la solución y corregir fricciones. |
-| «El retorno se mide al final» | En la sección «Cómo trabajamos» de la home de Data Voices, la medición empieza «desde el primer día». | Definir la métrica y la línea de base antes del piloto. |
+| “El problema es el modelo” | Según la página de consultoría: “Si la IA "ya se probó" y no quedó nadie usándola, el problema no era el modelo”. | Observar quién usaría el sistema y en qué paso del proceso se traba. |
+| “Primero hay que migrar todos los datos” | La página de IA sobre datos lo resuelve así: “No como primer paso. Primero se elige un proceso y una fuente”. | Probar con una fuente acotada y permisos claros. |
+| “Hay que entrenar un modelo propio” | “A veces basta con recuperar bien. Entrenar es una decisión, no un default”. | Comparar opciones sobre la misma tarea y los mismos datos. |
+| “Si la demo funciona, el proyecto funciona” | La demo prueba que la idea es posible. Producción prueba que alguien la usa y la sostiene. | Probar con usuarios y casos reales antes de escalar. |
+| “La capacitación es opcional” | La consultoría de Data Voices incluye programas de capacitación para el caso en que “el cuello de botella no es el modelo, es que nadie lo usa”. | Preparar a quienes van a operar la solución y corregir fricciones. |
+| “El retorno se mide al final” | En la sección “Cómo trabajamos” de la home de Data Voices, la medición empieza “desde el primer día”. | Definir la métrica y la línea de base antes del piloto. |
 
 Cada fila convierte un mito en algo que se verifica antes del piloto.
 
@@ -41,7 +41,7 @@ La persona que hoy hace el trabajo conoce excepciones que no aparecen en el diag
 
 ### Sin métrica acordada
 
-«Ahorrar tiempo» no alcanza. Elegí una medida observable, como el tiempo hasta una respuesta útil, los casos resueltos o las horas de carga manual, tomá una línea de base y acordá quién la mira.
+“Ahorrar tiempo” no alcanza. Elegí una medida observable, como el tiempo hasta una respuesta útil, los casos resueltos o las horas de carga manual, tomá una línea de base y acordá quién la mira.
 
 ### Alcance abierto, sin criterio de salida
 
@@ -49,7 +49,7 @@ Un piloto que intenta abarcar todos los canales y sistemas no permite saber qué
 
 ## Qué es un diagnóstico de madurez en IA y qué evalúa
 
-Un diagnóstico de madurez en IA evalúa qué puede absorber la empresa antes de elegir una herramienta. Según el método publicado por Data Voices, la primera etapa revisa «Qué procesos, qué datos, qué permisos». Después se suma la preparación del equipo: «Capacitación al rol que va a operar, no un seminario genérico».
+Un diagnóstico de madurez en IA evalúa qué puede absorber la empresa antes de elegir una herramienta. Según el método publicado por Data Voices, la primera etapa revisa “Qué procesos, qué datos, qué permisos”. Después se suma la preparación del equipo: “Capacitación al rol que va a operar, no un seminario genérico”.
 
 En la práctica, el diagnóstico mira cinco cosas: los procesos candidatos, los datos y permisos disponibles, los sistemas con los que hay que integrarse, quién va a operar la solución y qué métrica se va a mover. Su entrega es una recomendación sobre qué caso probar, qué falta para hacerlo y cuándo todavía no conviene avanzar.
 
@@ -61,7 +61,7 @@ Tus datos están listos para un piloto cuando se sabe quién actualiza la fuente
 
 Las señales de alerta son simples: dos documentos que dicen cosas distintas, permisos que nadie administra, archivos sin fecha o información que solo una persona sabe interpretar. Si aparece alguna, el primer entregable puede ser ordenar esa fuente. No hace falta migrar todo: se elige un proceso y una fuente.
 
-Un sistema de [IA aplicada a tus procesos y datos](/servicios/ia-sobre-datos) tiene que entregar respuestas con la fuente citada, respetar permisos, registrar el uso y decir «no sé» cuando no tiene evidencia.
+Un sistema de [IA aplicada a tus procesos y datos](/servicios/ia-sobre-datos) tiene que entregar respuestas con la fuente citada, respetar permisos, registrar el uso y decir “no sé” cuando no tiene evidencia.
 
 ## Cómo plantear un piloto que pueda llegar a producción
 
@@ -78,13 +78,13 @@ La duración depende del alcance y por eso no tiene un número único. Lo que s�
 
 ## Cómo medir el retorno de un proyecto de IA
 
-Para medir el retorno de un proyecto de IA, medí primero la adopción y después el efecto, cuando se pueda medir. Es lo que Data Voices publica en la etapa «Informe a quien paga»: «Adopción y, cuando se puede medir, efecto».
+Para medir el retorno de un proyecto de IA, medí primero la adopción y después el efecto, cuando se pueda medir. Es lo que Data Voices publica en la etapa “Informe a quien paga”: “Adopción y, cuando se puede medir, efecto”.
 
 Las métricas útiles son concretas: tiempo de respuesta, horas de carga manual, casos resueltos sin intervención y uso real por parte del equipo. Tomá una línea de base antes del piloto e incluí en el costo las horas de supervisión, las integraciones y el mantenimiento. Si todavía no se puede estimar un retorno financiero, reportá lo que se observó y qué dato falta.
 
 ## Cómo lo trabaja Data Voices
 
-La [implementación de inteligencia artificial](/servicios/consultoria) de Data Voices sigue un método publicado con seis pasos: Madurez, Nivelación, Implementación («Un caso en producción»), Informe a quien paga, Seguimiento («Que no se apague a los treinta días») y Capacitación. Esa secuencia sirve para pedir entregables y responsables en cada paso, y para detener un proyecto cuando la evidencia no justifica ampliarlo.
+La [implementación de inteligencia artificial](/servicios/consultoria) de Data Voices sigue un método publicado con seis pasos: Madurez, Nivelación, Implementación (“Un caso en producción”), Informe a quien paga, Seguimiento (“Que no se apague a los treinta días”) y Capacitación. Esa secuencia sirve para pedir entregables y responsables en cada paso, y para detener un proyecto cuando la evidencia no justifica ampliarlo.
 
 Al evaluar cualquier proveedor conviene distinguir tres estados. Un caso en producción tiene usuarios reales y mantenimiento. Un MVP validado técnicamente demuestra una arquitectura o un flujo, pero todavía puede requerir integración y operación. Una demo prueba una idea en condiciones controladas.
 

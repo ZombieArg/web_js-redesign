@@ -8,7 +8,7 @@ Todo empieza antes de la primera reunión, con el problema que querés resolver.
 
 Conviene llegar a la primera reunión con un proceso concreto y medible, porque sin él ninguna consultora puede proponerte algo comparable. Vale igual para una pyme que para una empresa grande que contrata consultoría en inteligencia artificial.
 
-Un proceso concreto se describe en una línea: quién lo hace hoy, con qué datos y cuánto tarda. «Dos personas responden a mano las consultas de WhatsApp y cargan cada pedido en el sistema» es un punto de partida. «Queremos usar IA» todavía es una intención.
+Un proceso concreto se describe en una línea: quién lo hace hoy, con qué datos y cuánto tarda. “Dos personas responden a mano las consultas de WhatsApp y cargan cada pedido en el sistema” es un punto de partida. “Queremos usar IA” todavía es una intención.
 
 Con un proceso definido, las propuestas se pueden comparar lado a lado y el diagnóstico se dedica a evaluar viabilidad desde el primer minuto. Si todavía no lo tenés claro, buscá dónde una persona hace de puente entre un canal y un sistema: ahí suele estar el primer caso.
 
@@ -23,7 +23,7 @@ Una consultora de IA se evalúa con siete criterios, y cada uno se verifica con 
 | 3\. Equipo técnico propio | Nombres y perfiles de quién construye y quién mantiene | Todo se subcontrata o nadie responde por el mantenimiento |
 | 4\. Propiedad del código, los datos y las cuentas | Una cláusula que diga de quién es cada cosa al terminar | Respuestas vagas o cuentas a nombre del proveedor |
 | 5\. Integración con lo que ya tenés | Con qué datos y sistemas se conecta (bases, documentos, WhatsApp, CRM) | Exige migrar todo antes de empezar |
-| 6\. Medición | La métrica de negocio que se va a mover y cómo se reporta | «Vas a ver el impacto», sin un número para mirar |
+| 6\. Medición | La métrica de negocio que se va a mover y cómo se reporta | “Vas a ver el impacto”, sin un número para mirar |
 | 7\. Seguridad y datos sensibles | Permisos, registro de uso y qué hace el sistema cuando no sabe | Nadie pregunta qué datos son sensibles |
 
 
@@ -75,7 +75,7 @@ Antes de firmar, mandá estas diez preguntas por escrito y compará las respuest
 9. ¿Qué modelo o plataforma proponen y por qué ese? ¿Lo podemos cambiar más adelante?
 10. ¿Qué pasa con el sistema si dejamos de trabajar juntos?
 
-En la pregunta 7 conviene pedir mecanismos concretos: revisión humana antes de publicar una respuesta, registro de cada ejecución o un criterio explícito para que el sistema diga «no sé».
+En la pregunta 7 conviene pedir mecanismos concretos: revisión humana antes de publicar una respuesta, registro de cada ejecución o un criterio explícito para que el sistema diga “no sé”.
 
 ## Señales de alerta
 

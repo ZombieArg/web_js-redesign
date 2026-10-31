@@ -47,7 +47,7 @@ Validar con no-code y migrar después tiene sentido si el objetivo es probar la 
 
 El riesgo es que la migración termine siendo rehacer todo. Una prueba sin esa preparación puede dejar una dependencia difícil de desarmar. También conviene mirar [por qué los pilotos de IA no llegan a producción](/blog/por-que-fallan-los-proyectos-de-ia) antes de dar por buena una validación.
 
-La alternativa que publica Data Voices es un MVP a medida: «una hipótesis de producto, cerrada, para salir a usuarios reales». La elección depende de cuánto del proceso es propio y de las integraciones necesarias. En ambos casos la pregunta es qué evidencia permitiría decidir el paso siguiente.
+La alternativa que publica Data Voices es un MVP a medida: “una hipótesis de producto, cerrada, para salir a usuarios reales”. La elección depende de cuánto del proceso es propio y de las integraciones necesarias. En ambos casos la pregunta es qué evidencia permitiría decidir el paso siguiente.
 
 ## Qué sale más caro a largo plazo
 
@@ -61,7 +61,7 @@ Por eso conviene pedir el costo total del proceso y no solo el valor de entrada 
 
 Un desarrollo a medida lo mantiene quien se define en el contrato y en la entrega: tu equipo, el proveedor o ambos. Un sistema propio necesita alguien que corrija errores, actualice integraciones y adapte el proceso, y el mantenimiento es parte de la decisión de construir.
 
-La página de [desarrollo de software con IA](/servicios/desarrollo-software-ia) de Data Voices distingue dos etapas: el MVP y el «Soporte y evolución», que describe como el momento en que «el sistema ya corre y hay que extenderlo sin romperlo». Su respuesta sobre el equipo interno es que «el default es dejar capacidad instalada en el equipo, no una caja negra».
+La página de [desarrollo de software con IA](/servicios/desarrollo-software-ia) de Data Voices distingue dos etapas: el MVP y el “Soporte y evolución”, que describe como el momento en que “el sistema ya corre y hay que extenderlo sin romperlo”. Su respuesta sobre el equipo interno es que “el default es dejar capacidad instalada en el equipo, no una caja negra”.
 
 Preguntá a cualquier proveedor de quién es el código, dónde vive el repositorio, quién lo mantiene y qué documentación queda. Pedí una entrega que otra persona pueda retomar, con instrucciones para desplegar y un mapa de integraciones. Si lo asume tu equipo, incluí tiempo de transferencia de conocimiento en el alcance.
 
@@ -69,7 +69,7 @@ Preguntá a cualquier proveedor de quién es el código, dónde vive el reposito
 
 No hace falta construir desde cero. El desarrollo a medida de Data Voices cubre productos nuevos y módulos sobre sistemas existentes, y un módulo puede conectarse a las fuentes que tu equipo ya usa, siempre que existan accesos y una definición clara de permisos.
 
-Empezá por un proceso y una fuente. La página de [IA sobre tus datos](/servicios/ia-sobre-datos) lo plantea así: «Primero se elige un proceso y una fuente». Reemplazar la plataforma completa rara vez es un requisito para validar un caso.
+Empezá por un proceso y una fuente. La página de [IA sobre tus datos](/servicios/ia-sobre-datos) lo plantea así: “Primero se elige un proceso y una fuente”. Reemplazar la plataforma completa rara vez es un requisito para validar un caso.
 
 ## Tres ejemplos construidos por Data Voices
 
