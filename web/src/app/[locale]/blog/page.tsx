@@ -13,7 +13,19 @@ export function generateStaticParams() { return routing.locales.map((locale) => 
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  return buildMetadata({ locale, path: "/blog", title: "Blog: guías para evaluar e implementar IA en empresas | Data Voices", description: "Criterios y preguntas para elegir consultora de IA, agentes vs chatbots, chatbots de WhatsApp. Guías prácticas para decidir antes de contratar.", translationStatus: "pending", noindex: !BLOG_PUBLIC });
+  const english = locale === "en";
+  return buildMetadata({
+    locale,
+    path: "/blog",
+    title: english
+      ? "Blog: guides to evaluate and implement AI in companies | Data Voices"
+      : "Blog: guías para evaluar e implementar IA en empresas | Data Voices",
+    description: english
+      ? "Criteria and questions for choosing an AI consultancy, agents vs chatbots, WhatsApp chatbots. Practical guides for deciding before hiring."
+      : "Criterios y preguntas para elegir consultora de IA, agentes vs chatbots, chatbots de WhatsApp. Guías prácticas para decidir antes de contratar.",
+    translationStatus: "pending",
+    noindex: !BLOG_PUBLIC,
+  });
 }
 
 export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
