@@ -67,7 +67,8 @@ export const blogPosts: BlogItem[] = [
     excerpt: "Por qué fallan los proyectos de IA: procesos, datos, equipo y métrica. Mitos, causas y cómo evaluar tu piloto antes de invertir.",
     lead: "Un proyecto de IA suele trabarse en la organización antes que en el modelo. Un piloto no llega a producción cuando nadie definió el proceso, los datos no están listos, el equipo que tiene que usarlo no se preparó o no hay una métrica acordada. Todo eso se puede evaluar antes de invertir.",
     category: "implementacion", authors: ["juanma"], readingMinutes: 11, translationStatus: "pending",
-    ...publicationFor(), modifiedAt: "2026-10-31",
+    // Oculta en producción hasta una próxima tanda; el preview la sigue mostrando.
+    ...publicationFor(), modifiedAt: "2026-10-31", isPublished: false,
   },
   {
     slug: "no-code-vs-desarrollo-a-medida-ia",
@@ -77,7 +78,8 @@ export const blogPosts: BlogItem[] = [
     excerpt: "No-code vs desarrollo a medida: criterios para elegir el camino de tu proyecto de IA según proceso, integraciones y mantenimiento.",
     lead: "Una plataforma no-code alcanza cuando el proceso es estándar y necesitás validar rápido. Un producto armado conviene cuando tu caso es el caso común que ese producto ya resuelve. El desarrollo a medida se justifica cuando el proceso es propio, hay que integrarse con tus sistemas o no podés quedar atado a un proveedor.",
     category: "proveedores", authors: ["eduardo"], readingMinutes: 11, translationStatus: "pending",
-    ...publicationFor(), modifiedAt: "2026-10-31",
+    // Oculta en producción hasta una próxima tanda; el preview la sigue mostrando.
+    ...publicationFor(), modifiedAt: "2026-10-31", isPublished: false,
   },
 ];
 
