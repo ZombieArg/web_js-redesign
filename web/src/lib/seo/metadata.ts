@@ -16,6 +16,11 @@ interface BuildMetadataArgs {
    * translationStatus es por idioma, esto es "la página entera no se indexa".
    */
   noindex?: boolean;
+  /**
+   * Path por locale cuando el slug traducido no coincide (notas del blog).
+   * Si no se pasa, todos los idiomas usan `path`.
+   */
+  hrefLangPaths?: Partial<Record<"es" | "en", string>>;
   /** Default: public/og/default.png (imagen estática — ver nota abajo). */
   image?: string;
 }
@@ -41,9 +46,11 @@ export function buildMetadata({
   description,
   translationStatus = "live",
   noindex = false,
+  hrefLangPaths,
   image,
 }: BuildMetadataArgs): Metadata {
-  const canonical = localizedUrl(locale, path);
+  const pathFor = (l: string) => hrefLangPaths?.[l as "es" | "en"] ?? path;
+  const canonical = localizedUrl(locale, pathFor(locale));
   const isPending = noindex || (locale !== routing.defaultLocale && translationStatus === "pending");
 
   const languages: Record<string, string> = {};
@@ -51,11 +58,11 @@ export function buildMetadata({
     for (const l of routing.locales) {
       // La versión es siempre "live" (fuente de verdad); en solo se agrega si no está pending.
       if (l !== routing.defaultLocale && l !== locale && translationStatus === "pending") continue;
-      languages[l] = localizedUrl(l, path);
+      languages[l] = localizedUrl(l, pathFor(l));
     }
     // x-default: Google lo pide en el <head> (vía este mapa), no solo en el header HTTP.
     // Apunta siempre a la versión es (idioma por defecto del sitio).
-    languages["x-default"] = localizedUrl(routing.defaultLocale, path);
+    languages["x-default"] = localizedUrl(routing.defaultLocale, pathFor(routing.defaultLocale));
   }
 
   return {

@@ -25,7 +25,11 @@ export function GET() {
   );
 
   const caseNames = getCasos("es").map((c) => `- ${c.title}`).join("\n");
-  const blogNames = BLOG_PUBLIC ? visibleBlogPosts.map((post) => `- ${post.title}: ${SITE_URL}/blog/${post.slug}`).join("\n") : "";
+  const blogNames = BLOG_PUBLIC ? visibleBlogPosts.flatMap((post) => {
+    const lines = [`- ${post.title}: ${SITE_URL}/blog/${post.slug}`];
+    if (post.en && post.translationStatus === "live") lines.push(`- ${post.en.title}: ${SITE_URL}/en/blog/${post.en.slug}`);
+    return lines;
+  }).join("\n") : "";
 
   const body = `# ${ORG.name}
 > Consultora argentina de inteligencia artificial: implementación de IA, desarrollo de software a medida y agentes de IA para empresas.
