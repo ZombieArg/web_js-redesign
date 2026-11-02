@@ -28,7 +28,7 @@ Five criteria separate a chatbot from an AI agent. They're the same five steps D
 
 ### Channel: where the conversation happens
 
-Both can live in the same channel. The difference is what happens after the conversation: the chatbot closes it with an answer, and the agent continues it inside the process. Ask what happens if the customer starts on the web and continues on WhatsApp.
+Both can live in the same channel. The difference is what happens after the conversation: the chatbot closes it with an answer, and the agent continues it inside the process. Ask what happens if the customer starts on the web and continues on WhatsApp. If that channel is WhatsApp, see [how to choose a WhatsApp AI provider](/en/blog/how-to-choose-whatsapp-ai-provider).
 
 ### Source of truth: where the answer comes from
 
@@ -121,6 +121,6 @@ Yes, if it does more than answer. A WhatsApp bot works as an agent when it check
 
 Choose a chatbot if you need to answer frequent questions from information that changes little. Choose an agent if a person on your team works as a bridge between a channel and a system. If the process isn't written down yet, start by documenting it.
 
-If you already ran an AI pilot that never reached production, [why AI projects fail](/en/blog/why-ai-projects-fail) covers the five causes to review before trying again. To review a specific process with our team:
+To review a specific process with our team:
 
 **[Get a free diagnostic](/en/contacto)**
