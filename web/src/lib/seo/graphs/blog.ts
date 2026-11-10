@@ -5,7 +5,6 @@ import { localizedUrl } from "@/lib/seo/metadata";
 
 const WHY_AI_PROJECTS_FAIL = {
   keywords: ["why ai projects fail", "ai pilot to production", "ai maturity assessment"],
-  image: `${SITE_URL}/blog/img/why-ai-projects-fail-1200x675.png`,
   schemaJobTitle: "Co-founder and CTO",
 };
 
@@ -59,9 +58,7 @@ export function buildBlogGraph(post: BlogItem, locale: string, datePublished: st
       ...(exactEnglish ? { url: SITE_URL } : {}),
       logo: { "@type": "ImageObject", url: `${SITE_URL}/logopng1.png` },
     },
-    image: exactEnglish
-      ? { "@type": "ImageObject", url: WHY_AI_PROJECTS_FAIL.image, width: 1200, height: 675 }
-      : { "@type": "ImageObject", url: `${SITE_URL}/og/default.png`, width: 1200, height: 630 },
+    image: { "@type": "ImageObject", url: `${SITE_URL}/og/default.png`, width: 1200, height: 630 },
     articleSection: blogCategoryLabel(english ? "en" : "es", post.category),
     ...(exactEnglish ? { keywords: WHY_AI_PROJECTS_FAIL.keywords } : {}),
   };
