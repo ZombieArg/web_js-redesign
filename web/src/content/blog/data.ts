@@ -3,13 +3,16 @@ import { NOINDEX_ALL } from "@/lib/constants";
 
 export type BlogCategory = "proveedores" | "agentes" | "implementacion";
 
-export interface BlogItem {
+export interface BlogCopy {
   slug: string;
   title: string;
   seoTitle: string;
   breadcrumbTitle: string;
   excerpt: string;
   lead: string;
+}
+
+export interface BlogItem extends BlogCopy {
   category: BlogCategory;
   authors: ("juanma" | "eduardo")[];
   readingMinutes: number;
@@ -18,6 +21,8 @@ export interface BlogItem {
   isPublished?: boolean;
   publishedAt?: string;
   modifiedAt?: string;
+  /** Traducción en inglés con slug propio. Ausente = la nota sigue solo en español. */
+  en?: BlogCopy;
 }
 
 // La publicación se habilita por entorno; la fecha editorial no depende del build.
@@ -65,10 +70,19 @@ export const blogPosts: BlogItem[] = [
     seoTitle: "Por qué fallan los proyectos de IA y cómo evaluar el tuyo",
     breadcrumbTitle: "Por qué fallan los proyectos de IA",
     excerpt: "Por qué fallan los proyectos de IA: procesos, datos, equipo y métrica. Mitos, causas y cómo evaluar tu piloto antes de invertir.",
-    lead: "Un proyecto de IA suele trabarse en la organización antes que en el modelo. Un piloto no llega a producción cuando nadie definió el proceso, los datos no están listos, el equipo que tiene que usarlo no se preparó o no hay una métrica acordada. Todo eso se puede evaluar antes de invertir.",
-    category: "implementacion", authors: ["juanma"], readingMinutes: 11, translationStatus: "pending",
-    // Oculta en producción hasta una próxima tanda; el preview la sigue mostrando.
-    ...publicationFor(), modifiedAt: "2026-10-31", isPublished: false,
+    lead: "Cuando un proyecto de IA se traba, la causa suele estar en la organización y no en el modelo. Un piloto no llega a producción cuando nadie definió el proceso, los datos no están listos, el equipo que tiene que usarlo no se preparó o no hay una métrica acordada. Todo eso se puede evaluar antes de invertir.",
+    category: "implementacion", authors: ["juanma"], readingMinutes: 11, translationStatus: "live",
+    ...publicationFor(),
+    publishedAt: "2026-10-31T00:00:00-03:00",
+    modifiedAt: "2026-10-31T00:00:00-03:00",
+    en: {
+      slug: "why-ai-projects-fail",
+      title: "Why AI projects fail and what stops pilots before production",
+      seoTitle: "Why AI Projects Fail (and How to Assess Yours)",
+      breadcrumbTitle: "Why AI projects fail and what stops pilots before production",
+      excerpt: "When an AI project stalls, the cause is often in the organization, not the model. The five causes, what a maturity assessment checks and how to plan a pilot.",
+      lead: "When an AI project stalls, the cause is often in the organization, not the model. A pilot doesn't reach production when nobody defined the process, the data isn't ready, the team that has to use it wasn't prepared or there's no agreed metric. All of that can be assessed before you invest.",
+    },
   },
   {
     slug: "no-code-vs-desarrollo-a-medida-ia",
@@ -90,6 +104,14 @@ export const blogCategoryLabels: Record<BlogCategory, string> = {
   agentes: "Agentes y asistentes",
   implementacion: "Implementación",
 };
+const blogCategoryLabelsEn: Record<BlogCategory, string> = {
+  proveedores: "Evaluating vendors",
+  agentes: "AI agents and assistants",
+  implementacion: "Implementation",
+};
+export function blogCategoryLabel(locale: string, category: BlogCategory) {
+  return locale === "en" ? blogCategoryLabelsEn[category] : blogCategoryLabels[category];
+}
 export const blogCategoryTrackingValue: Record<BlogCategory, string> = {
   proveedores: "evaluar-proveedores",
   agentes: "agentes-asistentes",
@@ -97,6 +119,47 @@ export const blogCategoryTrackingValue: Record<BlogCategory, string> = {
 };
 
 export const blogAuthors = {
-  juanma: { name: "Juan Manuel Ortiz de Zárate", shortName: "Juanma", jobTitle: "co-fundador y CTO de Data Voices", credentials: "Magíster y PhD en Ciencias de la Computación (UBA)" },
-  eduardo: { name: "Eduardo Pan", shortName: "Eduardo Pan", jobTitle: "co-fundador y Senior Software Developer de Data Voices", credentials: "" },
+  juanma: {
+    name: "Juan Manuel Ortiz de Zárate",
+    shortName: "Juanma",
+    jobTitle: "co-fundador y CTO de Data Voices",
+    credentials: "Magíster y PhD en Ciencias de la Computación (UBA)",
+    en: { jobTitle: "co-founder and CTO of Data Voices", credentials: "Master's and PhD in Computer Science (UBA)" },
+  },
+  eduardo: {
+    name: "Eduardo Pan",
+    shortName: "Eduardo Pan",
+    jobTitle: "co-fundador y Senior Software Developer de Data Voices",
+    credentials: "",
+    en: { jobTitle: "co-founder and Senior Software Developer of Data Voices", credentials: "" },
+  },
 };
+
+export type BlogAuthorId = keyof typeof blogAuthors;
+
+export function blogAuthor(id: BlogAuthorId, locale: string) {
+  const author = blogAuthors[id];
+  if (locale !== "en") return author;
+  return { ...author, jobTitle: author.en.jobTitle, credentials: author.en.credentials };
+}
+
+export function blogCopy(post: BlogItem, locale: string): BlogCopy {
+  if (locale === "en" && post.en) return post.en;
+  return post;
+}
+
+export function blogPostForSlug(slug: string, locale: string) {
+  if (locale === "en") {
+    return visibleBlogPosts.find((post) => post.en?.slug === slug)
+      ?? visibleBlogPosts.find((post) => post.slug === slug && !post.en);
+  }
+  return visibleBlogPosts.find((post) => post.slug === slug);
+}
+
+/** Slug de la nota en el otro idioma. Sin traducción en inglés, el slug español se mantiene. */
+export function blogSlugForLocale(slug: string, locale: "es" | "en") {
+  const post = blogPosts.find((item) => item.slug === slug || item.en?.slug === slug);
+  if (!post) return undefined;
+  if (locale === "es") return post.slug;
+  return post.en?.slug ?? post.slug;
+}

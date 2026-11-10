@@ -9,18 +9,37 @@ function urlFor(locale: string, path: string) {
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return ROUTES.map((route) => {
-    const languages: Record<string, string> = { es: urlFor("es", route.path) };
+  return ROUTES.flatMap((route) => {
+    const esUrl = urlFor("es", route.path);
+    const languages: Record<string, string> = { es: esUrl };
     if (route.translationStatus === "live") {
-      languages.en = urlFor("en", route.path);
+      languages.en = urlFor("en", route.enPath ?? route.path);
+    }
+    // Notas con slug distinto, y el índice /blog, publican también la URL /en.
+    // x-default apunta a la versión en español. El resto de las rutas live
+    // conserva el sitemap anterior (es + en, sin un segundo <loc>).
+    const separateEnglishUrl = route.path === "/blog" || Boolean(route.enPath);
+    if (separateEnglishUrl && route.translationStatus === "live") {
+      languages["x-default"] = esUrl;
     }
 
-    return {
-      url: urlFor(routing.defaultLocale, route.path),
+    const spanish = {
+      url: esUrl,
       lastModified: new Date(),
       changeFrequency: "weekly" as const,
       priority: route.priority,
       alternates: { languages },
     };
+    if (!separateEnglishUrl || route.translationStatus !== "live") return [spanish];
+    return [
+      spanish,
+      {
+        url: urlFor("en", route.enPath ?? route.path),
+        lastModified: new Date(),
+        changeFrequency: "weekly" as const,
+        priority: route.priority,
+        alternates: { languages },
+      },
+    ];
   });
 }

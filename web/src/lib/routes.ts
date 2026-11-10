@@ -13,6 +13,8 @@ import type { Localized, TranslationStatus } from "@/content/types";
 
 export interface RouteEntry {
   path: string;
+  /** Path en inglés cuando el slug no es el mismo que `path`. */
+  enPath?: string;
   priority: number;
   translationStatus: TranslationStatus;
 }
@@ -45,7 +47,14 @@ export const ROUTES: RouteEntry[] = [
   { path: "/nosotros", priority: 0.7, translationStatus: statusOf(nosotrosContent) },
   { path: "/contacto", priority: 0.6, translationStatus: statusOf(contactoContent) },
   ...(BLOG_PUBLIC && visibleBlogPosts.length ? [
-    { path: "/blog", priority: 0.6, translationStatus: "pending" as const },
-    ...visibleBlogPosts.map((post) => ({ path: `/blog/${post.slug}`, priority: 0.5, translationStatus: post.translationStatus })),
+    // El índice /en/blog lista las notas traducidas: indexable junto con /blog.
+    // noindex del blog entero sigue en la página vía !BLOG_PUBLIC.
+    { path: "/blog", priority: 0.6, translationStatus: "live" as const },
+    ...visibleBlogPosts.map((post) => ({
+      path: `/blog/${post.slug}`,
+      ...(post.en && post.translationStatus === "live" ? { enPath: `/blog/${post.en.slug}` } : {}),
+      priority: 0.5,
+      translationStatus: post.translationStatus,
+    })),
   ] : []),
 ];

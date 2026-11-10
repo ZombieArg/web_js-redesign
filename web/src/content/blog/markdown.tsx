@@ -97,26 +97,32 @@ export function readArticle(slug: string) {
 
 const inlinePattern = /(\[([^\]]+)\]\(([^)]+)\)|\*\*([^*]+)\*\*|\*([^*]+)\*|`([^`]+)`)/g;
 
+const FAQ_HEADINGS = new Set(["Preguntas frecuentes", "Frequently asked questions"]);
+
 function plainInline(text: string) {
   return text.replace(inlinePattern, (_match, _formatted, linkText, _href, boldText, italicText, codeText) =>
     linkText ?? boldText ?? italicText ?? codeText ?? "",
   ).replace(/\\([.#|])/g, "$1");
 }
 
-function inline(text: string): ReactNode[] {
+function inline(text: string, keyPrefix = ""): ReactNode[] {
   const nodes: ReactNode[] = [];
   let from = 0;
   for (const match of text.matchAll(inlinePattern)) {
     const index = match.index ?? 0;
+    const key = `${keyPrefix}${index}`;
     if (index > from) nodes.push(text.slice(from, index).replace(/\\([.#|])/g, "$1"));
     if (match[2] && match[3]) {
       const href = match[3];
       nodes.push(/^\/(?!\/)|^https:\/\//.test(href)
-        ? <a key={index} href={href} target={href.startsWith("https://") ? "_blank" : undefined} rel={href.startsWith("https://") ? "noopener noreferrer" : undefined}>{match[2]}</a>
+        ? <a key={key} href={href} target={href.startsWith("https://") ? "_blank" : undefined} rel={href.startsWith("https://") ? "noopener noreferrer" : undefined}>{match[2]}</a>
         : match[2]);
-    } else if (match[4]) nodes.push(<strong key={index}>{match[4]}</strong>);
-    else if (match[5]) nodes.push(<em key={index}>{match[5]}</em>);
-    else if (match[6]) nodes.push(<code key={index}>{match[6]}</code>);
+    } else if (match[4]) {
+      // **[anchor](href)** es el CTA de las notas: el texto queda igual y el enlace se renderiza.
+      const inner = match[4];
+      nodes.push(<strong key={key}>{inner.includes("](") ? inline(inner, `${key}-`) : inner}</strong>);
+    } else if (match[5]) nodes.push(<em key={key}>{match[5]}</em>);
+    else if (match[6]) nodes.push(<code key={key}>{match[6]}</code>);
     from = index + match[0].length;
   }
   if (from < text.length) nodes.push(text.slice(from).replace(/\\([.#|])/g, "$1"));
@@ -148,7 +154,7 @@ export function articleSections(blocks: Block[]) {
 }
 
 export function articleFaqSection(blocks: Block[]) {
-  const start = blocks.findIndex((block) => block.type === "heading" && block.level === 2 && block.text === "Preguntas frecuentes");
+  const start = blocks.findIndex((block) => block.type === "heading" && block.level === 2 && FAQ_HEADINGS.has(block.text));
   if (start < 0) return null;
   const nextHeading = blocks.findIndex((block, index) => index > start && block.type === "heading" && block.level === 2);
   const end = nextHeading < 0 ? blocks.length : nextHeading;
