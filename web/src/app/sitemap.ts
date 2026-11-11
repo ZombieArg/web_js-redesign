@@ -15,8 +15,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     if (route.translationStatus === "live") {
       languages.en = urlFor("en", route.enPath ?? route.path);
     }
-    // Las notas con slug distinto publican también la URL /en, con alternates recíprocos.
-    if (route.enPath && route.translationStatus === "live") {
+    // Notas con slug distinto, y el índice /blog, publican también la URL /en.
+    // x-default apunta a la versión en español. El resto de las rutas live
+    // conserva el sitemap anterior (es + en, sin un segundo <loc>).
+    const separateEnglishUrl = route.path === "/blog" || Boolean(route.enPath);
+    if (separateEnglishUrl && route.translationStatus === "live") {
       languages["x-default"] = esUrl;
     }
 
@@ -27,11 +30,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: route.priority,
       alternates: { languages },
     };
-    if (!route.enPath || route.translationStatus !== "live") return [spanish];
+    if (!separateEnglishUrl || route.translationStatus !== "live") return [spanish];
     return [
       spanish,
       {
-        url: urlFor("en", route.enPath),
+        url: urlFor("en", route.enPath ?? route.path),
         lastModified: new Date(),
         changeFrequency: "weekly" as const,
         priority: route.priority,

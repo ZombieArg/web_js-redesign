@@ -47,7 +47,7 @@ export const ROUTES: RouteEntry[] = [
   { path: "/nosotros", priority: 0.7, translationStatus: statusOf(nosotrosContent) },
   { path: "/contacto", priority: 0.6, translationStatus: statusOf(contactoContent) },
   ...(BLOG_PUBLIC && visibleBlogPosts.length ? [
-    // El índice /en/blog ya tiene copy en inglés: indexable junto con /blog.
+    // El índice /en/blog lista las notas traducidas: indexable junto con /blog.
     // noindex del blog entero sigue en la página vía !BLOG_PUBLIC.
     { path: "/blog", priority: 0.6, translationStatus: "live" as const },
     ...visibleBlogPosts.map((post) => ({

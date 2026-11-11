@@ -33,7 +33,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
   const t = await getTranslations("translation");
 
   const english = locale === "en";
-  const posts = english ? visibleBlogPosts.filter((post) => post.en) : visibleBlogPosts;
+  const posts = english ? visibleBlogPosts.filter((post) => post.en && post.translationStatus === "live") : visibleBlogPosts;
   if (!posts.length) return <section className="py-section"><Container><h1 className="text-center text-headline-lg text-brand-navy">Blog</h1><p className="mt-6 text-center text-body-lg text-on-surface-variant">{t("comingSoon")}</p></Container></section>;
 
   return <>
