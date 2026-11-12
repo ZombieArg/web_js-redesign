@@ -11,6 +11,11 @@
 [build.environment]
   NODE_VERSION = "20"
 
+# La vista para revisar notas usa el contenido del blog y no se indexa.
+[context.deploy-preview.environment]
+  NEXT_PUBLIC_BLOG_PUBLIC = "true"
+  NEXT_PUBLIC_NOINDEX_ALL = "true"
+
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 

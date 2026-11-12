@@ -94,10 +94,19 @@ export const blogPosts: BlogItem[] = [
     seoTitle: "Por qué fallan los proyectos de IA y cómo evaluar el tuyo",
     breadcrumbTitle: "Por qué fallan los proyectos de IA",
     excerpt: "Por qué fallan los proyectos de IA: procesos, datos, equipo y métrica. Mitos, causas y cómo evaluar tu piloto antes de invertir.",
-    lead: "Un proyecto de IA suele trabarse en la organización antes que en el modelo. Un piloto no llega a producción cuando nadie definió el proceso, los datos no están listos, el equipo que tiene que usarlo no se preparó o no hay una métrica acordada. Todo eso se puede evaluar antes de invertir.",
-    category: "implementacion", authors: ["juanma"], readingMinutes: 11, translationStatus: "pending",
-    // Oculta en producción hasta una próxima tanda; el preview la sigue mostrando.
-    ...publicationFor(), modifiedAt: "2026-10-31", isPublished: false,
+    lead: "Cuando un proyecto de IA se traba, la causa suele estar en la organización y no en el modelo. Un piloto no llega a producción cuando nadie definió el proceso, los datos no están listos, el equipo que tiene que usarlo no se preparó o no hay una métrica acordada. Todo eso se puede evaluar antes de invertir.",
+    category: "implementacion", authors: ["juanma"], readingMinutes: 11, translationStatus: "live",
+    ...publicationFor(),
+    publishedAt: "2026-10-31T00:00:00-03:00",
+    modifiedAt: "2026-10-31T00:00:00-03:00",
+    en: {
+      slug: "why-ai-projects-fail",
+      title: "Why AI projects fail and what stops pilots before production",
+      seoTitle: "Why AI Projects Fail (and How to Assess Yours)",
+      breadcrumbTitle: "Why AI projects fail and what stops pilots before production",
+      excerpt: "When an AI project stalls, the cause is often in the organization, not the model. The five causes, what a maturity assessment checks and how to plan a pilot.",
+      lead: "When an AI project stalls, the cause is often in the organization, not the model. A pilot doesn't reach production when nobody defined the process, the data isn't ready, the team that has to use it wasn't prepared or there's no agreed metric. All of that can be assessed before you invest.",
+    },
   },
   {
     slug: "no-code-vs-desarrollo-a-medida-ia",

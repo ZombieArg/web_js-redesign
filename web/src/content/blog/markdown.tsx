@@ -118,7 +118,7 @@ function inline(text: string, keyPrefix = ""): ReactNode[] {
         ? <a key={key} href={href} target={href.startsWith("https://") ? "_blank" : undefined} rel={href.startsWith("https://") ? "noopener noreferrer" : undefined}>{match[2]}</a>
         : match[2]);
     } else if (match[4]) {
-      // **[anchor](href)** es el CTA de las notas en inglés: el texto queda igual y el enlace se renderiza.
+      // **[anchor](href)** es el CTA de las notas: el texto queda igual y el enlace se renderiza.
       const inner = match[4];
       nodes.push(<strong key={key}>{inner.includes("](") ? inline(inner, `${key}-`) : inner}</strong>);
     } else if (match[5]) nodes.push(<em key={key}>{match[5]}</em>);
