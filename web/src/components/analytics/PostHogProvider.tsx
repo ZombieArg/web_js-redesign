@@ -5,6 +5,8 @@ import { usePathname, useSearchParams } from "next/navigation";
 import posthog from "posthog-js";
 import { POSTHOG_HOST, POSTHOG_KEY } from "@/lib/constants";
 import { captureEvent } from "@/lib/analytics";
+import { analyticsPersistence, applyAnalyticsConsent, clearVendorTrackingStorage } from "@/lib/analytics-consent";
+import { hasAnalyticsConsent, subscribeConsent } from "@/lib/consent";
 import { attributionContext, pageContext, rememberEntryCta, rememberServiceInterest, updateTouches } from "@/lib/tracking";
 
 /**
@@ -18,15 +20,20 @@ import { attributionContext, pageContext, rememberEntryCta, rememberServiceInter
  */
 function initPostHog() {
   if (!POSTHOG_KEY || typeof window === "undefined") return false;
+  const { granted, persistence, disable_persistence, disable_session_recording } = analyticsPersistence();
   if (!posthog.__loaded) {
     posthog.init(POSTHOG_KEY, {
       api_host: POSTHOG_HOST,
       capture_pageview: false,
       capture_pageleave: true,
-      disable_session_recording: true,
       person_profiles: "identified_only",
+      persistence,
+      disable_persistence,
+      disable_session_recording,
     });
   }
+  // Por si la init igual dejó una clave: sin consentimiento no puede quedar almacenamiento de PostHog.
+  if (!granted) clearVendorTrackingStorage();
   return true;
 }
 
@@ -34,9 +41,16 @@ function PageviewTracker() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
+  useEffect(() => subscribeConsent(() => {
+    applyAnalyticsConsent();
+  }), []);
+
   useEffect(() => {
     updateTouches();
-    if (!initPostHog()) return;
+    if (!initPostHog()) {
+      if (!hasAnalyticsConsent()) clearVendorTrackingStorage();
+      return;
+    }
     if (pageContext(pathname).page_type === "servicio") {
       rememberServiceInterest(pathname.split("/").pop() ?? "");
     }
@@ -47,6 +61,7 @@ function PageviewTracker() {
     posthog.capture("$pageview", {
       $current_url: window.location.origin + pathname + (query ? `?${query}` : ""),
     });
+    if (!analyticsPersistence().granted) clearVendorTrackingStorage();
   }, [pathname, searchParams]);
 
   useEffect(() => {

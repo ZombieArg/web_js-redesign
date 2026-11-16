@@ -7,6 +7,7 @@ import { Field } from "@/components/ui/Field";
 import { Button } from "@/components/ui/Button";
 import { sendContactForm } from "@/lib/api/contact";
 import { captureEvent } from "@/lib/analytics";
+import { trackMetaLead } from "@/lib/meta-pixel";
 import { attributionContext } from "@/lib/tracking";
 import { isAxiosError } from "axios";
 
@@ -80,6 +81,7 @@ export function ContactForm() {
     // La conversión se mide una sola vez, después de confirmar el envío.
     // El texto libre de "Otro" y los datos personales no pasan a PostHog.
     captureEvent("form_submit", { form_id: "diagnostico", origen_declarado: originKey });
+    trackMetaLead();
   }
 
   return (

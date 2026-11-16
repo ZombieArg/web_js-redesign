@@ -1,6 +1,8 @@
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { Logo } from "@/components/layout/Logo";
+import { CookiePreferencesButton } from "@/components/consent/CookiePreferencesButton";
+import { consentCopyFor } from "@/content/consent";
 import { CONTACT, SOCIAL, whatsappHref } from "@/lib/constants";
 import { BLOG_PREVIEW } from "@/content/blog/data";
 
@@ -13,6 +15,7 @@ const SERVICE_LINKS = [
 
 export function Footer() {
   const t = useTranslations();
+  const copy = consentCopyFor(useLocale());
 
   return (
     <footer className="bg-brand-navy py-16 text-white">
@@ -93,12 +96,19 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Términos y Privacidad se sacaron (29/09/2026): eran texto sin link a
-          ninguna página. No se fabrica una Terms of Service / Privacy Policy
-          — es contenido legal real, no copy de producto. Vuelven cuando haya
-          páginas reales para linkear. */}
-      <div className="mx-auto mt-12 flex w-full max-w-[1280px] flex-col gap-2 border-t border-white/10 px-margin-mobile pt-6 text-caption text-white/50 desktop:flex-row desktop:items-center desktop:justify-between desktop:px-margin-desktop">
+      {/* La política existe, pero el texto legal sigue en placeholder y la
+          página es noindex hasta que DV la valide. Preferencias reabre el banner. */}
+      <div className="mx-auto mt-12 flex w-full max-w-[1280px] flex-col gap-3 border-t border-white/10 px-margin-mobile pt-6 text-caption text-white/50 desktop:flex-row desktop:items-center desktop:justify-between desktop:px-margin-desktop">
         <p>© {new Date().getFullYear()} {t("footer.rights")}</p>
+        <div className="flex flex-col gap-2 desktop:flex-row desktop:items-center desktop:gap-6">
+          <Link
+            href="/privacidad"
+            className="font-sans text-caption text-white/80 underline-offset-4 hover:text-white hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+          >
+            {copy.privacy}
+          </Link>
+          <CookiePreferencesButton />
+        </div>
       </div>
     </footer>
   );
