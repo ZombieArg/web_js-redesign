@@ -29,6 +29,12 @@ const intlMiddleware = createMiddleware(routing);
  *
  * `/` no se toca: redirigir la home a sí misma hace loop.
  *
+ * El destino se arma sobre el mismo origin. `new URL("//host", request.url)`
+ * cambia el host (URL relativa al protocolo): `//blog/` iría a https://blog/
+ * y `//evil%E3%80%82com/` a https://evil.com/. NextURL, además, reinyecta en
+ * href la barra de la request aunque se le pise pathname, y el 308 volvería
+ * a la URL con barra.
+ *
  * El 308 sale con Cache-Control y Netlify-CDN-Cache-Control en `no-cache`,
  * sin `durable`. @netlify/plugin-nextjs le agrega `durable` a los HTML
  * cacheables (headers.js → setCacheControlHeaders); no hay esa directiva en
@@ -37,11 +43,15 @@ const intlMiddleware = createMiddleware(routing);
  * de Netlify evita que el plugin le concatene `durable` a este redirect.
  */
 function redirectTrailingSlash(request: NextRequest) {
-  const { pathname, search } = request.nextUrl;
+  const { pathname } = request.nextUrl;
   if (pathname.length <= 1 || !pathname.endsWith("/")) return null;
 
-  const bare = pathname.replace(/\/+$/, "") || "/";
-  const response = NextResponse.redirect(new URL(`${bare}${search}`, request.url), 308);
+  const url = request.nextUrl.clone();
+  url.pathname = pathname.replace(/\/{2,}/g, "/").replace(/\/+$/, "") || "/";
+  const destination = new URL(url.origin);
+  destination.pathname = url.pathname;
+  destination.search = url.search;
+  const response = NextResponse.redirect(destination, 308);
   response.headers.set("Cache-Control", "no-cache");
   response.headers.set("Netlify-CDN-Cache-Control", "no-cache");
   return response;
@@ -81,6 +91,9 @@ export default function proxy(request: NextRequest) {
 }
 
 export const config = {
-  // Excluye assets estáticos, API interna, el widget de Cecilia y archivos con extensión.
-  matcher: ["/((?!api|_next|_vercel|cecilia/|.*\\..*).*)"],
+  // Excluye assets, la API, archivos con extensión y el widget bajo
+  // /cecilia/<algo>. /cecilia/ (solo la barra) tiene que entrar: con
+  // skipTrailingSlashRedirect el 308 de Next ya no corre, y si el matcher
+  // la salta la página del producto queda sin redirect.
+  matcher: ["/((?!api|_next|_vercel|cecilia/.+|.*\\..*).*)"],
 };
