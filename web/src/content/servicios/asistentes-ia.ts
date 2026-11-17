@@ -101,6 +101,21 @@ const es: ServicePageContent = {
       },
     ],
   },
+  relatedGuides: {
+    title: "Guías relacionadas",
+    links: [
+      {
+        anchor: "Agente de IA vs chatbot: diferencias y cómo decidir",
+        line: "Cuándo alcanza con un chatbot y cuándo hace falta un agente que opere sobre tus sistemas.",
+        href: "/blog/agente-de-ia-vs-chatbot",
+      },
+      {
+        anchor: "Cómo elegir un chatbot de WhatsApp con IA",
+        line: "8 criterios para evaluar proveedores antes de contratar.",
+        href: "/blog/como-elegir-chatbot-whatsapp-ia",
+      },
+    ],
+  },
   closingCta: {
     kicker: "Siguiente paso",
     heading: "Si ya sabés que el canal es WhatsApp, podés conocer Cecilia directamente.",
@@ -206,6 +221,21 @@ const en: ServicePageContent = {
       {
         question: "Do you use a single platform?",
         answer: "No. The channel is whatever your customer uses. The model is chosen per task, not by trend.",
+      },
+    ],
+  },
+  relatedGuides: {
+    title: "Related guides",
+    links: [
+      {
+        anchor: "AI agent vs chatbot: the differences and how to decide",
+        line: "When a chatbot is enough, and when you need an agent that works on your systems.",
+        href: "/blog/ai-agent-vs-chatbot",
+      },
+      {
+        anchor: "How to choose a WhatsApp AI provider",
+        line: "8 criteria to assess providers before you sign.",
+        href: "/blog/how-to-choose-whatsapp-ai-provider",
       },
     ],
   },
