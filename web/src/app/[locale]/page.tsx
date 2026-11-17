@@ -79,12 +79,12 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         />
       </Container>
       <WhoWeAreCard whoWeAre={content.whoWeAre} photos={content.teamPhotos} />
-      {content.relatedGuides && <RelatedGuidesSection guides={content.relatedGuides} />}
       <ServicesGrid services={content.services} />
       <HowWeWorkSteps howWeWork={content.howWeWork} />
       <CasesGrid cases={content.cases} />
       <TestimonialsSection testimonials={content.testimonials} />
       <FaqAccordionSection faq={content.faq} />
+      {content.relatedGuides && <RelatedGuidesSection guides={content.relatedGuides} />}
       <CtaBand heading={content.closingCta.heading} primaryCta={content.closingCta.primaryCta} tone="navy" />
     </>
   );
