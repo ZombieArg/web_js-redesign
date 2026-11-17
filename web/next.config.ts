@@ -10,6 +10,12 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: __dirname,
   },
+  // trailingSlash queda en false (el default): las URLs canónicas no llevan
+  // barra. El 308 de Next no alcanza en Netlify: el edge le entrega la barra
+  // al proxy y next-intl reescribe el locale por defecto a un 200. El redirect
+  // lo hace proxy.ts. Este flag apaga el 308 automático para que `next start`
+  // pase por el mismo camino.
+  skipTrailingSlashRedirect: true,
   // Fallback para self-hosted. En la práctica los resuelve proxy.ts antes,
   // porque el middleware corre primero y con localePrefix "as-needed" reescribe
   // el path — ver el comentario largo ahí. Se derivan del mismo módulo para que
