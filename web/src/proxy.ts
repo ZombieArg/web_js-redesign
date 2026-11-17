@@ -12,6 +12,52 @@ import { resolveLegacyRedirect } from "./lib/legacy-redirects";
 const intlMiddleware = createMiddleware(routing);
 
 /**
+ * Barra final, antes de next-intl.
+ *
+ * Con localePrefix "as-needed" el middleware reescribe el locale por defecto
+ * (`/blog/<slug>/` → `/es/blog/<slug>`) y esa rewrite es un 200. Next solo
+ * aplica el 308 de trailingSlash: false (el default; no hace falta setearlo)
+ * cuando el proxy hace next(), que es el caso de `/en/.../`. En Netlify el
+ * edge le pasa la barra al proxy (normalizeRequestURL solo la agrega si
+ * trailingSlash es true) y el 200 del español queda en la caché Durable.
+ * next.config tiene skipTrailingSlashRedirect para que `next start` no
+ * redirija antes y pase por este mismo camino.
+ *
+ * Una regla splat en netlify.toml también redirigiría en el CDN, pero no corre
+ * en `next start` y pisa redirects que genera el plugin de Next. El 200 nace
+ * en esta rewrite, así que el 308 va acá.
+ *
+ * `/` no se toca: redirigir la home a sí misma hace loop.
+ *
+ * El destino se arma sobre el mismo origin. `new URL("//host", request.url)`
+ * cambia el host (URL relativa al protocolo): `//blog/` iría a https://blog/
+ * y `//evil%E3%80%82com/` a https://evil.com/. NextURL, además, reinyecta en
+ * href la barra de la request aunque se le pise pathname, y el 308 volvería
+ * a la URL con barra.
+ *
+ * El 308 sale con Cache-Control y Netlify-CDN-Cache-Control en `no-cache`,
+ * sin `durable`. @netlify/plugin-nextjs le agrega `durable` a los HTML
+ * cacheables (headers.js → setCacheControlHeaders); no hay esa directiva en
+ * netlify.toml, next.config ni este proxy. El 308 de `/en/.../` ya responde
+ * `cache-control: no-cache` y `Netlify Durable; fwd=bypass`. Setear el header
+ * de Netlify evita que el plugin le concatene `durable` a este redirect.
+ */
+function redirectTrailingSlash(request: NextRequest) {
+  const { pathname } = request.nextUrl;
+  if (pathname.length <= 1 || !pathname.endsWith("/")) return null;
+
+  const url = request.nextUrl.clone();
+  url.pathname = pathname.replace(/\/{2,}/g, "/").replace(/\/+$/, "") || "/";
+  const destination = new URL(url.origin);
+  destination.pathname = url.pathname;
+  destination.search = url.search;
+  const response = NextResponse.redirect(destination, 308);
+  response.headers.set("Cache-Control", "no-cache");
+  response.headers.set("Netlify-CDN-Cache-Control", "no-cache");
+  return response;
+}
+
+/**
  * Los redirects legacy se resuelven ACÁ, antes de next-intl, y esa precedencia
  * es el punto.
  *
@@ -25,6 +71,9 @@ const intlMiddleware = createMiddleware(routing);
  * /casos/bid daban 404; sus equivalentes /en/* daban 308.
  */
 export default function proxy(request: NextRequest) {
+  // Legacy primero: /data-ai/ ya resuelve al destino nuevo en un solo 308
+  // (resolveLegacyRedirect normaliza una barra). El resto de las barras cae
+  // en redirectTrailingSlash.
   const target = resolveLegacyRedirect(request.nextUrl.pathname);
 
   if (target) {
@@ -35,10 +84,16 @@ export default function proxy(request: NextRequest) {
     return NextResponse.redirect(url, 308);
   }
 
+  const slashRedirect = redirectTrailingSlash(request);
+  if (slashRedirect) return slashRedirect;
+
   return intlMiddleware(request);
 }
 
 export const config = {
-  // Excluye assets estáticos, API interna, el widget de Cecilia y archivos con extensión.
-  matcher: ["/((?!api|_next|_vercel|cecilia/|.*\\..*).*)"],
+  // Excluye assets, la API, archivos con extensión y el widget bajo
+  // /cecilia/<algo>. /cecilia/ (solo la barra) tiene que entrar: con
+  // skipTrailingSlashRedirect el 308 de Next ya no corre, y si el matcher
+  // la salta la página del producto queda sin redirect.
+  matcher: ["/((?!api|_next|_vercel|cecilia/.+|.*\\..*).*)"],
 };

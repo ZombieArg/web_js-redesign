@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/Button";
 import { HeadJsonLd } from "@/components/seo/HeadJsonLd";
 import { TranslationPendingNotice } from "@/components/ui/TranslationPendingNotice";
 import { ArticleBody, articleFaqSection, articleSections, readArticle } from "@/content/blog/markdown";
-import { BLOG_PUBLIC, blogAuthor, blogCategoryLabel, blogCategoryTrackingValue, blogCopy, blogPostForSlug, publishedBlogPosts, visibleBlogPosts, type BlogCategory } from "@/content/blog/data";
+import { BLOG_PUBLIC, blogAuthor, blogCategoryLabel, blogCategoryTrackingValue, blogCopy, blogPostForSlug, confirmedEditorialDate, publishedBlogPosts, visibleBlogPosts, type BlogCategory } from "@/content/blog/data";
 import { buildMetadata, localizedUrl } from "@/lib/seo/metadata";
 import { buildBlogGraph } from "@/lib/seo/graphs/blog";
 
@@ -73,13 +73,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // Las notas sin traducción en inglés conservan el metadata anterior (sin og:type article).
   if (locale !== "es" && !post.en) return metadata;
   const contentLocale = post.en && locale === "en" ? "en" : "es";
+  const dates = blogCopy(post, contentLocale);
+  const datePublished = confirmedEditorialDate(dates.datePublished);
+  const dateModified = confirmedEditorialDate(dates.dateModified);
   return {
     ...metadata,
     openGraph: {
       ...metadata.openGraph,
       type: "article",
-      publishedTime: post.publishedAt,
-      modifiedTime: post.modifiedAt ?? post.publishedAt,
+      // Fecha pendiente: no emitir publishedTime/modifiedTime. No reutilizar publishedAt.
+      ...(datePublished ? { publishedTime: datePublished } : {}),
+      ...(dateModified ? { modifiedTime: dateModified } : {}),
       authors: [localizedUrl(contentLocale, "/nosotros")],
       section: blogCategoryLabel(contentLocale, post.category),
     },
@@ -106,7 +110,7 @@ export default async function Page({ params }: Props) {
 
   return <>
     {locale === "en" && !post.en && <TranslationPendingNotice />}
-    {(locale === "es" || english) && post.publishedAt && faqSection && <HeadJsonLd data={{ "@context": "https://schema.org", "@graph": buildBlogGraph(post, english ? "en" : "es", post.publishedAt, post.modifiedAt ?? post.publishedAt, faqSection.items) }} />}
+    {post.isPublished && (locale === "es" || english) && faqSection && <HeadJsonLd data={{ "@context": "https://schema.org", "@graph": buildBlogGraph(post, english ? "en" : "es", copy.datePublished, copy.dateModified, faqSection.items) }} />}
     <div className="bg-neutral-base py-10 desktop:py-14">
       <Container>
         <nav className="mb-10 text-caption text-slate-gray" aria-label={english ? "Breadcrumb" : "Ruta de navegación"}><Link href="/" className="underline hover:text-brand-navy">{english ? "Home" : "Inicio"}</Link><span aria-hidden="true"> › </span><Link href="/blog" className="underline hover:text-brand-navy">Blog</Link><span aria-hidden="true"> › </span><Link href="/blog" className="underline hover:text-brand-navy">{blogCategoryLabel(english ? "en" : "es", post.category)}</Link><span aria-hidden="true"> › </span><span>{copy.breadcrumbTitle}</span></nav>
