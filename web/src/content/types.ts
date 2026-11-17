@@ -110,11 +110,18 @@ export interface ProductPageContent {
   closingCta: ServicePageContent["closingCta"];
 }
 
+export interface HomeTeamPhotoCopy {
+  alt: string;
+  caption?: string;
+}
+
 export interface HomeContent {
   seo: SeoContent;
-  hero: { badge: string; h1: string; subhead: string; cta: CtaData };
+  hero: { badge: string; h1: string; subhead: string; cta: CtaData; photoAlt: string };
   logoRow: { heading: string; linkLabel: string; logos: { key: string; alt: string }[] };
   whoWeAre: { heading: string; body: string; badges: string[] };
+  /** Tres fotos bajo la tarjeta. El orden es el del componente (terraza, conversación, charla). */
+  teamPhotos: readonly [HomeTeamPhotoCopy, HomeTeamPhotoCopy, HomeTeamPhotoCopy & { caption: string }];
   services: {
     heading: string;
     items: { iconName: IconName; title: string; description: string; href: string; linkLabel: string }[];
@@ -145,7 +152,7 @@ export interface PersonContent {
 
 export interface NosotrosContent {
   seo: SeoContent;
-  hero: { h1: string; subhead: string };
+  hero: { h1: string; subhead: string; photoAlt: string; photoCaption: string };
   entityParagraph: string;
   people: PersonContent[];
   /** Nota del eje institucional. El heading es contenido (localizable), no markup. */
