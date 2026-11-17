@@ -11,17 +11,13 @@ export interface BlogCopy {
   excerpt: string;
   lead: string;
   /**
-   * TODO(fechas): PENDIENTE. `null` (o el literal `"PENDIENTE"`) hasta que
-   * Guilleche confirme la fecha y GM la cargue en ISO (`YYYY-MM-DD` o
-   * datetime con offset). No inventar una fecha.
-   * Si sigue pendiente, el JSON-LD no emite `datePublished` y el sitemap
-   * no usa esta fecha.
+   * Fecha editorial confirmada, ISO (`YYYY-MM-DD` o datetime con offset).
+   * `null` o `"PENDIENTE"`: el JSON-LD no emite `datePublished`.
    */
   datePublished: string | null;
   /**
-   * TODO(fechas): PENDIENTE. Misma regla que `datePublished`.
-   * Si sigue pendiente, el JSON-LD no emite `dateModified` y el sitemap
-   * omite `lastModified` para la URL de esta nota en este idioma.
+   * Misma regla que `datePublished`. Si está pendiente, el JSON-LD no emite
+   * `dateModified` y el sitemap omite `lastModified` de esa URL.
    */
   dateModified: string | null;
 }
@@ -48,9 +44,8 @@ export interface BlogItem extends BlogCopy {
 // La publicación se habilita por entorno; la fecha editorial no depende del build.
 export const BLOG_PUBLIC = process.env.NEXT_PUBLIC_BLOG_PUBLIC === "true";
 export const BLOG_PREVIEW = process.env.NODE_ENV === "development" || BLOG_PUBLIC;
-// Valor histórico ya cargado (2026-10-27). PENDIENTE de confirmar: no se emite
-// y no se reemplaza por otra fecha. La fecha que se publica es datePublished /
-// dateModified de cada idioma, hoy en null.
+// Valor histórico ya cargado (2026-10-27). No se emite y no se reemplaza.
+// La fecha que se publica es datePublished / dateModified de cada idioma.
 const BLOG_PUBLICATION_DATE = "2026-10-27";
 function publicationFor() {
   return { isPublished: true, publishedAt: BLOG_PUBLICATION_DATE, modifiedAt: BLOG_PUBLICATION_DATE };
@@ -66,11 +61,11 @@ export const blogPosts: BlogItem[] = [
     lead: "Elegir una consultora de IA es verificar cuatro cosas: casos en producción, no demos; un método para pasar del diagnóstico a la implementación; claridad sobre quién es dueño del código y de los datos; y cómo se mide el resultado. Si una consultora no puede mostrarte las cuatro con evidencia, seguí buscando.",
     category: "proveedores", authors: ["juanma"], readingMinutes: 11, translationStatus: "live",
     // publishedAt 2026-10-27 (BLOG_PUBLICATION_DATE) y modifiedAt 2026-10-31:
-    // PENDIENTE de confirmar. No reemplazar por otra fecha. No se emiten.
+    // Valor histórico. No se emite: la fecha publicada es datePublished/dateModified.
     ...publicationFor(), modifiedAt: "2026-10-31",
-    // TODO(fechas): PENDIENTE. ES a confirmar. No cargar una fecha.
-    datePublished: null,
-    dateModified: null,
+    // Confirmada. dateModified = datePublished.
+    datePublished: "2026-10-31",
+    dateModified: "2026-10-31",
     en: {
       slug: "how-to-choose-ai-consulting-firm",
       title: "How to Choose an AI Consulting Firm: 7 Criteria and the Questions to Ask Before You Sign",
@@ -78,10 +73,9 @@ export const blogPosts: BlogItem[] = [
       breadcrumbTitle: "How to choose an AI consulting firm",
       excerpt: "Seven criteria and the questions to ask before you sign with an AI consultancy: production cases, method, team, ownership of code and data, and metrics.",
       lead: "Choosing an AI consulting firm comes down to checking four things: cases in production, not demos; a method that goes from assessment to implementation; clear ownership of the code and the data; and how the result is measured. If a firm can't show you all four with evidence, keep looking.",
-      // TODO(fechas): PENDIENTE. Referencia, NO cargar: las 3 notas EN parecerían del 2026-11-05.
-      // Antes no tenía fecha propia: el JSON-LD heredaba publishedAt/modifiedAt del ES.
-      datePublished: null,
-      dateModified: null,
+      // Confirmada. dateModified = datePublished.
+      datePublished: "2026-11-05",
+      dateModified: "2026-11-05",
     },
   },
   {
@@ -93,11 +87,11 @@ export const blogPosts: BlogItem[] = [
     lead: "Un chatbot responde preguntas; un agente de IA resuelve un paso del proceso: consulta una fuente de verdad y ejecuta una acción, como agendar o cargar un pedido. Si solo necesitás informar, alcanza con un chatbot. Si alguien de tu equipo hace de puente entre un canal y un sistema, necesitás un agente.",
     category: "agentes", authors: ["juanma", "eduardo"], readingMinutes: 10, translationStatus: "live",
     // publishedAt 2026-10-27 (BLOG_PUBLICATION_DATE) y modifiedAt 2026-10-31:
-    // PENDIENTE de confirmar. No reemplazar por otra fecha. No se emiten.
+    // Valor histórico. No se emite: la fecha publicada es datePublished/dateModified.
     ...publicationFor(), modifiedAt: "2026-10-31",
-    // TODO(fechas): PENDIENTE. ES a confirmar. No cargar una fecha.
-    datePublished: null,
-    dateModified: null,
+    // Confirmada. dateModified = datePublished.
+    datePublished: "2026-10-31",
+    dateModified: "2026-10-31",
     en: {
       slug: "ai-agent-vs-chatbot",
       title: "AI agent vs chatbot: the real differences and how to decide what your company needs",
@@ -105,10 +99,9 @@ export const blogPosts: BlogItem[] = [
       breadcrumbTitle: "AI agent vs chatbot",
       excerpt: "Chatbot or AI agent? Compare channel, source of truth, allowed actions, human escalation and measurement, and know when an agent isn't worth it.",
       lead: "A chatbot answers questions; an AI agent completes a step in your process: it checks a source of truth and executes an action, such as booking an appointment or entering an order. If you only need to inform, a chatbot is enough. If someone acts as a bridge between a channel and a system, you need an agent.",
-      // TODO(fechas): PENDIENTE. Referencia, NO cargar: las 3 notas EN parecerían del 2026-11-05.
-      // Antes no tenía fecha propia: el JSON-LD heredaba publishedAt/modifiedAt del ES.
-      datePublished: null,
-      dateModified: null,
+      // Confirmada. dateModified = datePublished.
+      datePublished: "2026-11-05",
+      dateModified: "2026-11-05",
     },
   },
   {
@@ -120,11 +113,11 @@ export const blogPosts: BlogItem[] = [
     lead: "Para elegir un chatbot de WhatsApp con IA, verificá primero que use la API oficial de WhatsApp Business y que el número y las conversaciones queden a nombre de tu empresa. Después mirá de dónde saca las respuestas, cuándo deriva a una persona, con qué sistemas se integra y cómo se mide. El precio viene al final.",
     category: "agentes", authors: ["eduardo"], readingMinutes: 11, translationStatus: "live",
     // publishedAt 2026-10-27 (BLOG_PUBLICATION_DATE) y modifiedAt 2026-10-31:
-    // PENDIENTE de confirmar. No reemplazar por otra fecha. No se emiten.
+    // Valor histórico. No se emite: la fecha publicada es datePublished/dateModified.
     ...publicationFor(), modifiedAt: "2026-10-31",
-    // TODO(fechas): PENDIENTE. ES a confirmar. No cargar una fecha.
-    datePublished: null,
-    dateModified: null,
+    // Confirmada. dateModified = datePublished.
+    datePublished: "2026-10-31",
+    dateModified: "2026-10-31",
     en: {
       slug: "how-to-choose-whatsapp-ai-provider",
       title: "How to Choose a WhatsApp AI Provider: 8 Criteria Before You Sign",
@@ -132,10 +125,9 @@ export const blogPosts: BlogItem[] = [
       breadcrumbTitle: "How to choose a WhatsApp AI provider",
       excerpt: "Official API, who owns the number, source of truth, human handoff and Meta's rules on AI: eight criteria and the questions to ask any WhatsApp AI vendor.",
       lead: "To choose a WhatsApp AI provider, first check that it uses the official WhatsApp Business API and that the number and the conversations stay in your company's name. Then look at where the answers come from, when it hands off to a person, which systems it integrates with and how it's measured. Price comes last.",
-      // TODO(fechas): PENDIENTE. Referencia, NO cargar: las 3 notas EN parecerían del 2026-11-05.
-      // Antes no tenía fecha propia: el JSON-LD heredaba publishedAt/modifiedAt del ES.
-      datePublished: null,
-      dateModified: null,
+      // Confirmada. dateModified = datePublished.
+      datePublished: "2026-11-05",
+      dateModified: "2026-11-05",
     },
   },
   {
@@ -147,13 +139,13 @@ export const blogPosts: BlogItem[] = [
     lead: "Cuando un proyecto de IA se traba, la causa suele estar en la organización y no en el modelo. Un piloto no llega a producción cuando nadie definió el proceso, los datos no están listos, el equipo que tiene que usarlo no se preparó o no hay una métrica acordada. Todo eso se puede evaluar antes de invertir.",
     category: "implementacion", authors: ["juanma"], readingMinutes: 11, translationStatus: "live",
     ...publicationFor(),
-    // PENDIENTE de confirmar. No cambiar estos valores por otros. No se emiten.
+    // Valor histórico. No se emite: la fecha publicada es datePublished/dateModified.
     // Pisan el 2026-10-27 de publicationFor().
     publishedAt: "2026-10-31T00:00:00-03:00",
     modifiedAt: "2026-10-31T00:00:00-03:00",
-    // TODO(fechas): PENDIENTE. Referencia, NO cargar: «Por qué fallan» ES parecería del 2026-11-12.
-    datePublished: null,
-    dateModified: null,
+    // Confirmada. dateModified = datePublished.
+    datePublished: "2026-11-12",
+    dateModified: "2026-11-12",
     en: {
       slug: "why-ai-projects-fail",
       title: "Why AI projects fail and what stops pilots before production",
@@ -161,10 +153,9 @@ export const blogPosts: BlogItem[] = [
       breadcrumbTitle: "Why AI projects fail and what stops pilots before production",
       excerpt: "When an AI project stalls, the cause is often in the organization, not the model. The five causes, what a maturity assessment checks and how to plan a pilot.",
       lead: "When an AI project stalls, the cause is often in the organization, not the model. A pilot doesn't reach production when nobody defined the process, the data isn't ready, the team that has to use it wasn't prepared or there's no agreed metric. All of that can be assessed before you invest.",
-      // TODO(fechas): PENDIENTE. Referencia, NO cargar: «Por qué fallan» EN parecería del 2026-11-12.
-      // Antes no tenía fecha propia: el JSON-LD heredaba publishedAt/modifiedAt del ES.
-      datePublished: null,
-      dateModified: null,
+      // Confirmada. dateModified = datePublished.
+      datePublished: "2026-11-12",
+      dateModified: "2026-11-12",
     },
   },
   {
@@ -177,9 +168,9 @@ export const blogPosts: BlogItem[] = [
     category: "proveedores", authors: ["eduardo"], readingMinutes: 11, translationStatus: "pending",
     // Oculta en producción hasta una próxima tanda; el preview la sigue mostrando.
     // publishedAt 2026-10-27 (BLOG_PUBLICATION_DATE) y modifiedAt 2026-10-31:
-    // PENDIENTE de confirmar. No reemplazar por otra fecha. No se emiten.
+    // Valor histórico. No se emite: la fecha publicada es datePublished/dateModified.
     ...publicationFor(), modifiedAt: "2026-10-31", isPublished: false,
-    // TODO(fechas): PENDIENTE. ES a confirmar. No hay versión EN. No cargar una fecha.
+    // Sigue oculta (isPublished: false) y sin fecha. No publicar ni cargar una fecha.
     datePublished: null,
     dateModified: null,
   },
