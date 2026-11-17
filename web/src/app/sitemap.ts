@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/constants";
 import { ROUTES } from "@/lib/routes";
 import { routing } from "@/i18n/routing";
-import { blogDatesForSlug, confirmedEditorialDate } from "@/content/blog/data";
+import { blogDatesForSlug, confirmedEditorialDate, publishedBlogPosts } from "@/content/blog/data";
 import { PAGE_LAST_MODIFIED } from "@/lib/seo/page-last-modified";
 
 function urlFor(locale: string, path: string) {
@@ -24,7 +24,9 @@ function lastModifiedFor(path: string): string | undefined {
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return ROUTES.flatMap((route) => {
+  const publishedBlogPaths = new Set(publishedBlogPosts.map((post) => `/blog/${post.slug}`));
+  const publicRoutes = ROUTES.filter((route) => !route.path.startsWith("/blog/") || publishedBlogPaths.has(route.path));
+  return publicRoutes.flatMap((route) => {
     const esUrl = urlFor("es", route.path);
     const languages: Record<string, string> = { es: esUrl };
     if (route.translationStatus === "live") {

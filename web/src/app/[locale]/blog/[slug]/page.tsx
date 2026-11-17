@@ -110,7 +110,7 @@ export default async function Page({ params }: Props) {
 
   return <>
     {locale === "en" && !post.en && <TranslationPendingNotice />}
-    {(locale === "es" || english) && faqSection && <HeadJsonLd data={{ "@context": "https://schema.org", "@graph": buildBlogGraph(post, english ? "en" : "es", copy.datePublished, copy.dateModified, faqSection.items) }} />}
+    {post.isPublished && (locale === "es" || english) && faqSection && <HeadJsonLd data={{ "@context": "https://schema.org", "@graph": buildBlogGraph(post, english ? "en" : "es", copy.datePublished, copy.dateModified, faqSection.items) }} />}
     <div className="bg-neutral-base py-10 desktop:py-14">
       <Container>
         <nav className="mb-10 text-caption text-slate-gray" aria-label={english ? "Breadcrumb" : "Ruta de navegación"}><Link href="/" className="underline hover:text-brand-navy">{english ? "Home" : "Inicio"}</Link><span aria-hidden="true"> › </span><Link href="/blog" className="underline hover:text-brand-navy">Blog</Link><span aria-hidden="true"> › </span><Link href="/blog" className="underline hover:text-brand-navy">{blogCategoryLabel(english ? "en" : "es", post.category)}</Link><span aria-hidden="true"> › </span><span>{copy.breadcrumbTitle}</span></nav>
