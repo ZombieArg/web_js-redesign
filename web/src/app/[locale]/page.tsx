@@ -78,7 +78,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           }))}
         />
       </Container>
-      <WhoWeAreCard whoWeAre={content.whoWeAre} />
+      <WhoWeAreCard whoWeAre={content.whoWeAre} photos={content.teamPhotos} />
       <ServicesGrid services={content.services} />
       <HowWeWorkSteps howWeWork={content.howWeWork} />
       <CasesGrid cases={content.cases} />

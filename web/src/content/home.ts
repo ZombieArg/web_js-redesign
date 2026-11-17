@@ -12,6 +12,8 @@ const es: HomeContent = {
     subhead:
       "Diseñamos e implementamos IA sobre lo que tu empresa ya hace. Un sistema que entra a producción, no una demo.",
     cta: { label: "Pedí un diagnóstico gratuito", href: "/contacto" },
+    photoAlt:
+      "Equipo de Data Voices, consultora de inteligencia artificial, reunido alrededor de una mesa de madera con ventanas de arco",
   },
   logoRow: {
     heading: "Confiaron en nosotros",
@@ -30,6 +32,18 @@ const es: HomeContent = {
     body: "Data Voices es una consultora de inteligencia artificial para empresas, con sede en Buenos Aires. El equipo combina investigación (PhD en Ciencias de la Computación, UBA) con desarrollo de software de producción. Las cuatro líneas son asistentes de IA, IA sobre datos y procesos existentes, desarrollo de software con IA, e implementación con capacitación. El trabajo incluye un portafolio público con un organismo internacional y productos propios como Cecilia. El primer paso comercial es un diagnóstico gratuito.",
     badges: ["Sede en Buenos Aires", "Investigación PhD UBA", "Software de producción"],
   },
+  teamPhotos: [
+    {
+      alt: "Equipo de Data Voices en una terraza, con la ciudad y el agua de fondo",
+    },
+    {
+      alt: "Conversación de trabajo del equipo de Data Voices, con mate y notebooks sobre la mesa",
+    },
+    {
+      alt: "Diapositiva «Agentes en colaboración» de la charla de Data Voices en Media Party Buenos Aires",
+      caption: "Charla de Data Voices en Media Party Buenos Aires.",
+    },
+  ],
   services: {
     heading: "Nuestros servicios",
     items: [
@@ -191,6 +205,8 @@ const en: HomeContent = {
     subhead:
       "We design and implement AI on top of what your company already does. A system that goes into production, not a demo.",
     cta: { label: "Get a free diagnostic", href: "/contacto" },
+    photoAlt:
+      "The Data Voices team, an AI consultancy, gathered around a wooden table by arched windows",
   },
   logoRow: {
     heading: "Trusted by",
@@ -209,6 +225,18 @@ const en: HomeContent = {
     body: "Data Voices is an AI consultancy for businesses, based in Buenos Aires. The team combines research (PhD in Computer Science, UBA) with production-grade software development. The four lines are AI assistants, AI on existing data and processes, AI software development, and implementation with training. The work includes a public portfolio with an international organization and in-house products like Cecilia. The first commercial step is a free diagnostic.",
     badges: ["Based in Buenos Aires", "PhD research, UBA", "Production-grade software"],
   },
+  teamPhotos: [
+    {
+      alt: "The Data Voices team on a rooftop terrace, with the city and the water behind them",
+    },
+    {
+      alt: "A working conversation among the Data Voices team, with mate and laptops on the table",
+    },
+    {
+      alt: "“Agentes en colaboración” (Agents in collaboration) slide from the Data Voices talk at Media Party Buenos Aires",
+      caption: "Data Voices talk at Media Party Buenos Aires.",
+    },
+  ],
   services: {
     heading: "Our services",
     items: [
