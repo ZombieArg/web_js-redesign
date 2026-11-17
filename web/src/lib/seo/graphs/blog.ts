@@ -1,5 +1,5 @@
 import { SITE_URL } from "@/lib/constants";
-import { blogAuthor, blogCategoryLabel, blogCopy, type BlogItem } from "@/content/blog/data";
+import { blogAuthor, blogCategoryLabel, blogCopy, confirmedEditorialDate, type BlogItem } from "@/content/blog/data";
 import { SCHEMA_IDS } from "@/lib/seo/ids";
 import { localizedUrl } from "@/lib/seo/metadata";
 
@@ -8,7 +8,7 @@ const WHY_AI_PROJECTS_FAIL = {
   schemaJobTitle: "Co-founder and CTO",
 };
 
-export function buildBlogGraph(post: BlogItem, locale: string, datePublished: string, dateModified: string, faqs: { question: string; answer: string }[]) {
+export function buildBlogGraph(post: BlogItem, locale: string, datePublished: string | null, dateModified: string | null, faqs: { question: string; answer: string }[]) {
   const copy = blogCopy(post, locale);
   const path = `/blog/${copy.slug}`;
   const url = localizedUrl(locale, path);
@@ -40,6 +40,8 @@ export function buildBlogGraph(post: BlogItem, locale: string, datePublished: st
         { "@type": "ListItem", position: 3, name: blogCategoryLabel(english ? "en" : "es", post.category), item: blogUrl },
         { "@type": "ListItem", position: 4, name: copy.breadcrumbTitle, item: url },
       ];
+  const published = confirmedEditorialDate(datePublished);
+  const modified = confirmedEditorialDate(dateModified);
   const article: Record<string, unknown> = {
     "@type": "BlogPosting",
     "@id": `${url}#article`,
@@ -48,8 +50,9 @@ export function buildBlogGraph(post: BlogItem, locale: string, datePublished: st
     inLanguage: english ? "en" : "es-AR",
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
     url,
-    datePublished,
-    dateModified,
+    // Fecha pendiente (null o "PENDIENTE"): no emitir la propiedad. No inventar una fecha.
+    ...(published ? { datePublished: published } : {}),
+    ...(modified ? { dateModified: modified } : {}),
     author: exactEnglish ? authors : authors.length === 1 ? authors[0] : authors,
     publisher: {
       "@type": "Organization",
