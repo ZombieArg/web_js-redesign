@@ -54,11 +54,29 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
 
       <section className="py-section">
         <Container>
-          <h1 className="max-w-[760px] text-display-lg-mobile text-brand-navy desktop:text-display-lg">
-            {content.hero.h1}
-          </h1>
-          <p className="mt-6 max-w-[640px] text-body-lg text-on-surface-variant">{content.hero.subhead}</p>
-          <p className="mt-10 max-w-[760px] text-body-md text-on-surface-variant">{content.entityParagraph}</p>
+          <div className="grid items-start gap-10 min-[1280px]:grid-cols-2 min-[1280px]:gap-12">
+            <div>
+              <h1 className="max-w-[760px] text-display-lg-mobile text-brand-navy desktop:text-display-lg">
+                {content.hero.h1}
+              </h1>
+              <p className="mt-6 max-w-[640px] text-body-lg text-on-surface-variant">{content.hero.subhead}</p>
+              <p className="mt-10 max-w-[760px] text-body-md text-on-surface-variant">{content.entityParagraph}</p>
+            </div>
+            <figure>
+              <Image
+                src="/images/equipo/equipo-data-voices-terraza-nosotros.webp"
+                alt={content.hero.photoAlt}
+                width={960}
+                height={540}
+                priority
+                loading="eager"
+                fetchPriority="high"
+                sizes="(min-width: 1280px) 520px, (min-width: 1024px) calc(100vw - 160px), calc(100vw - 32px)"
+                className="h-auto w-full rounded-xl object-cover"
+              />
+              <figcaption className="mt-2 text-caption text-on-surface-variant">{content.hero.photoCaption}</figcaption>
+            </figure>
+          </div>
         </Container>
       </section>
 

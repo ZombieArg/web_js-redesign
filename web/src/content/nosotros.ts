@@ -10,6 +10,9 @@ const es: NosotrosContent = {
     h1: "Quién construye Data Voices",
     subhead:
       "Dos perfiles que no se pisan: investigación y producto de IA, e ingeniería de software que llega a producción.",
+    photoAlt:
+      "Equipo de Data Voices, consultora de inteligencia artificial, en una terraza con la ciudad y el agua de fondo",
+    photoCaption: "El equipo de Data Voices, consultora de inteligencia artificial en Buenos Aires.",
   },
   entityParagraph:
     "Data Voices es una consultora argentina de inteligencia artificial y desarrollo de software, fundada en 2023, con sede en Buenos Aires.",
@@ -51,6 +54,9 @@ const en: NosotrosContent = {
   hero: {
     h1: "Who builds Data Voices",
     subhead: "Two profiles that don't overlap: AI research and product, and software engineering that reaches production.",
+    photoAlt:
+      "The Data Voices team, an AI consultancy, on a rooftop terrace with the city and the water in the background",
+    photoCaption: "The Data Voices team, an AI consultancy in Buenos Aires.",
   },
   entityParagraph:
     "Data Voices is an Argentine AI and software development consultancy, founded in 2023, based in Buenos Aires.",

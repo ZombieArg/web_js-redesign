@@ -1,9 +1,16 @@
 import { Container } from "@/components/ui/Container";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
+import { HomeTeamPhotos } from "@/components/sections/HomeTeamPhotos";
 import type { HomeContent } from "@/content/types";
 
-export function WhoWeAreCard({ whoWeAre }: { whoWeAre: HomeContent["whoWeAre"] }) {
+export function WhoWeAreCard({
+  whoWeAre,
+  photos,
+}: {
+  whoWeAre: HomeContent["whoWeAre"];
+  photos: HomeContent["teamPhotos"];
+}) {
   return (
     <section className="py-16">
       <Container>
@@ -20,6 +27,7 @@ export function WhoWeAreCard({ whoWeAre }: { whoWeAre: HomeContent["whoWeAre"] }
             ))}
           </div>
         </Card>
+        <HomeTeamPhotos photos={photos} />
       </Container>
     </section>
   );
