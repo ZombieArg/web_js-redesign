@@ -17,6 +17,11 @@ interface BuildMetadataArgs {
    */
   noindex?: boolean;
   /**
+   * Mantiene hreflang (es, en y x-default) aunque la página sea noindex.
+   * El default sigue omitiendo alternates cuando no se indexa.
+   */
+  emitAlternates?: boolean;
+  /**
    * Path por locale cuando el slug traducido no coincide (notas del blog).
    * Si no se pasa, todos los idiomas usan `path`.
    */
@@ -46,6 +51,7 @@ export function buildMetadata({
   description,
   translationStatus = "live",
   noindex = false,
+  emitAlternates = false,
   hrefLangPaths,
   image,
 }: BuildMetadataArgs): Metadata {
@@ -54,10 +60,10 @@ export function buildMetadata({
   const isPending = noindex || (locale !== routing.defaultLocale && translationStatus === "pending");
 
   const languages: Record<string, string> = {};
-  if (!isPending) {
+  if (emitAlternates || !isPending) {
     for (const l of routing.locales) {
       // La versión es siempre "live" (fuente de verdad); en solo se agrega si no está pending.
-      if (l !== routing.defaultLocale && l !== locale && translationStatus === "pending") continue;
+      if (!emitAlternates && l !== routing.defaultLocale && l !== locale && translationStatus === "pending") continue;
       languages[l] = localizedUrl(l, pathFor(l));
     }
     // x-default: Google lo pide en el <head> (vía este mapa), no solo en el header HTTP.

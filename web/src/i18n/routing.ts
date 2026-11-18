@@ -30,6 +30,10 @@ export const routing = defineRouting({
     "/prensa/[slug]": "/prensa/[slug]",
     "/nosotros": "/nosotros",
     "/contacto": "/contacto",
+    "/privacidad": {
+      es: "/privacidad",
+      en: "/privacy",
+    },
   },
 });
 

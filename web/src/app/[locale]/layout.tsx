@@ -10,6 +10,8 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { PostHogProvider } from "@/components/analytics/PostHogProvider";
+import { CookieBanner, MetaPixel } from "@/components/consent/ClientOnlyWidgets";
+import { ConsentProvider } from "@/components/consent/ConsentProvider";
 import { buildOrgNode, buildWebsiteNode } from "@/lib/seo/graphs/org";
 import "../globals.css";
 
@@ -55,20 +57,24 @@ export default async function LocaleLayout({
     <html lang={locale} className={`${inter.variable} ${poppins.variable}`}>
       <body className="min-h-screen font-sans antialiased">
         <NextIntlClientProvider>
-          <JsonLd data={{ "@context": "https://schema.org", "@graph": [buildOrgNode(), buildWebsiteNode()] }} />
-          <a
-            href="#main-content"
-            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-sm focus:bg-brand-navy focus:px-4 focus:py-2 focus:text-white"
-          >
-            Saltar al contenido
-          </a>
-          <Header />
-          <main id="main-content">{children}</main>
-          <Footer />
-          <Toaster position="top-right" />
-          <Suspense fallback={null}>
-            <PostHogProvider />
-          </Suspense>
+          <ConsentProvider>
+            <JsonLd data={{ "@context": "https://schema.org", "@graph": [buildOrgNode(), buildWebsiteNode()] }} />
+            <a
+              href="#main-content"
+              className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-sm focus:bg-brand-navy focus:px-4 focus:py-2 focus:text-white"
+            >
+              Saltar al contenido
+            </a>
+            <Header />
+            <main id="main-content">{children}</main>
+            <Footer />
+            <CookieBanner />
+            <Toaster position="top-right" />
+            <Suspense fallback={null}>
+              <PostHogProvider />
+              <MetaPixel />
+            </Suspense>
+          </ConsentProvider>
         </NextIntlClientProvider>
       </body>
     </html>

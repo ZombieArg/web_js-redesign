@@ -1,9 +1,14 @@
 /** Attribution data contains only campaign and domain information, never form fields. */
+import { hasAnalyticsConsent } from "@/lib/consent";
+
 const FIRST_TOUCH_KEY = "dv_first_touch";
 const LAST_TOUCH_KEY = "dv_last_touch";
 const CTA_KEY = "dv_entry_cta_id";
 const SERVICE_KEY = "dv_service_interest";
 const TTL_MS = 90 * 24 * 60 * 60 * 1000;
+const memoryTouches = new Map<string, Touch>();
+let memoryCta: string | null = null;
+let memoryService: string | null = null;
 
 export type Origin = "paid" | "email" | "ai_assistant" | "organico_buscador" | "social_organico" | "sitio_externo" | "directo";
 export type Touch = {
@@ -62,7 +67,7 @@ export function classifyOrigin(utmSource: string, utmMedium: string, referrerDom
   return "directo";
 }
 
-function readTouch(key: string): Touch | null {
+function readStoredTouch(key: string): Touch | null {
   try {
     const value = window.localStorage.getItem(key);
     if (!value) return null;
@@ -78,6 +83,38 @@ function readTouch(key: string): Touch | null {
   } catch {
     return null;
   }
+}
+
+function readTouch(key: string): Touch | null {
+  if (hasAnalyticsConsent()) return readStoredTouch(key) ?? memoryTouches.get(key) ?? null;
+  return memoryTouches.get(key) ?? null;
+}
+
+function writeTouch(key: string, touch: Touch) {
+  memoryTouches.set(key, touch);
+  if (!hasAnalyticsConsent()) return;
+  try { window.localStorage.setItem(key, JSON.stringify(touch)); } catch { /* Storage may be disabled. */ }
+}
+
+/** Persiste la atribución que estaba solo en memoria. Se llama al aceptar. */
+export function flushAttribution() {
+  if (!hasAnalyticsConsent() || typeof window === "undefined") return;
+  try {
+    for (const [key, touch] of memoryTouches) window.localStorage.setItem(key, JSON.stringify(touch));
+    if (memoryCta) window.sessionStorage.setItem(CTA_KEY, memoryCta);
+    if (memoryService) window.sessionStorage.setItem(SERVICE_KEY, memoryService);
+  } catch { /* Storage may be disabled. */ }
+}
+
+/** Saca del disco la atribución de medición. La copia en memoria de esta página sigue. */
+export function clearPersistedAttribution() {
+  if (typeof window === "undefined") return;
+  try {
+    window.localStorage.removeItem(FIRST_TOUCH_KEY);
+    window.localStorage.removeItem(LAST_TOUCH_KEY);
+    window.sessionStorage.removeItem(CTA_KEY);
+    window.sessionStorage.removeItem(SERVICE_KEY);
+  } catch { /* Storage may be disabled. */ }
 }
 
 function incomingTouch(): Touch {
@@ -102,7 +139,7 @@ export function updateTouches(): void {
     const first = readTouch(FIRST_TOUCH_KEY);
     const last = readTouch(LAST_TOUCH_KEY);
     const incoming = incomingTouch();
-    if (!first) window.localStorage.setItem(FIRST_TOUCH_KEY, JSON.stringify(incoming));
+    if (!first) writeTouch(FIRST_TOUCH_KEY, incoming);
     const hasUtm = !!(incoming.utm_source || incoming.utm_medium || incoming.utm_campaign);
     const utmChanged = hasUtm && !!last && (
       incoming.utm_source !== last.utm_source || incoming.utm_medium !== last.utm_medium
@@ -110,7 +147,7 @@ export function updateTouches(): void {
     );
     const referrerChanged = !!incoming.referrer_domain && incoming.referrer_domain !== last?.referrer_domain;
     if (!last || utmChanged || referrerChanged) {
-      window.localStorage.setItem(LAST_TOUCH_KEY, JSON.stringify(incoming));
+      writeTouch(LAST_TOUCH_KEY, incoming);
     }
   } catch {
     // The site remains usable when browser storage is disabled.
@@ -137,10 +174,10 @@ export function attributionContext(): Record<string, string | null> {
   if (typeof window === "undefined") return {};
   const first = readTouch(FIRST_TOUCH_KEY);
   const last = readTouch(LAST_TOUCH_KEY);
-  let entry_cta_id: string | null = null;
-  try {
-    entry_cta_id = window.sessionStorage.getItem(CTA_KEY);
-  } catch { /* Storage may be disabled. */ }
+  let entry_cta_id = memoryCta;
+  if (!entry_cta_id && hasAnalyticsConsent()) {
+    try { entry_cta_id = window.sessionStorage.getItem(CTA_KEY); } catch { /* Storage may be disabled. */ }
+  }
   return {
     origen: first?.origen ?? "directo",
     first_utm_source: first?.utm_source ?? "",
@@ -159,7 +196,7 @@ export function attributionContext(): Record<string, string | null> {
 export function storedServiceInterest(): string | null {
   if (typeof window === "undefined") return null;
   try {
-    const slug = window.sessionStorage.getItem(SERVICE_KEY);
+    const slug = memoryService ?? (hasAnalyticsConsent() ? window.sessionStorage.getItem(SERVICE_KEY) : null);
     return slug && SERVICE_SLUGS.has(slug) ? slug : null;
   } catch {
     return null;
@@ -167,10 +204,14 @@ export function storedServiceInterest(): string | null {
 }
 
 export function rememberEntryCta(id: string): void {
+  memoryCta = id;
+  if (!hasAnalyticsConsent()) return;
   try { window.sessionStorage.setItem(CTA_KEY, id); } catch { /* Storage may be disabled. */ }
 }
 
 export function rememberServiceInterest(slug: string): void {
   if (!SERVICE_SLUGS.has(slug)) return;
+  memoryService = slug;
+  if (!hasAnalyticsConsent()) return;
   try { window.sessionStorage.setItem(SERVICE_KEY, slug); } catch { /* Storage may be disabled. */ }
 }

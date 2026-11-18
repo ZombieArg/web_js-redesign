@@ -29,6 +29,15 @@ export const NOINDEX_ALL = process.env.NEXT_PUBLIC_NOINDEX_ALL === "true";
 export const POSTHOG_KEY = process.env.NEXT_PUBLIC_POSTHOG_KEY ?? "";
 export const POSTHOG_HOST = process.env.NEXT_PUBLIC_POSTHOG_HOST ?? "https://us.i.posthog.com";
 
+/**
+ * Píxel de Meta. Se lee de NEXT_PUBLIC_META_PIXEL_ID y, si no está o no es
+ * numérico, usa el ID de producción. El script solo se inyecta con consentimiento.
+ */
+const DEFAULT_META_PIXEL_ID = "1309602020541935";
+const configuredPixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID?.trim();
+export const META_PIXEL_ID =
+  configuredPixelId && /^\d{6,20}$/.test(configuredPixelId) ? configuredPixelId : DEFAULT_META_PIXEL_ID;
+
 export const CONTACT = {
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hola@datavoices.com.ar",
   /** Formato E.164 sin "+", listo para wa.me/. */
