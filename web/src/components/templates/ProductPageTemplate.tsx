@@ -5,11 +5,12 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { AccordionFAQ } from "@/components/ui/AccordionFAQ";
 import { CtaBand } from "@/components/ui/CtaBand";
 import { Badge } from "@/components/ui/Badge";
+import { RelatedGuidesSection } from "@/components/sections/RelatedGuidesSection";
 import type { ProductPageContent } from "@/content/types";
 
 /** Template liviano para /cecilia: hero + definición + specs + CTA, sin matriz ni stats. */
 export function ProductPageTemplate({ content }: { content: ProductPageContent }) {
-  const { hero, definition, specs, faq, closingCta } = content;
+  const { hero, definition, specs, faq, relatedGuides, closingCta } = content;
 
   return (
     <>
@@ -65,6 +66,8 @@ export function ProductPageTemplate({ content }: { content: ProductPageContent }
           <AccordionFAQ items={faq.items} />
         </Container>
       </section>
+
+      {relatedGuides && <RelatedGuidesSection guides={relatedGuides} />}
 
       <CtaBand
         kicker={closingCta.kicker}

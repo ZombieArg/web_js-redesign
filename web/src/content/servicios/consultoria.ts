@@ -56,6 +56,21 @@ const es: ServicePageContent = {
       },
     ],
   },
+  relatedGuides: {
+    title: "Guías relacionadas",
+    links: [
+      {
+        anchor: "Cómo elegir una consultora de IA: criterios y preguntas antes de contratar",
+        line: "Qué mirar en una propuesta y qué señales de alerta conviene detectar a tiempo.",
+        href: "/blog/como-elegir-consultora-inteligencia-artificial",
+      },
+      {
+        anchor: "Por qué fallan los proyectos de IA antes de llegar a producción",
+        line: "Qué frena a los pilotos y cómo evaluar el tuyo.",
+        href: "/blog/por-que-fallan-los-proyectos-de-ia",
+      },
+    ],
+  },
   closingCta: {
     kicker: "Siguiente paso",
     heading: "Si la IA \"ya se probó\" y no quedó nadie usándola, el problema no era el modelo.",
@@ -111,6 +126,21 @@ const en: ServicePageContent = {
       {
         question: "Is the diagnostic the product?",
         answer: "No. It's the filter. The product is a process up and running.",
+      },
+    ],
+  },
+  relatedGuides: {
+    title: "Related guides",
+    links: [
+      {
+        anchor: "How to choose an AI consulting firm: criteria and questions to ask",
+        line: "What to check in a proposal before you sign.",
+        href: "/blog/how-to-choose-ai-consulting-firm",
+      },
+      {
+        anchor: "Why AI projects fail before they reach production",
+        line: "What stops pilots, and how to assess yours.",
+        href: "/blog/why-ai-projects-fail",
       },
     ],
   },

@@ -10,11 +10,12 @@ import { NumberedStep } from "@/components/ui/NumberedStep";
 import { AccordionFAQ } from "@/components/ui/AccordionFAQ";
 import { CtaBand } from "@/components/ui/CtaBand";
 import { ViabilitySlot } from "@/components/sections/ViabilitySlot";
+import { RelatedGuidesSection } from "@/components/sections/RelatedGuidesSection";
 import { Link } from "@/i18n/navigation";
 import type { ServicePageContent } from "@/content/types";
 
 export function ServicePageTemplate({ content }: { content: ServicePageContent }) {
-  const { iconName, hero, stats, definition, viability, adoptionModalities, buildProcess, faq, closingCta } = content;
+  const { iconName, hero, stats, definition, viability, adoptionModalities, buildProcess, faq, relatedGuides, closingCta } = content;
 
   return (
     <>
@@ -107,6 +108,8 @@ export function ServicePageTemplate({ content }: { content: ServicePageContent }
           <AccordionFAQ items={faq.items} />
         </Container>
       </section>
+
+      {relatedGuides && <RelatedGuidesSection guides={relatedGuides} />}
 
       <CtaBand
         kicker={closingCta.kicker}

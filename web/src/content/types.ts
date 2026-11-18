@@ -75,6 +75,18 @@ export interface SeoContent {
   description: string;
 }
 
+/** Nota interna del bloque de guías. `href` es la ruta sin prefijo de locale (`/blog/slug`). */
+export interface RelatedGuideLink {
+  anchor: string;
+  line: string;
+  href: string;
+}
+
+export interface RelatedGuidesBlock {
+  title: string;
+  links: RelatedGuideLink[];
+}
+
 export interface ServicePageContent {
   slug: "asistentes-ia" | "ia-sobre-datos" | "desarrollo-software-ia" | "consultoria";
   iconName: IconName;
@@ -92,6 +104,7 @@ export interface ServicePageContent {
   adoptionModalities?: { kicker: string; heading: string; items: ModalityCardData[] };
   buildProcess: { kicker: string; heading: string; steps: NumberedStepData[] };
   faq: FaqSection;
+  relatedGuides?: RelatedGuidesBlock;
   closingCta: {
     kicker: string;
     heading: string;
@@ -107,6 +120,7 @@ export interface ProductPageContent {
   definition: { kicker: string; heading: string; body: string };
   specs: { kicker: string; heading: string; items: { title: string; description: string }[] };
   faq: FaqSection;
+  relatedGuides?: RelatedGuidesBlock;
   closingCta: ServicePageContent["closingCta"];
 }
 
@@ -138,6 +152,7 @@ export interface HomeContent {
     items: { quote: string; author: string; role: string; photoKey?: string }[];
   };
   faq: FaqSection;
+  relatedGuides?: RelatedGuidesBlock;
   closingCta: { heading: string; primaryCta: CtaData };
 }
 

@@ -58,6 +58,16 @@ const es: ProductPageContent = {
       },
     ],
   },
+  relatedGuides: {
+    title: "Guía para evaluar proveedores",
+    links: [
+      {
+        anchor: "Qué preguntarle a un proveedor de WhatsApp con IA antes de contratar",
+        line: "8 criterios para comparar opciones antes de contratar.",
+        href: "/blog/como-elegir-chatbot-whatsapp-ia",
+      },
+    ],
+  },
   closingCta: {
     kicker: "Siguiente paso",
     heading: "¿Tu canal es WhatsApp?",
@@ -116,6 +126,16 @@ const en: ProductPageContent = {
       {
         question: "Generic chatbot or custom agent?",
         answer: "Cecilia covers the most common support and scheduling cases. If the process is more specific, it's solved as a custom agent under AI Assistants.",
+      },
+    ],
+  },
+  relatedGuides: {
+    title: "A guide to assessing providers",
+    links: [
+      {
+        anchor: "What to ask a WhatsApp AI provider before you sign",
+        line: "8 criteria to compare options before you sign.",
+        href: "/blog/how-to-choose-whatsapp-ai-provider",
       },
     ],
   },
