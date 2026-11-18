@@ -168,6 +168,26 @@ const es: HomeContent = {
       },
     ],
   },
+  relatedGuides: {
+    title: "Guías para evaluar un proyecto de IA",
+    links: [
+      {
+        anchor: "Por qué fallan los proyectos de IA antes de llegar a producción",
+        line: "Qué frena a los pilotos y cómo evaluar el tuyo.",
+        href: "/blog/por-que-fallan-los-proyectos-de-ia",
+      },
+      {
+        anchor: "Agente de IA vs chatbot: diferencias y cómo decidir",
+        line: "Qué necesita tu empresa según el proceso que querés resolver.",
+        href: "/blog/agente-de-ia-vs-chatbot",
+      },
+      {
+        anchor: "Cómo elegir una consultora de IA: criterios y preguntas antes de contratar",
+        line: "Qué mirar en una propuesta y qué señales de alerta conviene detectar a tiempo.",
+        href: "/blog/como-elegir-consultora-inteligencia-artificial",
+      },
+    ],
+  },
   closingCta: {
     heading: "Si el problema es real, lo vemos en una reunión. Si no lo es, te lo decimos.",
     primaryCta: { label: "Pedí un diagnóstico gratuito", href: "/contacto" },
@@ -336,6 +356,26 @@ const en: HomeContent = {
       {
         question: "Does the diagnostic cost anything?",
         answer: "No. It's a meeting to see if there's a problem worth a project.",
+      },
+    ],
+  },
+  relatedGuides: {
+    title: "Guides to assess an AI project",
+    links: [
+      {
+        anchor: "Why AI projects fail before they reach production",
+        line: "What stops pilots, and how to assess yours.",
+        href: "/blog/why-ai-projects-fail",
+      },
+      {
+        anchor: "AI agent vs chatbot: the differences and how to decide",
+        line: "What your company needs, based on the process you want to solve.",
+        href: "/blog/ai-agent-vs-chatbot",
+      },
+      {
+        anchor: "How to choose an AI consulting firm: criteria and questions to ask",
+        line: "What to check in a proposal before you sign.",
+        href: "/blog/how-to-choose-ai-consulting-firm",
       },
     ],
   },

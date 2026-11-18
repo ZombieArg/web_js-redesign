@@ -7,6 +7,7 @@ import { HowWeWorkSteps } from "@/components/sections/HowWeWorkSteps";
 import { CasesGrid } from "@/components/sections/CasesGrid";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { FaqAccordionSection } from "@/components/sections/FaqAccordionSection";
+import { RelatedGuidesSection } from "@/components/sections/RelatedGuidesSection";
 import { CtaBand } from "@/components/ui/CtaBand";
 import { LogoRow } from "@/components/layout/LogoRow";
 import { Container } from "@/components/ui/Container";
@@ -83,6 +84,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <CasesGrid cases={content.cases} />
       <TestimonialsSection testimonials={content.testimonials} />
       <FaqAccordionSection faq={content.faq} />
+      {content.relatedGuides && <RelatedGuidesSection guides={content.relatedGuides} />}
       <CtaBand heading={content.closingCta.heading} primaryCta={content.closingCta.primaryCta} tone="navy" />
     </>
   );
