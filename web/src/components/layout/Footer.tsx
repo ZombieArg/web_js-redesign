@@ -96,8 +96,7 @@ export function Footer() {
         </div>
       </div>
 
-      {/* La política existe, pero el texto legal sigue en placeholder y la
-          página es noindex hasta que DV la valide. Preferencias reabre el banner. */}
+      {/* Preferencias reabre el banner. La política está en /privacidad y /en/privacy. */}
       <div className="mx-auto mt-12 flex w-full max-w-[1280px] flex-col gap-3 border-t border-white/10 px-margin-mobile pt-6 text-caption text-white/50 desktop:flex-row desktop:items-center desktop:justify-between desktop:px-margin-desktop">
         <p>© {new Date().getFullYear()} {t("footer.rights")}</p>
         <div className="flex flex-col gap-2 desktop:flex-row desktop:items-center desktop:gap-6">

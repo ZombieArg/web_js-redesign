@@ -26,8 +26,7 @@ function statusOf(localized: Localized<unknown>): TranslationStatus {
   return localized.en ? "live" : "pending";
 }
 
-// /privacidad (es) y /en/privacy quedan fuera a propósito: el texto legal
-// sigue siendo un placeholder y las páginas son noindex hasta que DV las valide.
+// /privacidad y /en/privacy son indexables, pero no entran al sitemap.
 export const ROUTES: RouteEntry[] = [
   { path: "/", priority: 1, translationStatus: statusOf(homeContent) },
   { path: "/servicios/asistentes-ia", priority: 0.9, translationStatus: statusOf(asistentesIaContent) },

@@ -1,10 +1,6 @@
 import type { AppLocale } from "@/i18n/routing";
 
-/**
- * Único lugar de los textos de consentimiento y de la política.
- * El banner y el footer ya tienen el copy aprobado. La política sigue
- * en placeholder hasta que COPY la escriba y DV la valide.
- */
+/** Textos del banner y del footer. La política está en content/privacy.ts. */
 export const consentCopy = {
   es: {
     banner:
@@ -13,8 +9,6 @@ export const consentCopy = {
     reject: "Rechazar",
     privacy: "Política de privacidad",
     preferences: "Preferencias de cookies",
-    privacyH1: "[H1 POLÍTICA DE PRIVACIDAD ES — lo escribe COPY, lo valida DV]",
-    privacyBody: "[TEXTO POLÍTICA DE PRIVACIDAD ES — lo escribe COPY, lo valida DV]",
   },
   en: {
     banner:
@@ -23,8 +17,6 @@ export const consentCopy = {
     reject: "Reject",
     privacy: "Privacy policy",
     preferences: "Cookie preferences",
-    privacyH1: "[H1 PRIVACY POLICY EN — lo escribe COPY, lo valida DV]",
-    privacyBody: "[TEXTO PRIVACY POLICY EN — lo escribe COPY, lo valida DV]",
   },
 } as const;
 
