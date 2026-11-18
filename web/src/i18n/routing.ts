@@ -10,6 +10,11 @@ export const routing = defineRouting({
   // español). "/" queda siempre en es; a /en solo se entra explícito
   // (selector de idioma o tipeando la URL). hreflang + selector alcanzan.
   localeDetection: false,
+  // next-intl arma un header HTTP Link con el slug de la request, repetido
+  // en los dos idiomas. En el blog el slug se traduce, así que ese Link
+  // apunta a un 404 (ej. /en/blog/agente-de-ia-vs-chatbot). El hreflang
+  // correcto ya sale del <head> (metadata) y del sitemap.
+  alternateLinks: false,
   pathnames: {
     "/": "/",
     "/cecilia": "/cecilia",
